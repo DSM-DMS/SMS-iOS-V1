@@ -13,6 +13,7 @@
 		4720F80924DD43A60094BD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80724DD43A60094BD4A /* Main.storyboard */; };
 		4720F80B24DD43A80094BD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80A24DD43A80094BD4A /* Assets.xcassets */; };
 		4720F80E24DD43A80094BD4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80C24DD43A80094BD4A /* LaunchScreen.storyboard */; };
+		DC30AD3B6F0BBD2EB41507EC /* Pods_SMS_iOS_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E89ADB119C329727DA6FC /* Pods_SMS_iOS_V1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		4720F80A24DD43A80094BD4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4720F80D24DD43A80094BD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4720F80F24DD43A80094BD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F0E89ADB119C329727DA6FC /* Pods_SMS_iOS_V1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS_iOS_V1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92726ECE84538B252AE4CF16 /* Pods-SMS_iOS_V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS_iOS_V1.debug.xcconfig"; path = "Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1.debug.xcconfig"; sourceTree = "<group>"; };
+		C3D003F00B0EDD2326EC7880 /* Pods-SMS_iOS_V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS_iOS_V1.release.xcconfig"; path = "Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC30AD3B6F0BBD2EB41507EC /* Pods_SMS_iOS_V1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				4720F80024DD43A50094BD4A /* SMS_iOS_V1 */,
 				4720F7FF24DD43A50094BD4A /* Products */,
+				E340D8B3923C31D8BD2530CB /* Pods */,
+				D928350C2E8B339777F8E724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = SMS_iOS_V1;
 			sourceTree = "<group>";
 		};
+		D928350C2E8B339777F8E724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F0E89ADB119C329727DA6FC /* Pods_SMS_iOS_V1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E340D8B3923C31D8BD2530CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92726ECE84538B252AE4CF16 /* Pods-SMS_iOS_V1.debug.xcconfig */,
+				C3D003F00B0EDD2326EC7880 /* Pods-SMS_iOS_V1.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4720F81224DD43A80094BD4A /* Build configuration list for PBXNativeTarget "SMS_iOS_V1" */;
 			buildPhases = (
+				331A4678C20A8D82017628C1 /* [CP] Check Pods Manifest.lock */,
 				4720F7FA24DD43A50094BD4A /* Sources */,
 				4720F7FB24DD43A50094BD4A /* Frameworks */,
 				4720F7FC24DD43A50094BD4A /* Resources */,
+				B1822B9EE854338605439AD0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		331A4678C20A8D82017628C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SMS_iOS_V1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1822B9EE854338605439AD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4720F7FA24DD43A50094BD4A /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		4720F81324DD43A80094BD4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92726ECE84538B252AE4CF16 /* Pods-SMS_iOS_V1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		4720F81424DD43A80094BD4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3D003F00B0EDD2326EC7880 /* Pods-SMS_iOS_V1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
