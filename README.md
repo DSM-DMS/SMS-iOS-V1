@@ -1,1 +1,5 @@
-SMS-iOS-V1
+## SMS for iOS
+
+### RxSwift + MVVM
+
+### Alamofire
