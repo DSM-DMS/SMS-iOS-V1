@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,15 +63,47 @@
 		4720F80024DD43A50094BD4A /* SMS_iOS_V1 */ = {
 			isa = PBXGroup;
 			children = (
+				4720F84E24E03E080094BD4A /* Scene */,
+				4720F84D24E03E050094BD4A /* ViewModel */,
+				4720F84C24E03E030094BD4A /* Model */,
+				4720F84B24E03E000094BD4A /* View */,
 				4720F80124DD43A50094BD4A /* AppDelegate.swift */,
 				4720F80324DD43A50094BD4A /* SceneDelegate.swift */,
-				4720F80524DD43A50094BD4A /* ViewController.swift */,
 				4720F80724DD43A60094BD4A /* Main.storyboard */,
 				4720F80A24DD43A80094BD4A /* Assets.xcassets */,
 				4720F80C24DD43A80094BD4A /* LaunchScreen.storyboard */,
 				4720F80F24DD43A80094BD4A /* Info.plist */,
 			);
 			path = SMS_iOS_V1;
+			sourceTree = "<group>";
+		};
+		4720F84B24E03E000094BD4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4720F80524DD43A50094BD4A /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4720F84C24E03E030094BD4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4720F84D24E03E050094BD4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4720F84E24E03E080094BD4A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		D928350C2E8B339777F8E724 /* Frameworks */ = {
@@ -88,7 +120,6 @@
 				92726ECE84538B252AE4CF16 /* Pods-SMS_iOS_V1.debug.xcconfig */,
 				C3D003F00B0EDD2326EC7880 /* Pods-SMS_iOS_V1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
