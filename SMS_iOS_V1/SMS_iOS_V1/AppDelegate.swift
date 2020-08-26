@@ -8,14 +8,30 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    
 
+    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+      // window가 없으니 만들어준다.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+      // 스토리보드 인스턴스
+      let tutorialStoryboard = UIStoryboard(name: "Login", bundle: nil)
+      // 뷰 컨트롤러 인스턴스
+        let viewController = tutorialStoryboard.instantiateViewController(withIdentifier: "StoryboardTutorialID")
+            
+      // 윈도우의 루트 뷰 컨트롤러 설정
+      self.window?.rootViewController = viewController
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+      // 이제 화면에 보여주자.
+      self.window?.makeKeyAndVisible()
+            
+      return true
     }
 
     // MARK: UISceneSession Lifecycle
