@@ -12,6 +12,8 @@
 		4720F80924DD43A60094BD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80724DD43A60094BD4A /* Main.storyboard */; };
 		4720F80B24DD43A80094BD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80A24DD43A80094BD4A /* Assets.xcassets */; };
 		4720F80E24DD43A80094BD4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720F80C24DD43A80094BD4A /* LaunchScreen.storyboard */; };
+		47D5C22224FD2DF100CF8E52 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D5C22124FD2DF100CF8E52 /* Login.storyboard */; };
+		47D5C22424FD2E3A00CF8E52 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5C22324FD2E3A00CF8E52 /* LoginVC.swift */; };
 		DC30AD3B6F0BBD2EB41507EC /* Pods_SMS_iOS_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E89ADB119C329727DA6FC /* Pods_SMS_iOS_V1.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		4720F80A24DD43A80094BD4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4720F80D24DD43A80094BD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4720F80F24DD43A80094BD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D5C22124FD2DF100CF8E52 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = SMS_iOS_V1/View/Login.storyboard; sourceTree = SOURCE_ROOT; };
+		47D5C22324FD2E3A00CF8E52 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5F0E89ADB119C329727DA6FC /* Pods_SMS_iOS_V1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS_iOS_V1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92726ECE84538B252AE4CF16 /* Pods-SMS_iOS_V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS_iOS_V1.debug.xcconfig"; path = "Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1.debug.xcconfig"; sourceTree = "<group>"; };
 		C3D003F00B0EDD2326EC7880 /* Pods-SMS_iOS_V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS_iOS_V1.release.xcconfig"; path = "Target Support Files/Pods-SMS_iOS_V1/Pods-SMS_iOS_V1.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 				4720F84C24E03E030094BD4A /* Model */,
 				4720F84B24E03E000094BD4A /* View */,
 				4720F80124DD43A50094BD4A /* AppDelegate.swift */,
+				47D5C22124FD2DF100CF8E52 /* Login.storyboard */,
 				4720F80324DD43A50094BD4A /* SceneDelegate.swift */,
 				4720F80724DD43A60094BD4A /* Main.storyboard */,
 				4720F80A24DD43A80094BD4A /* Assets.xcassets */,
@@ -78,6 +83,7 @@
 		4720F84B24E03E000094BD4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47D5C22324FD2E3A00CF8E52 /* LoginVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D5C22224FD2DF100CF8E52 /* Login.storyboard in Resources */,
 				4720F80E24DD43A80094BD4A /* LaunchScreen.storyboard in Resources */,
 				4720F80B24DD43A80094BD4A /* Assets.xcassets in Resources */,
 				4720F80924DD43A60094BD4A /* Main.storyboard in Resources */,
@@ -237,6 +244,7 @@
 			files = (
 				4720F80224DD43A50094BD4A /* AppDelegate.swift in Sources */,
 				4720F80424DD43A50094BD4A /* SceneDelegate.swift in Sources */,
+				47D5C22424FD2E3A00CF8E52 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
