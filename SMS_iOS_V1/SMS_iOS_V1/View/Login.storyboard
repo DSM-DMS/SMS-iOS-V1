@@ -73,9 +73,12 @@
                         <viewLayoutGuide key="safeArea" id="sv4-Yl-8ol"/>
                     </view>
                     <connections>
+                        <outlet property="btnLogin" destination="WCg-em-15Z" id="wvo-lG-Tkq"/>
                         <outlet property="idTextField" destination="DGq-uB-gVP" id="Gm0-ez-uhr"/>
                         <outlet property="loginButton" destination="WCg-em-15Z" id="f7F-0Q-LyZ"/>
                         <outlet property="pwTextField" destination="1Gb-Uf-mbz" id="scx-ET-cGa"/>
+                        <outlet property="txtID" destination="DGq-uB-gVP" id="mUX-9f-4Uj"/>
+                        <outlet property="txtPW" destination="1Gb-Uf-mbz" id="ZCd-c9-swT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnA-1O-69b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

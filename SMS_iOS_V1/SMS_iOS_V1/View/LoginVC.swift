@@ -6,4 +6,15 @@
 //  Copyright © 2020 DohyunKim. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class LoginVC: UIViewController {
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtID: UITextField!
+    @IBOutlet weak var txtPW: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+}
