@@ -67,12 +67,34 @@
                                     <constraint firstAttribute="height" constant="16" id="ZNo-DZ-gfQ"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcs-tL-NYv" customClass="DLRadioButton">
+                                <rect key="frame" x="54" y="397" width="30" height="30"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                        <real key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="U7h-bB-PXn" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="340" id="04l-tx-kfN"/>
                             <constraint firstItem="8pT-xu-ZjM" firstAttribute="leading" secondItem="CHN-xW-Vfs" secondAttribute="leading" id="1hu-40-gMo"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="bottom" secondItem="L0H-mK-aZi" secondAttribute="bottom" constant="246" id="6wx-cD-hOL"/>
+                            <constraint firstItem="bcs-tL-NYv" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="54" id="8Fb-YC-BZd"/>
                             <constraint firstItem="L0H-mK-aZi" firstAttribute="top" secondItem="8pT-xu-ZjM" secondAttribute="bottom" constant="34" id="90E-IH-gC1"/>
                             <constraint firstItem="cno-AX-fPV" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="221" id="BGU-g9-xBQ"/>
                             <constraint firstItem="LIg-Gr-D35" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="220" id="EPC-uP-K6G"/>
@@ -80,6 +102,7 @@
                             <constraint firstItem="U7h-bB-PXn" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="67" id="JOH-ap-qEX"/>
                             <constraint firstItem="L0H-mK-aZi" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="100" id="Kjy-PN-hy4"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="CHN-xW-Vfs" secondAttribute="trailing" constant="55" id="NZY-cN-ED6"/>
+                            <constraint firstItem="RCT-h0-bTf" firstAttribute="bottom" secondItem="bcs-tL-NYv" secondAttribute="bottom" constant="240" id="Nj5-TE-UYI"/>
                             <constraint firstItem="NKB-wj-e18" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="93" id="O6m-hE-Oyv"/>
                             <constraint firstItem="CHN-xW-Vfs" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="56" id="OUI-wh-Mcx"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="hKY-g7-2Ph" secondAttribute="trailing" constant="55" id="Q63-j8-6rz"/>
@@ -93,6 +116,7 @@
                             <constraint firstItem="NKB-wj-e18" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="339" id="r8v-zU-fxW"/>
                             <constraint firstItem="cno-AX-fPV" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="65" id="sbR-29-UsR"/>
                             <constraint firstItem="LIg-Gr-D35" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="93" id="uel-XX-WPN"/>
+                            <constraint firstItem="L0H-mK-aZi" firstAttribute="leading" secondItem="bcs-tL-NYv" secondAttribute="trailing" constant="16" id="vkk-yu-Civ"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="LIg-Gr-D35" secondAttribute="trailing" constant="92" id="zYD-rH-jaP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
