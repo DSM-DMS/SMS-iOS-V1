@@ -9,7 +9,14 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var IDTextField: UITextField!
+    @IBOutlet weak var PWTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
 }

@@ -25,7 +25,7 @@
                                 <rect key="frame" x="56" y="254" width="264" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="AUr-4N-0Gk"/>
+                                    <constraint firstAttribute="height" constant="1" id="Agg-ga-EmS"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="cno-AX-fPV">
@@ -82,21 +82,26 @@
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="CHN-xW-Vfs" secondAttribute="trailing" constant="55" id="NZY-cN-ED6"/>
                             <constraint firstItem="NKB-wj-e18" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="93" id="O6m-hE-Oyv"/>
                             <constraint firstItem="CHN-xW-Vfs" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="56" id="OUI-wh-Mcx"/>
+                            <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="hKY-g7-2Ph" secondAttribute="trailing" constant="55" id="Q63-j8-6rz"/>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="109" id="RfR-yq-Mau"/>
-                            <constraint firstItem="8pT-xu-ZjM" firstAttribute="leading" secondItem="hKY-g7-2Ph" secondAttribute="leading" id="U9D-Dq-ogb"/>
                             <constraint firstItem="hKY-g7-2Ph" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="254" id="Z9L-aH-PH2"/>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="56" id="c3i-nJ-oYY"/>
                             <constraint firstItem="8pT-xu-ZjM" firstAttribute="trailing" secondItem="CHN-xW-Vfs" secondAttribute="trailing" id="c9P-sK-LqE"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="bottom" secondItem="CHN-xW-Vfs" secondAttribute="bottom" constant="117" id="eZf-8Z-Rds"/>
+                            <constraint firstItem="hKY-g7-2Ph" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="56" id="f5B-Fo-GTD"/>
                             <constraint firstItem="8pT-xu-ZjM" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="369" id="nBR-sZ-RPA"/>
                             <constraint firstItem="NKB-wj-e18" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="339" id="r8v-zU-fxW"/>
-                            <constraint firstItem="8pT-xu-ZjM" firstAttribute="trailing" secondItem="hKY-g7-2Ph" secondAttribute="trailing" id="rfm-jI-FPy"/>
                             <constraint firstItem="cno-AX-fPV" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="65" id="sbR-29-UsR"/>
                             <constraint firstItem="LIg-Gr-D35" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="93" id="uel-XX-WPN"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="LIg-Gr-D35" secondAttribute="trailing" constant="92" id="zYD-rH-jaP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
                     </view>
+                    <connections>
+                        <outlet property="IDTextField" destination="LIg-Gr-D35" id="q5w-Lv-KsV"/>
+                        <outlet property="LoginButton" destination="CHN-xW-Vfs" id="Axj-hm-iQO"/>
+                        <outlet property="PWTextField" destination="NKB-wj-e18" id="DaG-hq-Yjm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GqU-qV-F0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
