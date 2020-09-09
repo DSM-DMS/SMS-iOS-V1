@@ -20,7 +20,11 @@ class LoginViewController: UIViewController {
     }
     
     func setupUI() {
-        LoginButton.layer.cornerRadius = 0.3
-        
+        LoginButton.layer.cornerRadius = 3
+        LoginButton.layer.shadowColor = UIColor.lightGray.cgColor
+        LoginButton.layer.shadowOpacity = 0.7
+        LoginButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        LoginButton.layer.shadowRadius = 2
+    
     }
 }
