@@ -19,6 +19,13 @@ class LoginViewController: UIViewController {
         setupUI()
     }
     
+    @IBAction func autoLogin(_ sender: UIButton) {
+       
+        
+        
+    }
+    
+    
     func setupUI() {
         LoginButton.layer.cornerRadius = 3
         LoginButton.layer.shadowColor = UIColor.lightGray.cgColor
@@ -27,4 +34,7 @@ class LoginViewController: UIViewController {
         LoginButton.layer.shadowRadius = 2
     
     }
+    
+    
+    
 }
