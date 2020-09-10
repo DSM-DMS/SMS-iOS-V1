@@ -2,8 +2,12 @@ import UIKit
 import FSCalendar
 import RxSwift
 
-class ScheduleViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+class ScheduleViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    fileprivate let gregorian = Calendar(identifier: .gregorian)
+    private var firstDate: Date?
     var holidayArr = [String]()
+    var diffDate = String()
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
@@ -11,21 +15,27 @@ class ScheduleViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         return formatter
     }()
     
+    lazy var dateFormatter2: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        return formatter
+    }()
+    
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var timeScheduleView: TimecScheduleXib!
+    @IBOutlet weak var changeViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var changeViewBtn: UIButton!
+    @IBOutlet weak var timeScheduleView: TimecScheduleXib!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
-        calendarView.delegate = self
-        calendarView.dataSource = self
         timeScheduleView.isHidden = true
+        calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     @IBAction func changeScheduleAndAcademicSchedule(_ sender: UIButton) {
@@ -48,10 +58,82 @@ class ScheduleViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         yearLabel.text = dateFormatter.string(from: next)
         self.calendarView.setCurrentPage(next, animated: true)
     }
+    
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
+        return cell
+    }
+    
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        self.configure(cell: cell, for: date, at: position)
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("did select date \(self.dateFormatter2.string(from: date))")
+        self.configureVisibleCells()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
+        print("did deselect date \(self.dateFormatter2.string(from: date))")
+        self.configureVisibleCells()
+    }
+    
+    private func configureVisibleCells() {
+        calendarView.visibleCells().forEach { (cell) in
+            let date = calendarView.date(for: cell)
+            let position = calendarView.monthPosition(for: cell)
+            self.configure(cell: cell, for: date!, at: position)
+        }
+    }
+    
+    private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        
+        let calCell = (cell as! CalendarCollectionViewCell)
+        // Custom today circle
+        // Configure selection layer
+        if position == .current {
+            
+            var selectionType = SelectionType.none
+            
+            if calendarView.selectedDates.contains(date) {
+                let previousDate = self.gregorian.date(byAdding: .day, value: -1, to: date)!
+                let nextDate = self.gregorian.date(byAdding: .day, value: 1, to: date)!
+                if calendarView.selectedDates.contains(date) {
+                    if calendarView.selectedDates.contains(previousDate) && calendarView.selectedDates.contains(nextDate) {
+                        selectionType = .middle
+                    }
+                    else if calendarView.selectedDates.contains(previousDate) && calendarView.selectedDates.contains(date) {
+                        selectionType = .rightBorder
+                    }
+                    else if calendarView.selectedDates.contains(nextDate) {
+                        selectionType = .leftBorder
+                    }
+                    else {
+                        selectionType = .single
+                    }
+                }
+            }
+            else {
+                selectionType = .none
+            }
+            if selectionType == .none {
+                calCell.selectionLayer.isHidden = true
+                return
+            }
+            calCell.selectionLayer.isHidden = false
+            calCell.selectionType = selectionType
+            
+        } else {
+            calCell.circleImageView.isHidden = true
+            calCell.selectionLayer.isHidden = true
+        }
+    }
 }
 
 extension ScheduleViewController {
     func calendarSetting() {
+        self.calendarView.delegate = self
+        self.calendarView.dataSource = self
         let ca = calendarView.appearance
         ca.headerMinimumDissolvedAlpha = 0.0;
         ca.eventOffset = CGPoint(x: 15, y: -35)
@@ -60,7 +142,9 @@ extension ScheduleViewController {
         calendarView.today = nil
         calendarView.placeholderType = .none
         calendarView.headerHeight = 0
+        calendarView.allowsMultipleSelection = true
         calendarView.configureAppearance()
+        calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func tableViewSetting() {
@@ -84,34 +168,7 @@ extension ScheduleViewController {
     }
 }
 
+
 // 이벤트 어떻게 처리할지
-// 날짜 한번 더 누르면 제거하기
-// 연속으로 이어진 날짜 처리
-// 탭바, 네비게이션바 있을떄 없을 때 뷰의 크기 차이
-
-
-
-
-//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSDate *selectedDate = [self.calculator dateForIndexPath:indexPath];
-//    FSCalendarMonthPosition monthPosition = [self.calculator monthPositionForIndexPath:indexPath];
-//    FSCalendarCell *cell;
-//    if (monthPosition == FSCalendarMonthPositionCurrent) {
-//        cell = (FSCalendarCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    }
-//    else {
-//        cell = [self cellForDate:selectedDate atMonthPosition:FSCalendarMonthPositionCurrent];
-//        NSIndexPath *indexPath = [collectionView indexPathForCell:cell];
-//        if (indexPath) {
-//            [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-//        }
-//    }
-//    cell.selected = NO;
-//    [cell configureAppearance];
-//
-//    [_selectedDates removeObject:selectedDate];
-//    [self.delegateProxy calendar:self didDeselectDate:selectedDate atMonthPosition:monthPosition];
-//    [self deselectCounterpartDate:selectedDate];
-//
-//}
+// 연속으로 이어진 날짜 처리 -> 서버에서 이벤트받은 날로 처리해주고 연속하는 것만 해도록 하자
+// 스와이프해도 날짜 바뀌게
