@@ -11,6 +11,8 @@ import UIKit
 class OutGoingViewController: UIViewController {
     
     @IBOutlet weak var outGoingApplyButton: UIButton!
+    @IBOutlet weak var outGoingLogButton: UIButton!
+    @IBOutlet weak var outGoingNoticeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,18 @@ class OutGoingViewController: UIViewController {
         outGoingApplyButton.layer.shadowOpacity = 0.7
         outGoingApplyButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         outGoingApplyButton.layer.shadowRadius = 4
+        
+        outGoingLogButton.layer.cornerRadius = 10
+        outGoingLogButton.layer.shadowColor = UIColor.lightGray.cgColor
+        outGoingLogButton.layer.shadowOpacity = 0.7
+        outGoingLogButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        outGoingLogButton.layer.shadowRadius = 4
+        
+        outGoingNoticeButton.layer.cornerRadius = 10
+        outGoingNoticeButton.layer.shadowColor = UIColor.lightGray.cgColor
+        outGoingNoticeButton.layer.shadowOpacity = 0.7
+        outGoingNoticeButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        outGoingNoticeButton.layer.shadowRadius = 4
     }
     
 }
