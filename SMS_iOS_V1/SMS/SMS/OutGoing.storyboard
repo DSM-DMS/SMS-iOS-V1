@@ -355,6 +355,52 @@
             </objects>
             <point key="canvasLocation" x="1701.5999999999999" y="158.77061469265368"/>
         </scene>
+        <!--외출신청-->
+        <scene sceneID="8zu-T4-lGQ">
+            <objects>
+                <viewController id="nVE-q8-eLQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9VB-IA-a9D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OutGoingApplyComplete" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
+                                <rect key="frame" x="67" y="278" width="240" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
+                                <rect key="frame" x="60" y="367" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
+                                <rect key="frame" x="40" y="542" width="295" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="t74-6Q-qco"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="외출신청" id="vmo-pv-4fe">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="DUU-44-I6C">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8tb-aS-Fa1">
+                                <rect key="frame" x="16" y="11" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xY-bK-ojT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4100" y="158.77061469265368"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNL-ki-3Vg">
             <objects>
@@ -373,8 +419,27 @@
             </objects>
             <point key="canvasLocation" x="762.39999999999998" y="158.77061469265368"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vOn-g8-jG2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2Y-Ag-GXP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SgR-co-gVp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nVE-q8-eLQ" kind="relationship" relationship="rootViewController" id="2bK-64-BKW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbf-wu-Ecv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160.8000000000002" y="158.77061469265368"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="OutGoingApplyComplete" width="252" height="76"/>
         <image name="back" width="20" height="12.5"/>
     </resources>
 </document>
