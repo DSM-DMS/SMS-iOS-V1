@@ -32,7 +32,10 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKB-wj-e18">
-                                <rect key="frame" x="84" y="264" width="137.5" height="18"/>
+                                <rect key="frame" x="84" y="264" width="245" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="oPM-Zj-47a"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -40,7 +43,10 @@
                                 <rect key="frame" x="55" y="266" width="14" height="16"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Gr-D35">
-                                <rect key="frame" x="84" y="183" width="125" height="18"/>
+                                <rect key="frame" x="84" y="183" width="245" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="eOG-rc-jDC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -164,7 +170,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="password" width="14" height="16"/>
-        <image name="person" width="14" height="16"/>
+        <image name="password" width="13.5" height="15.5"/>
+        <image name="person" width="13.5" height="15.5"/>
     </resources>
 </document>
