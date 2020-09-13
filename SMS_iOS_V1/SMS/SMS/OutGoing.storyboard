@@ -363,28 +363,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OutGoingApplyCompleted" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
-                                <rect key="frame" x="67" y="278" width="240" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OutGoingApplyCompleted" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
+                                <rect key="frame" x="55" y="220" width="265" height="76"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
-                                <rect key="frame" x="60" y="367" width="255" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
-                                <rect key="frame" x="40" y="542" width="295" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
+                                <rect key="frame" x="40" y="527" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="G9d-cb-WwN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
+                                <rect key="frame" x="61.5" y="315" width="252" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FDS-Jd-ekx" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="55" id="7o2-LA-kph"/>
+                            <constraint firstItem="2kD-mh-seV" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="61.5" id="BKH-MI-riy"/>
+                            <constraint firstItem="bit-ge-pfi" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="40" id="C52-za-PjP"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="FDS-Jd-ekx" secondAttribute="trailing" constant="55" id="GQs-2x-0lN"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="2kD-mh-seV" secondAttribute="trailing" constant="61.5" id="fRo-BQ-6ZG"/>
+                            <constraint firstItem="2kD-mh-seV" firstAttribute="top" secondItem="FDS-Jd-ekx" secondAttribute="bottom" constant="19" id="hG1-0Y-n1W"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="bit-ge-pfi" secondAttribute="trailing" constant="40" id="nUX-NC-k6P"/>
+                            <constraint firstItem="bit-ge-pfi" firstAttribute="top" secondItem="2kD-mh-seV" secondAttribute="bottom" constant="192" id="wo2-zb-fb7"/>
+                            <constraint firstItem="FDS-Jd-ekx" firstAttribute="top" secondItem="t74-6Q-qco" secondAttribute="top" constant="176" id="zto-YX-HJM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="t74-6Q-qco"/>
                     </view>
                     <navigationItem key="navigationItem" title="외출신청" id="vmo-pv-4fe">
@@ -402,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xY-bK-ojT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="159"/>
+            <point key="canvasLocation" x="3461.5999999999999" y="158.77061469265368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNL-ki-3Vg">
