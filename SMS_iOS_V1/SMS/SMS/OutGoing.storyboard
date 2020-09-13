@@ -358,7 +358,7 @@
         <!--외출신청-->
         <scene sceneID="8zu-T4-lGQ">
             <objects>
-                <viewController id="nVE-q8-eLQ" sceneMemberID="viewController">
+                <viewController id="nVE-q8-eLQ" customClass="OutGoingCompletedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VB-IA-a9D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
