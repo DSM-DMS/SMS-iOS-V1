@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OutGoingViewController: UIViewController {
+class OutGoingNoticeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
