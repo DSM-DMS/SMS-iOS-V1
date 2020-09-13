@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d3h-zE-AgT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z2Y-Ag-GXP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWb-Uj-ypQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95.200000000000003" y="162.3688155922039"/>
+            <point key="canvasLocation" x="-302" y="159"/>
         </scene>
         <!--외출신청-->
         <scene sceneID="nUo-hQ-C7D">
@@ -355,6 +355,66 @@
             </objects>
             <point key="canvasLocation" x="1701.5999999999999" y="158.77061469265368"/>
         </scene>
+        <!--외출신청-->
+        <scene sceneID="8zu-T4-lGQ">
+            <objects>
+                <viewController id="nVE-q8-eLQ" customClass="OutGoingCompletedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9VB-IA-a9D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OutGoingApplyCompleted" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
+                                <rect key="frame" x="55" y="220" width="265" height="76"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
+                                <rect key="frame" x="40" y="527" width="295" height="40"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="G9d-cb-WwN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
+                                <rect key="frame" x="61.5" y="315" width="252" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FDS-Jd-ekx" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="55" id="7o2-LA-kph"/>
+                            <constraint firstItem="2kD-mh-seV" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="61.5" id="BKH-MI-riy"/>
+                            <constraint firstItem="bit-ge-pfi" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="40" id="C52-za-PjP"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="FDS-Jd-ekx" secondAttribute="trailing" constant="55" id="GQs-2x-0lN"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="2kD-mh-seV" secondAttribute="trailing" constant="61.5" id="fRo-BQ-6ZG"/>
+                            <constraint firstItem="2kD-mh-seV" firstAttribute="top" secondItem="FDS-Jd-ekx" secondAttribute="bottom" constant="19" id="hG1-0Y-n1W"/>
+                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="bit-ge-pfi" secondAttribute="trailing" constant="40" id="nUX-NC-k6P"/>
+                            <constraint firstItem="bit-ge-pfi" firstAttribute="top" secondItem="2kD-mh-seV" secondAttribute="bottom" constant="192" id="wo2-zb-fb7"/>
+                            <constraint firstItem="FDS-Jd-ekx" firstAttribute="top" secondItem="t74-6Q-qco" secondAttribute="top" constant="176" id="zto-YX-HJM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t74-6Q-qco"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="외출신청" id="vmo-pv-4fe">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="DUU-44-I6C">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8tb-aS-Fa1">
+                                <rect key="frame" x="16" y="11" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="checkButton" destination="bit-ge-pfi" id="VRJ-JR-fca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xY-bK-ojT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3461.5999999999999" y="158.77061469265368"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNL-ki-3Vg">
             <objects>
@@ -373,8 +433,27 @@
             </objects>
             <point key="canvasLocation" x="762.39999999999998" y="158.77061469265368"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vOn-g8-jG2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2Y-Ag-GXP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SgR-co-gVp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nVE-q8-eLQ" kind="relationship" relationship="rootViewController" id="2bK-64-BKW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbf-wu-Ecv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2682" y="159"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="OutGoingApplyCompleted" width="252" height="76"/>
         <image name="back" width="20" height="12.5"/>
     </resources>
 </document>
