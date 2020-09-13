@@ -10,6 +10,8 @@ import UIKit
 
 class OutGoingLogViewController: UIViewController {
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
