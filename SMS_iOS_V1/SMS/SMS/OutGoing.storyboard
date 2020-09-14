@@ -495,14 +495,14 @@
                                             <constraint firstAttribute="width" constant="100" id="dci-8a-X1q"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX-X-XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-2O-58M">
-                                        <rect key="frame" x="194" y="52" width="96" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX-XX-XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-2O-58M">
+                                        <rect key="frame" x="182" y="52" width="108" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvN-lN-07b">
-                                        <rect key="frame" x="218" y="81" width="52" height="18"/>
+                                        <rect key="frame" x="213" y="81" width="52" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -603,7 +603,7 @@
                                     <constraint firstItem="Old-ta-Uxa" firstAttribute="top" secondItem="2O6-h9-0Jd" secondAttribute="bottom" constant="20" id="OGY-a6-hvn"/>
                                     <constraint firstItem="fJg-Ft-tZZ" firstAttribute="top" secondItem="fIo-p8-rOl" secondAttribute="bottom" constant="20" id="PYo-NJ-m9g"/>
                                     <constraint firstAttribute="trailing" secondItem="fIo-p8-rOl" secondAttribute="trailing" constant="17" id="TgH-zR-Vcd"/>
-                                    <constraint firstAttribute="trailing" secondItem="IvN-lN-07b" secondAttribute="trailing" constant="65" id="aeG-n9-j0a"/>
+                                    <constraint firstAttribute="trailing" secondItem="IvN-lN-07b" secondAttribute="trailing" constant="70" id="aeG-n9-j0a"/>
                                     <constraint firstItem="ZI9-6G-DRq" firstAttribute="top" secondItem="fIo-p8-rOl" secondAttribute="bottom" constant="20" id="cO9-aC-hkh"/>
                                     <constraint firstItem="Oy9-Fd-hZA" firstAttribute="leading" secondItem="Tot-Wl-tKI" secondAttribute="leading" id="crw-8u-79d"/>
                                     <constraint firstItem="nrv-bN-RXi" firstAttribute="top" secondItem="Tot-Wl-tKI" secondAttribute="top" constant="165" id="dRg-c4-Ae8"/>
