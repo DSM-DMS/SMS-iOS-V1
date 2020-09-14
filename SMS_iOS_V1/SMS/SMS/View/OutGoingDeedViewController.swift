@@ -22,6 +22,8 @@ class OutGoingDeedViewController: UIViewController {
     func setupUI() {
         topView.layer.cornerRadius = 10
         
+        
+        deedView.layer.cornerRadius = 10
         deedView.layer.shadowColor = UIColor.lightGray.cgColor
         deedView.layer.shadowOpacity = 0.7
         deedView.layer.shadowOffset = CGSize(width: 0, height: 2)
