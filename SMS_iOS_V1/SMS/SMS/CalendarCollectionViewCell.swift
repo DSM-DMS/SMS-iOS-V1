@@ -1,6 +1,6 @@
+import FSCalendar
 import Foundation
 import UIKit
-import FSCalendar
 
 enum SelectionType : Int {
     case none
@@ -12,7 +12,6 @@ enum SelectionType : Int {
 
 class CalendarCollectionViewCell: FSCalendarCell {
     
-    weak var circleImageView: UIImageView!
     weak var selectionLayer: CAShapeLayer!
     
     var selectionType: SelectionType = .none {
@@ -29,17 +28,12 @@ class CalendarCollectionViewCell: FSCalendarCell {
         super.init(frame: frame)
         
         let selectionLayer = CAShapeLayer()
-        selectionLayer.fillColor = UIColor.black.cgColor
+        selectionLayer.fillColor = UIColor.purple.cgColor
         selectionLayer.actions = ["hidden": NSNull()]
         self.contentView.layer.insertSublayer(selectionLayer, below: self.titleLabel!.layer)
         self.selectionLayer = selectionLayer
         
         self.shapeLayer.isHidden = true
-        
-        let view = UIView(frame: self.bounds)
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.12)
-        self.backgroundView = view;
-        
     }
     
     override func layoutSubviews() {
@@ -51,10 +45,12 @@ class CalendarCollectionViewCell: FSCalendarCell {
             self.selectionLayer.path = UIBezierPath(rect: self.selectionLayer.bounds).cgPath
         }
         else if selectionType == .leftBorder {
-            self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
+            let corner : UIRectCorner = [.topLeft, .bottomLeft]
+            self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
         }
         else if selectionType == .rightBorder {
-            self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
+            let corner : UIRectCorner = [.topRight, .bottomRight]
+            self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
         }
         else if selectionType == .single {
             let diameter: CGFloat = min(self.selectionLayer.frame.height, self.selectionLayer.frame.width)
@@ -70,5 +66,4 @@ class CalendarCollectionViewCell: FSCalendarCell {
             self.titleLabel.textColor = UIColor.lightGray
         }
     }
-    
 }
