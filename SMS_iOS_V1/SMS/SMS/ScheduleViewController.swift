@@ -3,11 +3,9 @@ import FSCalendar
 import RxSwift
 
 class ScheduleViewController: UIViewController {
-    
-    fileprivate let gregorian = Calendar(identifier: .gregorian)
     private var firstDate: Date?
-    var holidayArr = ["2020-09-02","2020-09-03"]
-    var diffDate = String()
+    var holidayArr = ["2020-09-02","2020-09-03","2020-09-04","2020-09-06"]
+    
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
@@ -22,6 +20,7 @@ class ScheduleViewController: UIViewController {
         return formatter
     }()
     
+    @IBOutlet weak var headerView: FSCalendarHeaderView!
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
     @IBOutlet weak var yearLabel: UILabel!
@@ -35,6 +34,8 @@ class ScheduleViewController: UIViewController {
         self.calendarSetting()
         self.tableViewSetting()
         timeScheduleView.isHidden = true
+        calendarView.delegate = self
+        calendarView.dataSource = self
     }
     
     @IBAction func changeScheduleAndAcademicSchedule (_ sender: UIButton) {
@@ -57,6 +58,11 @@ class ScheduleViewController: UIViewController {
         yearLabel.text = dateFormatter.string(from: next)
         self.calendarView.setCurrentPage(next, animated: true)
     }
+}
+
+//MARK - extension
+
+extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let a = dateFormatter2.string(from: date)
@@ -65,56 +71,57 @@ class ScheduleViewController: UIViewController {
         }
         return 0
     }
-    
-    func calendar (_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        var selectionLayer: CAShapeLayer!
-        let strDate = dateFormatter2.string(from: date)
-        var selectionType = SelectionType.none
-        let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
-        let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
-        
-        if holidayArr.contains(strDate) {
-            if  holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
-                selectionLayer.path = UIBezierPath(rect: selectionLayer.bounds).cgPath
-                return UIColor.init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-            }
-            else if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
-                let corner : UIRectCorner = [.topRight, .bottomRight]
-                selectionLayer.path = UIBezierPath(roundedRect: selectionLayer.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: selectionLayer.frame.width / 2, height: selectionLayer.frame.width / 2)).cgPath
-                return UIColor.init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-            }
-            else if holidayArr.contains(nextDate) {
-                let corner : UIRectCorner = [.topLeft, .bottomLeft]
-                selectionLayer.path = UIBezierPath(roundedRect: selectionLayer.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: selectionLayer.frame.width / 2, height: selectionLayer.frame.width / 2)).cgPath
-                return UIColor.init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-            }
-//            else {
-//                let cell = UICollectionView()
-//                let diameter: CGFloat = min(selectionLayer.frame.height, selectionLayer.frame.width)
-//                self.selectionLayer.path = UIBezierPath(ovalIn: CGRect(x: cell.contentSize.frame.width / 2 - diameter / 2, y: cell.contentSize.frame.height / 2 - diameter / 2, width: diameter, height: diameter)).cgPath
-//                return UIColor.init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-//            }
-        }
-        return nil
+
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
+        return cell
     }
-}
+    
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        self.configure(cell: cell, for: date, at: position)
+    }
 
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        self.calendarView.frame.size.height = bounds.height
 
-extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-    func calendarSetting() {
-        self.calendarView.delegate = self
-        self.calendarView.dataSource = self
-        let ca = calendarView.appearance
-        ca.headerMinimumDissolvedAlpha = 0.0;
-        ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
-        ca.weekdayTextColor = .black
-        calendarView.today = nil
-        calendarView.placeholderType = .none
-        calendarView.headerHeight = 0
-        ca.eventOffset = CGPoint(x: 15, y: -35)
+    }
+    
+    private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        let calCell = (cell as! CalendarCollectionViewCell)
+        let strDate = dateFormatter2.string(from: date)
+        if position == .current {
+            var selectionType = SelectionType.none
+            if holidayArr.contains(strDate){
+                let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
+                let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
+                let date = dateFormatter2.string(from: date)
+                if holidayArr.contains(strDate) {
+                    if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
+                        selectionType = .middle
+                    } else if holidayArr.contains(previousDate) && holidayArr.contains(date) {
+                        selectionType = .rightBorder
+                    } else if holidayArr.contains(nextDate) {
+                        selectionType = .leftBorder
+                    } else {
+                        selectionType = .single
+                    }
+                }
+            } else {
+                selectionType = .none
+            }
+            if selectionType == .none {
+                calCell.eventLayer!.isHidden = true
+                return
+            }
+            calCell.eventLayer!.isHidden = false
+            calCell.selectionType = selectionType
+        } else {
+            calCell.eventLayer!.isHidden = true
+        }
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.configureVisibleCells()
         if firstDate == nil {
             firstDate = date
         } else {
@@ -124,16 +131,37 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.configureVisibleCells()
         calendar.deselect(date)
         firstDate = nil
     }
-
+    
+    private func configureVisibleCells() {
+           calendarView.visibleCells().forEach { (cell) in
+               let date = calendarView.date(for: cell)
+               let position = calendarView.monthPosition(for: cell)
+               self.configure(cell: cell, for: date!, at: position)
+           }
+       }
+    
     func tableViewSetting() {
         self.tableView.tableFooterView = UIView.init(frame: .infinite)
         self.tableView.backgroundColor = UIColor(displayP3Red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
         self.tableView.clipsToBounds = true
         self.tableView.layer.cornerRadius = 20
         self.tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
+    
+    func calendarSetting() {
+        let ca = calendarView.appearance
+        ca.headerMinimumDissolvedAlpha = 0.0;
+        ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
+        ca.weekdayTextColor = .black
+        calendarView.today = nil
+        calendarView.placeholderType = .none
+        ca.selectionColor = UIColor.init(displayP3Red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
+        ca.eventOffset = CGPoint(x: 15, y: -35)
+        calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func setTableViewHeight(count: Int = 1) -> CGFloat {
@@ -149,5 +177,4 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
 }
 
-// 연속으로 이어진 날짜 처리
 // 스와이프해도 날짜 바뀌게
