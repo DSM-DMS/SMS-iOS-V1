@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jzR-W3-gPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="89J-Wn-nj3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -695,7 +695,7 @@
                         <viewLayoutGuide key="safeArea" id="t74-6Q-qco"/>
                     </view>
                     <navigationItem key="navigationItem" title="외출신청" id="vmo-pv-4fe">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="DUU-44-I6C">
+                        <barButtonItem key="leftBarButtonItem" image="back" style="plain" id="DUU-44-I6C">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8tb-aS-Fa1">
                                 <rect key="frame" x="16" y="11" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -765,6 +765,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tur-Gs-k3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-303.19999999999999" y="1693.4032983508248"/>
+        </scene>
+        <!--Out Going Alert View Controller-->
+        <scene sceneID="Hvw-Vl-5pg">
+            <objects>
+                <viewController id="89J-Wn-nj3" customClass="OutGoingAlertViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FSV-sx-eYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAS-RU-B3r">
+                                <rect key="frame" x="40" y="150" width="295" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 주의 -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xls-h2-dzm">
+                                        <rect key="frame" x="125" y="15" width="45" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aR-M2-8NH">
+                                        <rect key="frame" x="55" y="256" width="30" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spo-Qb-DcR">
+                                        <rect key="frame" x="210" y="256" width="30" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="신청">
+                                            <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-5t-r82">
+                                        <rect key="frame" x="56" y="68" width="189" height="33.5"/>
+                                        <string key="text">거짓으로 질병 외출로 신청 시,
+불이익과 처벌을 받을 수 있습니다.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKd-QC-IdK">
+                                        <rect key="frame" x="43" y="69" width="3" height="14"/>
+                                        <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="3" id="ksS-Yq-lxC"/>
+                                            <constraint firstAttribute="height" constant="14" id="ncb-sI-KEB"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-Nf-X2H">
+                                        <rect key="frame" x="45" y="153" width="3" height="14"/>
+                                        <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="K1Z-Pb-Dvc"/>
+                                            <constraint firstAttribute="width" constant="3" id="LwT-pf-Jrc"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACB-Yd-v5r">
+                                        <rect key="frame" x="58" y="151.5" width="189" height="33.5"/>
+                                        <string key="text">질병 외출은 질병, 부상으로 인한
+외출 시에만 신청하실 수 있습니다.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="KKd-QC-IdK" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="43" id="7R2-GH-dB8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xls-h2-dzm" secondAttribute="trailing" constant="125" id="8c3-7t-18N"/>
+                                    <constraint firstItem="0YV-Nf-X2H" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="45" id="Bqj-0l-P4O"/>
+                                    <constraint firstItem="o6S-5t-r82" firstAttribute="top" secondItem="Xls-h2-dzm" secondAttribute="bottom" constant="36" id="CL4-f5-7Yf"/>
+                                    <constraint firstItem="Xls-h2-dzm" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="125" id="E5G-bN-Cw8"/>
+                                    <constraint firstItem="KKd-QC-IdK" firstAttribute="top" secondItem="KAS-RU-B3r" secondAttribute="top" constant="69" id="MhE-jC-6PX"/>
+                                    <constraint firstItem="7aR-M2-8NH" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="55" id="NOI-Rr-L2o"/>
+                                    <constraint firstItem="0YV-Nf-X2H" firstAttribute="top" secondItem="KAS-RU-B3r" secondAttribute="top" constant="153" id="QxE-i9-AmC"/>
+                                    <constraint firstAttribute="bottom" secondItem="Spo-Qb-DcR" secondAttribute="bottom" constant="15" id="SeC-7s-8FM"/>
+                                    <constraint firstItem="o6S-5t-r82" firstAttribute="leading" secondItem="KKd-QC-IdK" secondAttribute="trailing" constant="10" id="aH4-nM-JcD"/>
+                                    <constraint firstItem="ACB-Yd-v5r" firstAttribute="top" secondItem="o6S-5t-r82" secondAttribute="bottom" constant="50" id="hWV-lE-hiD"/>
+                                    <constraint firstItem="ACB-Yd-v5r" firstAttribute="leading" secondItem="0YV-Nf-X2H" secondAttribute="trailing" constant="10" id="iTx-nz-kQb"/>
+                                    <constraint firstAttribute="height" constant="300" id="kHH-75-bPV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Spo-Qb-DcR" secondAttribute="trailing" constant="55" id="mYb-JH-dj0"/>
+                                    <constraint firstItem="Xls-h2-dzm" firstAttribute="top" secondItem="KAS-RU-B3r" secondAttribute="top" constant="15" id="qfr-VE-93k"/>
+                                    <constraint firstAttribute="bottom" secondItem="7aR-M2-8NH" secondAttribute="bottom" constant="15" id="tBU-az-tw3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25064212328767121" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="KAS-RU-B3r" firstAttribute="leading" secondItem="Off-pQ-KPh" secondAttribute="leading" constant="40" id="3re-ce-1pq"/>
+                            <constraint firstItem="KAS-RU-B3r" firstAttribute="top" secondItem="Off-pQ-KPh" secondAttribute="top" constant="150" id="r3c-A7-p03"/>
+                            <constraint firstItem="Off-pQ-KPh" firstAttribute="trailing" secondItem="KAS-RU-B3r" secondAttribute="trailing" constant="40" id="vOv-C7-8U9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Off-pQ-KPh"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="KAS-RU-B3r" id="7ti-2I-c87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="88Y-eX-cs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303.19999999999999" y="2395.0524737631185"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNL-ki-3Vg">
