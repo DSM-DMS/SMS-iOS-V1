@@ -294,7 +294,7 @@
         <!--개발자 소개-->
         <scene sceneID="w7B-v2-be6">
             <objects>
-                <viewController id="lr0-qY-WBn" sceneMemberID="viewController">
+                <viewController id="lr0-qY-WBn" customClass="MypageIntroduceDevViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lzG-XY-umi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
