@@ -282,6 +282,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hoi-Zt-bYQ"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="ldq-tu-09x" id="TVh-F6-Ieo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwK-Rf-TIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
