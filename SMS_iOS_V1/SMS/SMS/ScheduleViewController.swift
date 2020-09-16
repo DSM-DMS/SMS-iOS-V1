@@ -4,7 +4,8 @@ import RxSwift
 
 class ScheduleViewController: UIViewController {
     private var firstDate: Date?
-    var holidayArr = ["2020-09-02","2020-09-03","2020-09-04","2020-09-06"]
+    var holidayArr = ["2020-09-10","2020-09-20","2020-09-24"]
+    var arr = ["2020-09-21","2020-09-22"]
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -66,12 +67,22 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     
     func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let a = dateFormatter2.string(from: date)
-        if holidayArr.contains(a) {
-            return 1
+        let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
+        let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
+        
+        if holidayArr.contains(a) || arr.contains(a) {
+            if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
+                return 0
+            } else if holidayArr.contains(nextDate) {
+                return 0
+            } else {
+                calendarView.appearance.eventOffset = CGPoint(x: 15, y: -35)
+                return 1
+            }
         }
         return 0
     }
-
+    
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
         return cell
@@ -80,27 +91,24 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
         self.configure(cell: cell, for: date, at: position)
     }
-
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        self.calendarView.frame.size.height = bounds.height
-
-    }
     
     private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
         let calCell = (cell as! CalendarCollectionViewCell)
+        let combineArray = arr + holidayArr
         let strDate = dateFormatter2.string(from: date)
+        let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
+        let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
+        let date = dateFormatter2.string(from: date)
         if position == .current {
             var selectionType = SelectionType.none
-            if holidayArr.contains(strDate){
-                let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
-                let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
-                let date = dateFormatter2.string(from: date)
-                if holidayArr.contains(strDate) {
-                    if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
+            
+            if combineArray.contains(strDate){
+                if combineArray.contains(strDate){
+                    if (combineArray.contains(previousDate) && combineArray.contains(nextDate)) {
                         selectionType = .middle
-                    } else if holidayArr.contains(previousDate) && holidayArr.contains(date) {
+                    } else if combineArray.contains(previousDate) && combineArray.contains(date) {
                         selectionType = .rightBorder
-                    } else if holidayArr.contains(nextDate) {
+                    } else if combineArray.contains(nextDate) {
                         selectionType = .leftBorder
                     } else {
                         selectionType = .single
@@ -137,12 +145,12 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
     
     private func configureVisibleCells() {
-           calendarView.visibleCells().forEach { (cell) in
-               let date = calendarView.date(for: cell)
-               let position = calendarView.monthPosition(for: cell)
-               self.configure(cell: cell, for: date!, at: position)
-           }
-       }
+        calendarView.visibleCells().forEach { (cell) in
+            let date = calendarView.date(for: cell)
+            let position = calendarView.monthPosition(for: cell)
+            self.configure(cell: cell, for: date!, at: position)
+        }
+    }
     
     func tableViewSetting() {
         self.tableView.tableFooterView = UIView.init(frame: .infinite)
@@ -159,8 +167,9 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         ca.weekdayTextColor = .black
         calendarView.today = nil
         calendarView.placeholderType = .none
-        ca.selectionColor = UIColor.init(displayP3Red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
-        ca.eventOffset = CGPoint(x: 15, y: -35)
+        calendarView.delegate = self
+        calendarView.dataSource = self
+        calendarView.configureAppearance()
         calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -178,3 +187,5 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
 }
 
 // 스와이프해도 날짜 바뀌게
+// 초록색 이벤트
+// 날짜 눌렀을 때 
