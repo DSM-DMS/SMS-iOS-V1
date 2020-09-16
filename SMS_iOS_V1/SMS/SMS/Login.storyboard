@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Login View Controller-->
         <scene sceneID="owx-sD-ZAn">
             <objects>
                 <viewController id="eCz-AV-7Gd" customClass="LoginViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3iw-1C-4D8"/>
+                    <tabBarItem key="tabBarItem" title="" image="calendar" id="3iw-1C-4D8"/>
                     <connections>
                         <outlet property="IDTextField" destination="LIg-Gr-D35" id="q5w-Lv-KsV"/>
                         <outlet property="LoginButton" destination="CHN-xW-Vfs" id="Axj-hm-iQO"/>
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GqU-qV-F0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="-18"/>
+            <point key="canvasLocation" x="855" y="-433"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jb8-pd-ez6">
@@ -121,6 +121,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="eCz-AV-7Gd" kind="relationship" relationship="viewControllers" id="pvR-bo-w6l"/>
@@ -131,7 +133,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ru-jb-AuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-18"/>
+            <point key="canvasLocation" x="-607" y="5"/>
         </scene>
         <!--OutGoing-->
         <scene sceneID="irK-W5-y5K">
@@ -141,7 +143,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wq-Yq-b0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782" y="-35"/>
+            <point key="canvasLocation" x="859" y="4"/>
         </scene>
         <!--Notice-->
         <scene sceneID="vRL-At-4sM">
@@ -151,7 +153,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wyc-YZ-DLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782" y="152"/>
+            <point key="canvasLocation" x="875" y="125"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="YcO-JQ-r2t">
@@ -161,10 +163,11 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21B-25-nkH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782" y="323"/>
+            <point key="canvasLocation" x="876" y="217"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="24" height="24"/>
         <image name="password" width="13.5" height="15.5"/>
         <image name="person" width="13.5" height="15.5"/>
     </resources>

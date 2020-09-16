@@ -48,3 +48,8 @@ class OutGoingViewController: UIViewController {
     }
     
 }
+
+
+//class asd: UIButton {
+//    se;f/
+//}

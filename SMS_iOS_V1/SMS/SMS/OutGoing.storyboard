@@ -181,6 +181,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JGk-hB-a9J"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="outgoing" id="gXd-Vr-pt9"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="outGoingApplyButton" destination="ChK-Zg-Rm6" id="9k7-dP-ACv"/>
                         <outlet property="outGoingDeedButton" destination="YpK-5T-qOt" id="cJG-VM-6n8"/>
@@ -352,7 +355,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="applyButton" destination="Be7-aO-eGY" id="WFg-h2-tnz"/>
                     </connections>
@@ -1109,6 +1112,7 @@
         <image name="close" width="11" height="11"/>
         <image name="dashline" width="286" height="1"/>
         <image name="foward" width="6" height="10"/>
+        <image name="outgoing" width="24" height="24"/>
         <image name="profile" width="109" height="109"/>
     </resources>
 </document>

@@ -159,6 +159,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rnP-bz-u77"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="mypage" id="ALW-Ty-BJx"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="introduceDevButton" destination="D19-bQ-nnW" id="y2d-7M-wmK"/>
                         <outlet property="logOutButton" destination="moY-7G-4RF" id="wXm-jZ-eeM"/>
@@ -228,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2F-Vh-akk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="976"/>
+            <point key="canvasLocation" x="-84" y="992"/>
         </scene>
         <!--Mypage Logout View Controller-->
         <scene sceneID="xiR-Nf-chk">
@@ -542,6 +544,7 @@
     </scenes>
     <resources>
         <image name="back" width="20" height="12.5"/>
+        <image name="mypage" width="24" height="24"/>
         <image name="profile" width="109" height="109"/>
     </resources>
 </document>

@@ -152,6 +152,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hG7-Gj-BQu"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="notice" id="sHF-2k-nPR"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-hb-feZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,6 +364,7 @@
     </scenes>
     <resources>
         <image name="back" width="20" height="12.5"/>
+        <image name="notice" width="24" height="24"/>
         <image name="pagedown" width="6" height="4"/>
         <image name="pageup" width="6" height="4"/>
         <image name="search" width="11" height="11"/>
