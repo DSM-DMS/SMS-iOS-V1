@@ -12,7 +12,6 @@ enum SelectionType : Int {
 
 class CalendarCollectionViewCell: FSCalendarCell {
     
-    private var eventDotSize: CGFloat = 4.0
     weak var eventLayer: CAShapeLayer!
 
     var selectionType: SelectionType = .none {
@@ -21,7 +20,7 @@ class CalendarCollectionViewCell: FSCalendarCell {
         }
     }
     
-    private lazy var newDotView: UIView = {
+    private lazy var rect: UIView = {
         let view = UIView()
         return view
     }()
@@ -46,42 +45,19 @@ class CalendarCollectionViewCell: FSCalendarCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.eventLayer.frame = self.contentView.bounds
-        self.shapeLayer.frame = CGRect(x: self.contentView.center.x / 4,
-                                       y: self.contentView.center.y / 10,
-                                       width: 30,
-                                       height: 30)
-        
-        eventIndicator.subviews.first?.alpha = 0.0 // hide dots of library
-        
-        let newDotRect = CGRect(x: (frame.width - eventDotSize) / 2,
-                                y: eventDotSize / 2,
-                                width: 6,
-                                height: 6)
-
-        newDotView.frame = newDotRect
-        newDotView.backgroundColor = .white // {You want}
-        newDotView.layer.cornerRadius = eventDotSize / 1.5
-        eventIndicator.addSubview(newDotView)
+        self.eventLayer.frame = CGRect(x: self.contentView.bounds.minX, y: self.contentView.bounds.minY, width: 41, height: 30)
         
         if selectionType == .middle {
             self.eventLayer.path = UIBezierPath(rect: self.eventLayer.bounds).cgPath
         } else if selectionType == .leftBorder {
-            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.eventLayer.frame.width / 2, height: self.eventLayer.frame.width / 4)).cgPath
+            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.shapeLayer.frame.width / 2, height: self.shapeLayer.frame.width / 2)).cgPath
         } else if selectionType == .rightBorder {
-            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.eventLayer.frame.width / 2, height: self.eventLayer.frame.width / 2)).cgPath
+            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.shapeLayer.frame.width / 2, height: self.shapeLayer.frame.width / 2)).cgPath
         } else if selectionType == .single {
             let diameter: CGFloat = min(self.eventLayer.frame.height, self.eventLayer.frame.width)
-            self.eventLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2,
+            self.eventLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2 + 1,
                                                                y: self.contentView.frame.height / 2 - diameter / 2,
-                                                               width: diameter,
-                                                               height: diameter)).cgPath
-        } else if selectionType == .none {
-            let diameter: CGFloat = min(self.eventLayer.frame.height, self.eventLayer.frame.width)
-            self.eventLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2,
-                                                               y: self.contentView.frame.height / 2 - diameter / 2,
-                                                               width: 30,
-                                                               height: 30)).cgPath
+                                                               width: self.shapeLayer.frame.height,
+                                                               height: self.shapeLayer.frame.width)).cgPath
         }
-    }
-}
+    }}
