@@ -4,8 +4,9 @@ import RxSwift
 
 class ScheduleViewController: UIViewController {
     private var firstDate: Date?
-    var holidayArr = ["2020-09-10","2020-09-20","2020-09-24"]
-    var arr = ["2020-09-21","2020-09-22"]
+    var holidayArr = ["2020-09-10","2020-09-24"]
+    var arr = ["2020-09-10","2020-09-21","2020-09-22"]
+    var redArr = ["2020-09-20"]
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -34,9 +35,6 @@ class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
-        timeScheduleView.isHidden = true
-        calendarView.delegate = self
-        calendarView.dataSource = self
     }
     
     @IBAction func changeScheduleAndAcademicSchedule (_ sender: UIButton) {
@@ -50,13 +48,11 @@ class ScheduleViewController: UIViewController {
     
     @IBAction func previousBtn (_ sender: UIButton) {
         let previous = Calendar.current.date(byAdding: .month, value: -1, to: calendarView.currentPage)!
-        yearLabel.text = dateFormatter.string(from: previous)
         self.calendarView.setCurrentPage(previous, animated: true)
     }
     
     @IBAction func nextBtn (_ sender: UIButton) {
         let next = Calendar.current.date(byAdding: .month, value: +1, to: calendarView.currentPage)!
-        yearLabel.text = dateFormatter.string(from: next)
         self.calendarView.setCurrentPage(next, animated: true)
     }
 }
@@ -69,14 +65,27 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         let a = dateFormatter2.string(from: date)
         let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
         let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
-        
-        if holidayArr.contains(a) || arr.contains(a) {
+
+        if holidayArr.contains(a) && arr.contains(a) {
+            return 2
+        }
+        if holidayArr.contains(a) {
             if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
                 return 0
             } else if holidayArr.contains(nextDate) {
                 return 0
             } else {
-                calendarView.appearance.eventOffset = CGPoint(x: 15, y: -35)
+                calendarView.appearance.eventOffset = CGPoint(x: 13, y: -35)
+                return 1
+            }
+        }
+        
+        if arr.contains(a) {
+            if arr.contains(previousDate) && arr.contains(nextDate) {
+                return 0
+            } else if arr.contains(nextDate) {
+                return 0
+            } else {
                 return 1
             }
         }
@@ -89,6 +98,7 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
     
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
         self.configure(cell: cell, for: date, at: position)
     }
     
@@ -152,6 +162,51 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         }
     }
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        let strDate = dateFormatter2.string(from: date)
+        if arr.contains(strDate) {
+            return [.green, .purple]
+        }
+        if holidayArr.contains(strDate) {
+            return [.purple]
+        }
+        return [.clear]
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        let strDate = dateFormatter2.string(from: date)
+        if arr.contains(strDate) || holidayArr.contains(strDate) {
+            return .black
+        }
+        if redArr.contains(strDate) {
+            return .red
+        }
+        return .init(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        let strDate = dateFormatter2.string(from: date)
+        if arr.contains(strDate) {
+            return [.green, .purple]
+        }
+        if holidayArr.contains(strDate) {
+            return [.purple]
+        }
+        return [.clear]
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        let strDate = dateFormatter2.string(from: date)
+        if redArr.contains(strDate) {
+            return .init(red: 243/255, green: 4/255, blue: 3/255, alpha: 1)
+        }
+        return nil
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        self.yearLabel.text = dateFormatter.string(from: calendar.currentPage)
+    }
+    
     func tableViewSetting() {
         self.tableView.tableFooterView = UIView.init(frame: .infinite)
         self.tableView.backgroundColor = UIColor(displayP3Red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
@@ -170,7 +225,10 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.configureAppearance()
+        timeScheduleView.isHidden = true
+        self.yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
         calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
+        
     }
     
     func setTableViewHeight(count: Int = 1) -> CGFloat {
@@ -178,6 +236,7 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
     
     func changeHidden(value: Bool) {
+        yearLabel.isHidden = !value
         leftBtn.isHidden = !value
         rightBtn.isHidden = !value
         calendarView.isHidden = !value
@@ -186,6 +245,4 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
     }
 }
 
-// 스와이프해도 날짜 바뀌게
-// 초록색 이벤트
-// 날짜 눌렀을 때 
+// 날짜 눌렀을 때 테이블 뷰
