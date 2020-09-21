@@ -1,6 +1,7 @@
 import UIKit
 
-class TimecScheduleXib: UIView {
+class TimeScheduleXib: UIView {
+    private let xibName = "TimecScheduleXib"
     
     @IBOutlet var mondayLabels: [UILabel]!
     @IBOutlet var tuesdayLabels: [UILabel]!
@@ -10,18 +11,24 @@ class TimecScheduleXib: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        self.commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.commonInit()
     }
     
-    func commonInit() {
-        guard let xibName = NSStringFromClass(self.classForCoder).components(separatedBy: ".").last else { return }
+    //    func commonInit() {
+    //        guard let xibName = NSStringFromClass(self.classForCoder).components(separatedBy: ".").last else { return }
+    //        let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView
+    //        view.frame = self.bounds
+    //        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    //        self.addSubview(view)
+    //    }
+    private func commonInit(){
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
     }
 }
