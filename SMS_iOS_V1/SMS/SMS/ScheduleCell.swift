@@ -1,23 +1,14 @@
-//
-//  ScheduleCell.swift
-//  
-//
-//  Created by 이현욱 on 2020/09/21.
-//
-
 import UIKit
 
 class ScheduleCell: UITableViewCell {
 
+    @IBOutlet var scheduleColorView: UIView!
+    @IBOutlet var scheduleInfoLbl: UILabel!
+    @IBOutlet var scheduleDateLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
