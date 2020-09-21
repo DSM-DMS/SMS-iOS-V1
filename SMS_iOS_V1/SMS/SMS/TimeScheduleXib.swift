@@ -1,7 +1,7 @@
 import UIKit
 
 class TimeScheduleXib: UIView {
-    private let xibName = "TimecScheduleXib"
+    private let xibName = "TimeScheduleXib"
     
     @IBOutlet var mondayLabels: [UILabel]!
     @IBOutlet var tuesdayLabels: [UILabel]!
