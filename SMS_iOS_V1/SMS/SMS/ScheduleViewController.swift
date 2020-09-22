@@ -32,6 +32,10 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var timeScheduleView: TimeScheduleXib!
     
     override func viewDidLoad() {
+        self.changeViewBtn.addShadow(offset: CGSize(width: 0, height: 2.5),
+                                     color: .gray,
+                                     radius: CGFloat(2),
+                                     opacity: 0.5)
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
@@ -59,7 +63,7 @@ class ScheduleViewController: UIViewController {
 
 //MARK - extension
 
-extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let a = dateFormatter2.string(from: date)
@@ -223,13 +227,10 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
 
 extension ScheduleViewController {
     func tableViewSetting() {
-        self.tableView.clipsToBounds = true
-        self.tableView.layer.cornerRadius = 20
-        self.tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         tableView.separatorStyle = .none
-        tableView.clipsToBounds = true
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addShadow(offset: CGSize(width: 0, height: 3), color: .black, radius: 3, opacity: 0.5)
     }
     
     func changeHidden(value: Bool) {
@@ -248,16 +249,45 @@ extension ScheduleViewController {
 
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if redArr.count == 1 {
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            tableView.estimatedRowHeight = setTableViewHeight()
+            tableView.invalidateIntrinsicContentSize()
+        } else if indexPath.row == holidayArr.count - 1 {
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            tableView.estimatedRowHeight = setTableViewHeight(count: 2)
+            tableView.invalidateIntrinsicContentSize()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let nibName = UINib(nibName: "ScheduleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "scheduleCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! ScheduleCell
-        cell.scheduleDateLbl.text = "asd"
+        cell.scheduleDateLbl.text = "7/10"
         return cell
     }
 }
-// 날짜 눌렀을 때 테이블 뷰
 
+extension UIView {
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float)
+    {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor =  backgroundCGColor
+    }
+}
