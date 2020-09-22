@@ -22,6 +22,7 @@ class ScheduleViewController: UIViewController {
         return formatter
     }()
     
+    @IBOutlet var bottomLayout: NSLayoutConstraint!
     @IBOutlet weak var headerView: FSCalendarHeaderView!
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
@@ -231,6 +232,8 @@ extension ScheduleViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.addShadow(offset: CGSize(width: 0, height: 3), color: .black, radius: 3, opacity: 0.5)
+        tableView.layer.cornerRadius = 17
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
     func changeHidden(value: Bool) {
@@ -249,7 +252,7 @@ extension ScheduleViewController {
 
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -257,14 +260,12 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            tableView.estimatedRowHeight = setTableViewHeight()
-            tableView.invalidateIntrinsicContentSize()
+            bottomLayout.isActive = false
         } else if indexPath.row == holidayArr.count - 1 {
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            tableView.estimatedRowHeight = setTableViewHeight(count: 2)
-            tableView.invalidateIntrinsicContentSize()
+            bottomLayout.isActive = true
         }
     }
     
