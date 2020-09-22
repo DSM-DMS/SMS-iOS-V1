@@ -8,9 +8,9 @@
 
 import UIKit
 
-class OutGoingPopDeedViewController: OutGoingViewUIExtention {
+class OutGoingPopDeedViewController: UIViewController {
     
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var backgroundView: OutGoingViewUIExtention!
     
     override func viewDidLoad() {
         super.viewDidLoad()
