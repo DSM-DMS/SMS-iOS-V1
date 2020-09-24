@@ -1,8 +1,8 @@
 import UIKit
 
 class TabbarCell: UICollectionViewCell {
-
-    @IBOutlet var imageVIew: UIImageView!
+    
+    @IBOutlet var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
