@@ -19,6 +19,7 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
     lazy var vcArr = [loginVC, outGoing, notice, mypage]
     
     
+    
     //MARK: Outltes
     var pageCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -73,6 +74,7 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
+        
         return cell
     }
     
@@ -86,11 +88,11 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = vcArr[indexPath.row]
-        vc.view.frame = UIApplication.shared.windows[0].frame
-        vc.didMove(toParent: self)
-        self.addChild(vc)
-        self.view.addSubview(vc.view)
+//        let vc = vcArr[indexPath.row]
+//        vc.view.frame = UIApplication.shared.windows[0].frame
+//        vc.didMove(toParent: self)
+//        self.addChild(vc)
+//        self.view.addSubview(vc.view)
     }
 //
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -108,6 +110,15 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
+
+extension MainVC: PageCellProtocol {
+    func willAdd(_ childViewController: UIViewController, at index: Int) {
+        <#code#>
+    }
+    
+    
+}
+
 
 extension NSObject {
     static var reusableIdentifier: String {
