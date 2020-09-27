@@ -72,7 +72,7 @@ class CustomMenuBar: UIView {
                                      radius: CGFloat(2),
                                      opacity: 0.5)
         self.addSubview(indicatorView)
-        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 4 + 30)
+        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 4)
         indicatorViewWidthConstraint.isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
         indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
@@ -101,7 +101,7 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4 
+        let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4
         indicatorViewLeadingConstraint.constant = x
         delegate?.customMenuBar(scrollTo: indexPath.row)
         guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else {return}
@@ -166,6 +166,3 @@ enum ViewControllerNames: String {
     case mypage = "MypageViewController"
     case login = "LoginViewController"
 }
-
-
-//let vcNames = ["LoginViewController", "OutGoingViewController", "NoticeViewController", "MypageViewController"]
