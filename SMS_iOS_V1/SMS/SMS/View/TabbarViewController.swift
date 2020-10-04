@@ -10,7 +10,6 @@ import UIKit
 
 class MainVC: UIViewController, CustomMenuBarDelegate{
     
-    let imageNames = ["calendar","outgoing","notice","mypage"]
     let loginVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(identifier: "LoginViewController")
     let outGoing = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
     let notice = UIStoryboard(name: "Notice", bundle: .main).instantiateViewController(identifier: "NoticeViewController")
@@ -74,7 +73,6 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
-        
         return cell
     }
     
@@ -113,7 +111,7 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
 
 extension MainVC: PageCellProtocol {
     func willAdd(_ childViewController: UIViewController, at index: Int) {
-        <#code#>
+        print(1)
     }
     
     

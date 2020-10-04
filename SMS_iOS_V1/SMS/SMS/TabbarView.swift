@@ -14,6 +14,8 @@ protocol CustomMenuBarDelegate: class {
 
 class CustomMenuBar: UIView {
     
+    
+    let imageNames = ["calendar","outgoing","notice","mypage"]
     let storyboardNames: [Int:String] = [0:"Login",1:"OutGoing",2:"Notice",3:"MyPage"]
     let viewcontrollerNames: [Int:String] = [0:"LoginViewController",1:"OutGoingViewController",2:"NoticeViewController",3:"MypageViewController"]
     
@@ -87,7 +89,7 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
-//        cell.imageView.image = UIImage(named: imageNames[indexPath.item])
+        cell.imageView.image = UIImage(named: imageNames[indexPath.item])
         return cell
     }
     
