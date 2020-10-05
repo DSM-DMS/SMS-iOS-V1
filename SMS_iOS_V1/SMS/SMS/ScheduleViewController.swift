@@ -256,7 +256,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if redArr.count == 1 {
+        if redArr.count == 2 {
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
@@ -292,3 +292,7 @@ extension UIView {
         layer.backgroundColor =  backgroundCGColor
     }
 }
+
+// timeschedulexib 화, 목 오토레이아웃
+// 달력 이벤트, 연속으로 이어져있는 셀 크기
+// 테이블 뷰 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,24 +14,24 @@
             <objects>
                 <viewController id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnw-tl-eUh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DH7-oZ-gUT">
-                                <rect key="frame" x="44" y="49" width="287" height="338"/>
+                                <rect key="frame" x="44" y="93" width="326" height="384"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHN-rC-5Z9" customClass="FSCalendar">
-                                        <rect key="frame" x="0.0" y="63" width="287" height="275"/>
+                                        <rect key="frame" x="0.0" y="63" width="326" height="321"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfI-X1-O38">
-                                                <rect key="frame" x="0.0" y="51" width="287" height="0.5"/>
+                                                <rect key="frame" x="0.0" y="51" width="326" height="0.5"/>
                                                 <color key="backgroundColor" red="0.71764705882352942" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="X6g-cT-ila"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="FfI-X1-O38" firstAttribute="leading" secondItem="WHN-rC-5Z9" secondAttribute="leading" id="Cbm-Na-kJB"/>
                                             <constraint firstItem="FfI-X1-O38" firstAttribute="top" secondItem="WHN-rC-5Z9" secondAttribute="top" constant="51" id="gV7-Bm-GEm"/>
@@ -64,10 +66,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WP6-FK-pmi" customClass="FSCalendarHeaderView">
-                                        <rect key="frame" x="23" y="0.0" width="241" height="43"/>
+                                        <rect key="frame" x="23" y="0.0" width="280" height="43"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTw-iz-Wz3">
-                                                <rect key="frame" x="98.5" y="11" width="44.5" height="21"/>
+                                                <rect key="frame" x="117.5" y="11" width="45" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -83,7 +85,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec3-8h-Iej">
-                                                <rect key="frame" x="214" y="10.5" width="9" height="22"/>
+                                                <rect key="frame" x="253" y="10.5" width="9" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ec3-8h-Iej" secondAttribute="height" multiplier="9:22" id="t4S-rz-1Gg"/>
                                                 </constraints>
@@ -93,7 +95,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="lTw-iz-Wz3" firstAttribute="centerX" secondItem="WP6-FK-pmi" secondAttribute="centerX" id="8IX-Wv-k4y"/>
                                             <constraint firstItem="lTw-iz-Wz3" firstAttribute="centerY" secondItem="WP6-FK-pmi" secondAttribute="centerY" id="DcS-cH-nEs"/>
@@ -105,7 +107,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="WP6-FK-pmi" firstAttribute="top" secondItem="DH7-oZ-gUT" secondAttribute="top" id="12w-UY-Dm6"/>
                                     <constraint firstAttribute="width" secondItem="DH7-oZ-gUT" secondAttribute="height" multiplier="287:338" id="9if-UZ-JZM"/>
@@ -118,7 +120,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw">
-                                <rect key="frame" x="289" y="561" width="50" height="50"/>
+                                <rect key="frame" x="328" y="756" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="YHr-FL-lOt"/>
@@ -136,19 +138,20 @@
                                     <action selector="changeScheduleAndAcademicSchedule:" destination="r8e-zf-NCH" eventType="touchUpInside" id="7HO-Io-5Oe"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="-276" y="618" width="325" height="349.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09O-B4-tO3">
+                                <rect key="frame" x="40" y="485" width="334" height="213"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="25" y="94" width="364" height="391"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0JY-3A-AAr" secondAttribute="height" multiplier="334:359" id="WQ0-t2-CaF"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09O-B4-tO3">
-                                <rect key="frame" x="40" y="395" width="295" height="115"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="56O-W6-qfN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="0rQ-5c-2l6"/>
                             <constraint firstItem="09O-B4-tO3" firstAttribute="top" secondItem="DH7-oZ-gUT" secondAttribute="bottom" constant="8" id="5hB-LU-lqU"/>
@@ -156,16 +159,17 @@
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="44" id="HtP-uL-W3U"/>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="I9u-uR-NwM"/>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="25" id="Nd8-lu-KVH"/>
-                            <constraint firstItem="0JY-3A-AAr" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="100" id="gXK-vu-ms9"/>
-                            <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" secondItem="09O-B4-tO3" secondAttribute="bottom" constant="51" id="kAf-2s-nuy"/>
+                            <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" secondItem="09O-B4-tO3" secondAttribute="bottom" constant="58" id="gWZ-4t-jG1"/>
+                            <constraint firstItem="0JY-3A-AAr" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="50" id="gXK-vu-ms9"/>
+                            <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" secondItem="09O-B4-tO3" secondAttribute="bottom" priority="900" constant="120" id="kAf-2s-nuy"/>
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="49" id="ktz-3J-OL8"/>
                             <constraint firstItem="09O-B4-tO3" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="mfM-Ew-GUv"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="Fpf-hx-FBw" secondAttribute="bottom" constant="56" id="sF4-pq-Klf"/>
                             <constraint firstItem="09O-B4-tO3" firstAttribute="leading" secondItem="nnw-tl-eUh" secondAttribute="leading" constant="40" id="xeU-k2-vSC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="56O-W6-qfN"/>
                     </view>
                     <connections>
+                        <outlet property="bottomLayout" destination="gWZ-4t-jG1" id="fwA-Wm-y8b"/>
                         <outlet property="calendarView" destination="WHN-rC-5Z9" id="EUI-5d-aiE"/>
                         <outlet property="changeViewBtn" destination="Fpf-hx-FBw" id="SgH-E4-pEK"/>
                         <outlet property="headerView" destination="WP6-FK-pmi" id="xxJ-1t-zi4"/>
@@ -185,5 +189,8 @@
         <image name="change" width="24" height="24"/>
         <image name="leftBtn" width="9" height="15"/>
         <image name="rightBtn" width="9" height="15"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

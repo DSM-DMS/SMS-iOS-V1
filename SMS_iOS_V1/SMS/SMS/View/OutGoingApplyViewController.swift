@@ -8,12 +8,7 @@
 
 import UIKit
 class OutGoingApplyViewController: UIViewController {
-    
-    
-<<<<<<< HEAD
-    
-=======
->>>>>>> OutGoingApplyCompleteUI
+
     @IBOutlet weak var applyButton: UIButton!
     
     override func viewDidLoad() {
