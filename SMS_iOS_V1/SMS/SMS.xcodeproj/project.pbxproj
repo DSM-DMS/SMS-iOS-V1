@@ -16,6 +16,7 @@
 		479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB1372502522C009A8B08 /* SceneDelegate.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 479DB1402502522E009A8B08 /* LaunchScreen.storyboard */; };
+		D6148AF4252B5813009AD0A0 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6148AF3252B5813009AD0A0 /* UIView.swift */; };
 		D664E1A1252A0A09007F0253 /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E191252A0A08007F0253 /* OutGoingAlertViewController.swift */; };
 		D664E1A2252A0A09007F0253 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E192252A0A08007F0253 /* MypageViewController.swift */; };
 		D664E1A3252A0A09007F0253 /* OutGoingApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E193252A0A08007F0253 /* OutGoingApplyViewController.swift */; };
@@ -55,6 +56,7 @@
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6389DA4C65B153958AB64D8F /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB747EAB641ED86BA323425 /* Pods-SMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.debug.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.debug.xcconfig"; sourceTree = "<group>"; };
+		D6148AF3252B5813009AD0A0 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D664E191252A0A08007F0253 /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
 		D664E192252A0A08007F0253 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		D664E193252A0A08007F0253 /* OutGoingApplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingApplyViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		479DB1342502522C009A8B08 /* SMS */ = {
 			isa = PBXGroup;
 			children = (
+				D6148AF2252B57E3009AD0A0 /* Extension */,
 				471310232502540300ED348C /* Model */,
 				47131022250253FD00ED348C /* ViewModel */,
 				47131021250253F300ED348C /* View */,
@@ -191,6 +194,14 @@
 				DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D6148AF2252B57E3009AD0A0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D6148AF3252B5813009AD0A0 /* UIView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 				D664E1AC252A0A09007F0253 /* MypageChangePWViewController.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
 				D664E1AD252A0A09007F0253 /* OutGoingCompletedViewController.swift in Sources */,
+				D6148AF4252B5813009AD0A0 /* UIView.swift in Sources */,
 				D664E1A7252A0A09007F0253 /* OutGoingLogViewController.swift in Sources */,
 				D664E1AE252A0A09007F0253 /* NoticeViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
