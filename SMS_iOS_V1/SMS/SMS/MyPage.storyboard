@@ -161,8 +161,7 @@
                             <constraint firstItem="0KR-ds-CVW" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="z2I-ML-R1z"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="mypage" id="ALW-Ty-BJx"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="introduceDevButton" destination="D19-bQ-nnW" id="y2d-7M-wmK"/>
                         <outlet property="logOutButton" destination="moY-7G-4RF" id="wXm-jZ-eeM"/>
@@ -546,7 +545,6 @@
     </scenes>
     <resources>
         <image name="back" width="20" height="12.5"/>
-        <image name="mypage" width="24" height="24"/>
         <image name="profile" width="109" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

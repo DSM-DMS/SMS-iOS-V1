@@ -155,7 +155,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="notice" id="sHF-2k-nPR"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-hb-feZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

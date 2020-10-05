@@ -185,7 +185,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="outgoing" id="gXd-Vr-pt9"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="outGoingApplyButton" destination="ChK-Zg-Rm6" id="9k7-dP-ACv"/>
                         <outlet property="outGoingDeedButton" destination="YpK-5T-qOt" id="cJG-VM-6n8"/>
