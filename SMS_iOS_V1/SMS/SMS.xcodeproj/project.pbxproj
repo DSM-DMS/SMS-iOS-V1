@@ -36,7 +36,35 @@
 		479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB1372502522C009A8B08 /* SceneDelegate.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 479DB1402502522E009A8B08 /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		47CDD0C6250E62CC000ADF54 /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CDD0C5250E62CC000ADF54 /* OutGoingNoticeViewController.swift */; };
+=======
+		D62D8C162518D9B200548FBF /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C0D2518D9B200548FBF /* Notice.storyboard */; };
+		D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */; };
+		D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */; };
+		D62D8C192518D9B200548FBF /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C102518D9B200548FBF /* MyPage.storyboard */; };
+		D62D8C1A2518D9B200548FBF /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C112518D9B200548FBF /* Schedule.storyboard */; };
+		D62D8C1B2518D9B200548FBF /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C122518D9B200548FBF /* ScheduleCell.xib */; };
+		D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */; };
+		D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C142518D9B200548FBF /* ScheduleCell.swift */; };
+		D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */; };
+		D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */; };
+		D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */; };
+		D62D8C302518DABE00548FBF /* OutGoingDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C212518DABD00548FBF /* OutGoingDeedViewController.swift */; };
+		D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */; };
+		D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */; };
+		D62D8C332518DABE00548FBF /* MypageNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C242518DABD00548FBF /* MypageNoticeDetailViewController.swift */; };
+		D62D8C342518DABE00548FBF /* OutGoingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */; };
+		D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */; };
+		D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */; };
+		D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C282518DABD00548FBF /* MypageViewController.swift */; };
+		D62D8C382518DABE00548FBF /* OutGoingLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C292518DABE00548FBF /* OutGoingLogTableViewCell.swift */; };
+		D62D8C392518DABE00548FBF /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2A2518DABE00548FBF /* OutGoingAlertViewController.swift */; };
+		D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */; };
+		D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */; };
+		D62D8C3F2518EF7900548FBF /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */; };
+		D6DDAB7F25198ABA008489FF /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */; };
+>>>>>>> schedule
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +101,31 @@
 		47CDD0C5250E62CC000ADF54 /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
 		6389DA4C65B153958AB64D8F /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB747EAB641ED86BA323425 /* Pods-SMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.debug.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.debug.xcconfig"; sourceTree = "<group>"; };
+		D62D8C0D2518D9B200548FBF /* Notice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleXib.swift; sourceTree = "<group>"; };
+		D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		D62D8C102518D9B200548FBF /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		D62D8C112518D9B200548FBF /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		D62D8C122518D9B200548FBF /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		D62D8C142518D9B200548FBF /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangePWAlertViewController.swift; sourceTree = "<group>"; };
+		D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
+		D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
+		D62D8C212518DABD00548FBF /* OutGoingDeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingDeedViewController.swift; sourceTree = "<group>"; };
+		D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingApplyViewController.swift; sourceTree = "<group>"; };
+		D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewController.swift; sourceTree = "<group>"; };
+		D62D8C242518DABD00548FBF /* MypageNoticeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageNoticeDetailViewController.swift; sourceTree = "<group>"; };
+		D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingLogViewController.swift; sourceTree = "<group>"; };
+		D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewController.swift; sourceTree = "<group>"; };
+		D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageIntroduceDevViewController.swift; sourceTree = "<group>"; };
+		D62D8C282518DABD00548FBF /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		D62D8C292518DABE00548FBF /* OutGoingLogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingLogTableViewCell.swift; sourceTree = "<group>"; };
+		D62D8C2A2518DABE00548FBF /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
+		D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
+		D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeScheduleXib.xib; path = "/Users/ihyun_wook/Documents/GitHub/SMS-iOS-V1/SMS_iOS_V1/SMS/SMS/TimeScheduleXib.xib"; sourceTree = "<absolute>"; };
+		D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +144,21 @@
 		47131021250253F300ED348C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */,
+				D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */,
+				D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */,
+				D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */,
+				D62D8C242518DABD00548FBF /* MypageNoticeDetailViewController.swift */,
+				D62D8C282518DABD00548FBF /* MypageViewController.swift */,
+				D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */,
+				D62D8C2A2518DABE00548FBF /* OutGoingAlertViewController.swift */,
+				D62D8C292518DABE00548FBF /* OutGoingLogTableViewCell.swift */,
+				D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */,
+				D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */,
+				D62D8C212518DABD00548FBF /* OutGoingDeedViewController.swift */,
+				D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */,
+				D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */,
+				D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */,
 				47131024250255C900ED348C /* LoginViewController.swift */,
 				477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */,
 				4715936A25122AD900D84F85 /* OutGoingApplyViewController.swift */,
@@ -115,6 +183,7 @@
 		47131022250253FD00ED348C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -165,6 +234,15 @@
 				479DB1352502522C009A8B08 /* AppDelegate.swift */,
 				479DB1372502522C009A8B08 /* SceneDelegate.swift */,
 				479DB13E2502522E009A8B08 /* Assets.xcassets */,
+				D62D8C102518D9B200548FBF /* MyPage.storyboard */,
+				D62D8C0D2518D9B200548FBF /* Notice.storyboard */,
+				D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */,
+				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
+				D62D8C142518D9B200548FBF /* ScheduleCell.swift */,
+				D62D8C122518D9B200548FBF /* ScheduleCell.xib */,
+				D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */,
+				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
+				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,
 				479DB1402502522E009A8B08 /* LaunchScreen.storyboard */,
 				479DB1432502522E009A8B08 /* Info.plist */,
 				4713101F250253C000ED348C /* Login.storyboard */,
@@ -253,11 +331,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				47131020250253C000ED348C /* Login.storyboard in Resources */,
+<<<<<<< HEAD
 				4766CA222510D0170060B330 /* MyPage.storyboard in Resources */,
 				4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */,
+=======
+				D6DDAB7F25198ABA008489FF /* TimeScheduleXib.xib in Resources */,
+>>>>>>> schedule
 				479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */,
+				D62D8C1B2518D9B200548FBF /* ScheduleCell.xib in Resources */,
+				D62D8C162518D9B200548FBF /* Notice.storyboard in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
+				D62D8C192518D9B200548FBF /* MyPage.storyboard in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
+				D62D8C1A2518D9B200548FBF /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +409,23 @@
 				471593692512209A00D84F85 /* MypageUIExtention.swift in Sources */,
 				4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */,
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
+				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
+				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
+				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
+				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
+				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
+				D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */,
+				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
+				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
+				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
+				D62D8C302518DABE00548FBF /* OutGoingDeedViewController.swift in Sources */,
+				D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */,
+				D62D8C382518DABE00548FBF /* OutGoingLogTableViewCell.swift in Sources */,
+				D62D8C342518DABE00548FBF /* OutGoingLogViewController.swift in Sources */,
+				D62D8C392518DABE00548FBF /* OutGoingAlertViewController.swift in Sources */,
 				479DB1362502522C009A8B08 /* AppDelegate.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
+<<<<<<< HEAD
 				471593652512207200D84F85 /* OutGoingUIExtention.swift in Sources */,
 				477CAB5D250F9CBB005B5137 /* OutGoingDeedViewController.swift in Sources */,
 				4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */,
@@ -333,6 +434,15 @@
 				4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */,
 				4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */,
 				4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */,
+=======
+				D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */,
+				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
+				D62D8C3F2518EF7900548FBF /* ScheduleViewModel.swift in Sources */,
+				D62D8C332518DABE00548FBF /* MypageNoticeDetailViewController.swift in Sources */,
+				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
+				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
+				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
+>>>>>>> schedule
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

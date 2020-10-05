@@ -8,9 +8,14 @@
 
 import UIKit
 class OutGoingApplyViewController: UIViewController {
+<<<<<<< HEAD
     
 
     @IBOutlet weak var applyButton: OutGoingButtonUIExtention!
+=======
+
+    @IBOutlet weak var applyButton: UIButton!
+>>>>>>> schedule
     
     override func viewDidLoad() {
         super.viewDidLoad()

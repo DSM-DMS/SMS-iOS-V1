@@ -22,6 +22,7 @@ class ScheduleViewController: UIViewController {
         return formatter
     }()
     
+    @IBOutlet var bottomLayout: NSLayoutConstraint!
     @IBOutlet weak var headerView: FSCalendarHeaderView!
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
@@ -29,9 +30,13 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var changeViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var timeScheduleView: TimecScheduleXib!
+    @IBOutlet weak var timeScheduleView: TimeScheduleXib!
     
     override func viewDidLoad() {
+        self.changeViewBtn.addShadow(offset: CGSize(width: 0, height: 2.5),
+                                     color: .gray,
+                                     radius: CGFloat(2),
+                                     opacity: 0.5)
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
@@ -59,13 +64,13 @@ class ScheduleViewController: UIViewController {
 
 //MARK - extension
 
-extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let a = dateFormatter2.string(from: date)
         let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
         let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
-
+        
         if holidayArr.contains(a) && arr.contains(a) {
             return 2
         }
@@ -207,32 +212,28 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         self.yearLabel.text = dateFormatter.string(from: calendar.currentPage)
     }
     
-    func tableViewSetting() {
-        self.tableView.tableFooterView = UIView.init(frame: .infinite)
-        self.tableView.backgroundColor = UIColor(displayP3Red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-        self.tableView.clipsToBounds = true
-        self.tableView.layer.cornerRadius = 20
-        self.tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-    }
-    
     func calendarSetting() {
         let ca = calendarView.appearance
         ca.headerMinimumDissolvedAlpha = 0.0;
         ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
-        ca.weekdayTextColor = .black
         calendarView.today = nil
         calendarView.placeholderType = .none
         calendarView.delegate = self
         calendarView.dataSource = self
-        calendarView.configureAppearance()
         timeScheduleView.isHidden = true
         self.yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
         calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
-        
     }
-    
-    func setTableViewHeight(count: Int = 1) -> CGFloat {
-        return CGFloat(Double(count) * 44.5)
+}
+
+extension ScheduleViewController {
+    func tableViewSetting() {
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.addShadow(offset: CGSize(width: 0, height: 3), color: .black, radius: 3, opacity: 0.5)
+        tableView.layer.cornerRadius = 17
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
     func changeHidden(value: Bool) {
@@ -243,6 +244,55 @@ extension ScheduleViewController:  FSCalendarDelegate, FSCalendarDataSource, FSC
         tableView.isHidden = !value
         timeScheduleView.isHidden = value
     }
+    
+    func setTableViewHeight(count: Int = 1) -> CGFloat {
+        return CGFloat(Double(count) * 44.5)
+    }
 }
 
-// 날짜 눌렀을 때 테이블 뷰
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if redArr.count == 2 {
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            bottomLayout.isActive = false
+        } else if indexPath.row == holidayArr.count - 1 {
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            bottomLayout.isActive = true
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let nibName = UINib(nibName: "ScheduleCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "scheduleCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! ScheduleCell
+        cell.scheduleDateLbl.text = "7/10"
+        return cell
+    }
+}
+
+extension UIView {
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float)
+    {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor =  backgroundCGColor
+    }
+}
+
+// timeschedulexib 화, 목 오토레이아웃
+// 달력 이벤트, 연속으로 이어져있는 셀 크기
+// 테이블 뷰 
