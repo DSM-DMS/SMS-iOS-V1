@@ -14,10 +14,9 @@ protocol CustomMenuBarDelegate: class {
 
 class CustomMenuBar: UIView {
     
-    
     let imageNames = ["calendar","outgoing","notice","mypage"]
-    let storyboardNames: [Int:String] = [0:"Login",1:"OutGoing",2:"Notice",3:"MyPage"]
-    let viewcontrollerNames: [Int:String] = [0:"LoginViewController",1:"OutGoingViewController",2:"NoticeViewController",3:"MypageViewController"]
+    var indicatorViewLeadingConstraint:NSLayoutConstraint!
+    var indicatorViewWidthConstraint: NSLayoutConstraint!
     
     weak var delegate: CustomMenuBarDelegate?
     override init(frame: CGRect) {
@@ -44,10 +43,7 @@ class CustomMenuBar: UIView {
         view.backgroundColor = .init(red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
         return view
     }()
-    //MARK: Properties
-    var indicatorViewLeadingConstraint:NSLayoutConstraint!
-    var indicatorViewWidthConstraint: NSLayoutConstraint!
-    //MARK: Setup Views
+    
     func setupCollectioView(){
         customTabBarCollectionView.delegate = self
         customTabBarCollectionView.dataSource = self
@@ -70,18 +66,17 @@ class CustomMenuBar: UIView {
         customTabBarCollectionView.layer.cornerRadius = 20
         customTabBarCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         customTabBarCollectionView.addShadow(offset: CGSize(width: 0, height: -2.5),
-                                     color: .gray,
-                                     radius: CGFloat(2),
-                                     opacity: 0.5)
+                                             color: .gray,
+                                             radius: CGFloat(2),
+                                             opacity: 0.5)
         self.addSubview(indicatorView)
-        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 4)
+        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
         indicatorViewWidthConstraint.isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
         indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         indicatorViewLeadingConstraint.isActive = true
         indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
 }
 
 //MARK:- UICollectionViewDelegate, DataSource
@@ -99,13 +94,13 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.frame.width / 4 , height: 62)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4
+        let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4 + 25
         indicatorViewLeadingConstraint.constant = x
         delegate?.customMenuBar(scrollTo: indexPath.row)
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else {return}
         cell.imageView.image = cell.imageView.image?.withRenderingMode(.alwaysTemplate)
         cell.imageView.tintColor = .init(red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
@@ -116,8 +111,6 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.imageView.image = cell.imageView.image?.withRenderingMode(.alwaysTemplate)
         cell.imageView.tintColor = .init(red: 108/255, green: 108/255, blue: 108/255, alpha: 1)
     }
-    
-    
 }
 //MARK:- UICollectionViewDelegateFlowLayout
 extension CustomMenuBar: UICollectionViewDelegateFlowLayout {
@@ -128,14 +121,6 @@ extension CustomMenuBar: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-    }
-}
-
-extension CustomMenuBar {
-    func changeVC<T>(_ storyBoardIdentifier: String ,_ identifier: String) -> T? {
-        let storyboard = UIStoryboard.init(name: storyBoardIdentifier, bundle: .main)
-        guard let vc = storyboard.instantiateViewController(identifier: identifier) as? T else { return nil}
-        return vc
     }
 }
 
@@ -154,17 +139,3 @@ extension UIView {
     }
 }
 
-enum StoryboardNames: String {
-    case outgoing = "OutGoing"
-    case notice = "Notice"
-    case mypage = "MyPage"
-//    case schedule = "Schedule"
-    case login = "Login"
-}
-
-enum ViewControllerNames: String {
-    case outgoing = "OutGoingViewController"
-    case notice = "NoticeViewController"
-    case mypage = "MypageViewController"
-    case login = "LoginViewController"
-}

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,22 +16,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVU-uK-H46">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                    </view>
-                </subviews>
             </view>
-            <constraints>
-                <constraint firstItem="aVU-uK-H46" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4LS-6F-ZP4"/>
-                <constraint firstAttribute="bottom" secondItem="aVU-uK-H46" secondAttribute="bottom" id="hI7-OQ-X7B"/>
-                <constraint firstItem="aVU-uK-H46" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="l5O-GC-vbF"/>
-                <constraint firstAttribute="trailing" secondItem="aVU-uK-H46" secondAttribute="trailing" id="pn9-O6-Dq2"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <connections>
-                <outlet property="vcView" destination="aVU-uK-H46" id="TG3-HS-Ix0"/>
-            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </collectionViewCell>
     </objects>
