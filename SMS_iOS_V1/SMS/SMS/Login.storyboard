@@ -90,10 +90,13 @@
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpLoginButton:" destination="eCz-AV-7Gd" eventType="touchUpInside" id="V9v-Oc-LsJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LIg-Gr-D35" firstAttribute="top" secondItem="5Ul-mV-asL" secondAttribute="bottom" constant="86" id="0fW-Kq-W6I"/>
                             <constraint firstItem="LIg-Gr-D35" firstAttribute="leading" secondItem="cno-AX-fPV" secondAttribute="trailing" constant="15" id="34A-re-d4t"/>

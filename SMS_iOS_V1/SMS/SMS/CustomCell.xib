@@ -28,9 +28,8 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="qOw-NT-BTT" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="BB5-bJ-aBy"/>
-                <constraint firstItem="qOw-NT-BTT" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="10" id="Ki3-0h-C50"/>
-                <constraint firstItem="qOw-NT-BTT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tGt-Dq-Cbo"/>
+                <constraint firstItem="qOw-NT-BTT" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Fn4-NX-2TK"/>
+                <constraint firstItem="qOw-NT-BTT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VXP-1M-NMl"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="qOw-NT-BTT" id="Bvk-SV-1lf"/>
