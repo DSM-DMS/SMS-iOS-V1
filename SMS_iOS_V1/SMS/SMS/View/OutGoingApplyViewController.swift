@@ -9,26 +9,12 @@
 import UIKit
 class OutGoingApplyViewController: UIViewController {
     
-    
-<<<<<<< HEAD
-    
-=======
->>>>>>> OutGoingApplyCompleteUI
-    @IBOutlet weak var applyButton: UIButton!
+
+    @IBOutlet weak var applyButton: OutGoingButtonUIExtention!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUi()
         
-    }
-    
-    func setupUi() {
-        
-        applyButton.layer.cornerRadius = 3
-        applyButton.layer.shadowColor = UIColor.lightGray.cgColor
-        applyButton.layer.shadowOpacity = 0.7
-        applyButton.layer.shadowOffset = CGSize(width: 0, height: 2)
-        applyButton.layer.shadowRadius = 2
     }
     
 }

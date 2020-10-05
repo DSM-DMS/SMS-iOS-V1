@@ -10,18 +10,12 @@ import UIKit
 
 class MypageNoticeDetailViewController: UIViewController {
     
-    @IBOutlet weak var mainTextView: UITextView!
+    @IBOutlet weak var mainTextView: NoticeMainTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         
     }
     
-    func setupUI() {
-        
-        mainTextView.isEditable = false
-        
-        
-    }
+
 }
