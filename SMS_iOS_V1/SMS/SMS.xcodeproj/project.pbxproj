@@ -10,17 +10,58 @@
 		22354C1F1A56CF2E0D2156E7 /* Pods_SMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6389DA4C65B153958AB64D8F /* Pods_SMS.framework */; };
 		47131020250253C000ED348C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Login.storyboard */; };
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
+		471593632512202300D84F85 /* LoginUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593622512202300D84F85 /* LoginUIExtention.swift */; };
+		471593652512207200D84F85 /* OutGoingUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593642512207200D84F85 /* OutGoingUIExtention.swift */; };
+		471593672512208400D84F85 /* NoticeUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593662512208400D84F85 /* NoticeUIExtention.swift */; };
+		471593692512209A00D84F85 /* MypageUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593682512209A00D84F85 /* MypageUIExtention.swift */; };
+		4715936B25122AD900D84F85 /* OutGoingApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715936A25122AD900D84F85 /* OutGoingApplyViewController.swift */; };
+		4720FE1E25118DDC00BAE75A /* MypageChangePWAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE1D25118DDC00BAE75A /* MypageChangePWAlertViewController.swift */; };
+		4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE1F2511923600BAE75A /* MypageLogoutViewController.swift */; };
+		4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE2125119A0600BAE75A /* MypageIntroduceDevViewController.swift */; };
+		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
+		4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE252511A31F00BAE75A /* NoticeViewController.swift */; };
+		4720FE282511B15600BAE75A /* MypageNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */; };
+		47523923250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */; };
+		47523925250E5C5A00CE0BAB /* OutGoingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */; };
+		47523927250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */; };
+		4766CA1E25107FE20060B330 /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */; };
+		4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */; };
+		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
+		4766CA242510D2D20060B330 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA232510D2D20060B330 /* MypageViewController.swift */; };
+		4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA252510F6210060B330 /* MypageChangePWViewController.swift */; };
+		477CAB5D250F9CBB005B5137 /* OutGoingDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CAB5C250F9CBB005B5137 /* OutGoingDeedViewController.swift */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
 		479DB1362502522C009A8B08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB1352502522C009A8B08 /* AppDelegate.swift */; };
 		479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB1372502522C009A8B08 /* SceneDelegate.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 479DB1402502522E009A8B08 /* LaunchScreen.storyboard */; };
+		47CDD0C6250E62CC000ADF54 /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CDD0C5250E62CC000ADF54 /* OutGoingNoticeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4713101F250253C000ED348C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		471593622512202300D84F85 /* LoginUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIExtention.swift; sourceTree = "<group>"; };
+		471593642512207200D84F85 /* OutGoingUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingUIExtention.swift; sourceTree = "<group>"; };
+		471593662512208400D84F85 /* NoticeUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeUIExtention.swift; sourceTree = "<group>"; };
+		471593682512209A00D84F85 /* MypageUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageUIExtention.swift; sourceTree = "<group>"; };
+		4715936A25122AD900D84F85 /* OutGoingApplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingApplyViewController.swift; sourceTree = "<group>"; };
+		4720FE1D25118DDC00BAE75A /* MypageChangePWAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWAlertViewController.swift; sourceTree = "<group>"; };
+		4720FE1F2511923600BAE75A /* MypageLogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewController.swift; sourceTree = "<group>"; };
+		4720FE2125119A0600BAE75A /* MypageIntroduceDevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageIntroduceDevViewController.swift; sourceTree = "<group>"; };
+		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		4720FE252511A31F00BAE75A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNoticeDetailViewController.swift; sourceTree = "<group>"; };
+		47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
+		47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogViewController.swift; sourceTree = "<group>"; };
+		47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogTableViewCell.swift; sourceTree = "<group>"; };
+		4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
+		4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
+		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		4766CA232510D2D20060B330 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		4766CA252510F6210060B330 /* MypageChangePWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewController.swift; sourceTree = "<group>"; };
+		477CAB5C250F9CBB005B5137 /* OutGoingDeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingDeedViewController.swift; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +70,7 @@
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1412502522E009A8B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47CDD0C5250E62CC000ADF54 /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
 		6389DA4C65B153958AB64D8F /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB747EAB641ED86BA323425 /* Pods-SMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.debug.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.debug.xcconfig"; sourceTree = "<group>"; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +93,21 @@
 			children = (
 				47131024250255C900ED348C /* LoginViewController.swift */,
 				477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */,
+				4715936A25122AD900D84F85 /* OutGoingApplyViewController.swift */,
+				47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */,
+				47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */,
+				47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */,
+				47CDD0C5250E62CC000ADF54 /* OutGoingNoticeViewController.swift */,
+				477CAB5C250F9CBB005B5137 /* OutGoingDeedViewController.swift */,
+				4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */,
+				4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */,
+				4766CA232510D2D20060B330 /* MypageViewController.swift */,
+				4766CA252510F6210060B330 /* MypageChangePWViewController.swift */,
+				4720FE1D25118DDC00BAE75A /* MypageChangePWAlertViewController.swift */,
+				4720FE1F2511923600BAE75A /* MypageLogoutViewController.swift */,
+				4720FE2125119A0600BAE75A /* MypageIntroduceDevViewController.swift */,
+				4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */,
+				4720FE252511A31F00BAE75A /* NoticeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -67,6 +124,17 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4715936125121FFB00D84F85 /* UIExtention */ = {
+			isa = PBXGroup;
+			children = (
+				471593622512202300D84F85 /* LoginUIExtention.swift */,
+				471593642512207200D84F85 /* OutGoingUIExtention.swift */,
+				471593662512208400D84F85 /* NoticeUIExtention.swift */,
+				471593682512209A00D84F85 /* MypageUIExtention.swift */,
+			);
+			path = UIExtention;
 			sourceTree = "<group>";
 		};
 		479DB1292502522C009A8B08 = {
@@ -92,6 +160,7 @@
 			children = (
 				471310232502540300ED348C /* Model */,
 				47131022250253FD00ED348C /* ViewModel */,
+				4715936125121FFB00D84F85 /* UIExtention */,
 				47131021250253F300ED348C /* View */,
 				479DB1352502522C009A8B08 /* AppDelegate.swift */,
 				479DB1372502522C009A8B08 /* SceneDelegate.swift */,
@@ -100,6 +169,8 @@
 				479DB1432502522E009A8B08 /* Info.plist */,
 				4713101F250253C000ED348C /* Login.storyboard */,
 				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
+				4766CA212510D0170060B330 /* MyPage.storyboard */,
+				4720FE2325119CE300BAE75A /* Notice.storyboard */,
 			);
 			path = SMS;
 			sourceTree = "<group>";
@@ -182,6 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				47131020250253C000ED348C /* Login.storyboard in Resources */,
+				4766CA222510D0170060B330 /* MyPage.storyboard in Resources */,
+				4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */,
 				479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
@@ -237,10 +310,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47523927250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift in Sources */,
+				4766CA1E25107FE20060B330 /* OutGoingAlertViewController.swift in Sources */,
+				471593672512208400D84F85 /* NoticeUIExtention.swift in Sources */,
+				4715936B25122AD900D84F85 /* OutGoingApplyViewController.swift in Sources */,
+				4720FE282511B15600BAE75A /* MypageNoticeDetailViewController.swift in Sources */,
+				47523923250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift in Sources */,
+				4766CA242510D2D20060B330 /* MypageViewController.swift in Sources */,
+				4720FE1E25118DDC00BAE75A /* MypageChangePWAlertViewController.swift in Sources */,
+				47CDD0C6250E62CC000ADF54 /* OutGoingNoticeViewController.swift in Sources */,
+				47523925250E5C5A00CE0BAB /* OutGoingLogViewController.swift in Sources */,
+				471593692512209A00D84F85 /* MypageUIExtention.swift in Sources */,
+				4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */,
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
 				479DB1362502522C009A8B08 /* AppDelegate.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
+				471593652512207200D84F85 /* OutGoingUIExtention.swift in Sources */,
+				477CAB5D250F9CBB005B5137 /* OutGoingDeedViewController.swift in Sources */,
+				4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
+				471593632512202300D84F85 /* LoginUIExtention.swift in Sources */,
+				4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */,
+				4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */,
+				4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

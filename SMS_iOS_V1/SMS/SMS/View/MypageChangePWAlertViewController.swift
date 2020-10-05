@@ -10,7 +10,7 @@ import UIKit
 
 class MypageChangePWAlertViewController: UIViewController {
     
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var backgroundView: MypageViewUIExtention!
     
     override func viewDidLoad() {
         super.viewDidLoad()
