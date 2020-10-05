@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+//        setupUI()
     }
     
     @IBAction func autoLogin(_ sender: UIButton) {
@@ -25,8 +25,12 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func touchUpLoginButton(_ sender: UIButton) {
+        print("login")
+    }
     
     func setupUI() {
+        LoginButton.layer.masksToBounds = false
         LoginButton.layer.cornerRadius = 3
         LoginButton.layer.shadowColor = UIColor.lightGray.cgColor
         LoginButton.layer.shadowOpacity = 0.7

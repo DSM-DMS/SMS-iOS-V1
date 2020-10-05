@@ -17,12 +17,18 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
 
     lazy var vcArr = [loginVC, outGoingVC, noticeVC, mypageVC]
     
-    var pageCollectionView: UICollectionView = {
+    lazy var pageCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: collectionViewLayout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
+        collectionView.register(UINib(nibName: PageCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: PageCell.reusableIdentifier)
+        
         return collectionView
     }()
     
@@ -37,13 +43,11 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
     func setupCustomTabBar(){
         self.view.addSubview(tabbar)
         tabbar.delegate = self
-        tabbar.translatesAutoresizingMaskIntoConstraints = false
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        tabbar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tabbar.clipsToBounds = false
         tabbar.indicatorViewLeadingConstraint.constant = 25
     }
@@ -54,21 +58,17 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
     }
     
     func setupPageCollectionView(){
-        pageCollectionView.delegate = self
-        pageCollectionView.dataSource = self
-        pageCollectionView.showsHorizontalScrollIndicator = false
-        pageCollectionView.isPagingEnabled = true
-        pageCollectionView.register(UINib(nibName: PageCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: PageCell.reusableIdentifier)
         self.view.addSubview(pageCollectionView)
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         pageCollectionView.bottomAnchor.constraint(equalTo: self.tabbar.topAnchor).isActive = true
+        
         for vc in vcArr {
-            self.addChild(vc)
-            vc.didMove(toParent: self)
-            self.view.addSubview(vc.view)
-            vc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 100)
+//            self.addChild(vc)
+//            vc.didMove(toParent: self)
+//            vc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 100)
+            // 이부분은 괜찮나요??
         }
         pageCollectionView.reloadData()
     }
@@ -77,7 +77,12 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
 extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
-        cell.contentView.addSubview(vcArr[indexPath.row].view)
+        let vcView = vcArr[indexPath.row].view!
+        // 뷰컨 내 뷰의 크기를 셀의 컨텐트 뷰 크기와 맞췄어요.
+        vcView.frame = cell.contentView.bounds
+
+        cell.contentView.addSubview(vcView)
+        // 이 부분이 잘못된듯해요
         return cell
     }
     
