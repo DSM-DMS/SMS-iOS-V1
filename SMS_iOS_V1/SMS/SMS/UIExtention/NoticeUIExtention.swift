@@ -7,3 +7,14 @@
 //
 
 import UIKit
+
+class NoticeMainTextView: UITextView {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        
+        self.isEditable = false
+        
+        
+    }
+}
