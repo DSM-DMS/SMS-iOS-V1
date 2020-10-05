@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--Tabbar View Controller-->
         <scene sceneID="OfC-2t-vvj">
             <objects>
-                <viewController id="2Mp-q2-H3j" customClass="MainVC" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Mp-q2-H3j" customClass="TabbarViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GnL-gX-VH1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

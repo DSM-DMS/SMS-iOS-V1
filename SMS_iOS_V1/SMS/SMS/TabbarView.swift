@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol CustomMenuBarDelegate: class {
-    func customMenuBar(scrollTo index: Int)
+protocol TabbarViewDelegate: class {
+    func tabbarView(scrollTo index: Int)
 }
 
-class CustomMenuBar: UIView {
+class TabbarView: UIView {
     
     let imageNames = ["calendar","outgoing","notice","mypage"]
     var indicatorViewLeadingConstraint:NSLayoutConstraint!
     var indicatorViewWidthConstraint: NSLayoutConstraint!
     
-    weak var delegate: CustomMenuBarDelegate?
+    weak var delegate: TabbarViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCustomTabBar()
@@ -80,7 +80,7 @@ class CustomMenuBar: UIView {
 }
 
 //MARK:- UICollectionViewDelegate, DataSource
-extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
@@ -99,7 +99,7 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4 + 25
         indicatorViewLeadingConstraint.constant = x
-        delegate?.customMenuBar(scrollTo: indexPath.row)
+        delegate?.tabbarView(scrollTo: indexPath.row)
         
         guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else {return}
         cell.imageView.image = cell.imageView.image?.withRenderingMode(.alwaysTemplate)
@@ -113,7 +113,7 @@ extension CustomMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 //MARK:- UICollectionViewDelegateFlowLayout
-extension CustomMenuBar: UICollectionViewDelegateFlowLayout {
+extension TabbarView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

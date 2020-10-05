@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainVC: UIViewController, CustomMenuBarDelegate{
+class TabbarViewController: UIViewController, TabbarViewDelegate{
     
     let loginVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(identifier: "LoginViewController")
     let outGoingVC = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
@@ -26,7 +26,7 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
         return collectionView
     }()
     
-    var customMenuBar = CustomMenuBar()
+    var tabbar = TabbarView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +35,20 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
     }
     //MARK: Setup view
     func setupCustomTabBar(){
-        self.view.addSubview(customMenuBar)
-        customMenuBar.delegate = self
-        customMenuBar.translatesAutoresizingMaskIntoConstraints = false
-        customMenuBar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
-        customMenuBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        customMenuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        customMenuBar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        customMenuBar.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        customMenuBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        customMenuBar.clipsToBounds = false
-        customMenuBar.indicatorViewLeadingConstraint.constant = 25
+        self.view.addSubview(tabbar)
+        tabbar.delegate = self
+        tabbar.translatesAutoresizingMaskIntoConstraints = false
+        tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
+        tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
+        tabbar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        tabbar.clipsToBounds = false
+        tabbar.indicatorViewLeadingConstraint.constant = 25
     }
     
-    func customMenuBar(scrollTo index: Int) {
+    func tabbarView(scrollTo index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -63,17 +63,18 @@ class MainVC: UIViewController, CustomMenuBarDelegate{
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        pageCollectionView.bottomAnchor.constraint(equalTo: self.customMenuBar.topAnchor).isActive = true
+        pageCollectionView.bottomAnchor.constraint(equalTo: self.tabbar.topAnchor).isActive = true
         for vc in vcArr {
             self.addChild(vc)
             vc.didMove(toParent: self)
             self.view.addSubview(vc.view)
             vc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 100)
         }
+        pageCollectionView.reloadData()
     }
 }
 //MARK:- UICollectionViewDelegate, UICollectionViewDataSource
-extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
         cell.contentView.addSubview(vcArr[indexPath.row].view)
@@ -85,17 +86,17 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        customMenuBar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + 25
+        tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + 25
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
         let indexPath = IndexPath(item: itemAt, section: 0)
-        customMenuBar.customTabBarCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        tabbar.customTabBarCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
     }
 }
 //MARK:- UICollectionViewDelegateFlowLayout
-extension MainVC: UICollectionViewDelegateFlowLayout {
+extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: pageCollectionView.frame.width, height: pageCollectionView.frame.height)
     }
@@ -111,7 +112,7 @@ extension NSObject {
     }
 }
 
-extension MainVC {
+extension TabbarViewController {
     func changeVC<T>(_ storyBoardIdentifier: StoryboardNames ,_ identifier: ViewControllerNames) -> T? {
         let storyboard = UIStoryboard.init(name: storyBoardIdentifier.rawValue, bundle: .main)
         guard let vc = storyboard.instantiateViewController(identifier: identifier.rawValue) as? T else { return nil}
