@@ -1,11 +1,3 @@
-//
-//  MainVC.swift
-//  CustomTabBar
-//
-//  Created by 이동건 on 2018. 4. 18..
-//  Copyright © 2018년 이동건. All rights reserved.
-//
-
 import UIKit
 
 class TabbarViewController: UIViewController, TabbarViewDelegate{
@@ -28,7 +20,6 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.register(UINib(nibName: PageCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: PageCell.reusableIdentifier)
-        
         return collectionView
     }()
     
@@ -39,16 +30,15 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
         setupCustomTabBar()
         setupPageCollectionView()
     }
-    //MARK: Setup view
+    
     func setupCustomTabBar(){
-        self.view.addSubview(tabbar)
+        self.view.addSubviews([tabbar,pageCollectionView])
         tabbar.delegate = self
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        tabbar.clipsToBounds = false
         tabbar.indicatorViewLeadingConstraint.constant = 25
     }
     
@@ -58,19 +48,10 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
     }
     
     func setupPageCollectionView(){
-        self.view.addSubview(pageCollectionView)
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         pageCollectionView.bottomAnchor.constraint(equalTo: self.tabbar.topAnchor).isActive = true
-        
-        for vc in vcArr {
-//            self.addChild(vc)
-//            vc.didMove(toParent: self)
-//            vc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 100)
-            // 이부분은 괜찮나요??
-        }
-        pageCollectionView.reloadData()
     }
 }
 //MARK:- UICollectionViewDelegate, UICollectionViewDataSource
@@ -78,11 +59,8 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].view!
-        // 뷰컨 내 뷰의 크기를 셀의 컨텐트 뷰 크기와 맞췄어요.
         vcView.frame = cell.contentView.bounds
-
         cell.contentView.addSubview(vcView)
-        // 이 부분이 잘못된듯해요
         return cell
     }
     
