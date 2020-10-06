@@ -1,6 +1,6 @@
 import UIKit
 
-class TabbarViewController: UIViewController, TabbarViewDelegate{
+class TabbarViewController: UIViewController {
     
     let loginVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(identifier: "LoginViewController")
     let outGoingVC = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
@@ -33,7 +33,6 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
     
     func setupCustomTabBar(){
         self.view.addSubviews([tabbar,pageCollectionView])
-        tabbar.delegate = self
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -74,8 +73,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
-        let indexPath = IndexPath(item: itemAt, section: 0)
-        tabbar.customTabBarCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        tabbar.setSelectedItem(index: itemAt)
     }
 }
 
