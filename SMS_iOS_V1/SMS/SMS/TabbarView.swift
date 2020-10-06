@@ -1,16 +1,29 @@
 import UIKit
 
-protocol TabbarViewDelegate: class {
-    func tabbarView(scrollTo index: Int)
+struct Tabbar {
+    let imageName:String
+    var isSelected:Bool
+    
+    init(imageName:String, isSelected:Bool = false) {
+        self.imageName = imageName
+        self.isSelected = isSelected
+    }
 }
 
 class TabbarView: UIView {
     
-    let imageNames = ["calendar","outgoing","notice","mypage"]
+    var oldSelectedRow:Int = 0
+
+    var imageNames:[Tabbar] = [
+        Tabbar(imageName: "calendar", isSelected: true),
+        Tabbar(imageName: "outgoing"),
+        Tabbar(imageName: "notice"),
+        Tabbar(imageName: "mypage")
+    ]
+    
     var indicatorViewLeadingConstraint:NSLayoutConstraint!
     var indicatorViewWidthConstraint: NSLayoutConstraint!
     
-    weak var delegate: TabbarViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = false
@@ -28,7 +41,6 @@ class TabbarView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: [])
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
@@ -66,12 +78,21 @@ class TabbarView: UIView {
         indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
+    
+    func setSelectedItem(index: Int) -> Void {
+        self.imageNames[oldSelectedRow].isSelected = false
+        self.imageNames[index].isSelected = true
+        self.oldSelectedRow = index
+        
+        customTabBarCollectionView.reloadData()
+    }
 }
 
 extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.xibName, for: indexPath) as! CustomCell
-        cell.imageView.image = UIImage(named: imageNames[indexPath.item])
+        cell.tabbar = imageNames[indexPath.row]
+        
         return cell
     }
     
@@ -84,7 +105,8 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tabbarView(scrollTo: indexPath.row)
+        let row: Int = indexPath.row
+        self.setSelectedItem(index: row)
     }
 }
 
