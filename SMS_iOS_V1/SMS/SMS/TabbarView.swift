@@ -13,7 +13,6 @@ class TabbarView: UIView {
     weak var delegate: TabbarViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.clipsToBounds = false
         self.translatesAutoresizingMaskIntoConstraints = false
         setupCustomTabBar()
@@ -27,13 +26,14 @@ class TabbarView: UIView {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: [])
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
-        collectionView.register(UINib(nibName: CustomCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: CustomCell.reusableIdentifier)
+        collectionView.register(UINib(nibName: CustomCell.xibName, bundle: nil), forCellWithReuseIdentifier: CustomCell.xibName)
         collectionView.layer.masksToBounds = false
         collectionView.layer.cornerRadius = 20
         collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -47,18 +47,11 @@ class TabbarView: UIView {
     var indicatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(displayP3Red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
+        view.backgroundColor = .customPurple
         return view
     }()
     
-    func setupCollectioView(){
-        let indexPath = IndexPath(item: 0, section: 0)
-        customTabBarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-    }
-    
     func setupCustomTabBar(){
-        setupCollectioView()
-        
         self.addSubviews([customTabBarCollectionView, indicatorView])
         
         customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -75,11 +68,9 @@ class TabbarView: UIView {
     }
 }
 
-//MARK:- UICollectionViewDelegate, DataSource
 extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.xibName, for: indexPath) as! CustomCell
         cell.imageView.image = UIImage(named: imageNames[indexPath.item])
         return cell
     }
@@ -93,24 +84,11 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = CGFloat(indexPath.item) * customTabBarCollectionView.frame.width / 4 + 25
-        indicatorViewLeadingConstraint.constant = x
         delegate?.tabbarView(scrollTo: indexPath.row)
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else {return}
-        cell.imageView.image = cell.imageView.image?.withRenderingMode(.alwaysTemplate)
-        cell.imageView.tintColor = .init(red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CustomCell else {return}
-        cell.imageView.image = cell.imageView.image?.withRenderingMode(.alwaysTemplate)
-        cell.imageView.tintColor = .init(red: 108/255, green: 108/255, blue: 108/255, alpha: 1)
     }
 }
 
 extension TabbarView: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
@@ -119,19 +97,3 @@ extension TabbarView: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
-
-extension UIView {
-    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float)
-    {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
-    }
-}
-

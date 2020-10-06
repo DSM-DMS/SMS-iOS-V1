@@ -19,7 +19,7 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.register(UINib(nibName: PageCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: PageCell.reusableIdentifier)
+        collectionView.register(UINib(nibName: PageCell.xibName, bundle: nil), forCellWithReuseIdentifier: PageCell.xibName)
         return collectionView
     }()
     
@@ -51,13 +51,13 @@ class TabbarViewController: UIViewController, TabbarViewDelegate{
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        pageCollectionView.bottomAnchor.constraint(equalTo: self.tabbar.topAnchor).isActive = true
+        pageCollectionView.bottomAnchor.constraint(equalTo: tabbar.topAnchor, constant: -5).isActive = true
     }
 }
-//MARK:- UICollectionViewDelegate, UICollectionViewDataSource
+
 extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.reusableIdentifier, for: indexPath) as! PageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].view!
         vcView.frame = cell.contentView.bounds
         cell.contentView.addSubview(vcView)
@@ -78,7 +78,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
         tabbar.customTabBarCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
     }
 }
-//MARK:- UICollectionViewDelegateFlowLayout
+
 extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: pageCollectionView.frame.width, height: pageCollectionView.frame.height)
@@ -86,12 +86,6 @@ extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-    }
-}
-
-extension NSObject {
-    static var reusableIdentifier: String {
-        return String(describing: self)
     }
 }
 
@@ -118,4 +112,4 @@ extension TabbarViewController {
     }
 }
 
-
+// ㅅ작했을때 이미지뷰 색 변겨
