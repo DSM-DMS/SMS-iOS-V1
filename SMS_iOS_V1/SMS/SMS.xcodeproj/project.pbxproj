@@ -177,14 +177,13 @@
 		479DB1342502522C009A8B08 /* SMS */ = {
 			isa = PBXGroup;
 			children = (
+				D6E687BD252DD9E300FA09C1 /* Supporting */,
+				D6E687BC252DD9B400FA09C1 /* Application */,
 				D6148AF2252B57E3009AD0A0 /* Extension */,
 				471310232502540300ED348C /* Model */,
 				47131022250253FD00ED348C /* ViewModel */,
-				4715936125121FFB00D84F85 /* UIExtention */,
 				47131021250253F300ED348C /* View */,
-				479DB1352502522C009A8B08 /* AppDelegate.swift */,
 				479DB1372502522C009A8B08 /* SceneDelegate.swift */,
-				479DB13E2502522E009A8B08 /* Assets.xcassets */,
 				D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */,
 				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
 				D62D8C142518D9B200548FBF /* ScheduleCell.swift */,
@@ -198,7 +197,6 @@
 				479DB1402502522E009A8B08 /* LaunchScreen.storyboard */,
 				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
 				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
-				479DB1432502522E009A8B08 /* Info.plist */,
 				4713101F250253C000ED348C /* Login.storyboard */,
 				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
 				4766CA212510D0170060B330 /* MyPage.storyboard */,
@@ -227,6 +225,7 @@
 		D6148AF2252B57E3009AD0A0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4715936125121FFB00D84F85 /* UIExtention */,
 				D6148AF3252B5813009AD0A0 /* UIView.swift */,
 			);
 			path = Extension;
@@ -275,6 +274,23 @@
 				47131024250255C900ED348C /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D6E687BC252DD9B400FA09C1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				479DB1352502522C009A8B08 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D6E687BD252DD9E300FA09C1 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				479DB13E2502522E009A8B08 /* Assets.xcassets */,
+				479DB1432502522E009A8B08 /* Info.plist */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
