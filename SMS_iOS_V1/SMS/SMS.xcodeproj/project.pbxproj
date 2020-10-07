@@ -24,6 +24,7 @@
 		47523923250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */; };
 		47523925250E5C5A00CE0BAB /* OutGoingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */; };
 		47523927250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */; };
+		4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762F1DD252B0B65005D2712 /* LoginViewModel.swift */; };
 		4766CA1E25107FE20060B330 /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */; };
 		4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
@@ -84,6 +85,7 @@
 		47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
 		47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogViewController.swift; sourceTree = "<group>"; };
 		47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogTableViewCell.swift; sourceTree = "<group>"; };
+		4762F1DD252B0B65005D2712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
 		4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -183,7 +185,11 @@
 		47131022250253FD00ED348C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */,
+=======
+				4762F1DD252B0B65005D2712 /* LoginViewModel.swift */,
+>>>>>>> LoginViewModel
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
 				471593632512202300D84F85 /* LoginUIExtention.swift in Sources */,
+				4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */,
 				4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */,
 				4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */,
 				4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */,
