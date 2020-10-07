@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XSL-bD-2ji">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgJ-hz-sYG">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +13,7 @@
         <!--Mypage View Controller-->
         <scene sceneID="4MP-b1-EAi">
             <objects>
-                <viewController id="wgJ-hz-sYG" customClass="MypageViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageViewController" id="wgJ-hz-sYG" customClass="MypageViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eJu-Ja-Ahg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +56,11 @@
                                     <constraint firstAttribute="height" constant="1" id="vDD-DC-TKA"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMR-fY-QXz" customClass="MypageButtonUIExtention" customModule="SMS" customModuleProvider="target">
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMR-fY-QXz">
+>>>>>>> TabBar
                                 <rect key="frame" x="20" y="222" width="335" height="80"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -67,13 +73,17 @@
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 번경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KR-ds-CVW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KR-ds-CVW">
                                 <rect key="frame" x="41" y="242" width="87" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moY-7G-4RF" customClass="MypageButtonUIExtention" customModule="SMS" customModuleProvider="target">
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moY-7G-4RF">
+>>>>>>> TabBar
                                 <rect key="frame" x="20" y="337" width="335" height="80"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -86,7 +96,11 @@
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D19-bQ-nnW" customClass="MypageButtonUIExtention" customModule="SMS" customModuleProvider="target">
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D19-bQ-nnW">
+>>>>>>> TabBar
                                 <rect key="frame" x="20" y="452" width="335" height="80"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -118,7 +132,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rnP-bz-u77"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="moY-7G-4RF" firstAttribute="top" secondItem="IMR-fY-QXz" secondAttribute="bottom" constant="35" id="4Vh-4f-XdY"/>
                             <constraint firstItem="zLH-et-Sz6" firstAttribute="top" secondItem="moY-7G-4RF" secondAttribute="bottom" constant="55" id="6qe-zf-bdU"/>
@@ -157,8 +172,8 @@
                             <constraint firstItem="W15-SY-fvz" firstAttribute="top" secondItem="C3E-zq-0Iu" secondAttribute="bottom" constant="25" id="x8B-dz-ZmV"/>
                             <constraint firstItem="0KR-ds-CVW" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="z2I-ML-R1z"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rnP-bz-u77"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="introduceDevButton" destination="D19-bQ-nnW" id="y2d-7M-wmK"/>
                         <outlet property="logOutButton" destination="moY-7G-4RF" id="wXm-jZ-eeM"/>
@@ -186,14 +201,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-S6-awZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-S6-awZ">
                                         <rect key="frame" x="210" y="86" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="확인">
                                             <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUQ-4t-eah">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUQ-4t-eah">
                                         <rect key="frame" x="55" y="86" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="취소">
@@ -201,7 +216,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ehw-0e-QJK" firstAttribute="leading" secondItem="7HZ-ZM-8jg" secondAttribute="leading" constant="51" id="9bN-Nt-gsB"/>
                                     <constraint firstAttribute="trailing" secondItem="ehw-0e-QJK" secondAttribute="trailing" constant="51" id="DKh-ky-XFb"/>
@@ -214,13 +229,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="gGu-N6-k92"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="gGu-N6-k92" firstAttribute="trailing" secondItem="7HZ-ZM-8jg" secondAttribute="trailing" constant="40" id="1rT-c5-Tgh"/>
                             <constraint firstItem="7HZ-ZM-8jg" firstAttribute="top" secondItem="gGu-N6-k92" secondAttribute="top" constant="240" id="lSa-L7-Gdl"/>
                             <constraint firstItem="7HZ-ZM-8jg" firstAttribute="leading" secondItem="gGu-N6-k92" secondAttribute="leading" constant="40" id="uTz-5V-tuA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gGu-N6-k92"/>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="7HZ-ZM-8jg" id="KUt-xH-Agb"/>
@@ -228,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2F-Vh-akk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="976"/>
+            <point key="canvasLocation" x="-84" y="992"/>
         </scene>
         <!--Mypage Logout View Controller-->
         <scene sceneID="xiR-Nf-chk">
@@ -247,14 +262,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s99-IT-vxu">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s99-IT-vxu">
                                         <rect key="frame" x="210" y="86" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="확인">
                                             <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ev-wg-BVy">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ev-wg-BVy">
                                         <rect key="frame" x="55" y="86" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="취소">
@@ -262,7 +277,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="AZA-9q-0WK" firstAttribute="leading" secondItem="ldq-tu-09x" secondAttribute="leading" constant="74" id="5ap-pU-qsn"/>
                                     <constraint firstItem="AZA-9q-0WK" firstAttribute="top" secondItem="ldq-tu-09x" secondAttribute="top" constant="25" id="5eJ-X3-AGg"/>
@@ -275,13 +290,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="hoi-Zt-bYQ"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ldq-tu-09x" firstAttribute="leading" secondItem="hoi-Zt-bYQ" secondAttribute="leading" constant="40" id="6CJ-62-C9O"/>
                             <constraint firstItem="ldq-tu-09x" firstAttribute="top" secondItem="hoi-Zt-bYQ" secondAttribute="top" constant="240" id="gk8-YB-b3y"/>
                             <constraint firstItem="hoi-Zt-bYQ" firstAttribute="trailing" secondItem="ldq-tu-09x" secondAttribute="trailing" constant="40" id="n71-DE-uae"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hoi-Zt-bYQ"/>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="ldq-tu-09x" id="TVh-F6-Ieo"/>
@@ -301,7 +316,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="89k-Ap-owY">
                                 <rect key="frame" x="60" y="84" width="255" height="583"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P5s-Zb-MVt">
                                     <size key="itemSize" width="96" height="139"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -351,14 +366,14 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5i2-MW-nnw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5i2-MW-nnw" firstAttribute="trailing" secondItem="89k-Ap-owY" secondAttribute="trailing" constant="60" id="IAm-ct-mSw"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="top" secondItem="5i2-MW-nnw" secondAttribute="top" constant="40" id="cly-hr-Prs"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="60" id="h7I-rP-xAS"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="bottom" secondItem="5i2-MW-nnw" secondAttribute="bottom" id="qxx-Ms-qbv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5i2-MW-nnw"/>
                     </view>
                     <navigationItem key="navigationItem" title="개발자 소개" id="LoF-bj-TJ2">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="wPr-25-6mu">
@@ -445,7 +460,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-8g-TTa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-8g-TTa">
                                 <rect key="frame" x="40" y="440" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -457,7 +472,8 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6u6-zN-MaH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CWd-GZ-F7M" firstAttribute="top" secondItem="7Fw-8w-kVe" secondAttribute="bottom" constant="35" id="2Wd-VP-WAI"/>
                             <constraint firstItem="4jo-za-sNP" firstAttribute="top" secondItem="6u6-zN-MaH" secondAttribute="top" constant="105" id="3f5-i7-ozs"/>
@@ -484,7 +500,6 @@
                             <constraint firstItem="Gpn-2d-0K5" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="sRA-oA-4tP"/>
                             <constraint firstItem="oi1-Uj-1pL" firstAttribute="top" secondItem="QJy-BJ-lxN" secondAttribute="bottom" constant="5" id="uMd-ni-H4T"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6u6-zN-MaH"/>
                     </view>
                     <navigationItem key="navigationItem" title="비밀번호 변경" id="TZm-mf-uHO">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="d8X-MK-BdD">
@@ -543,5 +558,8 @@
     <resources>
         <image name="back" width="20" height="12.5"/>
         <image name="profile" width="109" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
