@@ -1,2 +1,16 @@
 
+<<<<<<< HEAD
 .DS_Store
+=======
+SMS_iOS_V1/SMS/SMS/.DS_Store
+
+SMS_iOS_V1/SMS/SMS/View/.DS_Store
+
+SMS_iOS_V1/SMS/Pods/Pods.xcodeproj/xcuserdata/ihyun_wook.xcuserdatad/xcschemes/xcschememanagement.plist
+
+SMS_iOS_V1/SMS/SMS.xcodeproj/xcuserdata/ihyun_wook.xcuserdatad/xcschemes/xcschememanagement.plist
+
+SMS_iOS_V1/SMS/SMS.xcworkspace/xcuserdata/ihyun_wook.xcuserdatad/UserInterfaceState.xcuserstate
+
+SMS_iOS_V1/.DS_Store
+>>>>>>> schedule
