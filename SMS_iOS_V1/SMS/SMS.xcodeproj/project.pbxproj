@@ -35,12 +35,11 @@
 		D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1A0252A0A09007F0253 /* TabbarViewController.swift */; };
 		D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1B3252A0A1D007F0253 /* PageCell.swift */; };
 		D664E1BE252A0A1D007F0253 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D664E1B5252A0A1D007F0253 /* Notice.storyboard */; };
-		D664E1BF252A0A1D007F0253 /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1B6252A0A1D007F0253 /* PageCell.xib */; };
-		D664E1C0252A0A1D007F0253 /* TabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1B7252A0A1D007F0253 /* TabbarView.xib */; };
 		D664E1C1252A0A1D007F0253 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D664E1B8252A0A1D007F0253 /* MyPage.storyboard */; };
 		D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1BA252A0A1D007F0253 /* TabbarView.swift */; };
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
+		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,12 +74,11 @@
 		D664E1A0252A0A09007F0253 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		D664E1B3252A0A1D007F0253 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		D664E1B5252A0A1D007F0253 /* Notice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-		D664E1B6252A0A1D007F0253 /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
-		D664E1B7252A0A1D007F0253 /* TabbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabbarView.xib; sourceTree = "<group>"; };
 		D664E1B8252A0A1D007F0253 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		D664E1BA252A0A1D007F0253 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		D664E1C6252A0C8E007F0253 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,9 +164,8 @@
 				D664E1B8252A0A1D007F0253 /* MyPage.storyboard */,
 				D664E1B5252A0A1D007F0253 /* Notice.storyboard */,
 				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
-				D664E1B6252A0A1D007F0253 /* PageCell.xib */,
+				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
 				D664E1BA252A0A1D007F0253 /* TabbarView.swift */,
-				D664E1B7252A0A1D007F0253 /* TabbarView.xib */,
 				479DB1402502522E009A8B08 /* LaunchScreen.storyboard */,
 				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
 				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
@@ -267,11 +264,10 @@
 				D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */,
 				47131020250253C000ED348C /* Login.storyboard in Resources */,
 				479DB1422502522E009A8B08 /* LaunchScreen.storyboard in Resources */,
-				D664E1BF252A0A1D007F0253 /* PageCell.xib in Resources */,
 				D664E1BE252A0A1D007F0253 /* Notice.storyboard in Resources */,
+				D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */,
 				D664E1C1252A0A1D007F0253 /* MyPage.storyboard in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
-				D664E1C0252A0A1D007F0253 /* TabbarView.xib in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
