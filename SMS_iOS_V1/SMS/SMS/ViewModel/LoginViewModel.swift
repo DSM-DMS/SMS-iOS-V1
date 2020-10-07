@@ -29,12 +29,15 @@ class LoginViewModel {
             switch response.result {
             case .success(_) :
                 if let json = response.value {
-                   json as! [String:AnyObject]
+                    json as! [String:AnyObject]
                 }
+                break;
+            case .failure(let error) :
+                print(error.localizedDescription)
             }
         }
         
-
+        
     }
     
 }
