@@ -16,13 +16,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-        
     }
-    
-=======
 //        setupUI()
-    }
     
     @IBAction func autoLogin(_ sender: UIButton) {
        
@@ -44,7 +39,4 @@ class LoginViewController: UIViewController {
     
     }
     
-    
-    
->>>>>>> TabBar
 }

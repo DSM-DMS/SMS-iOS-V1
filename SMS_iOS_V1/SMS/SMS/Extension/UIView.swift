@@ -6,18 +6,6 @@ extension UIView {
             self.addSubview(view)
         }
     }
-    
-    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
-    }
 }
 
 extension UIColor {
@@ -29,3 +17,18 @@ extension UIColor {
         return UIColor(displayP3Red: 108/255, green: 108/255, blue: 108/255, alpha: 1)
     }
 }
+
+    
+//    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+//        layer.masksToBounds = false
+//        layer.shadowOffset = offset
+//        layer.shadowColor = color.cgColor
+//        layer.shadowRadius = radius
+//        layer.shadowOpacity = opacity
+//        
+//        let backgroundCGColor = backgroundColor?.cgColor
+//        backgroundColor = nil
+//        layer.backgroundColor =  backgroundCGColor
+//    }
+//}
+

@@ -29,11 +29,7 @@
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChK-Zg-Rm6" customClass="OutGoingContainerButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChK-Zg-Rm6">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="132" width="295" height="74"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -52,11 +48,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvD-hl-8Ah" customClass="OutGoingContainerButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvD-hl-8Ah">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="241" width="295" height="73.5"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -75,11 +67,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwS-g0-8CN" customClass="OutGoingContainerButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwS-g0-8CN">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="458.5" width="295" height="73.5"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -98,11 +86,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpK-5T-qOt" customClass="OutGoingContainerButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpK-5T-qOt">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="349.5" width="295" height="74"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -299,11 +283,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-aO-eGY" customClass="OutGoingButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-aO-eGY">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="519" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -384,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qU2-ZV-XLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566" y="159"/>
+            <point key="canvasLocation" x="1565.5999999999999" y="158.77061469265368"/>
         </scene>
         <!--내 외출신청 내역-->
         <scene sceneID="1JT-Gm-BVu">
@@ -517,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5T-QX-oCN" customClass="OutGoingViewUIExtention" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5T-QX-oCN">
                                 <rect key="frame" x="20" y="84" width="335" height="26"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F01-gw-huH">
@@ -538,7 +518,7 @@
                                     <constraint firstAttribute="height" constant="26" id="jb8-6N-6ZT"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Wl-tKI" customClass="OutGoingViewUIExtention" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Wl-tKI">
                                 <rect key="frame" x="20" y="110" width="335" height="431"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="epv-gH-aeW">
@@ -715,11 +695,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OutGoingApplyCompleted" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
                                 <rect key="frame" x="55" y="220" width="265" height="76"/>
                             </imageView>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi" customClass="OutGoingButtonUIExtention" customModule="SMS" customModuleProvider="target">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
->>>>>>> TabBar
                                 <rect key="frame" x="40" y="527" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -831,7 +807,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAS-RU-B3r" customClass="OutGoingViewUIExtention" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAS-RU-B3r">
                                 <rect key="frame" x="40" y="150" width="295" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 주의 -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xls-h2-dzm">
@@ -932,7 +908,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-dc-F9U" customClass="OutGoingViewUIExtention" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-dc-F9U">
                                 <rect key="frame" x="30" y="110" width="315" height="420"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="온라인 학생증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKF-kt-igk">

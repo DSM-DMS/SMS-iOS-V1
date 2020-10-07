@@ -2,7 +2,7 @@ import UIKit
 
 class TabbarViewController: UIViewController {
     
-    let loginVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(identifier: "LoginViewController")
+    let loginVC = UIStoryboard(name: "Schedule", bundle: .main).instantiateViewController(identifier: "ScheduleViewController")
     let outGoingVC = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
     let noticeVC = UIStoryboard(name: "Notice", bundle: .main).instantiateViewController(identifier: "NoticeViewController")
     let mypageVC = UIStoryboard(name: "MyPage", bundle: .main).instantiateViewController(identifier: "MypageViewController")

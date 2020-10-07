@@ -17,11 +17,7 @@ class OutGoingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-=======
 //        setupUI()
->>>>>>> TabBar
-        
     }
     
 }
