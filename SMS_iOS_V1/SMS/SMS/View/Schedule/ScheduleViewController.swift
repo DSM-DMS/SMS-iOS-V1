@@ -178,17 +178,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         return [.clear]
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        let strDate = dateFormatter2.string(from: date)
-        if arr.contains(strDate) || holidayArr.contains(strDate) {
-            return .black
-        }
-        if redArr.contains(strDate) {
-            return .red
-        }
-        return .init(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)
-    }
-    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
         let strDate = dateFormatter2.string(from: date)
         if arr.contains(strDate) {
@@ -198,14 +187,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
             return [.purple]
         }
         return [.clear]
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-        let strDate = dateFormatter2.string(from: date)
-        if redArr.contains(strDate) {
-            return .init(red: 243/255, green: 4/255, blue: 3/255, alpha: 1)
-        }
-        return nil
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
@@ -245,9 +226,9 @@ extension ScheduleViewController {
         timeScheduleView.isHidden = value
     }
     
-    func setTableViewHeight(count: Int = 1) -> CGFloat {
-        return CGFloat(Double(count) * 44.5)
-    }
+//    func setTableViewHeight(count: Int = 1) -> CGFloat {
+//        return CGFloat(Double(count) * 44.5)
+//    }
 }
 
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
@@ -277,22 +258,3 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-extension UIView {
-    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float)
-    {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
-    }
-}
-
-// timeschedulexib 화, 목 오토레이아웃
-// 달력 이벤트, 연속으로 이어져있는 셀 크기
-// 테이블 뷰 

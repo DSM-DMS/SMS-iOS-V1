@@ -10,14 +10,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var LoginButton: LoginButtonUIExtention!
+    @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var IDTextField: UITextField!
     @IBOutlet weak var PWTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shadowSetting()
     }
-//        setupUI()
     
     @IBAction func autoLogin(_ sender: UIButton) {
        
@@ -29,14 +29,14 @@ class LoginViewController: UIViewController {
         print("login")
     }
     
-    func setupUI() {
-        LoginButton.layer.masksToBounds = false
-        LoginButton.layer.cornerRadius = 3
-        LoginButton.layer.shadowColor = UIColor.lightGray.cgColor
-        LoginButton.layer.shadowOpacity = 0.7
-        LoginButton.layer.shadowOffset = CGSize(width: 0, height: 2)
-        LoginButton.layer.shadowRadius = 2
-    
+}
+
+extension LoginViewController {
+    func shadowSetting() {
+        self.LoginButton.addShadow(offset: CGSize(width: 0, height: 2),
+                                   color: .lightGray,
+                                   shadowRadius: 2,
+                                   opacity: 0.7,
+                                   cornerRadius: 3)
     }
-    
 }

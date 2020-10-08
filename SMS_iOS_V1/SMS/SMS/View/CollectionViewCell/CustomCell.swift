@@ -13,13 +13,6 @@ class CustomCell: UICollectionViewCell {
             self.imageView.tintColor = tabbar.isSelected ? .customPurple : .customBlack
         }
     }
-  
-//    override var isSelected: Bool {
-//        didSet{
-//            imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
-//            self.imageView.tintColor = isSelected ? .customPurple : .customBlack
-//        }
-//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
