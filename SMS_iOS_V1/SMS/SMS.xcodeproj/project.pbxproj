@@ -44,12 +44,12 @@
 		D62D8C392518DABE00548FBF /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2A2518DABE00548FBF /* OutGoingAlertViewController.swift */; };
 		D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */; };
 		D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */; };
-		D62D8C3F2518EF7900548FBF /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */; };
 		D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1A0252A0A09007F0253 /* TabbarViewController.swift */; };
 		D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1B3252A0A1D007F0253 /* PageCell.swift */; };
 		D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1BA252A0A1D007F0253 /* TabbarView.swift */; };
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
+		D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */; };
 		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
 		D6DDAB7F25198ABA008489FF /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */; };
 /* End PBXBuildFile section */
@@ -96,12 +96,12 @@
 		D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
 		D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeScheduleXib.xib; path = "/Users/ihyun_wook/Documents/GitHub/SMS-iOS-V1/SMS_iOS_V1/SMS/SMS/TimeScheduleXib.xib"; sourceTree = "<absolute>"; };
-		D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D664E1A0252A0A09007F0253 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		D664E1B3252A0A1D007F0253 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		D664E1BA252A0A1D007F0253 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		D664E1C6252A0C8E007F0253 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,28 +121,16 @@
 		47131021250253F300ED348C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6E68932252EDEB000FA09C1 /* Tabbar */,
+				D6E68931252EDE8A00FA09C1 /* Schedule */,
+				D6E6892E252EDE3000FA09C1 /* CollectionViewCell */,
+				D6E6892F252EDE4600FA09C1 /* TableViewCell */,
 				D6E687AD252DCB1E00FA09C1 /* Login */,
 				D6E687AC252DCB1200FA09C1 /* Notice */,
 				D6E687AB252DCAF300FA09C1 /* OutGoing */,
 				D6E687A9252DCAC900FA09C1 /* MyPage */,
-				D664E1A0252A0A09007F0253 /* TabbarViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		47131022250253FD00ED348C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		471310232502540300ED348C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4715936125121FFB00D84F85 /* UIExtention */ = {
@@ -177,30 +165,13 @@
 		479DB1342502522C009A8B08 /* SMS */ = {
 			isa = PBXGroup;
 			children = (
+				479DB1432502522E009A8B08 /* Info.plist */,
+				47131021250253F300ED348C /* View */,
+				D68127EA252EDF6B00E9D7CA /* ViewModel */,
+				D6E6892C252EDDC400FA09C1 /* Base */,
 				D6E687BD252DD9E300FA09C1 /* Supporting */,
 				D6E687BC252DD9B400FA09C1 /* Application */,
 				D6148AF2252B57E3009AD0A0 /* Extension */,
-				471310232502540300ED348C /* Model */,
-				47131022250253FD00ED348C /* ViewModel */,
-				47131021250253F300ED348C /* View */,
-				479DB1372502522C009A8B08 /* SceneDelegate.swift */,
-				D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */,
-				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
-				D62D8C142518D9B200548FBF /* ScheduleCell.swift */,
-				D62D8C122518D9B200548FBF /* ScheduleCell.xib */,
-				D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */,
-				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
-				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,
-				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
-				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
-				D664E1BA252A0A1D007F0253 /* TabbarView.swift */,
-				479DB1402502522E009A8B08 /* LaunchScreen.storyboard */,
-				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
-				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
-				4713101F250253C000ED348C /* Login.storyboard */,
-				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
-				4766CA212510D0170060B330 /* MyPage.storyboard */,
-				4720FE2325119CE300BAE75A /* Notice.storyboard */,
 			);
 			path = SMS;
 			sourceTree = "<group>";
@@ -229,6 +200,14 @@
 				D6148AF3252B5813009AD0A0 /* UIView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D68127EA252EDF6B00E9D7CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D6E687A9252DCAC900FA09C1 /* MyPage */ = {
@@ -287,10 +266,63 @@
 		D6E687BD252DD9E300FA09C1 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				479DB1372502522C009A8B08 /* SceneDelegate.swift */,
 				479DB13E2502522E009A8B08 /* Assets.xcassets */,
-				479DB1432502522E009A8B08 /* Info.plist */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		D6E6892C252EDDC400FA09C1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				479DB1402502522E009A8B08 /* LaunchScreen.storyboard */,
+				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
+				4713101F250253C000ED348C /* Login.storyboard */,
+				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
+				4766CA212510D0170060B330 /* MyPage.storyboard */,
+				4720FE2325119CE300BAE75A /* Notice.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D6E6892E252EDE3000FA09C1 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */,
+				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
+				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
+				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
+				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D6E6892F252EDE4600FA09C1 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D62D8C142518D9B200548FBF /* ScheduleCell.swift */,
+				D62D8C122518D9B200548FBF /* ScheduleCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		D6E68931252EDE8A00FA09C1 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
+				D62D8C3D2518EC4C00548FBF /* TimeScheduleXib.xib */,
+				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		D6E68932252EDEB000FA09C1 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				D664E1A0252A0A09007F0253 /* TabbarViewController.swift */,
+				D664E1BA252A0A1D007F0253 /* TabbarView.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +451,7 @@
 				471593672512208400D84F85 /* NoticeUIExtention.swift in Sources */,
 				471593692512209A00D84F85 /* MypageUIExtention.swift in Sources */,
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
+				D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
@@ -441,7 +474,6 @@
 				471593632512202300D84F85 /* LoginUIExtention.swift in Sources */,
 				D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
-				D62D8C3F2518EF7900548FBF /* ScheduleViewModel.swift in Sources */,
 				D62D8C332518DABE00548FBF /* MypageNoticeDetailViewController.swift in Sources */,
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
 				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
