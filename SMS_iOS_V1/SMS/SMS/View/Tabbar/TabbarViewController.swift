@@ -87,27 +87,27 @@ extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension TabbarViewController {
-    func changeVC<T>(_ storyBoardIdentifier: StoryboardNames ,_ identifier: ViewControllerNames) -> T? {
-        let storyboard = UIStoryboard.init(name: storyBoardIdentifier.rawValue, bundle: .main)
-        guard let vc = storyboard.instantiateViewController(identifier: identifier.rawValue) as? T else { return nil}
-        return vc
-    }
-    
-    enum StoryboardNames: String {
-        case outgoing = "OutGoing"
-        case notice = "Notice"
-        case mypage = "MyPage"
-    //    case schedule = "Schedule"
-        case login = "Login"
-    }
-
-    enum ViewControllerNames: String {
-        case outgoing = "OutGoingViewController"
-        case notice = "NoticeViewController"
-        case mypage = "MypageViewController"
-        case login = "LoginViewController"
-    }
-}
+//extension TabbarViewController {
+//    func changeVC<T>(_ storyBoardIdentifier: StoryboardNames ,_ identifier: ViewControllerNames) -> T? {
+//        let storyboard = UIStoryboard.init(name: storyBoardIdentifier.rawValue, bundle: .main)
+//        guard let vc = storyboard.instantiateViewController(identifier: identifier.rawValue) as? T else { return nil}
+//        return vc
+//    }
+//    
+//    enum StoryboardNames: String {
+//        case outgoing = "OutGoing"
+//        case notice = "Notice"
+//        case mypage = "MyPage"
+//    //    case schedule = "Schedule"
+//        case login = "Login"
+//    }
+//
+//    enum ViewControllerNames: String {
+//        case outgoing = "OutGoingViewController"
+//        case notice = "NoticeViewController"
+//        case mypage = "MypageViewController"
+//        case login = "LoginViewController"
+//    }
+//}
 
 // ㅅ작했을때 이미지뷰 색 변겨

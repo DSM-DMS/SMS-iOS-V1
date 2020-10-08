@@ -241,12 +241,12 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            bottomLayout.isActive = false
+//            bottomLayout.isActive = false
         } else if indexPath.row == holidayArr.count - 1 {
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            bottomLayout.isActive = true
+//            bottomLayout.isActive = true
         }
     }
     
