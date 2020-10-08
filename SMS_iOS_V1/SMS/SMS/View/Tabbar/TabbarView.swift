@@ -47,12 +47,12 @@ class TabbarView: UIView {
         collectionView.isScrollEnabled = false
         collectionView.register(UINib(nibName: CustomCell.xibName, bundle: nil), forCellWithReuseIdentifier: CustomCell.xibName)
         collectionView.layer.masksToBounds = false
-        collectionView.layer.cornerRadius = 20
         collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         collectionView.addShadow(offset: CGSize(width: 0, height: -2.5),
-                                             color: .gray,
-                                             radius: CGFloat(2),
-                                             opacity: 0.5)
+                                 color: .gray,
+                                 shadowRadius: 2,
+                                 opacity: 0.5,
+                                 cornerRadius: 20)
         return collectionView
     }()
     

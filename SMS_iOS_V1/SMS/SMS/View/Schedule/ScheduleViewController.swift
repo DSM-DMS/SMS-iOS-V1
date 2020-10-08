@@ -33,10 +33,7 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var timeScheduleView: TimeScheduleXib!
     
     override func viewDidLoad() {
-        self.changeViewBtn.addShadow(offset: CGSize(width: 0, height: 2.5),
-                                     color: .gray,
-                                     radius: CGFloat(2),
-                                     opacity: 0.5)
+        
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
@@ -204,6 +201,11 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         timeScheduleView.isHidden = true
         self.yearLabel.text = dateFormatter.string(from: calendarView.currentPage)
         calendarView.register(CalendarCollectionViewCell.self, forCellReuseIdentifier: "cell")
+        self.changeViewBtn.addShadow(offset: CGSize(width: 0, height: 2.5),
+                                     color: .gray,
+                                     shadowRadius: 2,
+                                     opacity: 0.5,
+                                     cornerRadius: 25)
     }
 }
 
@@ -212,9 +214,12 @@ extension ScheduleViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.addShadow(offset: CGSize(width: 0, height: 3), color: .black, radius: 3, opacity: 0.5)
-        tableView.layer.cornerRadius = 17
         tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tableView.addShadow(offset: CGSize(width: 0, height: 3),
+                            color: .black,
+                            shadowRadius: 3,
+                            opacity: 0.5,
+                            cornerRadius: 17)
     }
     
     func changeHidden(value: Bool) {
