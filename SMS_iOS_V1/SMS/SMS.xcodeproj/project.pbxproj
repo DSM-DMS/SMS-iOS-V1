@@ -46,6 +46,7 @@
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
 		D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */; };
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 		D681285C252F17EC00E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */; };
@@ -61,6 +62,10 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+		D681285C252F17EC00E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */; };
+		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
+>>>>>>> ScheduleUI
 		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +112,7 @@
 		D664E1C6252A0C8E007F0253 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 		D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
@@ -122,6 +128,10 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+		D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
+		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+>>>>>>> ScheduleUI
 		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +312,7 @@
 		D6E6892C252EDDC400FA09C1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 				D6812860252F182100E9D7CA /* LaunchScreen.storyboard */,
@@ -311,6 +322,9 @@
 =======
 				D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */,
 >>>>>>> Stashed changes
+=======
+				D6812860252F182100E9D7CA /* LaunchScreen.storyboard */,
+>>>>>>> ScheduleUI
 				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
 				4713101F250253C000ED348C /* Login.storyboard */,
 				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
@@ -345,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 				D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */,
@@ -354,6 +369,9 @@
 =======
 				D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */,
 >>>>>>> Stashed changes
+=======
+				D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */,
+>>>>>>> ScheduleUI
 				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,
 			);
 			path = Schedule;
@@ -438,6 +456,7 @@
 				D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 				D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */,
@@ -447,6 +466,9 @@
 =======
 				D68127F4252EE05700E9D7CA /* LaunchScreen.storyboard in Resources */,
 >>>>>>> Stashed changes
+=======
+				D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */,
+>>>>>>> ScheduleUI
 				D62D8C1A2518D9B200548FBF /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

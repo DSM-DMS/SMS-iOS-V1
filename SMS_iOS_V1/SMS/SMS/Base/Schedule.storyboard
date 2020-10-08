@@ -145,6 +145,7 @@
 <<<<<<< Updated upstream
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="25" y="50" width="325" height="349.5"/>
+<<<<<<< HEAD
 =======
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="-297" y="296" width="364" height="391"/>
@@ -153,6 +154,8 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="-297" y="296" width="364" height="391"/>
 >>>>>>> Stashed changes
+=======
+>>>>>>> ScheduleUI
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0JY-3A-AAr" secondAttribute="height" multiplier="334:359" id="WQ0-t2-CaF"/>
