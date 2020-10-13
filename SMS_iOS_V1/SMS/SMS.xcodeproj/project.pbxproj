@@ -12,7 +12,7 @@
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		471593672512208400D84F85 /* NoticeUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593662512208400D84F85 /* NoticeUIExtention.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
-<<<<<<< HEAD
+
 		4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE252511A31F00BAE75A /* NoticeViewController.swift */; };
 		4720FE282511B15600BAE75A /* MypageNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */; };
 		47523923250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */; };
@@ -21,8 +21,7 @@
 		4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762F1DD252B0B65005D2712 /* LoginViewModel.swift */; };
 		4766CA1E25107FE20060B330 /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */; };
 		4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */; };
-=======
->>>>>>> Develop
+
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
@@ -75,7 +74,7 @@
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		471593662512208400D84F85 /* NoticeUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeUIExtention.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		4720FE252511A31F00BAE75A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNoticeDetailViewController.swift; sourceTree = "<group>"; };
 		47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +83,7 @@
 		4762F1DD252B0B65005D2712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
 		4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
-=======
->>>>>>> Develop
+
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
@@ -282,15 +280,13 @@
 		D6E687AC252DCB1200FA09C1 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 				D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */,
-=======
+
 				4762F1DD252B0B65005D2712 /* LoginViewModel.swift */,
->>>>>>> LoginViewModel
-=======
+
 				D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */,
->>>>>>> Develop
+
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -536,15 +532,13 @@
 				D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
-<<<<<<< HEAD
+
 				471593632512202300D84F85 /* LoginUIExtention.swift in Sources */,
 				4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */,
 				4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */,
 				4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */,
 				4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */,
-=======
-=======
->>>>>>> Develop
+
 				D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */,
 				D6812855252F03E600E9D7CA /* UIColor.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
