@@ -14,4 +14,27 @@ import RxAlamofire
 
 class LoginViewModel {
     
+    let view = LoginViewController()
+    
+    let param = ["id" : " ", "pw" : " "]
+    let header = ["application/json" : "content-type"]
+    let url = URL(string: " ")!
+    
+    func request() {
+         
+        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            switch response.result {
+            case .success :
+                print(response)
+                break
+            
+            case .failure(let error) :
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+        
+    }
 }
