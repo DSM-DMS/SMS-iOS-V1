@@ -417,7 +417,7 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
             CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
             eventLayer.hidden = i >= self.numberOfEvents;
             if (!eventLayer.hidden) {
-                eventLayer.frame = CGRectMake(2*i*diameter, (self.fs_height-diameter)*0.5, diameter, diameter);
+                eventLayer.frame = CGRectMake(1.5*i*diameter, (self.fs_height-diameter)*0.5, diameter, diameter);
                 if (eventLayer.cornerRadius != diameter/2) {
                     eventLayer.cornerRadius = diameter/2;
                 }

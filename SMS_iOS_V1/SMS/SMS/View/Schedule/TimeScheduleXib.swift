@@ -3,6 +3,7 @@ import UIKit
 class TimeScheduleXib: UIView {
     private let xibName = "TimeScheduleXib"
     
+    @IBOutlet weak var dateView: UIView!
     @IBOutlet var mondayLabels: [UILabel]!
     @IBOutlet var tuesdayLabels: [UILabel]!
     @IBOutlet var wedsLabels: [UILabel]!
@@ -23,5 +24,10 @@ class TimeScheduleXib: UIView {
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
+        self.dateView.addShadow(offset: CGSize(width: 0, height: 2),
+                           color: .lightGray,
+                           shadowRadius: 2,
+                           opacity: 0.7,
+                           cornerRadius: 5)
     }
 }
