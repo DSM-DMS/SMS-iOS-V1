@@ -40,19 +40,19 @@ class CalendarCollectionViewCell: FSCalendarCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.eventLayer.frame = CGRect(x: self.contentView.bounds.minX, y: self.contentView.bounds.minY, width: 41, height: 30)
-        
+        self.eventLayer.frame = CGRect(x: self.contentView.bounds.minX, y: self.contentView.bounds.minY - 0.5, width: self.contentView.frame.width, height: self.contentView.frame.height - self.contentView.frame.height / 6)
         if selectionType == .middle {
             self.eventLayer.path = UIBezierPath(rect: self.eventLayer.bounds).cgPath
         } else if selectionType == .leftBorder {
-            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.shapeLayer.frame.width / 2, height: self.shapeLayer.frame.width / 2)).cgPath
+            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.eventLayer.frame.width / 2, height: self.eventLayer.frame.width / 2)).cgPath
         } else if selectionType == .rightBorder {
-            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.shapeLayer.frame.width / 2, height: self.shapeLayer.frame.width / 2)).cgPath
+            self.eventLayer.path = UIBezierPath(roundedRect: self.eventLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.eventLayer.frame.width / 2, height: self.eventLayer.frame.width / 2)).cgPath
         } else if selectionType == .single {
             let diameter: CGFloat = min(self.eventLayer.frame.height, self.eventLayer.frame.width)
-            self.eventLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2 + 1,
-                                                               y: self.contentView.frame.height / 2 - diameter / 2,
-                                                               width: self.shapeLayer.frame.height,
-                                                               height: self.shapeLayer.frame.width)).cgPath
+            self.eventLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2,
+                                                               y: self.contentView.frame.height / 2 - diameter / 2 - self.contentView.frame.height / 14,
+                                                               width: self.eventLayer.frame.height,
+                                                               height: self.contentView.frame.height - self.contentView.frame.height / 6)).cgPath
         }
-    }}
+    }
+}

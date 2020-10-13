@@ -1,16 +1,15 @@
 import UIKit
+
 import FSCalendar
 import RxSwift
 
 class ScheduleViewController: UIViewController {
     
     private lazy var dateFormatter = globalDateFormatter(formType(rawValue: formType.day.rawValue)!)
-//    private lazy var today = dateFormatter.string(from: Date())
     private var firstDate: Date?
-    var holidayArr = ["2020-09-10","2020-09-24"]
-    var arr = ["2020-09-10","2020-09-21","2020-09-22"]
-    var redArr = ["2020-09-20"]
+    let count = 2
     
+    @IBOutlet weak var xibViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: FSCalendarHeaderView!
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
@@ -50,13 +49,16 @@ class ScheduleViewController: UIViewController {
 
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
-//    func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        let a = datef.string(from: date)
-//        let previousDate = datef.string(from: Date(timeInterval: -86400, since: date))
-//        let nextDate = datef.string(from: Date(timeInterval: +86400, since: date))
-//
+    func calendar (_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        /// refator
+        
+        let a = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: date)
+        let previousDate = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: Date(timeInterval: -86400, since: date))
+        let nextDate = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: Date(timeInterval: +86400, since: date))
+        
+        
 //        if holidayArr.contains(a) && arr.contains(a) {
-//            return 2
+            return 2
 //        }
 //        if holidayArr.contains(a) {
 //            if holidayArr.contains(previousDate) && holidayArr.contains(nextDate) {
@@ -79,7 +81,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
 //            }
 //        }
 //        return 0
-//    }
+    }
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
@@ -87,35 +89,37 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
-        cell.eventIndicator.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: cell.frame.width / 25, y: cell.frame.width / 25)
+        calendar.appearance.eventOffset = CGPoint(x: cell.frame.width / 3, y: -cell.frame.height)
         self.configure(cell: cell, for: date, at: position)
     }
     
     private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        /// refator
+        
         let calCell = (cell as! CalendarCollectionViewCell)
-        let combineArray = arr + holidayArr
-//        let strDate = dateFormatter2.string(from: date)
-//        let previousDate = dateFormatter2.string(from: Date(timeInterval: -86400, since: date))
-//        let nextDate = dateFormatter2.string(from: Date(timeInterval: +86400, since: date))
-//        let date = dateFormatter2.string(from: date)
+        let combineArray = ["2020-10-10","2020-10-11","2020-10-14","2020-10-21","2020-10-22","2020-10-23"]
+        let strDate = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: date)
+        let previousDate = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: Date(timeInterval: -86400, since: date))
+        let nextDate = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: Date(timeInterval: +86400, since: date))
         if position == .current {
             var selectionType = SelectionType.none
-//
-//            if combineArray.contains(strDate){
-//                if combineArray.contains(strDate){
-//                    if (combineArray.contains(previousDate) && combineArray.contains(nextDate)) {
-//                        selectionType = .middle
-//                    } else if combineArray.contains(previousDate) && combineArray.contains(date) {
-//                        selectionType = .rightBorder
-//                    } else if combineArray.contains(nextDate) {
-//                        selectionType = .leftBorder
-//                    } else {
-//                        selectionType = .single
-//                    }
-//                }
-//            } else {
-//                selectionType = .none
-//            }
+
+            if combineArray.contains(strDate){
+                if combineArray.contains(strDate){
+                    if (combineArray.contains(previousDate) && combineArray.contains(nextDate)) {
+                        selectionType = .middle
+                    } else if combineArray.contains(previousDate) && combineArray.contains(strDate) {
+                        selectionType = .rightBorder
+                    } else if combineArray.contains(nextDate) {
+                        selectionType = .leftBorder
+                    } else {
+                        selectionType = .single
+                    }
+                }
+            } else {
+                selectionType = .none
+            }
             if selectionType == .none {
                 calCell.eventLayer!.isHidden = true
                 return
@@ -128,6 +132,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        /// refator
         self.configureVisibleCells()
         if firstDate == nil {
             firstDate = date
@@ -138,6 +143,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        /// refator
         self.configureVisibleCells()
         calendar.deselect(date)
         firstDate = nil
@@ -152,25 +158,27 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        /// refator
         let strDate = dateFormatter.string(from: date)
-        if arr.contains(strDate) {
+//        if arr.contains(strDate) {
             return [.green, .purple]
-        }
-        if holidayArr.contains(strDate) {
-            return [.purple]
-        }
-        return [.clear]
+//        }
+//        if holidayArr.contains(strDate) {
+//            return [.purple]
+//        }
+//        return [.clear]
     }
 
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        /// refator
         let strDate = dateFormatter.string(from: date)
-        if arr.contains(strDate) {
+//        if arr.contains(strDate) {
             return [.green, .purple]
-        }
-        if holidayArr.contains(strDate) {
-            return [.purple]
-        }
-        return [.clear]
+//        }
+//        if holidayArr.contains(strDate) {
+//            return [.purple]
+//        }
+//        return [.clear]
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
@@ -217,30 +225,29 @@ extension ScheduleViewController {
         tableView.isHidden = !value
         timeScheduleView.isHidden = value
     }
-    
-//    func setTableViewHeight(count: Int = 1) -> CGFloat {
-//        return CGFloat(Double(count) * 44.5)
-//    }
 }
 
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        /// fix
+        return self.count
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if redArr.count == 2 {
-            cell.layer.masksToBounds = true
+        /// refactor
+        cell.layer.masksToBounds = true
+        if self.count == 2 {
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        } else if indexPath.row == holidayArr.count - 1 {
-            cell.layer.masksToBounds = true
+        } else if indexPath.row == 1 {
             cell.layer.cornerRadius = 17
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /// refactor
         let nibName = UINib(nibName: "ScheduleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "scheduleCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! ScheduleCell
