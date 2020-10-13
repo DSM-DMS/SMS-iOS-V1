@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
             <connections>
+                <outlet property="dateView" destination="09B-47-5RO" id="Jh1-Qy-0Xi"/>
                 <outletCollection property="mondayLabels" destination="Ijg-KD-uRH" collectionClass="NSMutableArray" id="lHM-UX-QEv"/>
                 <outletCollection property="mondayLabels" destination="f7m-FW-i02" collectionClass="NSMutableArray" id="FBG-23-ALk"/>
                 <outletCollection property="mondayLabels" destination="gg5-Kb-MYt" collectionClass="NSMutableArray" id="8KC-2b-wba"/>
