@@ -39,6 +39,7 @@ class TabbarViewController: UIViewController {
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
         tabbar.indicatorViewLeadingConstraint.constant = 25
+        tabbar.delegate = self
     }
     
     func tabbarView(scrollTo index: Int) {
@@ -54,7 +55,7 @@ class TabbarViewController: UIViewController {
     }
 }
 
-extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource, TabbarViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].view!
@@ -74,6 +75,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
         tabbar.setSelectedItem(index: itemAt)
+        tabbar.customTabBarCollectionView.selectItem(at: IndexPath(item: itemAt, section: 0), animated: true, scrollPosition: [])
     }
 }
 
