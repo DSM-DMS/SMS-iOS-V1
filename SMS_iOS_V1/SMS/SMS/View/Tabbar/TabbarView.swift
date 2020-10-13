@@ -1,5 +1,9 @@
 import UIKit
 
+protocol TabbarViewDelegate {
+    func tabbarView(scrollTo index: Int)
+}
+
 struct Tabbar {
     let imageName:String
     var isSelected:Bool
@@ -12,6 +16,7 @@ struct Tabbar {
 
 class TabbarView: UIView {
     
+    var delegate: TabbarViewDelegate!
     var oldSelectedRow:Int = 0
 
     var imageNames:[Tabbar] = [
@@ -110,6 +115,7 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row: Int = indexPath.row
         self.setSelectedItem(index: row)
+        delegate?.tabbarView(scrollTo: indexPath.row)
     }
 }
 
