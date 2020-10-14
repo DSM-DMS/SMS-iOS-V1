@@ -190,30 +190,6 @@
             </objects>
             <point key="canvasLocation" x="-9.375" y="-4.225352112676056"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="fhY-wj-5HZ">
-            <objects>
-                <viewController id="ttY-Dn-kwC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fc8-jM-77g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="보라색 버튼 아래 레이아웃, 전체 뷰의 맨위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-Rr-Wbc">
-                                <rect key="frame" x="20" y="369" width="281" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kY3-kL-sm6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SwJ-vg-mJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="726" y="-2"/>
-        </scene>
     </scenes>
     <resources>
         <image name="change" width="24" height="24"/>

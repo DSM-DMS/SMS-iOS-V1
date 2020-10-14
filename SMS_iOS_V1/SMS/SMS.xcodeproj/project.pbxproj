@@ -41,6 +41,7 @@
 		D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */; };
 		D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */; };
 		D63FE2FC2535DC4800DCD75F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FE2F82535DB5400DCD75F /* LoginViewModel.swift */; };
+		D63FE31C2535DFB400DCD75F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FE31B2535DFB400DCD75F /* APIService.swift */; };
 		D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1A0252A0A09007F0253 /* TabbarViewController.swift */; };
 		D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1B3252A0A1D007F0253 /* PageCell.swift */; };
 		D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1BA252A0A1D007F0253 /* TabbarView.swift */; };
@@ -93,6 +94,7 @@
 		D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
 		D63FE2F82535DB5400DCD75F /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D63FE31B2535DFB400DCD75F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D664E1A0252A0A09007F0253 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		D664E1B3252A0A1D007F0253 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		D664E1BA252A0A1D007F0253 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		479DB1342502522C009A8B08 /* SMS */ = {
 			isa = PBXGroup;
 			children = (
+				D63FE31A2535DFA600DCD75F /* Network */,
 				D617CDB52533330900D33F09 /* Custom */,
 				479DB1432502522E009A8B08 /* Info.plist */,
 				47131021250253F300ED348C /* View */,
@@ -208,6 +211,14 @@
 				D617CDB62533331D00D33F09 /* GlobalProperties.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		D63FE31A2535DFA600DCD75F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D63FE31B2535DFB400DCD75F /* APIService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D68127EA252EDF6B00E9D7CA /* ViewModel */ = {
@@ -498,6 +509,7 @@
 				D6812855252F03E600E9D7CA /* UIColor.swift in Sources */,
 				D617CDB72533331D00D33F09 /* GlobalProperties.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
+				D63FE31C2535DFB400DCD75F /* APIService.swift in Sources */,
 				D62D8C332518DABE00548FBF /* MypageNoticeDetailViewController.swift in Sources */,
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
 				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,

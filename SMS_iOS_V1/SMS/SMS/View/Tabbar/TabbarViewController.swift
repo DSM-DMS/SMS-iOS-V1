@@ -37,8 +37,8 @@ class TabbarViewController: UIViewController {
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        tabbar.indicatorViewLeadingConstraint.constant = 25
+        tabbar.heightAnchor.constraint(equalToConstant: self.view.frame.height / 10).isActive = true
+        tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
         tabbar.delegate = self
     }
     
@@ -69,7 +69,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + 25
+        tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + self.view.frame.width / 16
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

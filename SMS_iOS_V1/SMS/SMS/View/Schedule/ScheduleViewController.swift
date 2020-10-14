@@ -90,7 +90,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
         cell.eventIndicator.transform = CGAffineTransform(scaleX: cell.frame.width / 25, y: cell.frame.width / 25)
-        calendar.appearance.eventOffset = CGPoint(x: cell.frame.width / 3, y: -cell.frame.height + cell.frame.height / 19)
+        calendar.appearance.eventOffset = CGPoint(x: cell.frame.width / 3.5, y: -cell.frame.height + cell.frame.height / 18.5)
         self.configure(cell: cell, for: date, at: position)
     }
     
