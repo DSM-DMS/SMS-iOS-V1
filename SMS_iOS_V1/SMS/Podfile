@@ -15,5 +15,6 @@ pod 'FSCalendar'
 pod 'RxCocoa'
 pod 'RxOptional'
 pod 'RxFlow'
+pod 'LayoutHelper'
 
 end
