@@ -14,18 +14,10 @@ class MypageChangePWViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
+        applyButton.addShadow(offset: CGSize(width: 0, height: 4),
+                              color: .lightGray,
+                              shadowRadius: 4,
+                              opacity: 0.7,
+                              cornerRadius: 10)
     }
-    
-    func setupUI() {
-        
-        applyButton.layer.cornerRadius = 10
-        applyButton.layer.shadowColor = UIColor.lightGray.cgColor
-        applyButton.layer.shadowOpacity = 0.7
-        applyButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        applyButton.layer.shadowRadius = 4
-        
-    }
-    
 }

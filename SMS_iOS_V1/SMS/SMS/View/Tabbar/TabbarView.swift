@@ -1,5 +1,9 @@
 import UIKit
 
+protocol TabbarViewDelegate {
+    func tabbarView(scrollTo index: Int)
+}
+
 struct Tabbar {
     let imageName:String
     var isSelected:Bool
@@ -12,6 +16,7 @@ struct Tabbar {
 
 class TabbarView: UIView {
     
+    var delegate: TabbarViewDelegate!
     var oldSelectedRow:Int = 0
 
     var imageNames:[Tabbar] = [
@@ -30,9 +35,14 @@ class TabbarView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         setupCustomTabBar()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupCustomCollectionView()
     }
     
     lazy var customTabBarCollectionView: UICollectionView = {
@@ -63,14 +73,15 @@ class TabbarView: UIView {
         return view
     }()
     
-    func setupCustomTabBar(){
-        self.addSubviews([customTabBarCollectionView, indicatorView])
-        
+    func setupCustomCollectionView() {
         customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: 62).isActive = true
-
+        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+    }
+    
+    func setupCustomTabBar(){
+        self.addSubviews([customTabBarCollectionView, indicatorView])
         indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
         indicatorViewWidthConstraint.isActive = true
         indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
@@ -86,10 +97,6 @@ class TabbarView: UIView {
         
         customTabBarCollectionView.reloadData()
     }
-    
-//    func setSelectedItem(index: Int) -> Void {
-//        
-//    }
 }
 
 extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -104,12 +111,13 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width / 4 , height: 62)
+        return CGSize(width: self.frame.width / 4 , height: self.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row: Int = indexPath.row
         self.setSelectedItem(index: row)
+        delegate?.tabbarView(scrollTo: indexPath.row)
     }
 }
 

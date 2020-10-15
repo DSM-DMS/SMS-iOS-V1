@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
+<<<<<<< HEAD
     <device id="retina6_5" orientation="portrait" appearance="light"/>
+=======
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+>>>>>>> Develop
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -12,9 +16,13 @@
         <!--Schedule View Controller-->
         <scene sceneID="TMd-fS-98V">
             <objects>
-                <viewController storyboardIdentifier="ScheduleViewController" id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScheduleViewController" autoresizesArchivedViewToFullSize="NO" id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnw-tl-eUh">
+<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+=======
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+>>>>>>> Develop
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw">
@@ -37,6 +45,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DH7-oZ-gUT">
+<<<<<<< HEAD
                                 <rect key="frame" x="44" y="84" width="326" height="384"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WP6-FK-pmi" customClass="FSCalendarHeaderView">
@@ -44,6 +53,15 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTw-iz-Wz3">
                                                 <rect key="frame" x="117.66666666666666" y="0.0" width="45" height="22"/>
+=======
+                                <rect key="frame" x="40" y="40" width="240" height="276"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WP6-FK-pmi" customClass="FSCalendarHeaderView">
+                                        <rect key="frame" x="23" y="0.0" width="194" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTw-iz-Wz3">
+                                                <rect key="frame" x="74.5" y="0.0" width="45" height="22"/>
+>>>>>>> Develop
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -59,7 +77,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec3-8h-Iej">
+<<<<<<< HEAD
                                                 <rect key="frame" x="253" y="0.0" width="9" height="22"/>
+=======
+                                                <rect key="frame" x="167" y="0.0" width="9" height="22"/>
+>>>>>>> Develop
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ec3-8h-Iej" secondAttribute="height" multiplier="9:22" id="t4S-rz-1Gg"/>
                                                 </constraints>
@@ -78,6 +100,7 @@
                                             <constraint firstItem="bl4-Gd-L3L" firstAttribute="leading" secondItem="WP6-FK-pmi" secondAttribute="leading" constant="19" id="gve-fK-5ZX"/>
                                             <constraint firstItem="lTw-iz-Wz3" firstAttribute="centerY" secondItem="bl4-Gd-L3L" secondAttribute="centerY" id="jQg-mN-fcj"/>
                                             <constraint firstAttribute="trailing" secondItem="Ec3-8h-Iej" secondAttribute="trailing" constant="18" id="kqu-30-12c"/>
+<<<<<<< HEAD
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="lHC-JV-axg"/>
                                             <constraint firstItem="bl4-Gd-L3L" firstAttribute="top" secondItem="WP6-FK-pmi" secondAttribute="top" id="oL4-eA-49A"/>
                                             <constraint firstAttribute="height" priority="250" constant="22" id="z9a-9f-j0A"/>
@@ -88,6 +111,17 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfI-X1-O38">
                                                 <rect key="frame" x="0.0" y="50" width="326" height="0.6666666666666643"/>
+=======
+                                            <constraint firstItem="bl4-Gd-L3L" firstAttribute="top" secondItem="WP6-FK-pmi" secondAttribute="top" id="oL4-eA-49A"/>
+                                            <constraint firstAttribute="height" constant="22" id="z9a-9f-j0A"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="WHN-rC-5Z9" customClass="FSCalendar">
+                                        <rect key="frame" x="0.0" y="37" width="240" height="239"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfI-X1-O38">
+                                                <rect key="frame" x="0.0" y="50" width="240" height="0.5"/>
+>>>>>>> Develop
                                                 <color key="backgroundColor" red="0.71764705882352942" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="X6g-cT-ila"/>
@@ -137,6 +171,7 @@
                                     <constraint firstItem="WP6-FK-pmi" firstAttribute="centerX" secondItem="DH7-oZ-gUT" secondAttribute="centerX" id="XSY-ig-svS"/>
                                     <constraint firstItem="WHN-rC-5Z9" firstAttribute="top" secondItem="WP6-FK-pmi" secondAttribute="bottom" constant="15" id="b3Q-bt-oP5"/>
                                     <constraint firstItem="WP6-FK-pmi" firstAttribute="centerX" secondItem="WHN-rC-5Z9" secondAttribute="centerX" id="bkZ-rc-9Bc"/>
+<<<<<<< HEAD
                                     <constraint firstAttribute="width" secondItem="DH7-oZ-gUT" secondAttribute="height" multiplier="163:192" id="k2U-PP-mlx"/>
                                     <constraint firstAttribute="bottom" secondItem="WHN-rC-5Z9" secondAttribute="bottom" id="oeb-WH-pF4"/>
                                 </constraints>
@@ -150,16 +185,48 @@
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="-244" y="438" width="270" height="290"/>
+=======
+                                    <constraint firstAttribute="width" secondItem="DH7-oZ-gUT" secondAttribute="height" multiplier="167:192" id="fei-jC-Il1"/>
+                                    <constraint firstAttribute="bottom" secondItem="WHN-rC-5Z9" secondAttribute="bottom" id="oeb-WH-pF4"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09O-B4-tO3">
+                                <rect key="frame" x="37" y="326" width="246" height="98"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0JY-3A-AAr" secondAttribute="height" multiplier="334:359" id="WQ0-t2-CaF"/>
+                                    <constraint firstAttribute="height" constant="98" id="y3e-RW-LmF"/>
                                 </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw">
+                                <rect key="frame" x="234" y="488" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Aj-rJ-c6j"/>
+                                    <constraint firstAttribute="width" constant="50" id="oKJ-On-bzd"/>
+                                </constraints>
+                                <state key="normal" image="change"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.shadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeScheduleAndAcademicSchedule:" destination="r8e-zf-NCH" eventType="touchUpInside" id="7HO-Io-5Oe"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="15" y="60" width="290" height="58"/>
+>>>>>>> Develop
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="56O-W6-qfN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="0rQ-5c-2l6"/>
+<<<<<<< HEAD
                             <constraint firstItem="56O-W6-qfN" firstAttribute="trailing" secondItem="Fpf-hx-FBw" secondAttribute="trailing" constant="36" id="8e2-ob-7Ip"/>
                             <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" secondItem="09O-B4-tO3" secondAttribute="bottom" priority="998" constant="224" id="8oE-jz-FeN"/>
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="44" id="HtP-uL-W3U"/>
@@ -172,8 +239,26 @@
                             <constraint firstItem="DH7-oZ-gUT" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="40" id="ktz-3J-OL8"/>
                             <constraint firstItem="09O-B4-tO3" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="mfM-Ew-GUv"/>
                             <constraint firstItem="09O-B4-tO3" firstAttribute="top" secondItem="DH7-oZ-gUT" secondAttribute="bottom" constant="10" id="zyX-UW-UiP"/>
+=======
+                            <constraint firstItem="09O-B4-tO3" firstAttribute="width" secondItem="DH7-oZ-gUT" secondAttribute="width" multiplier="1.02586" id="A4j-qD-fYi"/>
+                            <constraint firstItem="DH7-oZ-gUT" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="40" id="HtP-uL-W3U"/>
+                            <constraint firstItem="0JY-3A-AAr" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="I9u-uR-NwM"/>
+                            <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fpf-hx-FBw" secondAttribute="bottom" priority="999" constant="30" id="Kb2-61-ecF"/>
+                            <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" relation="lessThanOrEqual" secondItem="09O-B4-tO3" secondAttribute="bottom" priority="999" constant="220" id="LEc-O7-zUw"/>
+                            <constraint firstItem="0JY-3A-AAr" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="15" id="Nd8-lu-KVH"/>
+                            <constraint firstItem="56O-W6-qfN" firstAttribute="trailing" secondItem="Fpf-hx-FBw" secondAttribute="trailing" constant="36" id="Sdv-Up-6tv"/>
+                            <constraint firstItem="0JY-3A-AAr" firstAttribute="top" relation="lessThanOrEqual" secondItem="56O-W6-qfN" secondAttribute="top" priority="998" constant="90" id="UAQ-Pv-X18"/>
+                            <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="0JY-3A-AAr" secondAttribute="bottom" constant="450" id="XKv-sA-dSv"/>
+                            <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="Fpf-hx-FBw" secondAttribute="bottom" priority="995" constant="4" id="bYc-Ts-0U1"/>
+                            <constraint firstItem="Fpf-hx-FBw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="09O-B4-tO3" secondAttribute="bottom" constant="4" id="gzh-Lf-urN"/>
+                            <constraint firstItem="0JY-3A-AAr" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" priority="999" constant="60" id="kEQ-nF-zOS"/>
+                            <constraint firstItem="09O-B4-tO3" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="mfM-Ew-GUv"/>
+                            <constraint firstItem="DH7-oZ-gUT" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="40" id="q2S-Ms-7kj"/>
+                            <constraint firstItem="09O-B4-tO3" firstAttribute="top" secondItem="DH7-oZ-gUT" secondAttribute="bottom" constant="10" id="rOG-kz-Xlh"/>
+>>>>>>> Develop
                         </constraints>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="WHN-rC-5Z9" id="EUI-5d-aiE"/>
                         <outlet property="changeViewBtn" destination="Fpf-hx-FBw" id="SgH-E4-pEK"/>
@@ -182,12 +267,17 @@
                         <outlet property="rightBtn" destination="Ec3-8h-Iej" id="WF5-nl-CHU"/>
                         <outlet property="tableView" destination="09O-B4-tO3" id="Rsu-7M-eW0"/>
                         <outlet property="timeScheduleView" destination="0JY-3A-AAr" id="R9g-FD-u0C"/>
+                        <outlet property="xibViewTopConstraint" destination="kEQ-nF-zOS" id="FZ7-34-QrG"/>
                         <outlet property="yearLabel" destination="lTw-iz-Wz3" id="JfX-VK-zWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nd7-w8-1N2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-5.625" y="-2.112676056338028"/>
+=======
+            <point key="canvasLocation" x="-9.375" y="-4.225352112676056"/>
+>>>>>>> Develop
         </scene>
     </scenes>
     <resources>
