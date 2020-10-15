@@ -27,8 +27,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="C3E-zq-0Iu">
                                 <rect key="frame" x="45" y="76" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="999" constant="80" id="ObC-09-42W"/>
-                                    <constraint firstAttribute="width" priority="999" constant="80" id="yqZ-lL-KhM"/>
+                                    <constraint firstAttribute="height" constant="80" id="ObC-09-42W"/>
+                                    <constraint firstAttribute="width" constant="80" id="yqZ-lL-KhM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2학년 2반 22번" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO1-4Y-HX7">
@@ -73,6 +73,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-C0-URY">
+                                        <rect key="frame" x="177" y="17" width="82" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="비밀번호 변경"/>
+                                        <connections>
+                                            <segue destination="v3A-vZ-k2y" kind="presentation" modalPresentationStyle="fullScreen" id="CT4-jD-5Mf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -98,6 +106,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-NB-apf">
+                                        <rect key="frame" x="257" y="25" width="52" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="로그아웃"/>
+                                        <connections>
+                                            <segue destination="1vf-8o-VYs" kind="presentation" modalPresentationStyle="fullScreen" id="H6i-aa-WiT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -123,6 +139,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-MG-gM2">
+                                        <rect key="frame" x="252" y="17" width="69" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="개발자 소개"/>
+                                        <connections>
+                                            <segue destination="XSL-bD-2ji" kind="presentation" modalPresentationStyle="fullScreen" id="y9P-5U-VGQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -146,7 +170,28 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W15-SY-fvz" firstAttribute="top" secondItem="C3E-zq-0Iu" secondAttribute="bottom" constant="30" id="0YM-Es-unu"/>
-                            <constraint firstItem="5sI-a0-7b0" firstAttribute="top" secondItem="WT1-Gh-8te" secondAttribute="bottom" constant="40" id="0bJ-pP-lj1"/>
+                            <constraint firstItem="5sI-a0-7b0" firstAttribute="top" secondItem="WT1-Gh-8te" secondAttribute="bottom" constant="40" id="0bJ-pP-lj1" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="W15-SY-fvz" secondAttribute="trailing" constant="20" id="4ny-t3-h13"/>
                             <constraint firstItem="LXw-dO-UgU" firstAttribute="top" secondItem="rnP-bz-u77" secondAttribute="top" constant="95" id="7XR-Uu-KnF"/>
                             <constraint firstItem="VO1-4Y-HX7" firstAttribute="top" secondItem="LXw-dO-UgU" secondAttribute="bottom" constant="5" id="B0x-XC-116"/>
@@ -162,14 +207,67 @@
                             <constraint firstItem="rxI-fH-3AB" firstAttribute="top" secondItem="rnP-bz-u77" secondAttribute="top" constant="95" id="Vo5-eW-Kjc"/>
                             <constraint firstAttribute="trailing" secondItem="5sI-a0-7b0" secondAttribute="trailing" constant="20" id="WAi-iq-Xna"/>
                             <constraint firstItem="IC4-eQ-rgR" firstAttribute="top" secondItem="rnP-bz-u77" secondAttribute="top" constant="25" id="YqZ-9H-tja"/>
-                            <constraint firstItem="WT1-Gh-8te" firstAttribute="top" secondItem="W15-SY-fvz" secondAttribute="bottom" constant="40" id="eOF-rR-nVD"/>
+                            <constraint firstItem="WT1-Gh-8te" firstAttribute="top" secondItem="W15-SY-fvz" secondAttribute="bottom" constant="40" id="eOF-rR-nVD" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="0My-6f-QfJ" firstAttribute="top" secondItem="rxI-fH-3AB" secondAttribute="bottom" constant="5" id="l43-fK-1P4"/>
-                            <constraint firstItem="C3E-zq-0Iu" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" priority="999" constant="45" id="lKA-cV-AcD"/>
+                            <constraint firstItem="C3E-zq-0Iu" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="45" id="lKA-cV-AcD" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="rxI-fH-3AB" firstAttribute="centerX" secondItem="0My-6f-QfJ" secondAttribute="centerX" id="n7D-yP-gKY"/>
                             <constraint firstItem="btt-Dz-pNz" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="20" id="umS-L8-hz7"/>
-                            <constraint firstItem="C3E-zq-0Iu" firstAttribute="top" secondItem="IC4-eQ-rgR" secondAttribute="bottom" priority="999" constant="29" id="uta-wK-AEy"/>
-                            <constraint firstItem="W15-SY-fvz" firstAttribute="top" secondItem="C3E-zq-0Iu" secondAttribute="bottom" priority="999" constant="25" id="x8B-dz-ZmV"/>
-                            <constraint firstItem="btt-Dz-pNz" firstAttribute="top" secondItem="5sI-a0-7b0" secondAttribute="bottom" constant="40" id="yGt-GS-RwY"/>
+                            <constraint firstItem="C3E-zq-0Iu" firstAttribute="top" secondItem="IC4-eQ-rgR" secondAttribute="bottom" constant="29" id="uta-wK-AEy"/>
+                            <constraint firstItem="btt-Dz-pNz" firstAttribute="top" secondItem="5sI-a0-7b0" secondAttribute="bottom" constant="40" id="yGt-GS-RwY" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -212,14 +310,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="ehw-0e-QJK" firstAttribute="leading" secondItem="7HZ-ZM-8jg" secondAttribute="leading" priority="999" constant="51" id="9bN-Nt-gsB"/>
-                                    <constraint firstAttribute="trailing" secondItem="ehw-0e-QJK" secondAttribute="trailing" priority="999" constant="51" id="DKh-ky-XFb"/>
                                     <constraint firstAttribute="height" constant="130" id="E1B-px-isC"/>
                                     <constraint firstItem="wUQ-4t-eah" firstAttribute="leading" secondItem="7HZ-ZM-8jg" secondAttribute="leading" constant="55" id="NFI-Vq-YbS"/>
                                     <constraint firstItem="ehw-0e-QJK" firstAttribute="top" secondItem="7HZ-ZM-8jg" secondAttribute="top" constant="31" id="Tl5-t9-3et"/>
                                     <constraint firstAttribute="trailing" secondItem="5Cq-S6-awZ" secondAttribute="trailing" constant="55" id="m1Z-tz-PJ0"/>
                                     <constraint firstAttribute="bottom" secondItem="5Cq-S6-awZ" secondAttribute="bottom" constant="15" id="pBL-zE-R3t"/>
                                     <constraint firstAttribute="bottom" secondItem="wUQ-4t-eah" secondAttribute="bottom" constant="15" id="sIy-iw-7Kx"/>
+                                    <constraint firstItem="ehw-0e-QJK" firstAttribute="centerX" secondItem="7HZ-ZM-8jg" secondAttribute="centerX" id="z7y-A1-xnC"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -227,10 +324,26 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="gGu-N6-k92" firstAttribute="trailing" secondItem="7HZ-ZM-8jg" secondAttribute="trailing" constant="40" id="1rT-c5-Tgh"/>
-                            <constraint firstItem="7HZ-ZM-8jg" firstAttribute="top" secondItem="gGu-N6-k92" secondAttribute="top" constant="240" id="lSa-L7-Gdl"/>
+                            <constraint firstItem="7HZ-ZM-8jg" firstAttribute="top" secondItem="gGu-N6-k92" secondAttribute="top" constant="240" id="lSa-L7-Gdl" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="300"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="310"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="7HZ-ZM-8jg" firstAttribute="leading" secondItem="gGu-N6-k92" secondAttribute="leading" constant="40" id="uTz-5V-tuA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fGr-93-mtq"/>
                     <connections>
                         <outlet property="backgroundView" destination="7HZ-ZM-8jg" id="KUt-xH-Agb"/>
                     </connections>
@@ -273,10 +386,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="AZA-9q-0WK" firstAttribute="leading" secondItem="ldq-tu-09x" secondAttribute="leading" priority="999" constant="74" id="5ap-pU-qsn"/>
                                     <constraint firstItem="AZA-9q-0WK" firstAttribute="top" secondItem="ldq-tu-09x" secondAttribute="top" constant="25" id="5eJ-X3-AGg"/>
                                     <constraint firstItem="9ev-wg-BVy" firstAttribute="leading" secondItem="ldq-tu-09x" secondAttribute="leading" constant="55" id="D6k-2H-a6N"/>
-                                    <constraint firstAttribute="trailing" secondItem="AZA-9q-0WK" secondAttribute="trailing" priority="999" constant="74" id="HKv-t2-H9b"/>
+                                    <constraint firstItem="AZA-9q-0WK" firstAttribute="centerX" secondItem="ldq-tu-09x" secondAttribute="centerX" id="SKq-cJ-KcE"/>
                                     <constraint firstAttribute="bottom" secondItem="s99-IT-vxu" secondAttribute="bottom" constant="15" id="TuX-b3-UG5"/>
                                     <constraint firstAttribute="height" constant="130" id="WiD-KL-vHq"/>
                                     <constraint firstAttribute="bottom" secondItem="9ev-wg-BVy" secondAttribute="bottom" constant="15" id="mo3-Xu-RFF"/>
@@ -288,10 +400,26 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ldq-tu-09x" firstAttribute="leading" secondItem="hoi-Zt-bYQ" secondAttribute="leading" constant="40" id="6CJ-62-C9O"/>
-                            <constraint firstItem="ldq-tu-09x" firstAttribute="top" secondItem="hoi-Zt-bYQ" secondAttribute="top" constant="240" id="gk8-YB-b3y"/>
+                            <constraint firstItem="ldq-tu-09x" firstAttribute="top" secondItem="hoi-Zt-bYQ" secondAttribute="top" constant="240" id="gk8-YB-b3y" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="300"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="310"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="hoi-Zt-bYQ" firstAttribute="trailing" secondItem="ldq-tu-09x" secondAttribute="trailing" constant="40" id="n71-DE-uae"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3KX-8H-Idu"/>
                     <connections>
                         <outlet property="backgroundView" destination="ldq-tu-09x" id="TVh-F6-Ieo"/>
                     </connections>
@@ -464,23 +592,71 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8ui-qi-xZg" kind="presentation" modalPresentationStyle="fullScreen" id="F5Z-HI-Wdw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6u6-zN-MaH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CWd-GZ-F7M" firstAttribute="top" secondItem="7Fw-8w-kVe" secondAttribute="bottom" priority="999" constant="35" id="2Wd-VP-WAI"/>
+                            <constraint firstItem="CWd-GZ-F7M" firstAttribute="top" secondItem="7Fw-8w-kVe" secondAttribute="bottom" constant="35" id="2Wd-VP-WAI" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="4jo-za-sNP" firstAttribute="top" secondItem="6u6-zN-MaH" secondAttribute="top" priority="999" constant="105" id="3f5-i7-ozs"/>
                             <constraint firstItem="4jo-za-sNP" firstAttribute="leading" secondItem="lu0-uv-X6l" secondAttribute="leading" id="5hK-vG-Kjf"/>
                             <constraint firstItem="4jo-za-sNP" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" priority="999" constant="46" id="66F-Ni-aDs"/>
                             <constraint firstItem="QJy-BJ-lxN" firstAttribute="leading" secondItem="lKb-GX-Yy8" secondAttribute="leading" id="8PK-3b-jYC"/>
                             <constraint firstItem="Gpn-2d-0K5" firstAttribute="top" secondItem="xjd-8s-kos" secondAttribute="bottom" constant="5" id="BBM-30-3Ub"/>
                             <constraint firstItem="xjd-8s-kos" firstAttribute="top" secondItem="CWd-GZ-F7M" secondAttribute="bottom" constant="10" id="EeH-zZ-0Tl"/>
-                            <constraint firstItem="Phm-8g-TTa" firstAttribute="top" secondItem="oi1-Uj-1pL" secondAttribute="bottom" priority="999" constant="80" id="GrJ-4Q-whX"/>
+                            <constraint firstItem="Phm-8g-TTa" firstAttribute="top" secondItem="oi1-Uj-1pL" secondAttribute="bottom" constant="80" id="GrJ-4Q-whX" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="130"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="Phm-8g-TTa" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="40" id="J2K-Cs-198"/>
                             <constraint firstItem="CWd-GZ-F7M" firstAttribute="leading" secondItem="4jo-za-sNP" secondAttribute="leading" id="OgC-iI-XmZ"/>
                             <constraint firstItem="lu0-uv-X6l" firstAttribute="top" secondItem="4jo-za-sNP" secondAttribute="bottom" constant="10" id="On3-E5-4E2"/>
-                            <constraint firstItem="lKb-GX-Yy8" firstAttribute="top" secondItem="Gpn-2d-0K5" secondAttribute="bottom" priority="999" constant="35" id="OnD-6Z-O6g"/>
+                            <constraint firstItem="lKb-GX-Yy8" firstAttribute="top" secondItem="Gpn-2d-0K5" secondAttribute="bottom" constant="35" id="OnD-6Z-O6g" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="6u6-zN-MaH" firstAttribute="trailing" secondItem="oi1-Uj-1pL" secondAttribute="trailing" constant="46" id="RU6-6B-FRm"/>
                             <constraint firstItem="7Fw-8w-kVe" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="TiO-DG-uqy"/>
                             <constraint firstItem="xjd-8s-kos" firstAttribute="leading" secondItem="CWd-GZ-F7M" secondAttribute="leading" id="USQ-rB-QRf"/>
@@ -517,6 +693,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v3A-vZ-k2y" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dCv-XW-06Z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VGN-WE-Eng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
