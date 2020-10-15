@@ -49,7 +49,6 @@
 		D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */; };
 		D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */; };
 		D68127F4252EE05700E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */; };
-		D681284F252EFF6400E9D7CA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */; };
 		D6812855252F03E600E9D7CA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6812854252F03E600E9D7CA /* UIColor.swift */; };
 		D681285C252F17EC00E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */; };
 		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
@@ -102,7 +101,6 @@
 		D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D6812854252F03E600E9D7CA /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 			children = (
 				D6812857252F041000E9D7CA /* UIKit */,
 				471593662512208400D84F85 /* NoticeUIExtention.swift */,
-				D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */,
 			);
 			path = UIExtention;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
 				D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
-				D681284F252EFF6400E9D7CA /* UIButtonExtension.swift in Sources */,
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
