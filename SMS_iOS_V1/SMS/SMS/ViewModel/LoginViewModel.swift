@@ -2,42 +2,41 @@
 //  LoginViewModel.swift
 //  SMS
 //
-//  Created by DohyunKim on 2020/10/05.
+//  Created by DohyunKim on 2020/10/13.
 //  Copyright © 2020 DohyunKim. All rights reserved.
 //
 
 import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
 import Alamofire
+import RxAlamofire
 
 class LoginViewModel {
     
     let view = LoginViewController()
-    let url = URL(string: "")
+    
+    let param = ["id" : " ", "pw" : " "]
+    let header = ["application/json" : "content-type"]
+    let url = URL(string: " ")!
     
     func request() {
-        let id = view.IDTextField.text!
-        let pw = view.PWTextField.text!
-        
-        let param = ["id":id, "pw":pw]
-        
-        let header = ["application/json":"content-type"]
-        
-        Alamofire.request(url!, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
-            (response) in
+         
+        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
             switch response.result {
-            case .success(_) :
-                if let json = response.value {
-                    json as! [String:AnyObject]
-                }
-                break;
+            case .success :
+                print(response)
+                break
+            
             case .failure(let error) :
                 print(error.localizedDescription)
+                
+                
             }
         }
         
         
+        
     }
-    
 }
