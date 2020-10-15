@@ -162,14 +162,35 @@
                             <constraint firstItem="rxI-fH-3AB" firstAttribute="top" secondItem="rnP-bz-u77" secondAttribute="top" constant="95" id="Vo5-eW-Kjc"/>
                             <constraint firstAttribute="trailing" secondItem="5sI-a0-7b0" secondAttribute="trailing" constant="20" id="WAi-iq-Xna"/>
                             <constraint firstItem="IC4-eQ-rgR" firstAttribute="top" secondItem="rnP-bz-u77" secondAttribute="top" constant="25" id="YqZ-9H-tja"/>
+<<<<<<< HEAD
                             <constraint firstItem="WT1-Gh-8te" firstAttribute="top" secondItem="W15-SY-fvz" secondAttribute="bottom" constant="40" id="eOF-rR-nVD"/>
+=======
+                            <constraint firstItem="moY-7G-4RF" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="20" id="cYy-cS-9wA"/>
+                            <constraint firstItem="HAK-S3-Xvk" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="cf4-Ga-n43"/>
+                            <constraint firstItem="rnP-bz-u77" firstAttribute="trailing" secondItem="moY-7G-4RF" secondAttribute="trailing" constant="20" id="fHF-fM-KeW"/>
+                            <constraint firstItem="IMR-fY-QXz" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="20" id="gdM-5z-wgu"/>
+                            <constraint firstItem="zLH-et-Sz6" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="gw8-2w-zqG"/>
+                            <constraint firstItem="rwt-Jo-8Mo" firstAttribute="top" secondItem="HAK-S3-Xvk" secondAttribute="bottom" constant="8" id="hem-Gh-R24"/>
+                            <constraint firstItem="HAK-S3-Xvk" firstAttribute="top" secondItem="IMR-fY-QXz" secondAttribute="bottom" constant="55" id="igu-Tk-lci"/>
+                            <constraint firstItem="D19-bQ-nnW" firstAttribute="top" secondItem="moY-7G-4RF" secondAttribute="bottom" constant="35" id="jeO-49-4iu"/>
+>>>>>>> Develop
                             <constraint firstItem="0My-6f-QfJ" firstAttribute="top" secondItem="rxI-fH-3AB" secondAttribute="bottom" constant="5" id="l43-fK-1P4"/>
                             <constraint firstItem="C3E-zq-0Iu" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" priority="999" constant="45" id="lKA-cV-AcD"/>
                             <constraint firstItem="rxI-fH-3AB" firstAttribute="centerX" secondItem="0My-6f-QfJ" secondAttribute="centerX" id="n7D-yP-gKY"/>
+<<<<<<< HEAD
                             <constraint firstItem="btt-Dz-pNz" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="20" id="umS-L8-hz7"/>
                             <constraint firstItem="C3E-zq-0Iu" firstAttribute="top" secondItem="IC4-eQ-rgR" secondAttribute="bottom" priority="999" constant="29" id="uta-wK-AEy"/>
                             <constraint firstItem="W15-SY-fvz" firstAttribute="top" secondItem="C3E-zq-0Iu" secondAttribute="bottom" priority="999" constant="25" id="x8B-dz-ZmV"/>
                             <constraint firstItem="btt-Dz-pNz" firstAttribute="top" secondItem="5sI-a0-7b0" secondAttribute="bottom" constant="40" id="yGt-GS-RwY"/>
+=======
+                            <constraint firstItem="bYt-uF-Ltj" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="oHP-58-w8U"/>
+                            <constraint firstItem="0KR-ds-CVW" firstAttribute="top" secondItem="W15-SY-fvz" secondAttribute="bottom" constant="60" id="qGI-pB-naU"/>
+                            <constraint firstItem="C3E-zq-0Iu" firstAttribute="top" secondItem="IC4-eQ-rgR" secondAttribute="bottom" constant="29" id="uta-wK-AEy"/>
+                            <constraint firstItem="D19-bQ-nnW" firstAttribute="leading" secondItem="rnP-bz-u77" secondAttribute="leading" constant="20" id="vec-Yk-NvM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W15-SY-fvz" secondAttribute="trailing" constant="20" id="x7y-ib-tHt"/>
+                            <constraint firstItem="W15-SY-fvz" firstAttribute="top" secondItem="C3E-zq-0Iu" secondAttribute="bottom" constant="25" id="x8B-dz-ZmV"/>
+                            <constraint firstItem="0KR-ds-CVW" firstAttribute="leading" secondItem="eJu-Ja-Ahg" secondAttribute="leadingMargin" constant="25" id="z2I-ML-R1z"/>
+>>>>>>> Develop
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
