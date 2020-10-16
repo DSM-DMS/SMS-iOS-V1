@@ -860,7 +860,7 @@
         <!--유의사항-->
         <scene sceneID="iRJ-lv-xRJ">
             <objects>
-                <viewController id="MrM-Zq-lVX" sceneMemberID="viewController">
+                <viewController id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3m-95-cmT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,10 +892,9 @@
                             <constraint firstItem="5k3-as-Abe" firstAttribute="top" secondItem="wyf-Fk-2EA" secondAttribute="bottom" constant="6" id="1op-S4-1XX"/>
                             <constraint firstItem="5k3-as-Abe" firstAttribute="leading" secondItem="bWy-T0-Mbo" secondAttribute="leading" constant="37" id="M84-nE-pFy"/>
                             <constraint firstItem="wyf-Fk-2EA" firstAttribute="leading" secondItem="bWy-T0-Mbo" secondAttribute="leading" constant="37" id="NKr-9N-2El"/>
-                            <constraint firstItem="jbd-Al-qCe" firstAttribute="leading" secondItem="bWy-T0-Mbo" secondAttribute="leading" constant="124" id="awE-FM-x6S"/>
                             <constraint firstItem="jbd-Al-qCe" firstAttribute="top" secondItem="wyf-Fk-2EA" secondAttribute="bottom" constant="188" id="gdJ-ae-dGd"/>
                             <constraint firstItem="wyf-Fk-2EA" firstAttribute="top" secondItem="bWy-T0-Mbo" secondAttribute="top" constant="45" id="mz7-th-QkG"/>
-                            <constraint firstItem="bWy-T0-Mbo" firstAttribute="trailing" secondItem="jbd-Al-qCe" secondAttribute="trailing" constant="124" id="yyb-sG-PM3"/>
+                            <constraint firstItem="jbd-Al-qCe" firstAttribute="centerX" secondItem="bWy-T0-Mbo" secondAttribute="centerX" id="pWg-ir-PHN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="유의사항" id="asm-DH-rdl">
