@@ -949,7 +949,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-5t-r82">
-                                        <rect key="frame" x="43" y="68" width="189" height="33.5"/>
+                                        <rect key="frame" x="53" y="68" width="189" height="33.5"/>
                                         <string key="text">거짓으로 질병 외출로 신청 시,
 불이익과 처벌을 받을 수 있습니다.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -957,7 +957,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKd-QC-IdK">
-                                        <rect key="frame" x="30" y="69" width="3" height="14"/>
+                                        <rect key="frame" x="40" y="69" width="3" height="14"/>
                                         <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="3" id="ksS-Yq-lxC"/>
@@ -965,7 +965,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-Nf-X2H">
-                                        <rect key="frame" x="30" y="153" width="3" height="14"/>
+                                        <rect key="frame" x="40" y="153" width="3" height="14"/>
                                         <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="K1Z-Pb-Dvc"/>
@@ -973,7 +973,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACB-Yd-v5r">
-                                        <rect key="frame" x="43" y="151.5" width="189" height="33.5"/>
+                                        <rect key="frame" x="53" y="151.5" width="189" height="33.5"/>
                                         <string key="text">질병 외출은 질병, 부상으로 인한
 외출 시에만 신청하실 수 있습니다.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -983,8 +983,38 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="KKd-QC-IdK" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="30" id="7R2-GH-dB8"/>
-                                    <constraint firstItem="0YV-Nf-X2H" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="30" id="Bqj-0l-P4O"/>
+                                    <constraint firstItem="KKd-QC-IdK" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="40" id="7R2-GH-dB8" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="45"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="55"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="0YV-Nf-X2H" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="40" id="Bqj-0l-P4O" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="45"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="55"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="65"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstItem="o6S-5t-r82" firstAttribute="top" secondItem="Xls-h2-dzm" secondAttribute="bottom" constant="36" id="CL4-f5-7Yf"/>
                                     <constraint firstItem="KKd-QC-IdK" firstAttribute="top" secondItem="KAS-RU-B3r" secondAttribute="top" constant="69" id="MhE-jC-6PX"/>
                                     <constraint firstItem="7aR-M2-8NH" firstAttribute="leading" secondItem="KAS-RU-B3r" secondAttribute="leading" constant="55" id="NOI-Rr-L2o"/>
@@ -1038,6 +1068,8 @@
                                         <rect key="frame" x="124" y="13" width="67" height="2"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="T55-EB-n9M"/>
+                                            <constraint firstAttribute="width" constant="67" id="bqT-wX-WLl"/>
                                             <constraint firstAttribute="height" constant="2" id="irr-iy-UZi"/>
                                         </constraints>
                                     </view>
