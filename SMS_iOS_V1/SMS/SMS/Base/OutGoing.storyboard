@@ -536,7 +536,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="aNb-ST-0i5" secondAttribute="trailing" constant="20" id="3FH-6E-ZJT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aNb-ST-0i5" secondAttribute="trailing" constant="20" id="3FH-6E-ZJT" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </constraint>
                                                 <constraint firstItem="X0x-OJ-9Ur" firstAttribute="top" secondItem="0TK-dC-TqU" secondAttribute="bottom" constant="15" id="5gS-iF-rr8"/>
                                                 <constraint firstItem="WE6-2v-ppg" firstAttribute="leading" secondItem="0TK-dC-TqU" secondAttribute="trailing" constant="1" id="6XB-SM-Z7V"/>
                                                 <constraint firstItem="aNb-ST-0i5" firstAttribute="top" secondItem="8Ea-uD-tJS" secondAttribute="topMargin" constant="18" id="Dli-Nt-xyA"/>
@@ -809,14 +815,28 @@
                         <viewLayoutGuide key="safeArea" id="t74-6Q-qco"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2kD-mh-seV" firstAttribute="centerX" secondItem="FDS-Jd-ekx" secondAttribute="centerX" id="6oK-uo-PJr"/>
                             <constraint firstItem="FDS-Jd-ekx" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="55" id="7o2-LA-kph"/>
-                            <constraint firstItem="2kD-mh-seV" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="61.5" id="BKH-MI-riy"/>
                             <constraint firstItem="bit-ge-pfi" firstAttribute="leading" secondItem="t74-6Q-qco" secondAttribute="leading" constant="40" id="C52-za-PjP"/>
                             <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="FDS-Jd-ekx" secondAttribute="trailing" constant="55" id="GQs-2x-0lN"/>
-                            <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="2kD-mh-seV" secondAttribute="trailing" constant="61.5" id="fRo-BQ-6ZG"/>
                             <constraint firstItem="2kD-mh-seV" firstAttribute="top" secondItem="FDS-Jd-ekx" secondAttribute="bottom" constant="19" id="hG1-0Y-n1W"/>
                             <constraint firstItem="t74-6Q-qco" firstAttribute="trailing" secondItem="bit-ge-pfi" secondAttribute="trailing" constant="40" id="nUX-NC-k6P"/>
-                            <constraint firstItem="bit-ge-pfi" firstAttribute="top" secondItem="2kD-mh-seV" secondAttribute="bottom" constant="192" id="wo2-zb-fb7"/>
+                            <constraint firstItem="bit-ge-pfi" firstAttribute="top" secondItem="2kD-mh-seV" secondAttribute="bottom" constant="192" id="wo2-zb-fb7" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="220"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="230"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="240"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="FDS-Jd-ekx" firstAttribute="top" secondItem="t74-6Q-qco" secondAttribute="top" constant="176" id="zto-YX-HJM"/>
                         </constraints>
                     </view>
