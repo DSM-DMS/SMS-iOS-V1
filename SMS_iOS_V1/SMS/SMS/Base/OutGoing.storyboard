@@ -1085,37 +1085,37 @@
                                         <rect key="frame" x="102.5" y="96" width="110" height="109"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAi-Zf-ztb">
-                                        <rect key="frame" x="90" y="254" width="41" height="20"/>
+                                        <rect key="frame" x="110" y="254" width="41" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학번 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-1G-Nbf">
-                                        <rect key="frame" x="90" y="289" width="41" height="20"/>
+                                        <rect key="frame" x="110" y="289" width="41" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HS-X9-q4k">
-                                        <rect key="frame" x="190" y="289" width="38" height="20"/>
+                                        <rect key="frame" x="173" y="289" width="38" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출 날짜 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kir-ap-5MJ">
-                                        <rect key="frame" x="40" y="360" width="73" height="20"/>
+                                        <rect key="frame" x="70" y="360" width="73" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222-22-22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARE-3n-668">
-                                        <rect key="frame" x="182" y="360" width="93" height="20"/>
+                                        <rect key="frame" x="152" y="360" width="93" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이 름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwB-gd-gkC">
-                                        <rect key="frame" x="193" y="254" width="32" height="20"/>
+                                        <rect key="frame" x="173" y="254" width="32" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1124,12 +1124,43 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Qwe-Tj-Fbk" secondAttribute="trailing" constant="102.5" id="3ul-Id-W4X"/>
-                                    <constraint firstItem="Kir-ap-5MJ" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="40" id="5lu-h0-nlA"/>
+                                    <constraint firstItem="Kir-ap-5MJ" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="70" id="5lu-h0-nlA" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="80"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="90"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstItem="KJ2-nw-E2s" firstAttribute="top" secondItem="pgg-dc-F9U" secondAttribute="top" constant="13" id="998-tV-7mL"/>
-                                    <constraint firstItem="VwB-gd-gkC" firstAttribute="centerX" secondItem="2HS-X9-q4k" secondAttribute="centerX" id="AgY-CF-i16"/>
+                                    <constraint firstItem="GLr-1G-Nbf" firstAttribute="leading" secondItem="dAi-Zf-ztb" secondAttribute="leading" id="Al2-OK-R5d"/>
                                     <constraint firstItem="dAi-Zf-ztb" firstAttribute="top" secondItem="Qwe-Tj-Fbk" secondAttribute="bottom" constant="49" id="B0m-ae-mY6"/>
                                     <constraint firstItem="aKF-kt-igk" firstAttribute="top" secondItem="KJ2-nw-E2s" secondAttribute="bottom" constant="27" id="Hxo-em-8C4"/>
-                                    <constraint firstAttribute="trailing" secondItem="VwB-gd-gkC" secondAttribute="trailing" constant="90" id="JH8-0D-ZnA"/>
+                                    <constraint firstAttribute="trailing" secondItem="VwB-gd-gkC" secondAttribute="trailing" constant="110" id="JH8-0D-ZnA" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="80"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="130"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="140"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="2HS-X9-q4k" firstAttribute="leading" secondItem="VwB-gd-gkC" secondAttribute="leading" id="NGY-5M-aLT"/>
                                     <constraint firstItem="GLr-1G-Nbf" firstAttribute="top" secondItem="dAi-Zf-ztb" secondAttribute="bottom" constant="15" id="Ra1-30-PT3"/>
                                     <constraint firstItem="VwB-gd-gkC" firstAttribute="top" secondItem="Qwe-Tj-Fbk" secondAttribute="bottom" constant="49" id="T2m-ty-qWa"/>
                                     <constraint firstItem="aKF-kt-igk" firstAttribute="centerX" secondItem="pgg-dc-F9U" secondAttribute="centerX" id="VBt-Dy-m4O"/>
@@ -1138,10 +1169,39 @@
                                     <constraint firstAttribute="bottom" secondItem="Kir-ap-5MJ" secondAttribute="bottom" constant="40" id="bFQ-3d-oJn"/>
                                     <constraint firstItem="Qwe-Tj-Fbk" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="102.5" id="bTh-J9-fMx"/>
                                     <constraint firstItem="2HS-X9-q4k" firstAttribute="top" secondItem="VwB-gd-gkC" secondAttribute="bottom" constant="15" id="dJm-zX-pmC"/>
-                                    <constraint firstItem="GLr-1G-Nbf" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="90" id="f6q-3C-VqT"/>
                                     <constraint firstAttribute="trailing" secondItem="KJ2-nw-E2s" secondAttribute="trailing" constant="124" id="hIq-D3-Ssq"/>
-                                    <constraint firstItem="dAi-Zf-ztb" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="90" id="jNf-63-Yv3"/>
-                                    <constraint firstAttribute="trailing" secondItem="ARE-3n-668" secondAttribute="trailing" constant="40" id="l8C-mh-SSr"/>
+                                    <constraint firstItem="dAi-Zf-ztb" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="110" id="jNf-63-Yv3" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="80"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="130"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="140"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="ARE-3n-668" secondAttribute="trailing" constant="70" id="l8C-mh-SSr" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="80"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="90"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="420" id="nfD-Xw-afO"/>
                                     <constraint firstItem="KJ2-nw-E2s" firstAttribute="leading" secondItem="pgg-dc-F9U" secondAttribute="leading" constant="124" id="oEQ-6W-sdT"/>
                                     <constraint firstItem="vv8-bR-WnA" firstAttribute="top" secondItem="pgg-dc-F9U" secondAttribute="top" constant="10" id="plz-Ba-AMe"/>
