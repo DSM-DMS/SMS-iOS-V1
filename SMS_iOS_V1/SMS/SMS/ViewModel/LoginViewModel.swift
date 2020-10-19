@@ -31,6 +31,8 @@ class LoginViewModel {
             
             case .failure(let error) :
                 print(error.localizedDescription)
+                
+                
             }
         }
         
