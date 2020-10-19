@@ -90,35 +90,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQW-Hk-mBi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQW-Hk-mBi">
                                                     <rect key="frame" x="11" y="14" width="7" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-PX-Cn7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-PX-Cn7">
                                                     <rect key="frame" x="48" y="14" width="38" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2222.22.22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4J-Dm-zH4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222.22.22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4J-Dm-zH4">
                                                     <rect key="frame" x="204" y="14" width="60" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eob-ra-tdm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eob-ra-tdm">
                                                     <rect key="frame" x="293" y="14" width="14" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aQW-Hk-mBi" firstAttribute="centerY" secondItem="Eob-ra-tdm" secondAttribute="centerY" id="9kA-l0-T8G"/>
+                                                <constraint firstItem="hYh-PX-Cn7" firstAttribute="leading" secondItem="aQW-Hk-mBi" secondAttribute="trailing" constant="30" id="B6y-h3-a45"/>
+                                                <constraint firstItem="Eob-ra-tdm" firstAttribute="leading" secondItem="B4J-Dm-zH4" secondAttribute="trailing" constant="29" id="DjV-5W-kXV"/>
+                                                <constraint firstItem="aQW-Hk-mBi" firstAttribute="leading" secondItem="ucw-4C-wRj" secondAttribute="leading" constant="11" id="FHE-ij-xnF"/>
+                                                <constraint firstItem="aQW-Hk-mBi" firstAttribute="centerY" secondItem="B4J-Dm-zH4" secondAttribute="centerY" id="Ob6-zX-EhZ"/>
+                                                <constraint firstItem="aQW-Hk-mBi" firstAttribute="centerY" secondItem="hYh-PX-Cn7" secondAttribute="centerY" id="P4P-Fg-cjF"/>
+                                                <constraint firstAttribute="bottom" secondItem="aQW-Hk-mBi" secondAttribute="bottom" constant="14" id="ReC-nh-oZi"/>
+                                                <constraint firstItem="aQW-Hk-mBi" firstAttribute="top" secondItem="ucw-4C-wRj" secondAttribute="top" constant="14" id="fpI-rH-HgD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Eob-ra-tdm" secondAttribute="trailing" constant="12" id="vAg-ka-tGv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,19 +142,19 @@
                         <constraints>
                             <constraint firstItem="V5q-Te-qIa" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="35" id="3Nq-V8-CtN"/>
                             <constraint firstItem="GMv-UA-Oa0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="58a-Di-PjZ"/>
-                            <constraint firstItem="TER-hr-end" firstAttribute="leading" secondItem="v8L-aO-zUT" secondAttribute="trailing" constant="157" id="5Uv-g8-8KF"/>
+                            <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="a6W-Sc-b1z" secondAttribute="centerY" id="6jL-Dg-V16"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="GMv-UA-Oa0" secondAttribute="trailing" constant="20" id="AA8-MH-jax"/>
+                            <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="TER-hr-end" secondAttribute="centerY" id="DbE-rX-DEe"/>
                             <constraint firstItem="V5q-Te-qIa" firstAttribute="top" secondItem="hG7-Gj-BQu" secondAttribute="top" constant="42" id="FAQ-5n-8NT"/>
                             <constraint firstItem="1DF-lm-MM0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="FwI-DK-srf"/>
                             <constraint firstAttribute="bottom" secondItem="GMv-UA-Oa0" secondAttribute="bottom" constant="124" id="Iuh-4i-bYy"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="L4A-B5-iE6"/>
-                            <constraint firstItem="a6W-Sc-b1z" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="OiA-DK-ysK"/>
                             <constraint firstItem="gyl-dA-08v" firstAttribute="top" secondItem="hG7-Gj-BQu" secondAttribute="top" constant="106" id="Oxz-Jf-mAM"/>
-                            <constraint firstItem="TER-hr-end" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="Rk2-lT-Ryv"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="25" id="cLO-ni-pvx"/>
-                            <constraint firstItem="v8L-aO-zUT" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="cay-ee-tLl"/>
+                            <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="v8L-aO-zUT" secondAttribute="centerY" id="kPM-N7-bbd"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="1DF-lm-MM0" secondAttribute="trailing" constant="20" id="lJ7-Ss-Ie0"/>
                             <constraint firstItem="1DF-lm-MM0" firstAttribute="top" secondItem="gyl-dA-08v" secondAttribute="bottom" constant="10" id="nb1-zY-4nd"/>
+                            <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="a6W-Sc-b1z" secondAttribute="trailing" constant="41" id="o6e-Gq-ooO"/>
                             <constraint firstItem="v8L-aO-zUT" firstAttribute="leading" secondItem="m80-yY-4Ha" secondAttribute="trailing" constant="20" id="pzd-0w-Sj4"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="gyl-dA-08v" secondAttribute="trailing" constant="20" id="rZg-kY-fkY"/>
                             <constraint firstItem="GMv-UA-Oa0" firstAttribute="top" secondItem="m80-yY-4Ha" secondAttribute="bottom" constant="12" id="wcF-2y-vhb"/>
@@ -297,9 +304,6 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-Zi-BsF" customClass="NoticeMainTextView" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="154" width="335" height="265"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>

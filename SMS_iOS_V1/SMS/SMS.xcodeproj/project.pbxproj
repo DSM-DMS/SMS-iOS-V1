@@ -12,17 +12,7 @@
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		471593672512208400D84F85 /* NoticeUIExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471593662512208400D84F85 /* NoticeUIExtention.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
-<<<<<<< HEAD
-		4720FE262511A31F00BAE75A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE252511A31F00BAE75A /* NoticeViewController.swift */; };
-		4720FE282511B15600BAE75A /* MypageNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */; };
-		47523923250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */; };
-		47523925250E5C5A00CE0BAB /* OutGoingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */; };
-		47523927250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */; };
-		4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762F1DD252B0B65005D2712 /* LoginViewModel.swift */; };
-		4766CA1E25107FE20060B330 /* OutGoingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */; };
-		4766CA2025108AAE0060B330 /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */; };
-=======
->>>>>>> Develop
+		4737961525356A020016131A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737961425356A020016131A /* LoginViewModel.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
@@ -57,16 +47,11 @@
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
 		D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */; };
-		D681285C252F17EC00E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */; };
-		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
-
 		D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */; };
 		D68127F4252EE05700E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */; };
-		D681284F252EFF6400E9D7CA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */; };
 		D6812855252F03E600E9D7CA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6812854252F03E600E9D7CA /* UIColor.swift */; };
 		D681285C252F17EC00E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */; };
 		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
-
 		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -75,17 +60,7 @@
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		471593662512208400D84F85 /* NoticeUIExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeUIExtention.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		4720FE252511A31F00BAE75A /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		4720FE272511B15600BAE75A /* MypageNoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNoticeDetailViewController.swift; sourceTree = "<group>"; };
-		47523922250E4BEA00CE0BAB /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
-		47523924250E5C5A00CE0BAB /* OutGoingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogViewController.swift; sourceTree = "<group>"; };
-		47523926250E5D3100CE0BAB /* OutGoingLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogTableViewCell.swift; sourceTree = "<group>"; };
-		4762F1DD252B0B65005D2712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		4766CA1D25107FE20060B330 /* OutGoingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingAlertViewController.swift; sourceTree = "<group>"; };
-		4766CA1F25108AAE0060B330 /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
-=======
->>>>>>> Develop
+		4737961425356A020016131A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
@@ -124,17 +99,11 @@
 		D664E1C6252A0C8E007F0253 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-
-		D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
-		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-
 		D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D6812854252F03E600E9D7CA /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-
 		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		DC955CA14428B1D4F1697094 /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.release.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +140,6 @@
 			children = (
 				D6812857252F041000E9D7CA /* UIKit */,
 				471593662512208400D84F85 /* NoticeUIExtention.swift */,
-				D681284E252EFF6400E9D7CA /* UIButtonExtension.swift */,
 			);
 			path = UIExtention;
 			sourceTree = "<group>";
@@ -237,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				D68127EB252EDF9E00E9D7CA /* ScheduleViewModel.swift */,
+				4737961425356A020016131A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,15 +251,7 @@
 		D6E687AC252DCB1200FA09C1 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-<<<<<<< HEAD
-				D62D8C3E2518EF7900548FBF /* ScheduleViewModel.swift */,
-=======
-				4762F1DD252B0B65005D2712 /* LoginViewModel.swift */,
->>>>>>> LoginViewModel
-=======
 				D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */,
->>>>>>> Develop
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -323,11 +284,6 @@
 		D6E6892C252EDDC400FA09C1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-
-				D6812860252F182100E9D7CA /* LaunchScreen.storyboard */,
-
-				D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */,
-
 				D68127F3252EE05700E9D7CA /* LaunchScreen.storyboard */,
 				D6812860252F182100E9D7CA /* LaunchScreen.storyboard */,
 				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
@@ -364,13 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
-				D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */,
-
 				D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */,
-				D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */,
-
 				D681285B252F17EC00E9D7CA /* TimeScheduleXib.xib */,
-
 				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,
 			);
 			path = Schedule;
@@ -455,9 +406,7 @@
 				D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
-
 				D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */,
-
 				D68127F4252EE05700E9D7CA /* LaunchScreen.storyboard in Resources */,
 				D68127F4252EE05700E9D7CA /* LaunchScreen.storyboard in Resources */,
 				D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */,
@@ -518,7 +467,6 @@
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
 				D68127EC252EDF9E00E9D7CA /* ScheduleViewModel.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
-				D681284F252EFF6400E9D7CA /* UIButtonExtension.swift in Sources */,
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
@@ -527,6 +475,7 @@
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
+				4737961525356A020016131A /* LoginViewModel.swift in Sources */,
 				D62D8C302518DABE00548FBF /* OutGoingDeedViewController.swift in Sources */,
 				D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */,
 				D62D8C382518DABE00548FBF /* OutGoingLogTableViewCell.swift in Sources */,
@@ -536,15 +485,6 @@
 				D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,
-<<<<<<< HEAD
-				471593632512202300D84F85 /* LoginUIExtention.swift in Sources */,
-				4762F1DE252B0B65005D2712 /* LoginViewModel.swift in Sources */,
-				4720FE202511923600BAE75A /* MypageLogoutViewController.swift in Sources */,
-				4766CA262510F6210060B330 /* MypageChangePWViewController.swift in Sources */,
-				4720FE2225119A0600BAE75A /* MypageIntroduceDevViewController.swift in Sources */,
-=======
-=======
->>>>>>> Develop
 				D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */,
 				D6812855252F03E600E9D7CA /* UIColor.swift in Sources */,
 				479DB1382502522C009A8B08 /* SceneDelegate.swift in Sources */,

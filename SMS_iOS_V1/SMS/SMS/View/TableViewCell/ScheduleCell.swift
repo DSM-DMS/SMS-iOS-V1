@@ -1,6 +1,7 @@
 import UIKit
 
 class ScheduleCell: UITableViewCell {
+    static let xibName = "ScheduleCell"
 
     @IBOutlet var scheduleColorView: UIView!
     @IBOutlet var scheduleInfoLbl: UILabel!

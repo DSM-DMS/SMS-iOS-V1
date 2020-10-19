@@ -37,8 +37,9 @@ class TabbarViewController: UIViewController {
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tabbar.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        tabbar.indicatorViewLeadingConstraint.constant = 25
+        tabbar.heightAnchor.constraint(equalToConstant: self.view.frame.height / 10).isActive = true
+        tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
+        tabbar.delegate = self
     }
     
     func tabbarView(scrollTo index: Int) {
@@ -54,7 +55,7 @@ class TabbarViewController: UIViewController {
     }
 }
 
-extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource, TabbarViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].view!
@@ -68,12 +69,13 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + 25
+        tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + self.view.frame.width / 16
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
         tabbar.setSelectedItem(index: itemAt)
+        tabbar.customTabBarCollectionView.selectItem(at: IndexPath(item: itemAt, section: 0), animated: true, scrollPosition: [])
     }
 }
 
