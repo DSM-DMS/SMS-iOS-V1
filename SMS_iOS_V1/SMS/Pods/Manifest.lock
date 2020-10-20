@@ -23,6 +23,7 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - SimpleCheckbox (2.1.0)
 
 DEPENDENCIES:
   - DLRadioButton
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RxFlow
   - RxOptional
   - RxSwift
+  - SimpleCheckbox
 
 SPEC REPOS:
   trunk:
@@ -48,6 +50,7 @@ SPEC REPOS:
     - RxOptional
     - RxRelay
     - RxSwift
+    - SimpleCheckbox
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -61,7 +64,8 @@ SPEC CHECKSUMS:
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: 68ea719432afd0137453d832a8aa835883ec8128
+PODFILE CHECKSUM: cf200942238da3b377646135e06042cd0bc56945
 
 COCOAPODS: 1.8.4

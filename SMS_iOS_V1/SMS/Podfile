@@ -16,5 +16,7 @@ pod 'RxCocoa'
 pod 'RxOptional'
 pod 'RxFlow'
 pod 'LayoutHelper'
+pod 'SimpleCheckbox'
+ 
 
 end
