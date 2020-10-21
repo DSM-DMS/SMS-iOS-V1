@@ -276,7 +276,7 @@
         <!--외출신청-->
         <scene sceneID="nUo-hQ-C7D">
             <objects>
-                <viewController id="egu-0p-M7b" customClass="OutGoingApplyViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingApplyViewController" id="egu-0p-M7b" customClass="OutGoingApplyViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xjp-Gr-Vkw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -493,7 +493,7 @@
         <!--내 외출신청 내역-->
         <scene sceneID="1JT-Gm-BVu">
             <objects>
-                <viewController id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingLogViewController" id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6MK-rA-fOA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -622,7 +622,7 @@
         <!--승인완료 외출증-->
         <scene sceneID="4gT-dS-y5R">
             <objects>
-                <viewController id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingDeedViewController" id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xqj-3V-7Xe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -824,7 +824,7 @@
         <!--외출신청-->
         <scene sceneID="8zu-T4-lGQ">
             <objects>
-                <viewController id="nVE-q8-eLQ" customClass="OutGoingCompletedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingCompletedViewController" id="nVE-q8-eLQ" customClass="OutGoingCompletedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VB-IA-a9D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -952,7 +952,7 @@
         <!--Out Going Alert View Controller-->
         <scene sceneID="Hvw-Vl-5pg">
             <objects>
-                <viewController id="89J-Wn-nj3" customClass="OutGoingAlertViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingAlertViewController" id="89J-Wn-nj3" customClass="OutGoingAlertViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FSV-sx-eYR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1091,7 +1091,7 @@
         <!--Out Going Pop Deed View Controller-->
         <scene sceneID="XU9-Ma-VRH">
             <objects>
-                <viewController id="meJ-EL-8Ra" customClass="OutGoingPopDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingPopDeedViewController" id="meJ-EL-8Ra" customClass="OutGoingPopDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqE-KZ-pFV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
