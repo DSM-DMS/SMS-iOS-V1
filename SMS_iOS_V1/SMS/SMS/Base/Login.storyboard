@@ -94,6 +94,14 @@
                                     <action selector="touchUpLoginButton:" destination="eCz-AV-7Gd" eventType="touchUpInside" id="V9v-Oc-LsJ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-dW-k0I" customClass="Checkbox" customModule="SimpleCheckbox">
+                                <rect key="frame" x="49" y="318" width="15" height="15"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="1yV-Wh-Jgb"/>
+                                    <constraint firstAttribute="width" constant="15" id="oiY-EP-bdI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,6 +114,7 @@
                             <constraint firstItem="Zdb-TB-sZt" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="70" id="C3D-uG-C36"/>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="47" id="Eja-AM-gvr"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="CHN-xW-Vfs" secondAttribute="trailing" constant="40" id="LNi-av-ioa"/>
+                            <constraint firstItem="bZ0-dW-k0I" firstAttribute="centerY" secondItem="Zdb-TB-sZt" secondAttribute="centerY" id="OYb-Xd-Rhb"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="8pT-xu-ZjM" secondAttribute="trailing" constant="46" id="Os5-bc-icz"/>
                             <constraint firstItem="CHN-xW-Vfs" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="40" id="PZR-OS-pUe"/>
                             <constraint firstItem="cno-AX-fPV" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="55" id="QWV-vp-a6I"/>
@@ -113,6 +122,7 @@
                             <constraint firstItem="l8B-fM-bRd" firstAttribute="top" secondItem="LIg-Gr-D35" secondAttribute="bottom" constant="6" id="aTw-hR-a0F"/>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="top" secondItem="RCT-h0-bTf" secondAttribute="top" constant="70" id="afF-Lt-PVS"/>
                             <constraint firstItem="cno-AX-fPV" firstAttribute="centerY" secondItem="LIg-Gr-D35" secondAttribute="centerY" id="fhG-Xe-zp4"/>
+                            <constraint firstItem="Zdb-TB-sZt" firstAttribute="leading" secondItem="bZ0-dW-k0I" secondAttribute="trailing" constant="6" id="qC5-eN-Q8C"/>
                             <constraint firstItem="NKB-wj-e18" firstAttribute="leading" secondItem="U7h-bB-PXn" secondAttribute="trailing" constant="15" id="tYx-wX-IQR"/>
                             <constraint firstItem="RCT-h0-bTf" firstAttribute="trailing" secondItem="l8B-fM-bRd" secondAttribute="trailing" constant="46" id="tm0-sP-t4o"/>
                             <constraint firstItem="U7h-bB-PXn" firstAttribute="leading" secondItem="RCT-h0-bTf" secondAttribute="leading" constant="55" id="v8n-fT-oXw"/>
@@ -145,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GqU-qV-F0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="-433"/>
+            <point key="canvasLocation" x="853.60000000000002" y="-433.13343328335833"/>
         </scene>
     </scenes>
     <resources>
