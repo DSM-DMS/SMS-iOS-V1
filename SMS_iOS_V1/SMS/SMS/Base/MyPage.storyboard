@@ -279,7 +279,7 @@
         <!--Mypage ChangePW Alert View Controller-->
         <scene sceneID="pea-Sj-hwO">
             <objects>
-                <viewController id="8ui-qi-xZg" customClass="MypageChangePWAlertViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageChangePWAlertViewController" id="8ui-qi-xZg" customClass="MypageChangePWAlertViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P2a-dc-Hhv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +355,7 @@
         <!--Mypage Logout View Controller-->
         <scene sceneID="xiR-Nf-chk">
             <objects>
-                <viewController id="1vf-8o-VYs" customClass="MypageLogoutViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageLogoutViewController" id="1vf-8o-VYs" customClass="MypageLogoutViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L2w-nr-wYk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
         <!--개발자 소개-->
         <scene sceneID="w7B-v2-be6">
             <objects>
-                <viewController id="lr0-qY-WBn" customClass="MypageIntroduceDevViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageIntroduceDevViewController" id="lr0-qY-WBn" customClass="MypageIntroduceDevViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lzG-XY-umi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,7 +514,7 @@
         <!--비밀번호 변경-->
         <scene sceneID="THH-8N-Cdu">
             <objects>
-                <viewController id="Zbk-h4-lhj" customClass="MypageChangePWViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageChangePWViewController" id="Zbk-h4-lhj" customClass="MypageChangePWViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AvV-aC-i1X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
