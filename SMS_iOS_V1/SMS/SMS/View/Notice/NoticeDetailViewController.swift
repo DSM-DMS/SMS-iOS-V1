@@ -6,4 +6,13 @@
 //  Copyright © 2020 DohyunKim. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class NoticeDetailViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+}
