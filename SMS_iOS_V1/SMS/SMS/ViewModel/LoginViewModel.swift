@@ -21,14 +21,14 @@ class LoginViewModel {
     let url = URL(string: " ")!
     
     func request() {
-         
+        
         Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
             switch response.result {
             case .success :
                 print(response)
                 break
-            
+                
             case .failure(let error) :
                 print(error.localizedDescription)
                 
@@ -38,5 +38,12 @@ class LoginViewModel {
         
         
         
+    }
+    
+    func presentingViewController() {
+        let rootViewController = StoryBoard.Login.viewController
+        let presentViewController = StoryBoard.Schedule.viewController
+        presentViewController.modalPresentationStyle = .fullScreen
+        rootViewController.present(presentViewController, animated: true, completion: nil)
     }
 }

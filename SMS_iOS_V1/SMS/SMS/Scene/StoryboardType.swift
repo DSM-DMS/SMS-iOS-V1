@@ -41,7 +41,6 @@ enum StoryBoard : String {
         case  .Login :
             return UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "\(self.rawValue)ViewController")
             
-            
         case .Schedule :
             return UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "\(self.rawValue)ViewController")
             
