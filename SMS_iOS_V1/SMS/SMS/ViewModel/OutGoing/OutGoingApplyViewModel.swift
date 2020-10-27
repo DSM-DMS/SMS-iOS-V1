@@ -18,4 +18,11 @@ class OutGoingApplyViewModel {
         rootViewController.present(presentingViewController, animated: true, completion: nil)
         
     }
+    
+    func dismissingViewController() {
+        
+        let rootViewController = StoryBoard.OutGoingApply.viewController
+        rootViewController.dismiss(animated: true, completion: nil)
+        
+    }
 }

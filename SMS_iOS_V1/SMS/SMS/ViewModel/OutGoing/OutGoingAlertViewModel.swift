@@ -17,4 +17,11 @@ class OutGoingAlertViewModel {
         rootViewController.present(presentingViewController, animated: true, completion: nil)
     }
     
+    func dismissViewController() {
+        
+        let rootViewController = StoryBoard.OutGoingAlert.viewController
+        rootViewController.dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
