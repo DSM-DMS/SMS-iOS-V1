@@ -10,5 +10,11 @@ import UIKit
 
 class OutGoingCompletedViewModel {
     
+    func dismissingViewController() {
+        
+        let rootViewController = StoryBoard.OutGoingCompleted.viewController
+        rootViewController.dismiss(animated: true, completion: nil)
+        
+    }
     
 }
