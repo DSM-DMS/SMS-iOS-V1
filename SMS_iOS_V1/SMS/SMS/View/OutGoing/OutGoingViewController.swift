@@ -10,12 +10,16 @@ import UIKit
 
 class OutGoingViewController: UIViewController {
     
-   
+    let viewModel = OutGoingViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    @IBAction func outGoingApply(_ sender: Any) {
+        viewModel.presentingOutGoingApplyViewController()
+    }
 }
 
  
