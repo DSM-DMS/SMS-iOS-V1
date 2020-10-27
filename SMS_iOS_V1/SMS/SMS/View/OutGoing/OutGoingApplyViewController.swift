@@ -11,6 +11,8 @@ class OutGoingApplyViewController: UIViewController {
 
     @IBOutlet weak var applyButton: UIButton!
     
+    let viewModel = OutGoingApplyViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,4 +23,11 @@ class OutGoingApplyViewController: UIViewController {
                                    cornerRadius: 5)
     }
     
+    @IBAction func applyButton(_ sender: Any) {
+        viewModel.presentingViewController()
+        
+    }
+    @IBAction func backButton(_ sender: Any) {
+        viewModel.dismissingViewController()
+    }
 }
