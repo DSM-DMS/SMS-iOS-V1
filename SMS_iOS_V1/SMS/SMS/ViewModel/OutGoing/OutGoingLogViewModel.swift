@@ -10,5 +10,8 @@ import UIKit
 
 class OutGoingLogViewModel {
     
-    
+    func dismissongViewController() {
+        let rootViewController = StoryBoard.OutGoingLog.viewController
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
 }
