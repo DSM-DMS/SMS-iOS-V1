@@ -7,11 +7,13 @@
 //
 
 import UIKit
-class OutGoingApplyViewController: UIViewController {
+class OutGoingApplyViewController: UIViewController, OutGoingStoryBorded {
 
     @IBOutlet weak var applyButton: UIButton!
     
     let viewModel = OutGoingApplyViewModel()
+    
+    weak var coordinator: OutGoingCoordinator?
     
     
     override func viewDidLoad() {
@@ -24,10 +26,10 @@ class OutGoingApplyViewController: UIViewController {
     }
     
     @IBAction func applyButton(_ sender: Any) {
-        viewModel.presentingViewController()
+//        viewModel.presentingViewController()
         
     }
     @IBAction func backButton(_ sender: Any) {
-        viewModel.dismissingViewController()
+//        viewModel.dismissingViewController()
     }
 }

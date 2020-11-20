@@ -8,20 +8,23 @@
 
 import UIKit
 
-class OutGoingViewController: UIViewController {
+class OutGoingViewController: UIViewController, OutGoingStoryBorded {
+    
+    weak var coordinator: OutGoingCoordinator?
     
     let viewModel = OutGoingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    @IBAction func outGoingApply(_ sender: Any) {
-//        viewModel.presentingOutGoingApplyViewController()
+    @IBAction func goApplyBtn(_ sender: Any) {
+        print("tapped")
+        coordinator?.presentingOutGoingApply()
     }
-}
+    
 
  
 
 
+}

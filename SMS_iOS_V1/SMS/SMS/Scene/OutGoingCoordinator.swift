@@ -10,10 +10,25 @@ import Foundation
 import UIKit
 
 class OutGoingCoordinator: Coordinator{
+    
     var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     func start() {
         let vc = OutGoingViewController.instantiate()
-        vc.present(OutGoingApplyViewController(), animated: true, completion: nil)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
     }
+    
+    func presentingOutGoingApply() {
+        let vc = OutGoingApplyViewController.instantiate()
+        vc.coordinator = self
+        vc.modalPresentationStyle = .fullScreen
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
 }
