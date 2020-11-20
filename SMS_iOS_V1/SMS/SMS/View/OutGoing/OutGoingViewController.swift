@@ -18,7 +18,7 @@ class OutGoingViewController: UIViewController {
     }
     
     @IBAction func outGoingApply(_ sender: Any) {
-        viewModel.presentingOutGoingApplyViewController()
+//        viewModel.presentingOutGoingApplyViewController()
     }
 }
 
