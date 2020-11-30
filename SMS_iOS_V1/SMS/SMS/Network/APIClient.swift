@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+import RxSwift
+import Alamofire
+
+class APIClient {
+    func networking(request: API) {
+//        Alamofire.request(URL(string: request.baseURL + request.path)!, method: request.method, parameters: ["":""], encoding: , headers: request.header)
+    }
+}
