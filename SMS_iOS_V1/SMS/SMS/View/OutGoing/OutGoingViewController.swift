@@ -10,41 +10,13 @@ import UIKit
 
 class OutGoingViewController: UIViewController {
     
-    @IBOutlet weak var outGoingApplyButton: UIButton!
-    @IBOutlet weak var outGoingLogButton: UIButton!
-    @IBOutlet weak var outGoingNoticeButton: UIButton!
-    @IBOutlet weak var outGoingDeedButton: UIButton!
+    @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
+    @IBOutlet weak var outGoingLogButton: CustomShadowButton!
+    @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
+    @IBOutlet weak var outGoingDeedButton: CustomShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shadowSetting()
     }
     
-}
-
- 
-extension OutGoingViewController {
-    func shadowSetting() {
-        outGoingApplyButton.addShadow(offset: CGSize(width: 0, height: 2),
-                      color: .lightGray,
-                      shadowRadius: 2,
-                      opacity: 0.7,
-                      cornerRadius: 5)
-        outGoingLogButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                    color: .lightGray,
-                                    shadowRadius: 2,
-                                    opacity: 0.7,
-                                    cornerRadius: 5)
-        outGoingNoticeButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                       color: .lightGray,
-                                       shadowRadius: 2,
-                                       opacity: 0.7,
-                                       cornerRadius: 5)
-        outGoingDeedButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                     color: .lightGray,
-                                     shadowRadius: 2,
-                                     opacity: 0.7,
-                                     cornerRadius: 5)
-    }
-
 }

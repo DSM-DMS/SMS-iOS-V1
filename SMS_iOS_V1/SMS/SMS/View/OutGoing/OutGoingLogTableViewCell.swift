@@ -13,7 +13,11 @@ class OutGoingLogTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupUI()
+        self.addShadow(offset: CGSize(width: 0, height: 2),
+                       color: .lightGray,
+                       shadowRadius: 2,
+                       opacity: 0.7,
+                       cornerRadius: 10)
         
     }
 
@@ -23,13 +27,4 @@ class OutGoingLogTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupUI() {
-        self.layer.cornerRadius = 10
-        self.layer.shadowColor = UIColor.lightGray.cgColor
-        self.layer.shadowOpacity = 0.7
-        self.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.layer.shadowRadius = 2
-        
-    }
-
 }
