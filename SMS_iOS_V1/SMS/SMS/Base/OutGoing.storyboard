@@ -57,7 +57,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="outGoingApply:" destination="Gex-IF-uVT" eventType="touchUpInside" id="acY-zl-hoS"/>
+                                            <action selector="goApplyBtn:" destination="Gex-IF-uVT" eventType="touchUpInside" id="xz9-8b-DNz"/>
                                         </connections>
                                     </button>
                                 </subviews>

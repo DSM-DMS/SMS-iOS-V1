@@ -6,7 +6,6 @@
 //  Copyright © 2020 DohyunKim. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class OutGoingCoordinator: Coordinator{
@@ -25,6 +24,8 @@ class OutGoingCoordinator: Coordinator{
     }
     
     func presentingOutGoingApply() {
+        print("presenting success")
+
         let vc = OutGoingApplyViewController.instantiate()
         vc.coordinator = self
         vc.modalPresentationStyle = .fullScreen

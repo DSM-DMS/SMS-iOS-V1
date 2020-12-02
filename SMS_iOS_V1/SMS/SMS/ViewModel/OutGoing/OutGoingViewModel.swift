@@ -10,8 +10,7 @@ import UIKit
 
 class OutGoingViewModel {
     
-//    let rootViewController = UIStoryboard(name: "OutGoing", bundle: nil).instantiateViewController(withIdentifier: "OutGoingViewController")
-//        StoryBoard.OutGoing.viewController
+//    let rootViewController = StoryBoard.OutGoing.viewController
 //    
 //    func presentingOutGoingApplyViewController() {
 //        let presentViewController = StoryBoard.OutGoingApply.viewController

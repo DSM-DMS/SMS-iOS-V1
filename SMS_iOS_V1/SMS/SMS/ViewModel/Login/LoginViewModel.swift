@@ -40,10 +40,10 @@ class LoginViewModel {
         
     }
     
-    func presentingViewController() {
-        let rootViewController = StoryBoard.Login.viewController
-        let presentViewController = StoryBoard.Schedule.viewController
-        presentViewController.modalPresentationStyle = .fullScreen
-        rootViewController.present(presentViewController, animated: true, completion: nil)
-    }
+//    func presentingViewController() {
+//        let rootViewController = StoryBoard.Login.viewController
+//        let presentViewController = StoryBoard.Schedule.viewController
+//        presentViewController.modalPresentationStyle = .fullScreen
+//        rootViewController.present(presentViewController, animated: true, completion: nil)
+//    }
 }

@@ -23,9 +23,9 @@ class OutGoingAlertViewController: UIViewController {
                                  cornerRadius: 10)
     }
     @IBAction func cancelButton(_ sender: Any) {
-        viewModel.dismissViewController()
+//        viewModel.dismissViewController()
     }
     @IBAction func applyButton(_ sender: Any) {
-        viewModel.presentViewController()
+//        viewModel.presentViewController()
     }
 }
