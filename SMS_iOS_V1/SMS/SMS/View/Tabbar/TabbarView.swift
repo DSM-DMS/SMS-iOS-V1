@@ -18,6 +18,8 @@ class TabbarView: UIView {
     
     var delegate: TabbarViewDelegate!
     var oldSelectedRow:Int = 0
+    var indicatorViewLeadingConstraint:NSLayoutConstraint!
+    var indicatorViewWidthConstraint: NSLayoutConstraint!
 
     var imageNames:[Tabbar] = [
         Tabbar(imageName: "calendar", isSelected: true),
@@ -25,9 +27,6 @@ class TabbarView: UIView {
         Tabbar(imageName: "notice"),
         Tabbar(imageName: "mypage")
     ]
-    
-    var indicatorViewLeadingConstraint:NSLayoutConstraint!
-    var indicatorViewWidthConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,14 +10,9 @@ import UIKit
 
 class OutGoingAlertViewController: UIViewController {
     
-    @IBOutlet weak var backgroundView: UIButton!
+    @IBOutlet weak var backgroundView: CustomShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.addShadow(offset: CGSize(width: 0, height: 2),
-                                 color: .lightGray,
-                                 shadowRadius: 2,
-                                 opacity: 0.7,
-                                 cornerRadius: 10)
     }
 }
