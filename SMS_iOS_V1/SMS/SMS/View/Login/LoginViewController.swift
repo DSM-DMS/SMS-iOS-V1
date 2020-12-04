@@ -27,42 +27,6 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-<<<<<<< HEAD
-    func shadowSetting() {
-        self.LoginButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                   color: .lightGray,
-                                   shadowRadius: 2,
-                                   opacity: 0.7,
-                                   cornerRadius: 3)
-    }
-    
-    func checkBoxSetupUI() {
-        
-        var state : Bool = false
-        
-        autoLoginCheckBox.checkedBorderColor = UIColor.gray
-        autoLoginCheckBox.uncheckedBorderColor = UIColor.gray
-        autoLoginCheckBox.checkboxFillColor = UIColor.white
-        
-        autoLoginCheckBox.borderStyle = .square
-        autoLoginCheckBox.checkmarkColor = UIColor.white
-        autoLoginCheckBox.checkmarkStyle = .tick
-        
-        autoLoginCheckBox.valueChanged = { (isChecked) in
-            
-            if (state == false) {
-                self.autoLoginCheckBox.checkboxFillColor = UIColor.customPurple
-                state = true
-            } else {
-                self.autoLoginCheckBox.checkboxFillColor = UIColor.white
-                state = false
-            }
-            
-            
-        }
-        
-        
-=======
     func bind() {
         let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
             
@@ -78,7 +42,5 @@ extension LoginViewController {
             print("loginBtn 흔들기")
 //            self.loginButton.shake
         }.disposed(by: disposeBag)
-
->>>>>>> Login
     }
 }

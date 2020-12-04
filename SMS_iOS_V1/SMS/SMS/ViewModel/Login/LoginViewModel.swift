@@ -25,21 +25,6 @@ class LoginViewModel {
         let result: Single<LoginModel>
     }
     
-<<<<<<< HEAD:SMS_iOS_V1/SMS/SMS/ViewModel/Login/LoginViewModel.swift
-    func request() {
-        
-        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
-            response in
-            switch response.result {
-            case .success :
-                print(response)
-                break
-                
-            case .failure(let error) :
-                print(error.localizedDescription)
-                
-                
-=======
     func transform(_ input: Input) -> Output {
         var boolean : Bool = false
         
@@ -48,7 +33,6 @@ class LoginViewModel {
                 // ketchain 저장 
             } else {
                 // delete keychain
->>>>>>> Login:SMS_iOS_V1/SMS/SMS/ViewModel/LoginViewModel.swift
             }
             boolean.toggle()
         }).disposed(by: disposeBag)
@@ -68,11 +52,4 @@ class LoginViewModel {
         return Output(result: bool)
 
     }
-    
-//    func presentingViewController() {
-//        let rootViewController = StoryBoard.Login.viewController
-//        let presentViewController = StoryBoard.Schedule.viewController
-//        presentViewController.modalPresentationStyle = .fullScreen
-//        rootViewController.present(presentViewController, animated: true, completion: nil)
-//    }
 }

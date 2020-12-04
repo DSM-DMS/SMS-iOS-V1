@@ -10,17 +10,12 @@ import UIKit
 
 class OutGoingViewController: UIViewController, OutGoingStoryBorded {
     
-<<<<<<< HEAD
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
     @IBOutlet weak var outGoingLogButton: CustomShadowButton!
     @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
     @IBOutlet weak var outGoingDeedButton: CustomShadowButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
-=======
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var outGoingApplyView: UIView!
@@ -48,8 +43,4 @@ class OutGoingViewController: UIViewController, OutGoingStoryBorded {
     }
     
 
- 
-
-
->>>>>>> UITest
 }

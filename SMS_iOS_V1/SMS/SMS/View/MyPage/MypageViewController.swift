@@ -10,7 +10,6 @@ import UIKit
 
 class MypageViewController: UIViewController {
     
-<<<<<<< HEAD
     @IBOutlet weak var pwChangeButton: CustomShadowButton!
     @IBOutlet weak var logOutButton: CustomShadowButton!
     @IBOutlet weak var introduceDevButton: CustomShadowButton!
@@ -18,12 +17,6 @@ class MypageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-=======
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
->>>>>>> UITest
     }
     
 }
