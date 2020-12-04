@@ -12,8 +12,8 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-enum API {
-    case login
+enum SMSAPI {
+    case login(_ userId: String, _ pw: String)
     case pwChange(_ uuid: String)
     case myInfo(_ uuid: String)
     case postOuting
@@ -28,7 +28,7 @@ enum API {
     case schedules(_ month: String)
 }
 
-extension API {
+extension SMSAPI {
     var baseURL: String {
         return ""
     }
@@ -116,6 +116,8 @@ extension API {
     
     var parameter: Parameters? {
         switch self {
+        case .login(let userId,let pw):
+            return ["student_id":userId, "student_pw" : pw]
         case .certainOutingInfo(let uuid):
             return ["uuid": uuid]
         case .detailNotice(let uuid):
