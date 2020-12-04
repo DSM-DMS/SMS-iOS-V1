@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="188" y="166.8665667166417"/>
         </scene>
-        <!--Mypage Notice Detail View Controller-->
+        <!--Notice Detail View Controller-->
         <scene sceneID="dmo-XY-b29">
             <objects>
-                <viewController id="s9k-7C-n9F" customClass="MypageNoticeDetailViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoticeDetailViewController" id="s9k-7C-n9F" customClass="NoticeDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xzB-jG-v8Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

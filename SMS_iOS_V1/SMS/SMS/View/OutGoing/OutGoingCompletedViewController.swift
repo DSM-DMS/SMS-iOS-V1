@@ -11,6 +11,8 @@ import UIKit
 class OutGoingCompletedViewController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     
+    let viewModel = OutGoingCompletedViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkButton.addShadow(offset: CGSize(width: 0, height: 2),
@@ -21,4 +23,7 @@ class OutGoingCompletedViewController: UIViewController {
         
     }
     
+    @IBAction func checkButton(_ sender: Any) {
+        viewModel.dismissingViewController()
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gex-IF-uVT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gex-IF-uVT">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Out Going View Controller-->
         <scene sceneID="kWx-Vm-mJU">
             <objects>
-                <viewController storyboardIdentifier="OutGoingViewController" id="Gex-IF-uVT" customClass="OutGoingViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gex-IF-uVT" customClass="OutGoingViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tWR-eJ-BS4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,14 +52,6 @@
                                             <constraint firstAttribute="width" constant="3" id="yZ1-zJ-Nzv"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uX-kW-cuj">
-                                        <rect key="frame" x="222" y="20" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="d3h-zE-AgT" kind="presentation" modalPresentationStyle="fullScreen" id="0nv-uk-aON"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -99,9 +91,6 @@
                                         <rect key="frame" x="219" y="20" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="vPK-jk-Vz5" kind="presentation" modalPresentationStyle="fullScreen" id="4en-Kr-zIx"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -142,9 +131,6 @@
                                         <rect key="frame" x="213" y="20" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="jzR-W3-gPN" kind="presentation" modalPresentationStyle="fullScreen" id="e3n-eW-LJO"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -268,6 +254,9 @@
                     <tabBarItem key="tabBarItem" title="" image="outgoing" id="gXd-Vr-pt9"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="outGoingApplyView" destination="XMh-Wb-rDD" id="eAQ-CB-jJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWb-Uj-ypQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,7 +359,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="89J-Wn-nj3" kind="presentation" modalPresentationStyle="fullScreen" id="QhB-gM-1KP"/>
+                                    <action selector="applyButton:" destination="egu-0p-M7b" eventType="touchUpInside" id="WMU-mY-E4Q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-nU-Ij7">
@@ -479,6 +468,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back"/>
                             </button>
+                            <connections>
+                                <action selector="backButton:" destination="egu-0p-M7b" id="Vel-JR-mY2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -830,10 +822,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OutGoingApplyCompleted" translatesAutoresizingMaskIntoConstraints="NO" id="FDS-Jd-ekx">
-                                <rect key="frame" x="55" y="176" width="265" height="76"/>
+                                <rect key="frame" x="55" y="220" width="265" height="76"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
-                                <rect key="frame" x="40" y="483" width="295" height="40"/>
+                                <rect key="frame" x="40" y="527" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="G9d-cb-WwN"/>
@@ -842,9 +834,12 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkButton:" destination="nVE-q8-eLQ" eventType="touchUpInside" id="cwO-sL-t6e"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
-                                <rect key="frame" x="61.5" y="271" width="252" height="20"/>
+                                <rect key="frame" x="61.5" y="315" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -898,7 +893,7 @@
         <!--유의사항-->
         <scene sceneID="iRJ-lv-xRJ">
             <objects>
-                <viewController id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutGoingNoticeViewController" id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3m-95-cmT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -972,6 +967,9 @@
                                         <state key="normal" title="취소">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="89J-Wn-nj3" eventType="touchUpInside" id="6Lr-60-GFh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spo-Qb-DcR">
                                         <rect key="frame" x="210" y="256" width="30" height="29"/>
@@ -980,7 +978,7 @@
                                             <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="nVE-q8-eLQ" kind="presentation" modalPresentationStyle="fullScreen" id="HbB-S6-MvR"/>
+                                            <action selector="applyButton:" destination="89J-Wn-nj3" eventType="touchUpInside" id="LsM-hA-g7A"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-5t-r82">
@@ -1358,9 +1356,6 @@
             <point key="canvasLocation" x="762" y="1693"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="HbB-S6-MvR"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="OutGoingApplyCompleted" width="252" height="76"/>
         <image name="back" width="20" height="12.5"/>
