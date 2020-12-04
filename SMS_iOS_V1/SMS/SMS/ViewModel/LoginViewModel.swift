@@ -7,36 +7,49 @@
 //
 
 import UIKit
+
 import RxCocoa
 import RxSwift
-import Alamofire
-import RxAlamofire
 
 class LoginViewModel {
+    let disposeBag = DisposeBag()
     
-    let view = LoginViewController()
+    struct Input {
+        let idTextFieldDriver: Driver<String>
+        let pwTextFieldDriver: Driver<String>
+        let loginBtnDriver: Driver<Void>
+        let autoLoginDriver: Driver<Void>
+    }
     
-    let param = ["id" : " ", "pw" : " "]
-    let header = ["application/json" : "content-type"]
-    let url = URL(string: " ")!
+    struct Output {
+        let result: Single<LoginModel>
+    }
     
-    func request() {
-         
-        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON {
-            response in
-            switch response.result {
-            case .success :
-                print(response)
-                break
-            
-            case .failure(let error) :
-                print(error.localizedDescription)
-                
-                
+    func transform(_ input: Input) -> Output {
+        var boolean : Bool = false
+        
+        input.autoLoginDriver.drive(onNext: { _ in
+            if boolean {
+                // ketchain 저장 
+            } else {
+                // delete keychain
             }
-        }
+            boolean.toggle()
+        }).disposed(by: disposeBag)
+
         
         
+        let bool = input.loginBtnDriver.asObservable()
+            .withLatestFrom(Observable.combineLatest(input.idTextFieldDriver.asObservable(),
+                                                     input.pwTextFieldDriver.asObservable()))
+            .map { (id, pw) -> SMSAPI in
+                if id.isEmpty || pw.isEmpty {  }
+                    return SMSAPI.login(id, pw)
+            }.flatMap { request -> Observable<LoginModel> in
+                return SMSAPIClient.shared.networking(from: request)
+            }.asSingle()
         
+        return Output(result: bool)
+
     }
 }
