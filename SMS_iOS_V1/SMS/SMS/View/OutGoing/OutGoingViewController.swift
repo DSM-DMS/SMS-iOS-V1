@@ -8,8 +8,9 @@
 
 import UIKit
 
-class OutGoingViewController: UIViewController {
+class OutGoingViewController: UIViewController, OutGoingStoryBorded {
     
+<<<<<<< HEAD
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
     @IBOutlet weak var outGoingLogButton: CustomShadowButton!
     @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
@@ -19,4 +20,36 @@ class OutGoingViewController: UIViewController {
         super.viewDidLoad()
     }
     
+=======
+    weak var coordinator: OutGoingCoordinator?
+    
+    @IBOutlet weak var outGoingApplyView: UIView!
+    
+    let viewModel = OutGoingViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentingOutGoingApply))
+        
+        self.outGoingApplyView.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc func presentingOutGoingApply() {
+        let storyboard = UIStoryboard(name: "OutGoing", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "OutGoingApplyViewController")
+        
+        self.navigationController!.pushViewController(vc, animated: true)
+
+       
+        
+    }
+    
+
+ 
+
+
+>>>>>>> UITest
 }

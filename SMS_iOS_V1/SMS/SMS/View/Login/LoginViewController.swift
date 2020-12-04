@@ -39,14 +39,30 @@ extension LoginViewController {
     }
     
     func checkBoxSetupUI() {
+        
+        var state : Bool = false
+        
         autoLoginCheckBox.checkedBorderColor = UIColor.gray
         autoLoginCheckBox.uncheckedBorderColor = UIColor.gray
+        autoLoginCheckBox.checkboxFillColor = UIColor.white
+        
         autoLoginCheckBox.borderStyle = .square
         autoLoginCheckBox.checkmarkColor = UIColor.white
         autoLoginCheckBox.checkmarkStyle = .tick
         
-        autoLoginCheckBox.valueChanged = { (ischecked) in
-            self.autoLoginCheckBox.layer.backgroundColor = CGColor(red: 83, green: 35, blue: 178, alpha: 1)
+        autoLoginCheckBox.valueChanged = { (isChecked) in
+            
+            if (state == false) {
+                self.autoLoginCheckBox.checkboxFillColor = UIColor.customPurple
+                state = true
+            } else {
+                self.autoLoginCheckBox.checkboxFillColor = UIColor.white
+                state = false
+            }
+            
+            
         }
+        
+        
     }
 }

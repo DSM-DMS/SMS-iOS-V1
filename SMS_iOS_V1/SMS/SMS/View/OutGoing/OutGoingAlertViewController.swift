@@ -12,7 +12,15 @@ class OutGoingAlertViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: CustomShadowButton!
     
+    let viewModel = OutGoingAlertViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction func cancelButton(_ sender: Any) {
+//        viewModel.dismissViewController()
+    }
+    @IBAction func applyButton(_ sender: Any) {
+//        viewModel.presentViewController()
     }
 }

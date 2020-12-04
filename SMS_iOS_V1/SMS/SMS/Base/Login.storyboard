@@ -151,6 +151,7 @@
                         <outlet property="IDTextField" destination="LIg-Gr-D35" id="q5w-Lv-KsV"/>
                         <outlet property="LoginButton" destination="CHN-xW-Vfs" id="Axj-hm-iQO"/>
                         <outlet property="PWTextField" destination="NKB-wj-e18" id="DaG-hq-Yjm"/>
+                        <outlet property="autoLoginCheckBox" destination="bZ0-dW-k0I" id="w5F-Id-ZF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GqU-qV-F0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

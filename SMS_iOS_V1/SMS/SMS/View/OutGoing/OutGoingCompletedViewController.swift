@@ -11,9 +11,14 @@ import UIKit
 class OutGoingCompletedViewController: UIViewController {
     @IBOutlet weak var checkButton: CustomShadowButton!
     
+    let viewModel = OutGoingCompletedViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    @IBAction func checkButton(_ sender: Any) {
+        viewModel.dismissingViewController()
+    }
 }

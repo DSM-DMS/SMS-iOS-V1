@@ -7,13 +7,24 @@
 //
 
 import UIKit
-class OutGoingApplyViewController: UIViewController {
+class OutGoingApplyViewController: UIViewController, OutGoingStoryBorded {
 
     @IBOutlet weak var applyButton: CustomShadowButton!
+    
+    let viewModel = OutGoingApplyViewModel()
+    
+    weak var coordinator: OutGoingCoordinator?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @IBAction func applyButton(_ sender: Any) {
+//        viewModel.presentingViewController()
+        
+    }
+    @IBAction func backButton(_ sender: Any) {
+//        viewModel.dismissingViewController()
+    }
 }
