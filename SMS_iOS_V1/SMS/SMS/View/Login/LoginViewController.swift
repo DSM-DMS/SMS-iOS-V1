@@ -7,46 +7,41 @@
 //
 
 import UIKit
-import SimpleCheckbox
+
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
+    let viewModel = LoginViewModel()
+    let disposeBag = DisposeBag()
     
-    @IBOutlet weak var LoginButton: UIButton!
-    @IBOutlet weak var IDTextField: UITextField!
-    @IBOutlet weak var PWTextField: UITextField!
-    @IBOutlet weak var autoLoginCheckBox: Checkbox!
+    @IBOutlet weak var loginButton: CustomShadowButton!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var autoLoginCheckBox: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shadowSetting()
-        checkBoxSetupUI()
+        bind()
     }
-    
-    
-    @IBAction func touchUpLoginButton(_ sender: UIButton) {
-        print("login")
-    }
-    
 }
 
 extension LoginViewController {
-    func shadowSetting() {
-        self.LoginButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                   color: .lightGray,
-                                   shadowRadius: 2,
-                                   opacity: 0.7,
-                                   cornerRadius: 3)
-    }
-    
-    func checkBoxSetupUI() {
-        autoLoginCheckBox.checkedBorderColor = UIColor.gray
-        autoLoginCheckBox.uncheckedBorderColor = UIColor.gray
-        autoLoginCheckBox.borderStyle = .square
-        autoLoginCheckBox.checkmarkColor = UIColor.white
-        autoLoginCheckBox.checkmarkStyle = .tick
+    func bind() {
+        let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
+            
+        let output = viewModel.transform(input)
         
-        autoLoginCheckBox.valueChanged = { (ischecked) in
-            self.autoLoginCheckBox.layer.backgroundColor = CGColor(red: 83, green: 35, blue: 178, alpha: 1)
-        }
+        output.result.subscribe { model in
+            print(model)
+            // model에 대한 처리
+            // ud에 토큰 저장
+            // push
+            
+        } onError: { _ in
+            print("loginBtn 흔들기")
+//            self.loginButton.shake
+        }.disposed(by: disposeBag)
+
     }
 }
