@@ -90,8 +90,11 @@
 		</dict>
 		<key>SimpleCheckbox.xcscheme</key>
 		<dict>
+<<<<<<< Updated upstream
 			<key>isShown</key>
 			<false/>
+=======
+>>>>>>> Stashed changes
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
