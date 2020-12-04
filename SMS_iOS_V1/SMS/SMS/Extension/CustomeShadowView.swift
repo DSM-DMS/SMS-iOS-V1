@@ -1,14 +1,14 @@
 //
-//  UIButton.swift
+//  CustomeShadowView.swift
 //  SMS
 //
-//  Created by 이현욱 on 2020/11/30.
+//  Created by 이현욱 on 2020/12/04.
 //  Copyright © 2020 DohyunKim. All rights reserved.
 //
 
 import UIKit
 
-class CustomShadowButton: UIButton {
+class CustomShadowView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.layer.cornerRadius = 5.0;
