@@ -1,6 +1,10 @@
 import UIKit
 
 extension UIView {
+    static var NibName: String {
+        return String(describing: self)
+    }
+    
     func addSubviews(_ views: [UIView]) -> Void {
         for view in views {
             self.addSubview(view)

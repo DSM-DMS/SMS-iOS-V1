@@ -19,7 +19,7 @@ class TabbarViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.register(UINib(nibName: PageCell.xibName, bundle: nil), forCellWithReuseIdentifier: PageCell.xibName)
+        collectionView.register(PageCell.self)
         return collectionView
     }()
     

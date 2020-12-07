@@ -727,7 +727,7 @@
 		3775BBACB8602898CE6430D06639E939 /* RxCocoa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RxCocoa.modulemap; sourceTree = "<group>"; };
 		39B7BFBF881772A21989EF1D3F36528F /* RxCollectionViewDataSourceProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDataSourceProxy.swift; path = RxCocoa/iOS/Proxies/RxCollectionViewDataSourceProxy.swift; sourceTree = "<group>"; };
 		39BFC809AF0A3DE889C03DF5ECC027D2 /* Stepper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stepper.swift; path = RxFlow/Stepper.swift; sourceTree = "<group>"; };
-		39F1A0AE8A01B577D4B8EAB8EEC1D1A8 /* SimpleCheckbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SimpleCheckbox.framework; path = SimpleCheckbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39F1A0AE8A01B577D4B8EAB8EEC1D1A8 /* SimpleCheckbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleCheckbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2199ACF129B670F5B1E042A8B91005 /* Producer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Producer.swift; path = RxSwift/Observables/Producer.swift; sourceTree = "<group>"; };
 		3A473005C425E93B05FA78470B8CEEDA /* NotificationCenter+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+Rx.swift"; path = "RxCocoa/Foundation/NotificationCenter+Rx.swift"; sourceTree = "<group>"; };
 		3A7997EEFEA862B83C1D1D5358E1012A /* UIButtonHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIButtonHelper.swift; path = LayoutHelper/Classes/UIButtonHelper.swift; sourceTree = "<group>"; };
@@ -741,10 +741,10 @@
 		3C49F174AC5FA6184DBF9512C9C2D765 /* ConcurrentDispatchQueueScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentDispatchQueueScheduler.swift; path = RxSwift/Schedulers/ConcurrentDispatchQueueScheduler.swift; sourceTree = "<group>"; };
 		3CA53AAF47E43D6B4D0FC61DA2DE689D /* FSCalendarTransitionCoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarTransitionCoordinator.h; path = FSCalendar/FSCalendarTransitionCoordinator.h; sourceTree = "<group>"; };
 		3CD391475FFE8BA4E71B898FA914167D /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/Image/ImageProcessor.swift; sourceTree = "<group>"; };
-		3E26BA03994713FBEB9C3406695782F1 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DLRadioButton.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E26BA03994713FBEB9C3406695782F1 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9564D63F8952099DAD315E38BA75AB /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarWeekdayView.h; path = FSCalendar/FSCalendarWeekdayView.h; sourceTree = "<group>"; };
 		400FC99BF07CD44002F96DDE7B550195 /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/Views/AnimatedImageView.swift; sourceTree = "<group>"; };
-		40174C8E8CE21726FD14C2F752320F59 /* LayoutHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LayoutHelper.framework; path = LayoutHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40174C8E8CE21726FD14C2F752320F59 /* LayoutHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LayoutHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404A0ADC33FF95BD49E2713AAD8CB3A7 /* SharedSequence+Operators+arity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SharedSequence+Operators+arity.swift"; path = "RxCocoa/Traits/SharedSequence/SharedSequence+Operators+arity.swift"; sourceTree = "<group>"; };
 		4085A3A061AFE9CA8E2A4F6FEFA1C807 /* UISlider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISlider+Rx.swift"; path = "RxCocoa/iOS/UISlider+Rx.swift"; sourceTree = "<group>"; };
 		410D652B638ABBFBED370D51B90D2D16 /* RxPickerViewAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxPickerViewAdapter.swift; path = RxCocoa/iOS/DataSources/RxPickerViewAdapter.swift; sourceTree = "<group>"; };
@@ -756,7 +756,7 @@
 		42CAE81E8F2D739C8B1A3D15EE48312C /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		43B946085D8FBDBED132DBD23EE5F3C2 /* RxFlow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RxFlow.modulemap; sourceTree = "<group>"; };
 		44DEBDF7143F353CE9F3CFB22D05BA01 /* Pods-SMS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SMS-Info.plist"; sourceTree = "<group>"; };
-		454B9A19FE1D1274371E76A5DBE8245A /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SMS.framework; path = "Pods-SMS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		454B9A19FE1D1274371E76A5DBE8245A /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		459E21BC8887249914FF6DCCDEE2E7CE /* UITableView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableView+Rx.swift"; path = "RxCocoa/iOS/UITableView+Rx.swift"; sourceTree = "<group>"; };
 		45A58834A44E9DA99B5801C7E5BB7671 /* CompositeDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositeDisposable.swift; path = RxSwift/Disposables/CompositeDisposable.swift; sourceTree = "<group>"; };
 		47082508141A5388CA1D8898B0F022D5 /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Sources/Cache/MemoryStorage.swift; sourceTree = "<group>"; };
@@ -813,7 +813,7 @@
 		5B0EFBC5C8D30D8D9438C45B345C3CE7 /* SharedSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharedSequence.swift; path = RxCocoa/Traits/SharedSequence/SharedSequence.swift; sourceTree = "<group>"; };
 		5B5387448F07D9665324016A9DF03801 /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBBFB32F14D3C88BFD63A2F33E9CF24 /* AddRef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddRef.swift; path = RxSwift/Observables/AddRef.swift; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0E6F2C154B823C31826AB0FF5B8CF3 /* Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = RxSwift/Observables/Debug.swift; sourceTree = "<group>"; };
 		5E70E76E490E5491C054C49C471DED74 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/Cache/ImageCache.swift; sourceTree = "<group>"; };
 		5E7D91A98C794D6F8956DAA5BEEFABD3 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
@@ -884,18 +884,18 @@
 		7CCC6C0D7800051B0B8EBE8744F78251 /* WKInterfaceImage+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WKInterfaceImage+Kingfisher.swift"; path = "Sources/Extensions/WKInterfaceImage+Kingfisher.swift"; sourceTree = "<group>"; };
 		7D2D81B21AEB0996B1C746729EFBFFD4 /* RxCollectionViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxCollectionViewDelegateProxy.swift; sourceTree = "<group>"; };
 		7D7D1AB8C25D62B059E58B7C8AD32398 /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchBar+Rx.swift"; path = "RxCocoa/iOS/UISearchBar+Rx.swift"; sourceTree = "<group>"; };
-		7E82B375F620E71EA112AB528E5EDA8D /* RxOptional.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxOptional.framework; path = RxOptional.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E82B375F620E71EA112AB528E5EDA8D /* RxOptional.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxOptional.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ECCB9EDF50AF47AA146832D7B8C3EBB /* Range.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Range.swift; path = RxSwift/Observables/Range.swift; sourceTree = "<group>"; };
 		7F7253A1F52B64B1D94ED8CD67C99F48 /* Runtime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Runtime.swift; path = Sources/Utility/Runtime.swift; sourceTree = "<group>"; };
 		7F8CF8E931CAB4809C415576C03CFB25 /* Occupiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Occupiable.swift; path = Sources/RxOptional/Occupiable.swift; sourceTree = "<group>"; };
 		7FD5E92A98A5204886FC85DD032A52DB /* RxNavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxNavigationControllerDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxNavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
 		8086B1E63BD07C1D371590EE1741BA30 /* SimpleCheckbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SimpleCheckbox-dummy.m"; sourceTree = "<group>"; };
-		809C5FAB588354C9BA37DC3EAB8CB45C /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxSwift.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		809C5FAB588354C9BA37DC3EAB8CB45C /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED442B26BB24855A4D346AEFDCED4B /* Catch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catch.swift; path = RxSwift/Observables/Catch.swift; sourceTree = "<group>"; };
 		825A8A7158948449381033E4F07CCA72 /* ToArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToArray.swift; path = RxSwift/Observables/ToArray.swift; sourceTree = "<group>"; };
 		827277E335EBD7AB29E1929D3CD3A66B /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
 		82864537C498F8087B09D195F145737E /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Image/Placeholder.swift; sourceTree = "<group>"; };
-		82F1475AA0F9C33F7EA4A1459305D2AB /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxAlamofire.framework; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82F1475AA0F9C33F7EA4A1459305D2AB /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8323EE88C887F47412CF5F51F82E123D /* Signal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Signal.swift; path = RxCocoa/Traits/Signal/Signal.swift; sourceTree = "<group>"; };
 		83FEAE98500F9088EE941FD20F0232F5 /* BehaviorRelay+Driver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BehaviorRelay+Driver.swift"; path = "RxCocoa/Traits/Driver/BehaviorRelay+Driver.swift"; sourceTree = "<group>"; };
 		84808DEA63C8EC76281B8A335CBAB316 /* Pods-SMS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SMS-frameworks.sh"; sourceTree = "<group>"; };
@@ -930,11 +930,11 @@
 		946CCAA5C8C9A3CCE1730FF60AB8207F /* Reactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reactive.swift; path = RxSwift/Reactive.swift; sourceTree = "<group>"; };
 		94E87BE1EFB4B3A4CAA130804E669AA7 /* ImageFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFormat.swift; path = Sources/Image/ImageFormat.swift; sourceTree = "<group>"; };
 		950188618D94ADB6A6D090E38D8A4E46 /* Synchronizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Synchronizable.swift; path = RxFlow/Synchronizable.swift; sourceTree = "<group>"; };
-		95209B8BB966524BC76543F99C75F5FE /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSCalendar.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95209B8BB966524BC76543F99C75F5FE /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E5B2AD36715ABEEF5D2BF29D175C0C /* Pods-SMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SMS.release.xcconfig"; sourceTree = "<group>"; };
 		960F0FC9156C1A655C04DB8D899C061E /* RxAlamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxAlamofire-prefix.pch"; sourceTree = "<group>"; };
 		9630E6F51B7B37A62DBD434476984F93 /* ControlTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlTarget.swift; path = RxCocoa/Common/ControlTarget.swift; sourceTree = "<group>"; };
-		96BA5BE9C704F834A3F9CA454CCCB6A0 /* RxFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxFlow.framework; path = RxFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BA5BE9C704F834A3F9CA454CCCB6A0 /* RxFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BE9D3A7EB7FB26493EC39EAA6AEEC8 /* Signal+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Signal+Subscription.swift"; path = "RxCocoa/Traits/Signal/Signal+Subscription.swift"; sourceTree = "<group>"; };
 		96EB84BF53E1767C8BF593819B1A0B8C /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		96FAE447EF59E75339AD4E4F89481AEF /* ObserveOn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserveOn.swift; path = RxSwift/Observables/ObserveOn.swift; sourceTree = "<group>"; };
@@ -958,7 +958,7 @@
 		9D25BA8B41DB28AC7CC34D94AE238406 /* _RX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RX.h; path = RxCocoa/Runtime/include/_RX.h; sourceTree = "<group>"; };
 		9D4327DD293E62E052E796C7C7EEDE4A /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		9D5D23DD8E5E5FC39F08DEDAB30C1513 /* RxSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxSwift-prefix.pch"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC0DC7824958B12D55947D0B26BB876 /* RxCollectionViewDataSourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDataSourceType.swift; path = RxCocoa/iOS/Protocols/RxCollectionViewDataSourceType.swift; sourceTree = "<group>"; };
 		9FA5A8941218A88B2FD075104C0D4BDC /* FSCalendarStickyHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarStickyHeader.m; path = FSCalendar/FSCalendarStickyHeader.m; sourceTree = "<group>"; };
 		9FB9F02DFA7DA2155BE3A19C70180D60 /* ImmediateSchedulerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImmediateSchedulerType.swift; path = RxSwift/ImmediateSchedulerType.swift; sourceTree = "<group>"; };
@@ -1009,7 +1009,7 @@
 		BA8DCEDBAA641D786B0437512BDF6D9D /* FSCalendarTransitionCoordinator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarTransitionCoordinator.m; path = FSCalendar/FSCalendarTransitionCoordinator.m; sourceTree = "<group>"; };
 		BB3AD8751F65E19F385C2E8065523967 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Utility/Box.swift; sourceTree = "<group>"; };
 		BC3342F2C493CA7A62E931C274F4AF10 /* FSCalendarStickyHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarStickyHeader.h; path = FSCalendar/FSCalendarStickyHeader.h; sourceTree = "<group>"; };
-		BC432FD48A5932251F1CAFBC4BF74894 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxCocoa.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC432FD48A5932251F1CAFBC4BF74894 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5FD6DC18B253AD1EA2F0ED531E3471 /* Zip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Zip.swift; path = RxSwift/Observables/Zip.swift; sourceTree = "<group>"; };
 		BC6D4772F387377B3A0FC045435A3A10 /* SynchronizedOnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedOnType.swift; path = RxSwift/Concurrency/SynchronizedOnType.swift; sourceTree = "<group>"; };
 		BCA0263F6547E51D5E6C4F0275DA4C21 /* UIButton+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Rx.swift"; path = "RxCocoa/iOS/UIButton+Rx.swift"; sourceTree = "<group>"; };
@@ -1025,7 +1025,7 @@
 		C2A2877AE61B02EEF9F0546C6253AFEA /* Deferred.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deferred.swift; path = RxSwift/Observables/Deferred.swift; sourceTree = "<group>"; };
 		C33CE4A5729EB016D331C734924659E7 /* KVORepresentable+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KVORepresentable+Swift.swift"; path = "RxCocoa/Foundation/KVORepresentable+Swift.swift"; sourceTree = "<group>"; };
 		C3DB42D8611AA4793D0F49CC622907A5 /* RxCollectionViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxCollectionViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
-		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C486B4DFF894E3FF56B9A09BD5ABC9E5 /* Multicast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = RxSwift/Observables/Multicast.swift; sourceTree = "<group>"; };
 		C4FA6B9909A0904147E59CD1EF005D8E /* SimpleCheckbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SimpleCheckbox.modulemap; sourceTree = "<group>"; };
 		C50A9F47C896E66D89F7768DD279E7DD /* ControlEvent+Signal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ControlEvent+Signal.swift"; path = "RxCocoa/Traits/Signal/ControlEvent+Signal.swift"; sourceTree = "<group>"; };
@@ -1122,7 +1122,7 @@
 		FE824F8F2D605725D0026C4070286367 /* DLRadioButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DLRadioButton.modulemap; sourceTree = "<group>"; };
 		FE9DC68887A66769F738C0A19D4E05F2 /* _RXObjCRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXObjCRuntime.h; path = RxCocoa/Runtime/include/_RXObjCRuntime.h; sourceTree = "<group>"; };
 		FF469A77EE7529537C52A9BD859F3B2E /* AsyncSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncSubject.swift; path = RxSwift/Subjects/AsyncSubject.swift; sourceTree = "<group>"; };
-		FF8B264DFE802855D5D67E7CDDABFC3C /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxRelay.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8B264DFE802855D5D67E7CDDABFC3C /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1281,7 +1281,6 @@
 				AD07C0A311C2AB2D758ECA0ED4C96F5A /* Core */,
 				A522F41A98B35BB023D774C98AE5B667 /* Support Files */,
 			);
-			name = RxAlamofire;
 			path = RxAlamofire;
 			sourceTree = "<group>";
 		};
@@ -1346,7 +1345,6 @@
 				3E9F2341EE50CE3F4BFFF80F38981B64 /* Core */,
 				D68BDF7C5EB9A4C8A7D767174A43C047 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1478,7 +1476,6 @@
 				8D8517E0F08204C824B1936B80D2189C /* URLSession+Rx.swift */,
 				7E8520111C465E78BC91CE0F4B0206DB /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1488,7 +1485,6 @@
 				99AB9944C2C96269E18E4942C8AEA45B /* Checkbox.swift */,
 				C00B2F7F451BB232C2D2082E23EE3B61 /* Support Files */,
 			);
-			name = SimpleCheckbox;
 			path = SimpleCheckbox;
 			sourceTree = "<group>";
 		};
@@ -1503,7 +1499,6 @@
 				1C1B530FEEE20487023256B0B80157DD /* UITextViewHelper.swift */,
 				CFA5D0B6737F611D3FC0AF2252A88B00 /* Support Files */,
 			);
-			name = LayoutHelper;
 			path = LayoutHelper;
 			sourceTree = "<group>";
 		};
@@ -1552,7 +1547,6 @@
 				1E5F6BDB39FF47F2BCA47ECF9FD6DDD5 /* UIWindow+Rx.swift */,
 				9B300E13A732BCB7ABB1ECD43052D362 /* Support Files */,
 			);
-			name = RxFlow;
 			path = RxFlow;
 			sourceTree = "<group>";
 		};
@@ -1565,7 +1559,6 @@
 				0EAC64EDDB63478308DC3F57DEB9F96E /* Utils.swift */,
 				FD6CC5E00F680509973287BAA4F67A4F /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1739,7 +1732,6 @@
 				1F205CB52D76186A8F560C8F922EE4BB /* Zip+Collection.swift */,
 				CF5462CF0B8B94AC1068336C8654FB97 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1769,7 +1761,6 @@
 				53B6239B29F3A7BA81D78AEAD7EBBC73 /* SharedSequence+Optional.swift */,
 				E6B49C61B187E05E9E6E3FD001AB7CEA /* Support Files */,
 			);
-			name = RxOptional;
 			path = RxOptional;
 			sourceTree = "<group>";
 		};
@@ -1823,7 +1814,6 @@
 				7C0F1ADEED244B411B579F5B8AC289A8 /* FSCalendarWeekdayView.m */,
 				A100091E3099E5A800F33C861F6AB81B /* Support Files */,
 			);
-			name = FSCalendar;
 			path = FSCalendar;
 			sourceTree = "<group>";
 		};
@@ -2012,7 +2002,6 @@
 				31653E1F370AF8583A17876262653DC0 /* Validation.swift */,
 				6E9EB89C9A3AA22799A1A22CC5FD283D /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -2037,7 +2026,6 @@
 				1D2D0BBB7D85B726462571558F3A84AE /* DLRadioButton.m */,
 				794382368A57D5A78AB30C4B32D09B7F /* Support Files */,
 			);
-			name = DLRadioButton;
 			path = DLRadioButton;
 			sourceTree = "<group>";
 		};
@@ -2437,7 +2425,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1210;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -3195,7 +3183,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DLRadioButton/DLRadioButton-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DLRadioButton/DLRadioButton-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3231,7 +3219,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SimpleCheckbox/SimpleCheckbox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SimpleCheckbox/SimpleCheckbox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3267,7 +3255,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SimpleCheckbox/SimpleCheckbox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SimpleCheckbox/SimpleCheckbox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3303,7 +3291,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa/RxCocoa-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa/RxCocoa-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3377,7 +3365,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxFlow/RxFlow-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxFlow/RxFlow-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3412,7 +3400,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxOptional/RxOptional-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxOptional/RxOptional-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3447,7 +3435,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay/RxRelay-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay/RxRelay-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3482,7 +3470,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxAlamofire/RxAlamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxAlamofire/RxAlamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3517,7 +3505,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxOptional/RxOptional-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxOptional/RxOptional-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3554,7 +3542,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Kingfisher/Kingfisher-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3589,7 +3577,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3624,7 +3612,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/LayoutHelper/LayoutHelper-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/LayoutHelper/LayoutHelper-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3660,7 +3648,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxAlamofire/RxAlamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxAlamofire/RxAlamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3696,7 +3684,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa/RxCocoa-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa/RxCocoa-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3731,7 +3719,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay/RxRelay-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay/RxRelay-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3767,7 +3755,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift/RxSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift/RxSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3802,7 +3790,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift/RxSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift/RxSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3838,7 +3826,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxFlow/RxFlow-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxFlow/RxFlow-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3923,6 +3911,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3977,7 +3966,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4013,7 +4002,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DLRadioButton/DLRadioButton-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DLRadioButton/DLRadioButton-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4050,7 +4039,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Kingfisher/Kingfisher-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4086,7 +4075,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4131,6 +4120,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -4181,7 +4171,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4217,7 +4207,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/LayoutHelper/LayoutHelper-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/LayoutHelper/LayoutHelper-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
