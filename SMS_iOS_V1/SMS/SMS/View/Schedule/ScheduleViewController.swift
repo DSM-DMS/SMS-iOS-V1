@@ -9,7 +9,7 @@ class ScheduleViewController: UIViewController {
     // 날짜를 여러번 호출, 비슷비슷한 함수가 많이 사용되는데 이걸 줄일 방법을 찾아보고 싶음
     
     private var bool = false
-    let observable: BehaviorRelay<ScheduleModel> = .init(value: ScheduleModel(date: "", eventInfo: "", eventColor: .red))
+//    let observable: BehaviorRelay<ScheduleModel> = .init(value: ScheduleModel(date: "", eventInfo: "", eventColor: .red))
     private let date: BehaviorRelay<Date> = .init(value: Date())
     private let disposeBag = DisposeBag()
     private lazy var dateFormatter = globalDateFormatter(formType(rawValue: formType.day.rawValue)!)
@@ -55,12 +55,12 @@ extension ScheduleViewController {
     }
     
     private func bindUI() {
-        observable.map { [$0] } // ScheduleModel 재대로 나오면 다시
-            .bind(to: tableView.rx.items(cellIdentifier: "ScheduleCell", cellType: ScheduleCell.self)) { idx, schedule, cell in
-                cell.scheduleDateLbl.text = schedule.date
-                cell.scheduleInfoLbl.text = schedule.eventInfo
-                cell.scheduleColorView.backgroundColor = schedule.eventColor
-            }.disposed(by: disposeBag)
+//        observable.map { [$0] } // ScheduleModel 재대로 나오면 다시
+//            .bind(to: tableView.rx.items(cellIdentifier: "ScheduleCell", cellType: ScheduleCell.self)) { idx, schedule, cell in
+//                cell.scheduleDateLbl.text = schedule.date
+//                cell.scheduleInfoLbl.text = schedule.eventInfo
+//                cell.scheduleColorView.backgroundColor = schedule.eventColor
+//            }.disposed(by: disposeBag)
     }
     
     private func tableViewSetting() {
