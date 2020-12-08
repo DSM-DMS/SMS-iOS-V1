@@ -485,7 +485,7 @@
         <!--내 외출신청 내역-->
         <scene sceneID="1JT-Gm-BVu">
             <objects>
-                <viewController storyboardIdentifier="OutGoingLogViewController" id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6MK-rA-fOA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,7 +614,7 @@
         <!--승인완료 외출증-->
         <scene sceneID="4gT-dS-y5R">
             <objects>
-                <viewController storyboardIdentifier="OutGoingDeedViewController" id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xqj-3V-7Xe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +893,7 @@
         <!--유의사항-->
         <scene sceneID="iRJ-lv-xRJ">
             <objects>
-                <viewController storyboardIdentifier="OutGoingNoticeViewController" id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3m-95-cmT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1305,7 +1305,7 @@
         <scene sceneID="OFf-ur-4hb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ug9-q4-98u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vPK-jk-Vz5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OutGoingLogViewController" automaticallyAdjustsScrollViewInsets="NO" id="vPK-jk-Vz5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OHp-wl-qPm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1340,7 +1340,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Q6U-FF-lbj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jzR-W3-gPN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OutGoingDeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="jzR-W3-gPN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cN3-hg-inI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
