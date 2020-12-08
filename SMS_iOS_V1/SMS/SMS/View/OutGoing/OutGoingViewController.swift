@@ -31,16 +31,23 @@ class OutGoingViewController: UIViewController, OutGoingStoryBorded {
         
     }
     
+    
     @objc func presentingOutGoingApply() {
+        print("tapped")
+        
         let storyboard = UIStoryboard(name: "OutGoing", bundle: nil)
         
+        let rootVc = UIApplication.shared.keyWindow?.rootViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "OutGoingApplyViewController")
+        vc.modalPresentationStyle = .fullScreen
         
-        self.navigationController!.pushViewController(vc, animated: true)
-
-       
+        
+        
+        
+        
         
     }
     
-
 }
+
+
