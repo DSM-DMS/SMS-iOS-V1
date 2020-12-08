@@ -25,6 +25,10 @@ class OutGoingViewController: UIViewController, OutGoingStoryBorded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let outGoingnav = UINavigationController()
+        
+        
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(presentingOutGoingApply))
         
         self.outGoingApplyView.addGestureRecognizer(gesture)
@@ -42,7 +46,7 @@ class OutGoingViewController: UIViewController, OutGoingStoryBorded {
         vc.modalPresentationStyle = .fullScreen
         
         
-        
+        rootVc?.present(vc, animated: true, completion: nil)
         
         
         
