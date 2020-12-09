@@ -8,21 +8,33 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class OutGoingApplyViewModel {
     
-    func presentingViewController() {
-        
-//        let rootViewController = StoryBoard.OutGoingApply.viewController
-//        let presentingViewController = StoryBoard.OutGoingAlert.viewController
-//        presentingViewController.modalPresentationStyle = .fullScreen
-//        rootViewController.present(presentingViewController, animated: true, completion: nil)
-        
-    }
+    //    struct input {
+    //        let drive: Driver<Void>
+    //    }
+    //
+    //    struct Output {
+    //        let result: Single<Void>
+    //    }
+    //
+    //    func a(input: input) -> Output {
+    //        let b = input.drive.asObservable().single()
+    //        return Output(result: b)
+    //    }
     
-    func dismissingViewController() {
-        
-//        let rootViewController = StoryBoard.OutGoingApply.viewController
-//        rootViewController.dismiss(animated: true, completion: nil)
-        
-    }
+    //    func dismissingViewController() {
+    //        print("tap")
+    //
+    //
+    //        let view = OutGoingApplyViewController()
+    //
+    //        view.navigationController?.popViewController(animated: true)
+    ////        OutGoingApplyViewController().navigationController?.dismiss(animated: true, completion: nil)
+    
+    
+    
 }

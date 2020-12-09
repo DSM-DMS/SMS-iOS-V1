@@ -25,10 +25,6 @@ class OutGoingViewController: UIViewController, OutGoingStoryBorded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let outGoingnav = UINavigationController()
-        
-        
-        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(presentingOutGoingApply))
         
         self.outGoingApplyView.addGestureRecognizer(gesture)

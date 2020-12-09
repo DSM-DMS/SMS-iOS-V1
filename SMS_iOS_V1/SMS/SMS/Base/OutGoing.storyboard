@@ -462,12 +462,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="외출신청" id="hKR-Hj-eYq">
-                        <barButtonItem key="leftBarButtonItem" image="back" style="plain" id="N2a-F0-Rtg">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L0n-tL-AvR">
-                                <rect key="frame" x="16" y="11" width="20" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="back"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="N2a-F0-Rtg">
                             <connections>
                                 <action selector="backButton:" destination="egu-0p-M7b" id="Vel-JR-mY2"/>
                             </connections>
@@ -1322,7 +1317,7 @@
         <!--Navigation Controller-->
         <scene sceneID="qCl-r7-tu9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pLg-bm-wZ7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OutGoingNoticeViewController" automaticallyAdjustsScrollViewInsets="NO" id="pLg-bm-wZ7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TuQ-mO-fe8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
