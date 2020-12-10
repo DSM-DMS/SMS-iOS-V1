@@ -8,9 +8,8 @@
 
 import UIKit
 
-class OutGoingLogViewController: UIViewController {
-    
-    
+class OutGoingLogViewController: UIViewController, Storyboarded {
+    weak var coordinator: OutGoingCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

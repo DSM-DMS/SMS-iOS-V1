@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MypageIntroduceDevViewController: UIViewController {
+class MypageIntroduceDevViewController: UIViewController, Storyboarded {
+    weak var coordinator: MyPageCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

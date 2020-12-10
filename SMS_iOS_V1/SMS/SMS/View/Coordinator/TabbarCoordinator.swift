@@ -24,14 +24,8 @@ class TabbarCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
-    func disappear(_ child: Coordinator?) {
-        for (idx, coordinator) in
-            children.enumerated() {
-                if coordinator === child {
-                    children.remove(at: idx)
-                    break
-                }
-            }
+    func disappear() {
+        parentCoordinator?.disappear(self)
     }
     
     func outGoingMain() {

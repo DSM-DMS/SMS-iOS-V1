@@ -24,7 +24,7 @@ class NoticeCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.disappear(self)
+        parentCoordinator?.parentCoordinator?.disappear(self)
     }
     
     func detailNotice() {

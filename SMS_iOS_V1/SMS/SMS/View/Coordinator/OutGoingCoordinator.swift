@@ -25,7 +25,7 @@ class OutGoingCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.disappear(self)
+        parentCoordinator?.parentCoordinator?.disappear(self)
     }
  
     func outGoingApply() {

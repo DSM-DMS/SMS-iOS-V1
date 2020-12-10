@@ -24,6 +24,6 @@ class ScheduleCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.disappear(self)
+        parentCoordinator?.parentCoordinator?.disappear(self)
     }
 }

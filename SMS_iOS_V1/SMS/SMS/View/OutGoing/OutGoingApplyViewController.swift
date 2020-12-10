@@ -7,13 +7,14 @@
 //
 
 import UIKit
-class OutGoingApplyViewController: UIViewController, OutGoingStoryBorded {
+class OutGoingApplyViewController: UIViewController, Storyboarded {
+    weak var coordinator: OutGoingCoordinator?
 
     @IBOutlet weak var applyButton: CustomShadowButton!
     
     let viewModel = OutGoingApplyViewModel()
     
-    weak var coordinator: OutGoingCoordinator?
+//    weak var coordinator: OutGoingCoordinator?
     
     
     override func viewDidLoad() {

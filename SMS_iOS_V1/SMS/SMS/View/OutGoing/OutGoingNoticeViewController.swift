@@ -8,7 +8,8 @@
 
 import UIKit
 
-class OutGoingNoticeViewController: UIViewController {
+class OutGoingNoticeViewController: UIViewController, Storyboarded {
+    weak var coordinator: OutGoingCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

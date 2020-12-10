@@ -24,7 +24,7 @@ class MyPageCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.disappear(self)
+        parentCoordinator?.parentCoordinator?.disappear(self)
     }
     
     func introduce() {
