@@ -11,20 +11,22 @@ import UIKit
 class AppCoordinator: Coordinator {
     var children = [Coordinator]()
     var nav: UINavigationController
-    
+
     init(nav: UINavigationController) {
         self.nav = nav
     }
-    
+
     func start() {
-        let vc = LoginViewController.instantiate(storyboardName:.login)
+        let vc = LoginViewController.instantiate(storyboardName: .login)
         vc.coordinator = self
         nav.pushViewController(vc, animated: false)
     }
-    
+
     func tabbar() {
-        let vc = TabbarViewController.instantiate(storyboardName: .tabbar)
-        vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        let tabbarCoordinator = TabbarCoordinator(nav: nav)
+               tabbarCoordinator.parentCoordinator = self
+               self.children.append(tabbarCoordinator)
+               tabbarCoordinator.start()
     }
 }
+
