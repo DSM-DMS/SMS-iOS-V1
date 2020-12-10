@@ -8,7 +8,9 @@
 
 import UIKit
 
-class OutGoingCompletedViewController: UIViewController {
+class OutGoingCompletedViewController: UIViewController, Storyboarded {
+    weak var coordinator: OutGoingCoordinator?
+    
     @IBOutlet weak var checkButton: CustomShadowButton!
     
     let viewModel = OutGoingCompletedViewModel()

@@ -30,37 +30,41 @@ enum SMSAPI {
 
 extension SMSAPI {
     var baseURL: String {
-        return ""
+        return "http://10.220.158.111:8080"
+    }
+    
+    var version: String {
+        return "/v1"
     }
     
     var path: String {
         switch self {
         case .login:
-            return  "/v1/login/student"
+            return  "/login/student"
         case .pwChange(let uuid):
-            return "/v1/auths/\(uuid)/password"
+            return "/auths/\(uuid)/password"
         case .myInfo(let uuid):
-            return "/v1/students/\(uuid)"
+            return "/students/\(uuid)"
         case .postOuting:
-            return "/v1/outings"
+            return "/outings"
         case .lookUpAllOuting(let uuid):
-            return "/v1/students/\(uuid)/outings"
+            return "/students/\(uuid)/outings"
         case .certainOutingInfo(let uuid):
-            return "/v1/outings/\(uuid)"
+            return "/outings/\(uuid)"
         case .lookUpOutingCard(let uuid):
-            return "/v1/outings/\(uuid)/card"
+            return "/outings/\(uuid)/card"
         case .startOuting(let uuid):
-            return "/v1/outings/\(uuid)/outing"
+            return "/outings/\(uuid)/outing"
         case .finishOuting(let uuid):
-            return "/v1/outings/\(uuid)/finish-outing"
+            return "/outings/\(uuid)/finish-outing"
         case .lookUpNotice:
-            return "/v1/announcements"
+            return "/announcements"
         case .detailNotice(let uuid):
-            return "/v1/announcements/\(uuid)"
+            return "/announcements/\(uuid)"
         case .timetables(let grade, let classes):
-            return "/v1/timetables/grades/\(grade)/classes/\(classes)"
+            return "/timetables/grades/\(grade)/classes/\(classes)"
         case .schedules(let month):
-            return "/v1/schedules/monthes/\(month)"
+            return "/schedules/monthes/\(month)"
         }
     }
     

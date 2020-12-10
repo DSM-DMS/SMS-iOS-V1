@@ -11,7 +11,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Storyboarded {
+    weak var coordinator: AppCoordinator?
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
@@ -29,18 +30,29 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     func bind() {
         let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
+        
+        autoLoginCheckBox.rx.tap
+            .map { self.autoLoginCheckBox.tintColor = .customPurple }
+            .map { self.autoLoginCheckBox.isSelected.toggle() }
+            .map { if self.autoLoginCheckBox.isSelected {
+                self.autoLoginCheckBox.setImage(UIImage(named: "checkmark.square.fill"), for: .selected)
+            } else {
+                self.autoLoginCheckBox.setImage(UIImage(named: "stop"), for: .normal)
+            }}
+            .subscribe()
+            .disposed(by: disposeBag)
             
         let output = viewModel.transform(input)
         
         output.result.subscribe { model in
-            print(model)
-            // model에 대한 처리
-            // ud에 토큰 저장
-            // push
-            
+            if model.status == 200 || model.code == 200 {
+                self.coordinator?.tabbar()
+            } else {
+                self.loginButton.shake()
+            }
         } onError: { _ in
-            print("loginBtn 흔들기")
-//            self.loginButton.shake
+            self.loginButton.shake() // 지울 것
+            self.coordinator?.tabbar()
         }.disposed(by: disposeBag)
     }
 }

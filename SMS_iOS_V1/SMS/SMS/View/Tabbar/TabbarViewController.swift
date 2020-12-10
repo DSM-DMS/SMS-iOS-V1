@@ -1,13 +1,13 @@
 import UIKit
 
-class TabbarViewController: UIViewController {
+class TabbarViewController: UIViewController, Storyboarded {
+    weak var coordinator: TabbarCoordinator?
+    lazy var vcArr:[Coordinator] = [scheduleCoordinator, outGoingCoordinator, noticeCoordinator, myPageCoordinator]
     
-    let loginVC = UIStoryboard(name: "Schedule", bundle: .main).instantiateViewController(identifier: "ScheduleViewController")
-    let outGoingVC = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
-    let noticeVC = UIStoryboard(name: "Notice", bundle: .main).instantiateViewController(identifier: "NoticeViewController")
-    let mypageVC = UIStoryboard(name: "MyPage", bundle: .main).instantiateViewController(identifier: "MypageViewController")
-
-    lazy var vcArr = [loginVC, outGoingVC, noticeVC, mypageVC]
+    let scheduleCoordinator = ScheduleCoordinator(nav: UINavigationController())
+    let outGoingCoordinator = OutGoingCoordinator(nav: UINavigationController())
+    let noticeCoordinator = NoticeCoordinator(nav: UINavigationController())
+    let myPageCoordinator = MyPageCoordinator(nav: UINavigationController())
     
     lazy var pageCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -33,7 +33,7 @@ class TabbarViewController: UIViewController {
     
     func setupCustomTabBar(){
         self.view.addSubviews([tabbar,pageCollectionView])
-        tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
+        tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -58,9 +58,11 @@ class TabbarViewController: UIViewController {
 extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource, TabbarViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
-        let vcView = vcArr[indexPath.row].view!
+        let vcView = vcArr[indexPath.row].nav.view!
+        vcArr[indexPath.row].nav.setNavigationBarHidden(true, animated: false)
         vcView.frame = cell.contentView.bounds
         cell.contentView.addSubview(vcView)
+        vcArr[indexPath.row].start()
         return cell
     }
     
@@ -71,7 +73,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + self.view.frame.width / 16
     }
-
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
         tabbar.setSelectedItem(index: itemAt)

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MypageChangePWViewController: UIViewController {
+class MypageChangePWViewController: UIViewController, Storyboarded {
+    weak var coordinator: MyPageCoordinator?
     
     @IBOutlet weak var applyButton: CustomShadowButton!
     

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class OutGoingDeedViewController: UIViewController {
+class OutGoingDeedViewController: UIViewController, Storyboarded {
+    weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var topView: CustomShadowView!
     @IBOutlet weak var deedView: CustomShadowView!

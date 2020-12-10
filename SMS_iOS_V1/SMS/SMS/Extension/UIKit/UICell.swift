@@ -21,7 +21,3 @@ extension UITableView {
         register(Nib, forCellReuseIdentifier: T.NibName)
     }
 }
-
-
-
-
