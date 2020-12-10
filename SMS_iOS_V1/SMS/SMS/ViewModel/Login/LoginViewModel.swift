@@ -36,20 +36,20 @@ class LoginViewModel {
             }
             boolean.toggle()
         }).disposed(by: disposeBag)
-
+        
         
         
         let bool = input.loginBtnDriver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.idTextFieldDriver.asObservable(),
                                                      input.pwTextFieldDriver.asObservable()))
+            .filter{ !$0.0.isEmpty && !$0.1.isEmpty}
             .map { (id, pw) -> SMSAPI in
-                if id.isEmpty || pw.isEmpty {  }
-                    return SMSAPI.login(id, pw)
+                return SMSAPI.login(id, pw)
             }.flatMap { request -> Observable<LoginModel> in
                 return SMSAPIClient.shared.networking(from: request)
             }.asSingle()
         
         return Output(result: bool)
-
+        
     }
 }
