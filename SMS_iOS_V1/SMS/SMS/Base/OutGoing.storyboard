@@ -265,19 +265,19 @@
         <!--외출신청-->
         <scene sceneID="nUo-hQ-C7D">
             <objects>
-                <viewController storyboardIdentifier="OutGoingApplyViewController" id="egu-0p-M7b" customClass="OutGoingApplyViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="egu-0p-M7b" customClass="OutGoingApplyViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xjp-Gr-Vkw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-zf-LCa">
-                                <rect key="frame" x="46" y="94" width="24.5" height="17"/>
+                                <rect key="frame" x="46" y="50" width="24.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yd6-Yg-ZVG">
-                                <rect key="frame" x="46" y="140" width="283" height="1"/>
+                                <rect key="frame" x="46" y="96" width="283" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="1TD-24-sHg"/>
@@ -285,7 +285,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxZ-oV-Sll">
-                                <rect key="frame" x="46" y="121" width="115" height="14"/>
+                                <rect key="frame" x="46" y="77" width="115" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="FqI-MG-40A"/>
                                 </constraints>
@@ -293,20 +293,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVI-ah-T4b">
-                                <rect key="frame" x="46" y="196" width="25" height="17"/>
+                                <rect key="frame" x="46" y="152" width="25" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-D2-9vH">
-                                <rect key="frame" x="46" y="242" width="283" height="1"/>
+                                <rect key="frame" x="46" y="198" width="283" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="jLI-ct-7bb"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 사유를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-QP-N4u">
-                                <rect key="frame" x="46" y="223" width="283" height="14"/>
+                                <rect key="frame" x="46" y="179" width="283" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="283" id="Avx-KC-5EO"/>
                                 </constraints>
@@ -314,13 +314,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvX-DJ-XNj">
-                                <rect key="frame" x="46" y="298" width="25" height="17"/>
+                                <rect key="frame" x="46" y="254" width="25" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00 : 00 ~ 00: 00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNI-2w-48D">
-                                <rect key="frame" x="46" y="325" width="115" height="14"/>
+                                <rect key="frame" x="46" y="281" width="115" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="iG8-tr-SJx"/>
                                 </constraints>
@@ -328,20 +328,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-BR-JOo">
-                                <rect key="frame" x="46" y="400" width="25" height="17"/>
+                                <rect key="frame" x="46" y="356" width="25" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkK-Un-LBZ">
-                                <rect key="frame" x="46" y="446" width="283" height="1"/>
+                                <rect key="frame" x="46" y="402" width="283" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="8eD-ED-HQi"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 장소를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0XV-v2-G2g">
-                                <rect key="frame" x="46" y="427" width="283" height="14"/>
+                                <rect key="frame" x="46" y="383" width="283" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="283" id="iaR-RT-KGy"/>
                                 </constraints>
@@ -349,7 +349,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-aO-eGY">
-                                <rect key="frame" x="40" y="519" width="295" height="40"/>
+                                <rect key="frame" x="40" y="475" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aiw-JJ-Vy0"/>
@@ -363,19 +363,27 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-nU-Ij7">
-                                <rect key="frame" x="205" y="250" width="124" height="24"/>
+                                <rect key="frame" x="205" y="206" width="124" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="질병 외출로 신청하시겠습니까?">
                                     <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-pd-GTd">
-                                <rect key="frame" x="46" y="344" width="283" height="1"/>
+                                <rect key="frame" x="46" y="300" width="283" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="mC9-F0-d6V"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Has-0R-I66">
+                                <rect key="frame" x="10" y="16" width="74" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="egu-0p-M7b" eventType="touchUpInside" id="vhS-tM-hCH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bQ0-Br-a7A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -462,12 +470,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="외출신청" id="hKR-Hj-eYq">
-                        <barButtonItem key="leftBarButtonItem" image="back" style="plain" id="N2a-F0-Rtg">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L0n-tL-AvR">
-                                <rect key="frame" x="16" y="11" width="20" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="back"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="N2a-F0-Rtg">
                             <connections>
                                 <action selector="backButton:" destination="egu-0p-M7b" id="Vel-JR-mY2"/>
                             </connections>
@@ -485,7 +488,7 @@
         <!--내 외출신청 내역-->
         <scene sceneID="1JT-Gm-BVu">
             <objects>
-                <viewController storyboardIdentifier="OutGoingLogViewController" id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LZa-iw-CIj" customClass="OutGoingLogViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6MK-rA-fOA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,7 +617,7 @@
         <!--승인완료 외출증-->
         <scene sceneID="4gT-dS-y5R">
             <objects>
-                <viewController storyboardIdentifier="OutGoingDeedViewController" id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zMz-h8-sOA" customClass="OutGoingDeedViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xqj-3V-7Xe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +896,7 @@
         <!--유의사항-->
         <scene sceneID="iRJ-lv-xRJ">
             <objects>
-                <viewController storyboardIdentifier="OutGoingNoticeViewController" id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MrM-Zq-lVX" customClass="OutGoingNoticeViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3m-95-cmT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1265,27 +1268,9 @@
             <point key="canvasLocation" x="1565.5999999999999" y="2395.0524737631185"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="RNL-ki-3Vg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3h-zE-AgT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="O2f-5E-jPv"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1UT-U5-XA9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="egu-0p-M7b" kind="relationship" relationship="rootViewController" id="DCZ-dZ-hnC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JrF-gA-Na4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="762.39999999999998" y="158.77061469265368"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="vOn-g8-jG2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbf-wu-Ecv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2Y-Ag-GXP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SgR-co-gVp">
@@ -1297,14 +1282,14 @@
                         <segue destination="nVE-q8-eLQ" kind="relationship" relationship="rootViewController" id="2bK-64-BKW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbf-wu-Ecv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1084" y="906"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OFf-ur-4hb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vPK-jk-Vz5" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug9-q4-98u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="OutGoingLogViewController" automaticallyAdjustsScrollViewInsets="NO" id="vPK-jk-Vz5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OHp-wl-qPm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1315,14 +1300,13 @@
                         <segue destination="LZa-iw-CIj" kind="relationship" relationship="rootViewController" id="aI3-3s-qg0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug9-q4-98u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="762" y="905"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qCl-r7-tu9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pLg-bm-wZ7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OutGoingNoticeViewController" automaticallyAdjustsScrollViewInsets="NO" id="pLg-bm-wZ7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TuQ-mO-fe8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1340,7 +1324,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Q6U-FF-lbj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jzR-W3-gPN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OutGoingDeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="jzR-W3-gPN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cN3-hg-inI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

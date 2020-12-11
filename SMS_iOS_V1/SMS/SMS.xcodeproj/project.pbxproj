@@ -420,7 +420,6 @@
 		D6E68931252EDE8A00FA09C1 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				47AA5087257F40750003F87D /* Model */,
 				D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */,
 				D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */,
 				D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */,

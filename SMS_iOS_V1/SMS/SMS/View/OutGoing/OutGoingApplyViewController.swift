@@ -26,6 +26,7 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
         
     }
     @IBAction func backButton(_ sender: Any) {
-//        viewModel.dismissingViewController()
+        viewModel.dismissingViewController()
+//        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
