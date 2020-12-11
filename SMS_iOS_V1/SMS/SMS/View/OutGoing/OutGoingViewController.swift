@@ -16,6 +16,7 @@ class OutGoingViewController: UIViewController, Storyboarded {
     let viewModel = OutGoingViewModel()
     let disposeBag = DisposeBag()
     
+    
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
     @IBOutlet weak var outGoingLogButton: CustomShadowButton!
     @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
