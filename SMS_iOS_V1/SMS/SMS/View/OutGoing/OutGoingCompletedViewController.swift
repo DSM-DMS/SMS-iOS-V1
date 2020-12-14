@@ -8,19 +8,25 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class OutGoingCompletedViewController: UIViewController, Storyboarded {
     weak var coordinator: OutGoingCoordinator?
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var checkButton: CustomShadowButton!
     
-    let viewModel = OutGoingCompletedViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bindAction()
     }
-    
-    @IBAction func checkButton(_ sender: Any) {
-        viewModel.dismissingViewController()
+}
+
+extension OutGoingCompletedViewController {
+    private func bindAction() {
+        checkButton.rx.tap
+            .bind { self.coordinator?.disappear() }
+            .disposed(by: disposeBag)
     }
 }
