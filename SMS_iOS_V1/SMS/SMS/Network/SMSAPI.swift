@@ -14,57 +14,77 @@ import RxCocoa
 
 enum SMSAPI {
     case login(_ userId: String, _ pw: String)
-    case pwChange(_ uuid: String)
-    case myInfo(_ uuid: String)
-    case postOuting
-    case lookUpAllOuting(_ uuid: String)
-    case certainOutingInfo(_ uuid: String)
-    case lookUpOutingCard(_ uuid: String)
-    case startOuting(_ uuid: String)
-    case finishOuting(_ uuid: String)
+    case pwChange(_ currentPW: String, _ revision_pw: String)
+    case myInfo
+    case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
+    case lookUpAllOuting
+    case certainOutingInfo
+    case lookUpOutingCard
+    case startOuting
+    case finishOuting
     case lookUpNotice
-    case detailNotice(_ uuid: String)
-    case timetables(_ grade: String, _ classes: String)
-    case schedules(_ month: String)
+    case detailNotice
+    case timetables(_ year: Int, _ month: Int, _ day: Int)
+    case schedules(_ year: Int, _ month: Int)
+    case checkNotReadNotice
 }
 
 extension SMSAPI {
     var baseURL: String {
-        return "http://10.220.158.111:8080"
+        return "http://54.180.165.105:80"
     }
     
     var version: String {
         return "/v1"
     }
     
+    var uuid: String {
+        return UserDefaults.standard.value(forKey: "uuid") as! String
+    }
+    
+    var outing_uuid: String {
+        return UserDefaults.standard.value(forKey: "outing_uuid") as! String
+    }
+    
+    var token: String {
+        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjA4MDQxMjU2fQ.8pjqvRdyhvltdBQ6_kMVzakFqhdRWMzGitaf2F_mTiFNmvItsb281poW30UrkQByW2YUUyfMCi58EhORAS36-g"
+//            UserDefaults.standard.value(forKey: "token") as! String
+    }
+    
+    var announcement_uuid: String {
+        return UserDefaults.standard.value(forKey: "announcement_uuid") as! String
+    }
+    
     var path: String {
         switch self {
         case .login:
             return  "/login/student"
-        case .pwChange(let uuid):
-            return "/auths/\(uuid)/password"
-        case .myInfo(let uuid):
-            return "/students/\(uuid)"
+        case .pwChange:
+            return "/students/uuid/\(uuid)/password"
+        case .myInfo:
+            return "/students/uuid/\(uuid)"
         case .postOuting:
             return "/outings"
-        case .lookUpAllOuting(let uuid):
-            return "/students/\(uuid)/outings"
-        case .certainOutingInfo(let uuid):
-            return "/outings/\(uuid)"
-        case .lookUpOutingCard(let uuid):
-            return "/outings/\(uuid)/card"
-        case .startOuting(let uuid):
+        case .lookUpAllOuting:
+            return "/students/uuid/\(uuid)/outings"
+        case .certainOutingInfo:
+            return "/outings/uuid/\(outing_uuid)"
+        case .lookUpOutingCard:
+            return "/outings/\(outing_uuid)/card"
+        case .startOuting:
             return "/outings/\(uuid)/outing"
-        case .finishOuting(let uuid):
+        case .finishOuting:
             return "/outings/\(uuid)/finish-outing"
         case .lookUpNotice:
-            return "/announcements"
-        case .detailNotice(let uuid):
-            return "/announcements/\(uuid)"
-        case .timetables(let grade, let classes):
-            return "/timetables/grades/\(grade)/classes/\(classes)"
-        case .schedules(let month):
-            return "/schedules/monthes/\(month)"
+            return "/announcements/types/{type}"
+        case .detailNotice:
+            return "/announcements/uuid/\(announcement_uuid)"
+        case .timetables(let year, let month, let day):
+            return "/time-tables/years/\(year)/months/\(month)/days/\(day)"
+        case .schedules(let year, let month):
+            return "/schedules/years/\(year)/months/\(month)"
+        case .checkNotReadNotice:
+            return "students/uuid/\(uuid)/announcement-check"
         }
     }
     
@@ -77,9 +97,10 @@ extension SMSAPI {
             return .post
             
         case .pwChange:
-            return .patch
+            return .put
             
         case .myInfo,
+             .checkNotReadNotice,
              .lookUpAllOuting,
              .certainOutingInfo,
              .lookUpOutingCard,
@@ -93,10 +114,21 @@ extension SMSAPI {
     
     var header: HTTPHeaders {
         switch self {
-        case .login,
-             .pwChange,
-             .myInfo:
-            return ["Content-Type" : "application/json"]
+        case .myInfo,
+             .certainOutingInfo,
+             .lookUpOutingCard,
+             .lookUpNotice,
+             .detailNotice,
+             .checkNotReadNotice,
+             .lookUpAllOuting:
+
+            return ["Authorization" : "Bearer " + token]
+            
+        case .postOuting:
+            return [
+                "Authorization" : "Bearer " + token,
+                "Content-Type" : "application/json"
+                ]
         default:
             return ["Content-Type" : "application/json"]
         }
@@ -105,7 +137,6 @@ extension SMSAPI {
     var encoding: ParameterEncoding {
         switch self {
         case .myInfo,
-             .lookUpAllOuting,
              .certainOutingInfo,
              .lookUpOutingCard,
              .lookUpNotice,
@@ -122,26 +153,12 @@ extension SMSAPI {
         switch self {
         case .login(let userId,let pw):
             return ["student_id":userId, "student_pw" : pw]
-        case .certainOutingInfo(let uuid):
-            return ["uuid": uuid]
-        case .detailNotice(let uuid):
-            return ["uuid": uuid]
-        case .finishOuting(let uuid):
-            return ["uuid": uuid]
-        case.lookUpAllOuting(let uuid):
-            return ["uuid": uuid]
-        case.lookUpOutingCard(let uuid):
-            return ["uuid": uuid]
-        case .myInfo(let uuid):
-            return ["uuid": uuid]
-        case.pwChange(let uuid):
-            return ["uuid": uuid]
-        case .schedules(let uuid):
-            return ["uuid": uuid]
-        case .startOuting(let uuid):
-            return ["uuid": uuid]
-        case .timetables(let grade, let classes):
-            return ["grade": grade, "classes": classes]
+            
+        case .pwChange(let currentPW, let revisionPW):
+            return ["current_pw":currentPW, "revision_pw": revisionPW]
+    
+        case .postOuting(let startTime, let endTime, let place, let reason, let situation):
+            return ["startTime": startTime, "endTime": endTime, "place": place, "reason": reason, "situation": situation]
         default:
             return nil
         }
