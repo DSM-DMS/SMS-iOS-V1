@@ -15,7 +15,8 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     weak var coordinator: OutGoingCoordinator?
     let viewModel = OutGoingApplyViewModel()
-
+    let datePicker = UIDatePicker()
+    
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
     @IBOutlet weak var placeTextField: UITextField!
@@ -29,6 +30,7 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         bind()
         bindAction()
+//        showDatePicker()
     }
 }
 
@@ -63,5 +65,32 @@ extension OutGoingApplyViewController {
         popVCBtn.rx.tap
             .bind {self.coordinator?.pop()}
             .disposed(by: disposeBag)
+    }
+}
+
+extension OutGoingApplyViewController {
+    func showDatePicker(){
+//        self.datePicker
+//        datePicker.datePickerMode = .date
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        toolbar.setItems([doneButton, cancelButton], animated: false)
+        
+//        datePicker.inputAccessoryView = toolbar
+//        datePicker.inputView = datePicker
+//
+    }
+    
+    @objc func donedatePicker(){
+//        dateTextField.text = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: datepicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
     }
 }
