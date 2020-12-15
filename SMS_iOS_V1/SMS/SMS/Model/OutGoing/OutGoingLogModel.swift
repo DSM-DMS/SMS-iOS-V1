@@ -23,16 +23,6 @@ struct Outings: Codable {
     let end_time: Int
     let outing_situation: String
     let outing_status: String
-    
-//    enum CodingKeys: String, CodingKey {
-//        case uuid = "outing_uuid"
-//        case startTime = "start_time"
-//        case endTime = "end_time"
-//        case situation = "outing_situation"
-//        case status = "outing_status"
-//        case place
-//        case reason
-//    }
 }
 
 enum OutingState {
