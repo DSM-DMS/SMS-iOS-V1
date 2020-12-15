@@ -8,14 +8,20 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class OutGoingDeedViewController: UIViewController, Storyboarded {
     weak var coordinator: OutGoingCoordinator?
-    
-    @IBOutlet weak var topView: CustomShadowView!
-    @IBOutlet weak var deedView: CustomShadowView!
+    let disposeBag = DisposeBag()
+
+    @IBOutlet weak var popVCBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        popVCBtn.rx.tap
+            .bind { self.coordinator?.pop() }
+            .disposed(by: disposeBag)
     }
     
     
