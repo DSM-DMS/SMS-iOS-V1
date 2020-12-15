@@ -10,11 +10,27 @@ import UIKit
 
 extension UIColor {
     static var customPurple: UIColor {
-        return UIColor(displayP3Red: 83/255, green: 35/255, blue: 178/255, alpha: 1)
+        return rgb(red: 83, green: 35, blue: 178, alpha: 1)
     }
     
     static var customBlack: UIColor {
-        return UIColor(displayP3Red: 108/255, green: 108/255, blue: 108/255, alpha: 1)
+        return rgb(red: 108, green: 108, blue: 108, alpha: 1)
+    }
+    
+    static var customRed: UIColor {
+        return rgb(red: 243, green: 4, blue: 4, alpha: 1)
+    }
+    
+    static var customYellow: UIColor {
+        return rgb(red: 254, green: 223, blue: 66, alpha: 1)
+    }
+    
+    static var customOrange: UIColor {
+        return rgb(red: 255, green: 145, blue: 0, alpha: 1)
+    }
+    
+    static var customGrenn: UIColor {
+        return rgb(red: 13, green: 210, blue: 20, alpha: 1)
     }
     
     static func rgb(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor {
