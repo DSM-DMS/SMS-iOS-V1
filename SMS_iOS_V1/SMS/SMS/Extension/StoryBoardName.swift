@@ -17,6 +17,7 @@ enum StoryBoardName {
     case outGoingLog
     case outGoingNotice
     case outGoingDeed
+    case outGoingCompleted
     case outGoingMain
     case myPageMain
     case myPageChangePW
@@ -40,6 +41,7 @@ extension StoryBoardName {
              .outGoingLog,
              .outGoingNotice,
              .outGoingDeed,
+             .outGoingCompleted,
              .outGoingMain:
             return "OutGoing"
             

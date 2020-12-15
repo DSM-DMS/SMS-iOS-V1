@@ -17,5 +17,8 @@ let globalDateFormatter = { (formStr: formType) -> DateFormatter in
 
 enum formType: String {
     case month = "yyyy년 MM월"
-    case day = "yyyy-MM-dd"
+    case forServerMonth = "yyyy M"
+    case untilDay = "yyyy-MM-dd"
+    case time = "HH:mm"
+    case untilSecTime = "HH:mm:ss"
 }
