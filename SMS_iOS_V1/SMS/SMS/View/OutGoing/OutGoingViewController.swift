@@ -13,7 +13,6 @@ import RxSwift
 
 class OutGoingViewController: UIViewController, Storyboarded {
     weak var coordinator: OutGoingCoordinator?
-    let viewModel = OutGoingViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
@@ -33,26 +32,23 @@ class OutGoingViewController: UIViewController, Storyboarded {
 }
 
 
+
 extension OutGoingViewController {
     private func bind() {
         outGoingApplyButton.rx.tap
-            .map { self.coordinator?.outGoingApply() }
-            .subscribe()
+            .bind { self.coordinator?.outGoingApply() }
             .disposed(by: disposeBag)
         
         outGoingLogButton.rx.tap
-            .map { self.coordinator?.outGoingLog() }
-            .subscribe()
+            .bind { self.coordinator?.outGoingLog() }
             .disposed(by: disposeBag)
         
         outGoingNoticeButton.rx.tap
-            .map { self.coordinator?.noticeOutGoing() }
-            .subscribe()
+            .bind { self.coordinator?.noticeOutGoing() }
             .disposed(by: disposeBag)
         
         outGoingDeedButton.rx.tap
-            .map { self.coordinator?.deedOutGoing() }
-            .subscribe()
+            .bind { self.coordinator?.deedOutGoing() }
             .disposed(by: disposeBag)
     }
 }
