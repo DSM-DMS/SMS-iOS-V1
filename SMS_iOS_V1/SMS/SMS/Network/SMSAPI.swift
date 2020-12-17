@@ -47,8 +47,7 @@ extension SMSAPI {
     }
     
     var token: String {
-        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjA4MDQxMjU2fQ.8pjqvRdyhvltdBQ6_kMVzakFqhdRWMzGitaf2F_mTiFNmvItsb281poW30UrkQByW2YUUyfMCi58EhORAS36-g"
-//            UserDefaults.standard.value(forKey: "token") as! String
+        return UserDefaults.standard.value(forKey: "token") as! String
     }
     
     var announcement_uuid: String {
@@ -120,8 +119,8 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .checkNotReadNotice,
+             .schedules,
              .lookUpAllOuting:
-
             return ["Authorization" : "Bearer " + token]
             
         case .postOuting:
