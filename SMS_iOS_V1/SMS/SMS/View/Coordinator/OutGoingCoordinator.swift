@@ -9,7 +9,8 @@
 import UIKit
 
 class OutGoingCoordinator: Coordinator {
-    weak var parentCoordinator: TabbarCoordinator? 
+    weak var parentCoordinator: TabbarCoordinator?
+    var delegate: dismissBarProtocol?
     var children = [Coordinator]()
     var nav: UINavigationController
     
@@ -25,30 +26,48 @@ class OutGoingCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.parentCoordinator?.disappear(self)
+        parentCoordinator?.disappear(self)
+    }
+    
+    func pop() {
+        nav.popViewController(animated: true)
+    }
+    
+    func dismissBar() {
+        delegate?.dismissBar(true)
+    }
+    
+    func stopDismiss() {
+        delegate?.dismissBar(false)
     }
  
     func outGoingApply() {
         let vc = OutGoingApplyViewController.instantiate(storyboardName: .outGoingApply)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func outGoingLog() {
         let vc = OutGoingLogViewController.instantiate(storyboardName: .outGoingLog)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func noticeOutGoing() {
         let vc = OutGoingNoticeViewController.instantiate(storyboardName: .outGoingNotice)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func deedOutGoing() {
         let vc = OutGoingDeedViewController.instantiate(storyboardName: .outGoingDeed)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
+    }
+    
+    func outGoingCompleted() {
+        let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: true)
     }
 }

@@ -20,10 +20,11 @@ class ScheduleCoordinator: Coordinator {
     func start() {
         let vc = ScheduleViewController.instantiate(storyboardName: .schedule)
         vc.coordinator = self
+        nav.setNavigationBarHidden(true, animated: false)
         self.nav.pushViewController(vc, animated: false)
     }
     
     func disappear() {
-        parentCoordinator?.parentCoordinator?.disappear(self)
+        parentCoordinator?.disappear(self)
     }
 }
