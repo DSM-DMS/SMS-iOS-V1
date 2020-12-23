@@ -24,6 +24,10 @@ class OutGoingCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
+    func pop() {
+        self.nav.popViewController(animated: true)
+    }
+    
     func disappear() {
         parentCoordinator?.parentCoordinator?.disappear(self)
     }
