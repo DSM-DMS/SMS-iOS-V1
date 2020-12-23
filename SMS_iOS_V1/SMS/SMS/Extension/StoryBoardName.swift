@@ -24,6 +24,7 @@ enum StoryBoardName {
     case myPageLogout
     case introduceDevlop
     case schedule
+    case outGoingPopUp
 }
 
 extension StoryBoardName {
@@ -42,6 +43,7 @@ extension StoryBoardName {
              .outGoingNotice,
              .outGoingDeed,
              .outGoingCompleted,
+             .outGoingPopUp,
              .outGoingMain:
             return "OutGoing"
             
