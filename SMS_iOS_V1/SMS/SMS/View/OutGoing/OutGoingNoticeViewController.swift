@@ -19,9 +19,12 @@ class OutGoingNoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
+    }
+    
+    func bind() {
         popVCBtn.rx.tap
             .bind { self.coordinator?.pop() }
             .disposed(by: disposeBag)
     }
-    
 }
