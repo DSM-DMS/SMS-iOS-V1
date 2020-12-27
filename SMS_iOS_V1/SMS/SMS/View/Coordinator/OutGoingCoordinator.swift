@@ -35,24 +35,30 @@ class OutGoingCoordinator: Coordinator {
     func outGoingApply() {
         let vc = OutGoingApplyViewController.instantiate(storyboardName: .outGoingApply)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func outGoingLog() {
         let vc = OutGoingLogViewController.instantiate(storyboardName: .outGoingLog)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func noticeOutGoing() {
         let vc = OutGoingNoticeViewController.instantiate(storyboardName: .outGoingNotice)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
-    func deedOutGoing() {
-        let vc = OutGoingDeedViewController.instantiate(storyboardName: .outGoingDeed)
+    func outGoingCompleted() {
+        let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
+    }
+    
+    func popUp() {
+        let vc = OutGoingPopDeedViewController.instantiate(storyboardName: .outGoingPopUp)
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: true)
     }
 }
