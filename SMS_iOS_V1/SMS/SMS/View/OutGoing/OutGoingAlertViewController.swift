@@ -11,8 +11,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class OutGoingAlertViewController: UIViewController {
+class OutGoingAlertViewController: UIViewController, Storyboarded {
+    var delegate: BackWordBoolDataProtocol?
     let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var backgroundView: CustomShadowButton!
     @IBOutlet weak var cancelBtn: UIButton!
@@ -28,17 +30,20 @@ class OutGoingAlertViewController: UIViewController {
 extension OutGoingAlertViewController {
     func bindAction() {
         cancelBtn.rx.tap
-            .bind { }
+            .bind { self.coordinator?.pop() }
             .disposed(by: disposeBag)
         
         applicationBtn.rx.tap
-            .bind {}
+            .bind { _ in
+                self.delegate?.tabbedOK()
+                self.coordinator?.pop()}
             .disposed(by: disposeBag)
     }
 }
 
-class OutGoingLocationAlertViewController: UIViewController {
+class OutGoingLocationAlertViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var locationSearchBar: UISearchBar!
@@ -53,7 +58,7 @@ class OutGoingLocationAlertViewController: UIViewController {
 extension OutGoingLocationAlertViewController {
     func bindAction() {
         cancelBtn.rx.tap
-            .bind {}
+            .bind { self.coordinator?.pop() }
             .disposed(by: disposeBag)
     }
     
@@ -61,12 +66,35 @@ extension OutGoingLocationAlertViewController {
         locationSearchBar.rx.text
             .map { $0 ?? "" }
             .flatMap { txt -> Observable<OutLocationModel> in
-                SMSAPIClient.shared.networking(from: .location(txt!))
+                SMSAPIClient.shared.networking(from: .location(txt))
             }.map { model in
                 model.item
             }.bind(to: tableView.rx.items(cellIdentifier: LocationTableViewCell.NibName, cellType: LocationTableViewCell.self)) { _, address, cell in
                 cell.addressLbl.text = address.address
                 cell.roadAddressLbl.text = address.roadAddress
             }.disposed(by: disposeBag)
+        
+        /*
+         tableView.rx.itemDeselected
+
+         ​            .bind { indexPath in
+
+         ​                let cell = self.tableView.cellForRow(at: indexPath) as? LocationTableViewCell
+
+         ​                self.delegate?.textForLbl((cell?.addressLbl.text)!)
+
+         ​                self.coordinator?.pop()
+
+         ​            }.disposed(by: disposeBag)
+
+         */
     }
+}
+
+protocol BackWordDataProtocol {
+    func textForLbl(_ text: String)
+}
+
+protocol BackWordBoolDataProtocol {
+    func tabbedOK()
 }
