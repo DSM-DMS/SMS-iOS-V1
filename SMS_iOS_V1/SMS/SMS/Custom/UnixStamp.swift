@@ -14,14 +14,24 @@ func unix(with unixInt: Int) -> DateComponents {
 }
 
 func unix(with dateStr: String) -> Int {
-    let date = DateFormatter().date(from: dateStr)!
-    return Int(date.timeIntervalSince1970)
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-M-d"
+    let date = dateFormatter.date(from: dateStr)
+    return Int(date!.timeIntervalSince1970)
 }
 
-func stringToUnix(with time: String) -> Int { 
+func stringToUnix(with time: String) -> Int {
+    let start = time.index(time.startIndex, offsetBy: +5)
     let end = time.index(time.endIndex, offsetBy: -4)
-    let timeArr = time[time.startIndex...end]
+    let asd = time.index(time.endIndex, offsetBy: -2)
+    let asds = time.index(time.endIndex, offsetBy: -1)
     
-    let components = timeArr.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
-    return components[0] * 3600 + components[1] * 60
+    let am = time[asd...asds]
+    let timeString = time[start...end]
+    
+    let components = timeString.split { $0 == ":" }.map { (x) -> Int in return Int(String(x))! }
+    var time = components[0] * 3600 + components[1] * 60 + 32400
+    
+    if am == "PM" { time += 43200 }
+    return time
 }

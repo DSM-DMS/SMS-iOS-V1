@@ -27,6 +27,7 @@ enum SMSAPI {
     case timetables(_ year: Int, _ month: Int, _ day: Int)
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
+    case location(_ keyWord: String)
 }
 
 extension SMSAPI {
@@ -85,6 +86,8 @@ extension SMSAPI {
             return "/schedules/years/\(year)/months/\(month)"
         case .checkNotReadNotice:
             return "students/uuid/\(uuid)/announcement-check"
+        case .location(let keyWord):
+            return "/naver-open-api/search/local"
         }
     }
     
@@ -107,6 +110,7 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .timetables,
+             .location,
              .schedules:
             return .get
         }
@@ -127,6 +131,7 @@ extension SMSAPI {
         case .postOuting:
             return [
                 "Authorization" : "Bearer " + token,
+                //                "Request-Security": "",
                 "Content-Type" : "application/json"
                 ]
         default:
@@ -142,6 +147,7 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .timetables,
+             .location,
              .schedules:
             return URLEncoding.queryString
         default:
@@ -164,4 +170,3 @@ extension SMSAPI {
         }
     }
 }
-
