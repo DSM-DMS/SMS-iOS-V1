@@ -568,6 +568,13 @@
                                     <constraint firstItem="djn-p3-1PG" firstAttribute="leading" secondItem="ZbQ-Md-s8K" secondAttribute="leading" id="yXc-AA-IEy"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="OutGoingAlertXib" translatesAutoresizingMaskIntoConstraints="NO" id="QnW-Sj-3aS" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="40" y="135" width="334" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="ZNR-cG-wfk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bQ0-Br-a7A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -590,6 +597,7 @@
                             <constraint firstItem="mJp-b9-VAH" firstAttribute="leading" secondItem="IVd-zM-ARQ" secondAttribute="leading" id="6zJ-d6-OL8"/>
                             <constraint firstItem="ZbQ-Md-s8K" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="8dt-nx-oEC"/>
                             <constraint firstItem="wKD-fl-ERZ" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="Ab2-PC-7PG"/>
+                            <constraint firstItem="QnW-Sj-3aS" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="O5L-tr-vIi"/>
                             <constraint firstItem="mJp-b9-VAH" firstAttribute="top" secondItem="IVd-zM-ARQ" secondAttribute="bottom" constant="43" id="TI9-pt-Vtv" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
@@ -604,6 +612,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="QnW-Sj-3aS" firstAttribute="top" secondItem="bQ0-Br-a7A" secondAttribute="top" constant="91" id="Tcz-o9-H4g"/>
                             <constraint firstItem="Be7-aO-eGY" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="WEd-ns-jCI"/>
                             <constraint firstItem="XIx-dh-7Hv" firstAttribute="leading" secondItem="bQ0-Br-a7A" secondAttribute="leading" constant="20" id="bnD-cP-lLO"/>
                             <constraint firstItem="zSF-QG-8Vm" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="ceJ-Gq-72N"/>
@@ -625,6 +634,7 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="IVd-zM-ARQ" firstAttribute="leading" secondItem="XIx-dh-7Hv" secondAttribute="trailing" id="qQ6-hH-3T5"/>
+                            <constraint firstItem="QnW-Sj-3aS" firstAttribute="leading" secondItem="bQ0-Br-a7A" secondAttribute="leading" constant="40" id="qxi-rR-IHE"/>
                             <constraint firstItem="wKD-fl-ERZ" firstAttribute="leading" secondItem="zSF-QG-8Vm" secondAttribute="leading" id="yZS-al-PxZ"/>
                             <constraint firstItem="zSF-QG-8Vm" firstAttribute="leading" secondItem="mJp-b9-VAH" secondAttribute="leading" id="z0v-uK-20D"/>
                         </constraints>
@@ -646,6 +656,7 @@
                         <outlet property="diseaseBtn" destination="nWM-nU-Ij7" id="JNG-Bz-BHk"/>
                         <outlet property="emergencyStateLbl" destination="YiR-E7-j0n" id="S37-B4-7Sn"/>
                         <outlet property="endTimeTextField" destination="H0U-Sj-2Gp" id="Qyk-FH-jyi"/>
+                        <outlet property="noticeView" destination="QnW-Sj-3aS" id="vlS-qZ-9UD"/>
                         <outlet property="outReasonTextField" destination="kRN-ww-cBb" id="1cm-GJ-VwY"/>
                         <outlet property="placeTextField" destination="BRV-CV-dNO" id="ZSU-Dy-omd"/>
                         <outlet property="popVCBtn" destination="XIx-dh-7Hv" id="zfv-cW-0GK"/>
