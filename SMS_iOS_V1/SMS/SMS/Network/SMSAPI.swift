@@ -48,8 +48,7 @@ extension SMSAPI {
     }
     
     var token: String {
-        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjA4MDQxMjU2fQ.8pjqvRdyhvltdBQ6_kMVzakFqhdRWMzGitaf2F_mTiFNmvItsb281poW30UrkQByW2YUUyfMCi58EhORAS36-g"
-//            UserDefaults.standard.value(forKey: "token") as! String
+        return UserDefaults.standard.value(forKey: "token") as! String
     }
     
     var announcement_uuid: String {
@@ -87,7 +86,7 @@ extension SMSAPI {
         case .checkNotReadNotice:
             return "students/uuid/\(uuid)/announcement-check"
         case .location(let keyWord):
-            return "/naver-open-api/search/local"
+            return "/naver-open-api/search/local?keyword=\(keyWord.utf8)"
         }
     }
     
@@ -164,7 +163,7 @@ extension SMSAPI {
             return ["current_pw":currentPW, "revision_pw": revisionPW]
     
         case .postOuting(let startTime, let endTime, let place, let reason, let situation):
-            return ["startTime": startTime, "endTime": endTime, "place": place, "reason": reason, "situation": situation]
+            return ["start_time": startTime, "end_time": endTime, "place": place, "reason": reason, "situation": situation]
         default:
             return nil
         }
