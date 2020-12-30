@@ -21,7 +21,7 @@ class OutGoingCoordinator: Coordinator {
         let vc = OutGoingViewController.instantiate(storyboardName: .outGoingMain)
         vc.coordinator = self
         nav.setNavigationBarHidden(true, animated: false)
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func pop() {
@@ -31,7 +31,7 @@ class OutGoingCoordinator: Coordinator {
     func disappear() {
         parentCoordinator?.parentCoordinator?.disappear(self)
     }
- 
+    
     func outGoingApply() {
         let vc = OutGoingApplyViewController.instantiate(storyboardName: .outGoingApply)
         vc.coordinator = self
@@ -60,5 +60,11 @@ class OutGoingCoordinator: Coordinator {
         let vc = OutGoingPopDeedViewController.instantiate(storyboardName: .outGoingPopUp)
         vc.coordinator = self
         nav.pushViewController(vc, animated: true)
+    }
+    
+    func locationAlert() {
+        let vc = OutGoingLocationAlertViewController.instantiate(storyboardName: .outGoingCompleted)
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: false)
     }
 }
