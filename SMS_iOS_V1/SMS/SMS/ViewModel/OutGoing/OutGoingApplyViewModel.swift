@@ -20,25 +20,15 @@ class OutGoingApplyViewModel {
         let startTimeDriver: Driver<String>
         let endTimeDriver:Driver<String>
         let placeDriver: Driver<String>
-        let diseaseDriver: Driver<Void>
         let applyDriver: Driver<Void>
+        let diseaseIs: Bool
     }
     
     struct Output {
-        let response: Single<OutGoingModel>
-        let emergency: Single<Bool>
+        let response: Observable<OutGoingModel>
     }
     
     func transform(_ input: Input) -> Output {
-        var b = true
-        
-        let emergencyState = input.diseaseDriver
-            .asObservable()
-            .map { _ -> Bool in
-                b.toggle()
-                return b
-            }.asSingle()
-        
         let outGoingModel = input.applyDriver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.dateDriver.asObservable(),
                                                      input.startTimeDriver.asObservable(),
@@ -49,14 +39,21 @@ class OutGoingApplyViewModel {
             .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty && !$0.3.isEmpty && !$0.4.isEmpty }
             .map { txt -> SMSAPI in
                 var str = "normal"
-                if b {
+                if input.diseaseIs {
                     str = "emergency"
                 }
-                return SMSAPI.postOuting(unix(with: txt.0) + stringToUnix(with: txt.1), unix(with: txt.0) + stringToUnix(with: txt.2), txt.3, txt.4, str)
+                
+                let components = txt.0.split { $0 == " " }
+                    .map { dateArr in
+                        String(dateArr.dropLast())
+                    }
+                
+                let date = "\(components[0])-\(components[1])-\(components[2])"
+                return SMSAPI.postOuting(unix(with: date) + stringToUnix(with: txt.1), unix(with: date) + stringToUnix(with: txt.2), txt.3, txt.4, str)
             }.flatMap { request -> Observable<OutGoingModel> in
                 return SMSAPIClient.shared.networking(from: request)
-            }.asSingle()
-    
-        return Output(response: outGoingModel, emergency: emergencyState)
+            }
+        
+        return Output(response: outGoingModel)
     }
 }
