@@ -10,13 +10,13 @@ import Foundation
 
 struct OutLocationModel: Codable {
     let status: Int
-    let code: Int
-    let lastBuildDate: String
+    let code: String
+    let lastBuildDate: String?
     let message: String
-    let start: Int
-    let total: Int
-    let display: Int
-    let item: [itmesArr]
+    let start: Int?
+    let total: Int?
+    let display: Int?
+    let item: [itmesArr]?
 }
 
 struct itmesArr: Codable {
