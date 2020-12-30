@@ -36,7 +36,12 @@ extension SMSAPI {
     }
     
     var version: String {
-        return "/v1"
+        switch self {
+        case .location:
+            return ""
+        default:
+           return "/v1"
+        }
     }
     
     var uuid: String {
@@ -86,7 +91,11 @@ extension SMSAPI {
         case .checkNotReadNotice:
             return "students/uuid/\(uuid)/announcement-check"
         case .location(let keyWord):
-            return "/naver-open-api/search/local?keyword=\(keyWord.utf8)"
+            var newKeyWord = ""
+            for v in keyWord.utf8 {
+                newKeyWord += "%" + String(v, radix: 16, uppercase: true)
+            }
+            return "/naver-open-api/search/local?keyword=\(newKeyWord)"
         }
     }
     
@@ -127,7 +136,8 @@ extension SMSAPI {
 
             return ["Authorization" : "Bearer " + token]
             
-        case .postOuting:
+        case .postOuting,
+             .location:
             return [
                 "Authorization" : "Bearer " + token,
                 //                "Request-Security": "",
