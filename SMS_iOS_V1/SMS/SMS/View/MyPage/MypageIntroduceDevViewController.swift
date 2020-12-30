@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MypageIntroduceDevViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
@@ -16,5 +18,13 @@ class MypageIntroduceDevViewController: UIViewController, Storyboarded {
         
     }
     
+    func bind() {
+        
+    }
+    
+    
+}
+
+class devCell: UICollectionViewCell {
     
 }
