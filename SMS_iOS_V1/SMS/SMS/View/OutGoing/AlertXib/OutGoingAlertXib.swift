@@ -33,8 +33,8 @@ class OutGoingAlertXib: UIView {
         let view = Bundle.main.loadNibNamed(OutGoingAlertXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
-        
     }
+    
     @IBAction func cancelTapped(_ sender: UIButton) {
         sign?(false)
     }
