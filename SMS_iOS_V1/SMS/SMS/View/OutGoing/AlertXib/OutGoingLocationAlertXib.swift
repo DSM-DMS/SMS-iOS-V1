@@ -37,6 +37,9 @@ class OutGoingLocationAlertXib: UIView {
 
 extension OutGoingLocationAlertXib {
     func bind() {
+        tableView.rowHeight = 70
+        tableView.register(LocationTableViewCell.self)
+        
         locationSearchBar.rx.searchButtonClicked
             .map { self.locationSearchBar.text! }
             .filter { txt in
@@ -47,9 +50,12 @@ extension OutGoingLocationAlertXib {
                 SMSAPIClient.shared.networking(from: .location(txt))
             }.map { model in
                 model.item!
-            }.bind(to: tableView.rx.items(cellIdentifier: LocationTableViewCell.NibName, cellType: LocationTableViewCell.self)) { _, address, cell in
-                cell.addressLbl.text = address.address
-                cell.roadAddressLbl.text = address.roadAddress
+            }.bind(to: tableView.rx.items(cellIdentifier: LocationTableViewCell.NibName, cellType: LocationTableViewCell.self)) { _, detail, cell in
+                cell.contentView.backgroundColor = .white
+                cell.addressLbl.text = detail.address
+                cell.roadAddressLbl.text = detail.roadAddress
             }.disposed(by: disposeBag)
+        
     }
 }
+

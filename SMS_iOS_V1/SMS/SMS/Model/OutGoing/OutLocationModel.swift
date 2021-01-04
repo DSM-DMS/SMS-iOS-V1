@@ -9,14 +9,14 @@
 import Foundation
 
 struct OutLocationModel: Codable {
-    let status: Int
     let code: String
+    let display: Int?
+    let item: [itmesArr]?
     let lastBuildDate: String?
     let message: String
     let start: Int?
+    let status: Int
     let total: Int?
-    let display: Int?
-    let item: [itmesArr]?
 }
 
 struct itmesArr: Codable {
