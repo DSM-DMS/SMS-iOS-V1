@@ -12,10 +12,12 @@ import RxSwift
 import RxCocoa
 
 class OutGoingApplyViewController: UIViewController, Storyboarded {
+    var b = false
     let disposeBag = DisposeBag()
-    weak var coordinator: OutGoingCoordinator?
     let viewModel = OutGoingApplyViewModel()
-    let datePicker = UIDatePicker()
+    //    var delegate: dismissBarProtocol?
+    weak var coordinator: OutGoingCoordinator?
+    
     
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
@@ -25,72 +27,118 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     @IBOutlet weak var outReasonTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var applyButton: CustomShadowButton!
+    @IBOutlet weak var noticeView: OutGoingAlertXib!
+    @IBOutlet weak var locationXib: OutGoingLocationAlertXib!
+    @IBOutlet weak var emergencyStateLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
         bindAction()
-//        showDatePicker()
     }
 }
 
 extension OutGoingApplyViewController {
     private func bind() {
+        self.dateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), mode: .date)
+        self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDonea), mode: .time)
+        self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDones), mode: .time)
+        
         let input = OutGoingApplyViewModel.Input
             .init(dateDriver: dateTextField.rx.text.orEmpty.asDriver(),
                   reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
                   startTimeDriver: startTimeTextField.rx.text.orEmpty.asDriver(),
                   endTimeDriver: endTimeTextField.rx.text.orEmpty.asDriver(),
                   placeDriver: placeTextField.rx.text.orEmpty.asDriver(),
-                  diseaseDriver: diseaseBtn.rx.tap.asDriver(),
-                  applyDriver: applyButton.rx.tap.asDriver())
+                  applyDriver: applyButton.rx.tap.asDriver(),
+                  diseaseIs: self.b
+                )
         
         let output = viewModel.transform(input)
         
         output.response.subscribe { model in
-            switch model.code {
-            case 200:
+            switch model.status {
+            case 201:
+                UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
                 self.coordinator?.outGoingCompleted()
-            case 400:
-                self.applyButton.shake()
             default:
-                break
+                self.applyButton.shake()
             }
         } onError: { _ in
             self.applyButton.shake()
-        }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)        
     }
     
     private func bindAction() {
         popVCBtn.rx.tap
-            .bind {self.coordinator?.pop()}
+            .bind { _ in
+                //                self.coordinator?.dismissBar(false)
+                self.coordinator?.pop()
+            }
+            .disposed(by: disposeBag)
+        
+        placeTextField.rx.controlEvent(.touchDown)
+            .bind { _ in
+                self.locationXib.isHidden = false
+                self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
+                    let cell = self.locationXib.tableView.cellForRow(at: indexPath) as! LocationTableViewCell
+                    self.placeTextField.text = cell.addressLbl.text
+                    self.locationXib.isHidden = true
+                }).disposed(by: self.disposeBag)
+    }.disposed(by: disposeBag)
+        
+        diseaseBtn.rx.tap
+            .bind { [self] _ in
+                if !self.b {
+                    self.noticeView.isHidden = false
+                    self.noticeView.sign = { b in
+                        self.noticeView.isHidden = true
+                        self.b = b
+                        if b {
+                            self.diseaseBtn.setTitle("취소", for: .normal)
+                            self.emergencyStateLbl.isHidden = !b
+                        }
+                    }
+                } else {
+                    self.diseaseBtn.setTitle("질병 외출로 신청하시겠습니까?", for: .normal)
+                    self.emergencyStateLbl.isHidden = b
+                    self.b.toggle()
+                }
+            }
             .disposed(by: disposeBag)
     }
 }
 
 extension OutGoingApplyViewController {
-    func showDatePicker(){
-//        self.datePicker
-//        datePicker.datePickerMode = .date
-        
-        //ToolBar
-        let toolbar = UIToolbar();
-        toolbar.sizeToFit()
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
-        toolbar.setItems([doneButton, cancelButton], animated: false)
-        
-//        datePicker.inputAccessoryView = toolbar
-//        datePicker.inputView = datePicker
-//
+    // 여기 수정
+    @objc func tapDone() {
+        if let datePicker = self.dateTextField.inputView as? UIDatePicker { // 2-1
+            let dateformatter = DateFormatter() // 2-2
+            dateformatter.dateFormat = "yyyy년 M월 d일"
+            self.dateTextField.text = dateformatter.string(from: datePicker.date)
+        }
+        self.dateTextField.resignFirstResponder() // 2-5
     }
     
-    @objc func donedatePicker(){
-//        dateTextField.text = globalDateFormatter(formType(rawValue: formType.day.rawValue)!).string(from: datepicker.date)
-        self.view.endEditing(true)
+    @objc func tapDonea() {
+        if let datePicker = startTimeTextField.inputView as? UIDatePicker { // 2-1
+            let dateformatter = DateFormatter() // 2-2
+            dateformatter.timeStyle = .short
+            startTimeTextField.text = "시작시간 " + dateformatter.string(from: datePicker.date)
+        }
+        startTimeTextField.resignFirstResponder() // 2-5
     }
     
-    @objc func cancelDatePicker(){
-        self.view.endEditing(true)
+    @objc func tapDones() {
+        if let datePicker = endTimeTextField.inputView as? UIDatePicker { // 2-1
+            let dateformatter = DateFormatter() // 2-2
+            dateformatter.timeStyle = .short
+            endTimeTextField.text = "도착시간 " + dateformatter.string(from: datePicker.date)
+        }
+        endTimeTextField.resignFirstResponder() // 2-5
     }
 }
+
+
+// textField 위에 함수들 리팩토링
+// 장소 제대로 

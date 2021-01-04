@@ -29,8 +29,12 @@ extension UIColor {
         return rgb(red: 255, green: 145, blue: 0, alpha: 1)
     }
     
-    static var customGrenn: UIColor {
+    static var customGreen: UIColor {
         return rgb(red: 13, green: 210, blue: 20, alpha: 1)
+    }
+    
+    static var calendarEventRed: UIColor {
+        return rgb(red: 255, green: 74, blue: 74, alpha: 1)
     }
     
     static func rgb(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor {

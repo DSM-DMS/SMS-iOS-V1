@@ -27,6 +27,7 @@ enum SMSAPI {
     case timetables(_ year: Int, _ month: Int, _ day: Int)
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
+    case location(_ keyWord: String)
 }
 
 extension SMSAPI {
@@ -35,7 +36,12 @@ extension SMSAPI {
     }
     
     var version: String {
-        return "/v1"
+        switch self {
+        case .location:
+            return ""
+        default:
+           return "/v1"
+        }
     }
     
     var uuid: String {
@@ -47,8 +53,7 @@ extension SMSAPI {
     }
     
     var token: String {
-        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjA4MDQxMjU2fQ.8pjqvRdyhvltdBQ6_kMVzakFqhdRWMzGitaf2F_mTiFNmvItsb281poW30UrkQByW2YUUyfMCi58EhORAS36-g"
-//            UserDefaults.standard.value(forKey: "token") as! String
+        return UserDefaults.standard.value(forKey: "token") as! String
     }
     
     var announcement_uuid: String {
@@ -85,6 +90,12 @@ extension SMSAPI {
             return "/schedules/years/\(year)/months/\(month)"
         case .checkNotReadNotice:
             return "students/uuid/\(uuid)/announcement-check"
+        case .location(let keyWord):
+            var newKeyWord = ""
+            for v in keyWord.utf8 {
+                newKeyWord += "%" + String(v, radix: 16, uppercase: true)
+            }
+            return "/naver-open-api/search/local?keyword=\(newKeyWord)"
         }
     }
     
@@ -107,6 +118,7 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .timetables,
+             .location,
              .schedules:
             return .get
         }
@@ -124,9 +136,11 @@ extension SMSAPI {
 
             return ["Authorization" : "Bearer " + token]
             
-        case .postOuting:
+        case .postOuting,
+             .location:
             return [
                 "Authorization" : "Bearer " + token,
+                //                "Request-Security": "",
                 "Content-Type" : "application/json"
                 ]
         default:
@@ -142,6 +156,7 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .timetables,
+             .location,
              .schedules:
             return URLEncoding.queryString
         default:
@@ -158,10 +173,9 @@ extension SMSAPI {
             return ["current_pw":currentPW, "revision_pw": revisionPW]
     
         case .postOuting(let startTime, let endTime, let place, let reason, let situation):
-            return ["startTime": startTime, "endTime": endTime, "place": place, "reason": reason, "situation": situation]
+            return ["start_time": startTime, "end_time": endTime, "place": place, "reason": reason, "situation": situation]
         default:
             return nil
         }
     }
 }
-

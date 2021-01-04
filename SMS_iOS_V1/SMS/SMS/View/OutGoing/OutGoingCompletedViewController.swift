@@ -26,7 +26,16 @@ class OutGoingCompletedViewController: UIViewController, Storyboarded {
 extension OutGoingCompletedViewController {
     private func bindAction() {
         checkButton.rx.tap
-            .bind { self.coordinator?.disappear() }
+            .bind { _ in
+                guard var controllers = self.coordinator?.nav.viewControllers else { return }
+                let count = controllers.count
+                if count > 2 {
+                    controllers.removeSubrange(1...count-2)
+                }
+                self.coordinator?.nav.viewControllers = controllers
+                self.coordinator?.nav.popViewController(animated: true)
+            }
             .disposed(by: disposeBag)
     }
 }
+
