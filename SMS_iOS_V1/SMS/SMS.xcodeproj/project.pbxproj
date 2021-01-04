@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,6 +44,8 @@
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
+		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
+		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
 		D67F32DB257E74B90086F75E /* UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32DA257E74B90086F75E /* UICell.swift */; };
 		D67F32EF257E751A0086F75E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32ED257E751A0086F75E /* UIView.swift */; };
 		D67F32F0257E751A0086F75E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32EE257E751A0086F75E /* UIColor.swift */; };
@@ -122,6 +124,7 @@
 		D664E1C6252A0C8E007F0253 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutGoingLocationAlertXib.xib; sourceTree = "<group>"; };
+		D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		D67F32DA257E74B90086F75E /* UICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICell.swift; sourceTree = "<group>"; };
 		D67F32ED257E751A0086F75E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D67F32EE257E751A0086F75E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */,
 				22354C1F1A56CF2E0D2156E7 /* Pods_SMS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +501,7 @@
 			children = (
 				D6F8C957259B659C00DE967A /* OutGoingLogTableViewCell.swift */,
 				D6F8C956259B659C00DE967A /* LocationTableViewCell.swift */,
+				D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */,
 			);
 			path = OutGoing;
 			sourceTree = "<group>";
@@ -530,6 +535,9 @@
 			dependencies = (
 			);
 			name = SMS;
+			packageProductDependencies = (
+				D66988AF25A2ECF8006A1F38 /* AesEverywhere */,
+			);
 			productName = SMS;
 			productReference = 479DB1322502522C009A8B08 /* SMS.app */;
 			productType = "com.apple.product-type.application";
@@ -558,6 +566,9 @@
 				Base,
 			);
 			mainGroup = 479DB1292502522C009A8B08;
+			packageReferences = (
+				D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */,
+			);
 			productRefGroup = 479DB1332502522C009A8B08 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -574,6 +585,7 @@
 			files = (
 				D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */,
 				D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */,
+				D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */,
 				47131020250253C000ED348C /* Login.storyboard in Resources */,
 				4766CA222510D0170060B330 /* MyPage.storyboard in Resources */,
 				D6F8C974259C280600DE967A /* OutGoingAlertXib.xib in Resources */,
@@ -877,6 +889,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mervick/aes-everywhere-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D66988AF25A2ECF8006A1F38 /* AesEverywhere */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */;
+			productName = AesEverywhere;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 479DB12A2502522C009A8B08 /* Project object */;
 }
