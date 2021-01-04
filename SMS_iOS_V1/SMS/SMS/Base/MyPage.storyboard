@@ -507,6 +507,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="devCollectionView" destination="89k-Ap-owY" id="bUw-3c-soN"/>
                         <outlet property="devName" destination="S82-Hw-mld" id="A3L-dR-Mio"/>
                         <outlet property="devPart" destination="4HD-6a-jrX" id="9rh-KT-Lyl"/>
                         <outlet property="profilePhoto" destination="eSm-Q2-q1P" id="4Ae-Ah-9i2"/>

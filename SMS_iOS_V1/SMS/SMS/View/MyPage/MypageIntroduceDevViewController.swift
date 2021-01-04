@@ -13,9 +13,16 @@ import RxCocoa
 class MypageIntroduceDevViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
     
+
+    
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var devName: UILabel!
     @IBOutlet weak var devPart: UILabel!
+    @IBOutlet weak var devCollectionView: UICollectionView!
+    
+    
+    
+    let disposeBag = DisposeBag()
     
     let peopleArr: Array = [
         
@@ -34,12 +41,23 @@ class MypageIntroduceDevViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bind()
     }
     
     func bind() {
+        
+        var userInfo = People(name: <#String#>, part: <#String#>, image: <#String#>)
+        
         Observable.from(peopleArr)
-            .subscribe(<#T##observer: ObserverType##ObserverType#>)
+            .subscribe(onNext: { data in (userInfo.name = data.name); ( userInfo.part = data.part); (userInfo.image = data.image)})
+            .disposed(by: disposeBag)
+        
+        var img = UIImage(named: userInfo.image)
+        profilePhoto.rx.image.onNext(img)
+        devName.rx.text.onNext(userInfo.name)
+        devPart.rx.text.onNext(userInfo.part)
+        
+        
     }
     
     
@@ -53,3 +71,4 @@ struct People {
     var image: String
     
 }
+
