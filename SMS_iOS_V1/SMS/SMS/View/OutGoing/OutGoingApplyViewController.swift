@@ -14,9 +14,10 @@ import RxCocoa
 class OutGoingApplyViewController: UIViewController, Storyboarded {
     var b = false
     let disposeBag = DisposeBag()
-    weak var coordinator: OutGoingCoordinator?
     let viewModel = OutGoingApplyViewModel()
     //    var delegate: dismissBarProtocol?
+    weak var coordinator: OutGoingCoordinator?
+    
     
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
@@ -27,6 +28,7 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var applyButton: CustomShadowButton!
     @IBOutlet weak var noticeView: OutGoingAlertXib!
+    @IBOutlet weak var locationXib: OutGoingLocationAlertXib!
     @IBOutlet weak var emergencyStateLbl: UILabel!
     
     override func viewDidLoad() {
@@ -76,8 +78,14 @@ extension OutGoingApplyViewController {
             .disposed(by: disposeBag)
         
         placeTextField.rx.controlEvent(.touchDown)
-            .bind { self.coordinator?.locationAlert() }
-            .disposed(by: disposeBag)
+            .bind { _ in
+                self.locationXib.isHidden = false
+                self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
+                    let cell = self.locationXib.tableView.cellForRow(at: indexPath) as! LocationTableViewCell
+                    self.placeTextField.text = cell.addressLbl.text
+                    self.locationXib.isHidden = true
+                }).disposed(by: self.disposeBag)
+    }.disposed(by: disposeBag)
         
         diseaseBtn.rx.tap
             .bind { [self] _ in
@@ -101,18 +109,8 @@ extension OutGoingApplyViewController {
     }
 }
 
-extension OutGoingApplyViewController: BackWordDataProtocol {
-    
-    func textForLbl(_ text: String) {
-        placeTextField.text = text
-    }
-    
-    func delegate() {
-        let storyBoard = UIStoryboard.init(name: "OutGoing", bundle: nil)
-        let secVC = storyBoard.instantiateViewController(identifier: "OutGoingLocationAlertViewController") as! OutGoingLocationAlertViewController
-        secVC.delegate = self
-    }
-    // 리팩토링 해봅시다
+extension OutGoingApplyViewController {
+    // 여기 수정
     @objc func tapDone() {
         if let datePicker = self.dateTextField.inputView as? UIDatePicker { // 2-1
             let dateformatter = DateFormatter() // 2-2
