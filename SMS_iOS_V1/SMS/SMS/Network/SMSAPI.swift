@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 import RxSwift
 import RxCocoa
+import RNCryptor
 
 enum SMSAPI {
     case login(_ userId: String, _ pw: String)
@@ -40,7 +41,7 @@ extension SMSAPI {
         case .location:
             return ""
         default:
-           return "/v1"
+            return "/v1"
         }
     }
     
@@ -133,18 +134,22 @@ extension SMSAPI {
              .detailNotice,
              .checkNotReadNotice,
              .lookUpAllOuting:
-
-            return ["Authorization" : "Bearer " + token]
-            
+            return [
+                "Authorization" : "Bearer " + token,
+                "Request-Security": securityKey
+            ]
         case .postOuting,
              .location:
             return [
                 "Authorization" : "Bearer " + token,
-                //                "Request-Security": "",
+                "Request-Security": securityKey,
                 "Content-Type" : "application/json"
-                ]
+            ]
         default:
-            return ["Content-Type" : "application/json"]
+            return [
+                "Content-Type" : "application/json",
+                "Request-Security": securityKey
+            ]
         }
     }
     
@@ -171,7 +176,7 @@ extension SMSAPI {
             
         case .pwChange(let currentPW, let revisionPW):
             return ["current_pw":currentPW, "revision_pw": revisionPW]
-    
+            
         case .postOuting(let startTime, let endTime, let place, let reason, let situation):
             return ["start_time": startTime, "end_time": endTime, "place": place, "reason": reason, "situation": situation]
         default:
