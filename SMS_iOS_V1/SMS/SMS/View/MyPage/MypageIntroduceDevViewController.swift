@@ -11,21 +11,12 @@ import RxSwift
 import RxCocoa
 
 class MypageIntroduceDevViewController: UIViewController, Storyboarded {
+    let disposeBag = DisposeBag()
     weak var coordinator: MyPageCoordinator?
     
-
-    
-    @IBOutlet weak var profilePhoto: UIImageView!
-    @IBOutlet weak var devName: UILabel!
-    @IBOutlet weak var devPart: UILabel!
     @IBOutlet weak var devCollectionView: UICollectionView!
     
-    
-    
-    let disposeBag = DisposeBag()
-    
-    let peopleArr: Array = [
-        
+    let peopleArr: [People] = [
         People.init(name: "이성진", part: "PM/Front", image: "성진.jpg"),
         People.init(name: "공영길", part: "Front", image: "영길.jpg"),
         People.init(name: "박진홍", part: "Backend", image: "진홍.jpg"),
@@ -36,39 +27,30 @@ class MypageIntroduceDevViewController: UIViewController, Storyboarded {
         People.init(name: "유재민", part: "Android", image: "재민.jpg"),
         People.init(name: "강신희", part: "Design", image: "신희.jpg"),
         People.init(name: "용석현", part: "Design", image: "석현.jpg")
-        
     ]
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
     }
-    
-    func bind() {
-        
-        var userInfo = People(name: <#String#>, part: <#String#>, image: <#String#>)
-        
-        Observable.from(peopleArr)
-            .subscribe(onNext: { data in (userInfo.name = data.name); ( userInfo.part = data.part); (userInfo.image = data.image)})
-            .disposed(by: disposeBag)
-        
-        var img = UIImage(named: userInfo.image)
-        profilePhoto.rx.image.onNext(img)
-        devName.rx.text.onNext(userInfo.name)
-        devPart.rx.text.onNext(userInfo.part)
-        
-        
-    }
-    
-    
 }
 
-
+extension MypageIntroduceDevViewController {
+    func bind() {
+        Observable.just(peopleArr)
+            .bind(to: devCollectionView.rx.items(cellIdentifier: DevCollectionViewCell.NibName)) { _, people, cell in
+                if let cellToUse = cell as? DevCollectionViewCell {
+                    cellToUse.imageView.image = UIImage(named: people.image)
+                    cellToUse.nameLbl.text = people.name
+                    cellToUse.partLbl.text = people.part
+                }
+            }.disposed(by: disposeBag)
+    }
+}
 
 struct People {
     var name: String
     var part: String
     var image: String
-    
 }
 
