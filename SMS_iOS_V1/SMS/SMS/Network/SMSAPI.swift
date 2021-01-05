@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import RxSwift
 import RxCocoa
-import RNCryptor
+import AesEverywhere
 
 enum SMSAPI {
     case login(_ userId: String, _ pw: String)
@@ -20,7 +20,7 @@ enum SMSAPI {
     case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
     case lookUpAllOuting
     case certainOutingInfo
-    case lookUpOutingCard
+    case lookUpOutingCard(_ uuid: String)
     case startOuting
     case finishOuting
     case lookUpNotice
@@ -75,8 +75,8 @@ extension SMSAPI {
             return "/students/uuid/\(uuid)/outings"
         case .certainOutingInfo:
             return "/outings/uuid/\(outing_uuid)"
-        case .lookUpOutingCard:
-            return "/outings/\(outing_uuid)/card"
+        case .lookUpOutingCard(let uuid):
+            return "/outings/\(uuid)/card"
         case .startOuting:
             return "/outings/\(uuid)/outing"
         case .finishOuting:
@@ -133,6 +133,7 @@ extension SMSAPI {
              .lookUpNotice,
              .detailNotice,
              .checkNotReadNotice,
+             .schedules,
              .lookUpAllOuting:
             return [
                 "Authorization" : "Bearer " + token,
