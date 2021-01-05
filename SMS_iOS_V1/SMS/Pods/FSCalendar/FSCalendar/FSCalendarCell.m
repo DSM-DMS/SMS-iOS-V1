@@ -65,10 +65,12 @@
     self.subtitleLabel = label;
     
     shapeLayer = [CAShapeLayer layer];
+    shapeLayer.cornerRadius = 0;
     shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
     shapeLayer.borderWidth = 1.0;
     shapeLayer.borderColor = [UIColor clearColor].CGColor;
     shapeLayer.opacity = 0;
+    shapeLayer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
     [self.contentView.layer insertSublayer:shapeLayer below:_titleLabel.layer];
     self.shapeLayer = shapeLayer;
     
@@ -133,11 +135,11 @@
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);
     diameter = diameter > FSCalendarStandardCellDiameter ? (diameter - (diameter-FSCalendarStandardCellDiameter)*0.5) : diameter;
-    _shapeLayer.frame = CGRectMake((self.bounds.size.width-diameter)/2,
-                                   (titleHeight-diameter)/2,
-                                   diameter,
-                                   diameter);
-    
+//    _shapeLayer.frame = CGRectMake((self.bounds.size.width-diameter)/2,
+//                                   (titleHeight-diameter)/2,
+//                                   diameter,
+//                                   diameter);
+//    
     CGPathRef path = [UIBezierPath bezierPathWithRoundedRect:_shapeLayer.bounds
                                                 cornerRadius:CGRectGetWidth(_shapeLayer.bounds)*0.5*self.borderRadius].CGPath;
     if (!CGPathEqualToPath(_shapeLayer.path,path)) {
@@ -235,7 +237,7 @@
         if (!CGPathEqualToPath(_shapeLayer.path, path)) {
             _shapeLayer.path = path;
         }
-        
+        _shapeLayer.shadowPath = path;
     }
     
     if (![_image isEqual:_imageView.image]) {

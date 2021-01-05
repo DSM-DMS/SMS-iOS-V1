@@ -16,5 +16,7 @@ class CustomShadowView: UIView {
         self.layer.shadowColor = UIColor.lightGray.cgColor
         self.layer.shadowRadius = 2
         self.layer.shadowOpacity = 0.7
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
 }

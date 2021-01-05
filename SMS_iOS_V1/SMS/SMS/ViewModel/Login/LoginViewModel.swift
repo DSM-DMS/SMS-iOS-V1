@@ -22,7 +22,7 @@ class LoginViewModel {
     }
     
     struct Output {
-        let result: Single<LoginModel>
+        let result: Observable<LoginModel>
     }
     
     func transform(_ input: Input) -> Output {
@@ -39,17 +39,17 @@ class LoginViewModel {
         
         
         
-        let bool = input.loginBtnDriver.asObservable()
+        let loginResponse = input.loginBtnDriver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.idTextFieldDriver.asObservable(),
                                                      input.pwTextFieldDriver.asObservable()))
             .filter{ !$0.0.isEmpty && !$0.1.isEmpty}
+            
             .map { (id, pw) -> SMSAPI in
                 return SMSAPI.login(id, pw)
             }.flatMap { request -> Observable<LoginModel> in
                 return SMSAPIClient.shared.networking(from: request)
-            }.asSingle()
+            }
         
-        return Output(result: bool)
-        
+        return Output(result: loginResponse)
     }
 }
