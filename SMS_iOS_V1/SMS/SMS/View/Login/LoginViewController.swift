@@ -10,13 +10,14 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import KeychainSwift
 
 class LoginViewController: UIViewController, Storyboarded {
     weak var coordinator: AppCoordinator?
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
-    @IBOutlet weak var loginButton: CustomShadowButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var autoLoginCheckBox: UIButton!
@@ -32,27 +33,31 @@ extension LoginViewController {
         let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
         
         autoLoginCheckBox.rx.tap
-            .map { self.autoLoginCheckBox.tintColor = .customPurple }
-            .map { self.autoLoginCheckBox.isSelected.toggle() }
-            .map { if self.autoLoginCheckBox.isSelected {
-                self.autoLoginCheckBox.setImage(UIImage(named: "checkmark.square.fill"), for: .selected)
-            } else {
-                self.autoLoginCheckBox.setImage(UIImage(named: "stop"), for: .normal)
-            }}
-            .subscribe()
-            .disposed(by: disposeBag)
-            
+            .bind { _ in
+                self.autoLoginCheckBox.isSelected.toggle()
+            }.disposed(by: disposeBag)
+        
         let output = viewModel.transform(input)
         
         output.result.subscribe { model in
             if model.status == 200 || model.code == 200 {
+                let keyChain = KeychainSwift()
+                
                 self.coordinator?.tabbar()
+                if self.autoLoginCheckBox.isSelected {
+                    keyChain.set(self.idTextField.text!, forKey: "ID")
+                    print("keychian saved")
+                    keyChain.set(self.pwTextField.text!, forKey: "PW")
+                } else { 
+                    keyChain.delete("ID")
+                    print("keychian deleted")
+                    keyChain.delete("PW")
+                }
             } else {
                 self.loginButton.shake()
             }
         } onError: { _ in
-            self.loginButton.shake() // 지울 것
-            self.coordinator?.tabbar()
+            self.loginButton.shake()
         }.disposed(by: disposeBag)
     }
 }
