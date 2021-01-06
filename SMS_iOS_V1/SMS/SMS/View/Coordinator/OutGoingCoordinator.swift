@@ -61,10 +61,4 @@ class OutGoingCoordinator: Coordinator {
         vc.coordinator = self
         nav.pushViewController(vc, animated: true)
     }
-    
-    func locationAlert() {
-        let vc = OutGoingLocationAlertViewController.instantiate(storyboardName: .outGoingCompleted)
-        vc.coordinator = self
-        nav.pushViewController(vc, animated: false)
-    }
 }
