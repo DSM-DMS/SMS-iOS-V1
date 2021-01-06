@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.9.1)
-  - DLRadioButton (1.4.12)
   - FSCalendar (2.8.1)
+  - JTAppleCalendar (8.0.3)
+  - KeychainSwift (19.0.0)
   - Kingfisher (5.11.0):
     - Kingfisher/Core (= 5.11.0)
   - Kingfisher/Core (5.11.0)
   - LayoutHelper (0.1.5)
+  - RNCryptor (5.1.0)
   - RxAlamofire (5.1.0):
     - RxAlamofire/Core (= 5.1.0)
   - RxAlamofire/Core (5.1.0):
@@ -23,49 +25,55 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
-  - SimpleCheckbox (2.1.0)
+  - SkyFloatingLabelTextField (4.0.0)
 
 DEPENDENCIES:
-  - DLRadioButton
   - FSCalendar
+  - JTAppleCalendar
+  - KeychainSwift (~> 19.0)
   - Kingfisher
   - LayoutHelper
+  - RNCryptor (~> 5.0)
   - RxAlamofire
   - RxCocoa
   - RxFlow
   - RxOptional
   - RxSwift
-  - SimpleCheckbox
+  - SkyFloatingLabelTextField
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - DLRadioButton
     - FSCalendar
+    - JTAppleCalendar
+    - KeychainSwift
     - Kingfisher
     - LayoutHelper
+    - RNCryptor
     - RxAlamofire
     - RxCocoa
     - RxFlow
     - RxOptional
     - RxRelay
     - RxSwift
-    - SimpleCheckbox
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 4569606189149e19c7d9439f47e885d0679b7a90
   LayoutHelper: 54b1e44cf7a5bb5d8256f0ad805fce633454175d
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxFlow: 605ef6364d7e937bea8f9507a1e99a431cdc2493
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: cf200942238da3b377646135e06042cd0bc56945
+PODFILE CHECKSUM: cd9903c33aa2e35890ea532e1b14e6df58eadefd
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0

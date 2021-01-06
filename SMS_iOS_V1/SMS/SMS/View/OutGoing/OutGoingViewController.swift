@@ -13,13 +13,14 @@ import RxSwift
 
 class OutGoingViewController: UIViewController, Storyboarded {
     weak var coordinator: OutGoingCoordinator?
+//    var delegate: dismissBarProtocol?
     let disposeBag = DisposeBag()
     
     
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
     @IBOutlet weak var outGoingLogButton: CustomShadowButton!
     @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
-    @IBOutlet weak var outGoingDeedButton: CustomShadowButton!
+    @IBOutlet weak var outGoingPopUpBtn: CustomShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,19 +38,27 @@ class OutGoingViewController: UIViewController, Storyboarded {
 extension OutGoingViewController {
     private func bind() {
         outGoingApplyButton.rx.tap
-            .bind { self.coordinator?.outGoingApply() }
+            .bind { self.coordinator?.outGoingApply();
+//                self.delegate?.dismissBar(true)
+            }
             .disposed(by: disposeBag)
         
         outGoingLogButton.rx.tap
-            .bind { self.coordinator?.outGoingLog() }
+            .bind { self.coordinator?.outGoingLog()
+//                self.delegate?.dismissBar(true)
+            }
             .disposed(by: disposeBag)
         
         outGoingNoticeButton.rx.tap
-            .bind { self.coordinator?.noticeOutGoing() }
+            .bind { self.coordinator?.noticeOutGoing()
+//                self.delegate?.dismissBar(true)
+            }
             .disposed(by: disposeBag)
         
-        outGoingDeedButton.rx.tap
-            .bind { self.coordinator?.deedOutGoing() }
+        outGoingPopUpBtn.rx.tap
+            .bind { self.coordinator?.popUp()
+//                self.delegate?.dismissBar(true)
+            }
             .disposed(by: disposeBag)
     }
 }

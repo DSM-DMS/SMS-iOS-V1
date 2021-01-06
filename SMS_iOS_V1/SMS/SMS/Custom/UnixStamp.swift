@@ -8,10 +8,30 @@
 
 import UIKit
 
-func UnixStampToDate(with unixInt: Int) -> String {
-    return globalDateFormatter(formType(rawValue: formType.time.rawValue)!).string(from: Date(timeIntervalSince1970: TimeInterval(unixInt)))
+func unix(with unixInt: Int) -> DateComponents {
+    let date = Date(timeIntervalSince1970: TimeInterval(unixInt - 32400))
+    return Calendar.current.dateComponents([.year, .month , .day, .hour, .minute], from: date)
 }
 
-func DateToUnixStamp(with date: String) -> Int {
-    return Int(globalDateFormatter(formType(rawValue: formType.untilDay.rawValue)!).date(from: date)!.timeIntervalSince1970)
+func unix(with dateStr: String) -> Int {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-M-d"
+    let date = dateFormatter.date(from: dateStr)
+    return Int(date!.timeIntervalSince1970)
+}
+
+func stringToUnix(with time: String) -> Int {
+    let start = time.index(time.startIndex, offsetBy: +5)
+    let end = time.index(time.endIndex, offsetBy: -4)
+    let asd = time.index(time.endIndex, offsetBy: -2)
+    let asds = time.index(time.endIndex, offsetBy: -1)
+    
+    let am = time[asd...asds]
+    let timeString = time[start...end]
+    
+    let components = timeString.split { $0 == ":" }.map { (x) -> Int in return Int(String(x))! }
+    var time = components[0] * 3600 + components[1] * 60 + 32400
+    
+    if am == "PM" { time += 43200 }
+    return time
 }
