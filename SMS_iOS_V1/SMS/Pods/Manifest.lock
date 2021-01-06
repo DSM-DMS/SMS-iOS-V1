@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - FSCalendar (2.8.1)
+  - JTAppleCalendar (8.0.3)
   - Kingfisher (5.11.0):
     - Kingfisher/Core (= 5.11.0)
   - Kingfisher/Core (5.11.0)
@@ -26,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - FSCalendar
+  - JTAppleCalendar
   - Kingfisher
   - LayoutHelper
   - RNCryptor (~> 5.0)
@@ -39,6 +41,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FSCalendar
+    - JTAppleCalendar
     - Kingfisher
     - LayoutHelper
     - RNCryptor
@@ -52,6 +55,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   Kingfisher: 4569606189149e19c7d9439f47e885d0679b7a90
   LayoutHelper: 54b1e44cf7a5bb5d8256f0ad805fce633454175d
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
@@ -62,6 +66,6 @@ SPEC CHECKSUMS:
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: a16a8af79ffa9e84664c01dd72922be7c7b5a2e7
+PODFILE CHECKSUM: b7c2dd69ea4ccb5572e3d5abba5c912200e6732d
 
 COCOAPODS: 1.10.0

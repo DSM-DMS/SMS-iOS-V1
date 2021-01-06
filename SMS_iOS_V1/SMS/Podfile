@@ -16,5 +16,6 @@ pod 'RxOptional'
 pod 'RxFlow'
 pod 'LayoutHelper'
 pod 'RNCryptor', '~> 5.0'
+pod 'JTAppleCalendar'
 
 end

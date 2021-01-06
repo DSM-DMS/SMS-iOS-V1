@@ -186,7 +186,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource, UICo
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
         cell.preferredEventSelectionColors = [.customPurple, .calendarEventRed]
         calendar.appearance.eventOffset = CGPoint(x: 0, y: -cell.frame.height + cell.frame.height / 1.1)
-    }
+x    }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
         return  [.customPurple, .calendarEventRed]
