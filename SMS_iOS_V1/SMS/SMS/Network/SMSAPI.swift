@@ -134,6 +134,7 @@ extension SMSAPI {
              .detailNotice,
              .checkNotReadNotice,
              .schedules,
+             .timetables,
              .lookUpAllOuting:
             return [
                 "Authorization" : "Bearer " + token,

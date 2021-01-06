@@ -37,6 +37,13 @@ func globalDateFormatter(_  formType: formType, _ date: String) -> Date {
     return formatter.date(from: date)!
 }
 
+func dateStr(_ date: String) -> [Int] {
+    return date.split { $0 == " " }
+        .map { dateArr in
+            Int(dateArr.dropLast())!
+        }
+}
+
 enum formType: String {
     case month = "yyyy년 M월"
     case untilDay = "yyyy-M-d"

@@ -12,6 +12,6 @@ struct LoginModel: Codable {
     let status: Int
     let code: Int
     let message: String
-    let student_uuid: String
-    let access_token: String
+    let student_uuid: String?
+    let access_token: String?
 }
