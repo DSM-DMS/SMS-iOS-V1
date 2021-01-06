@@ -15,6 +15,7 @@ class OutGoingViewController: UIViewController, Storyboarded {
     weak var coordinator: OutGoingCoordinator?
     let disposeBag = DisposeBag()
     
+    
     @IBOutlet weak var outGoingApplyButton: CustomShadowButton!
     @IBOutlet weak var outGoingLogButton: CustomShadowButton!
     @IBOutlet weak var outGoingNoticeButton: CustomShadowButton!
