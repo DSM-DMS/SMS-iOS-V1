@@ -69,6 +69,7 @@
 		D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A4132586D9B3005C36E6 /* OutGoingLogModel.swift */; };
 		D6B8EE8F255CA97200F1F21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8EE8E255CA97200F1F21E /* AppDelegate.swift */; };
 		D6B8EE93255CA98E00F1F21E /* GlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8EE92255CA98E00F1F21E /* GlobalProperties.swift */; };
+		D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B9EE0925A57C54006D66EC /* TimeTableModel.swift */; };
 		D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F39D26257E13A3006ED3C1 /* Coordinator.swift */; };
 		D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F39D38257E3AAA006ED3C1 /* AppCoordinator.swift */; };
 		D6F8C93A259B5DA100DE967A /* OutGoingCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8C939259B5DA100DE967A /* OutGoingCardModel.swift */; };
@@ -148,6 +149,7 @@
 		D6B3A4132586D9B3005C36E6 /* OutGoingLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingLogModel.swift; sourceTree = "<group>"; };
 		D6B8EE8E255CA97200F1F21E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6B8EE92255CA98E00F1F21E /* GlobalProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalProperties.swift; sourceTree = "<group>"; };
+		D6B9EE0925A57C54006D66EC /* TimeTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		D6F39D26257E13A3006ED3C1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D6F39D38257E3AAA006ED3C1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D6F8C939259B5DA100DE967A /* OutGoingCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingCardModel.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		D6F8C944259B639600DE967A /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				D6B9EE0925A57C54006D66EC /* TimeTableModel.swift */,
 				D6F8C941259B638100DE967A /* ScheduleModel.swift */,
 			);
 			path = Schedule;
@@ -677,6 +680,7 @@
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
+				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
 				47AA50B2257F40D30003F87D /* LoginViewModel.swift in Sources */,
 				D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */,
 				47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */,

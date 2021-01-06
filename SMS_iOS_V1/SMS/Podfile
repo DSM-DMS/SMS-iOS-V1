@@ -18,5 +18,6 @@ pod 'LayoutHelper'
 pod 'RNCryptor', '~> 5.0'
 pod 'JTAppleCalendar'
 pod 'SkyFloatingLabelTextField'
+pod 'KeychainSwift', '~> 19.0'
 
 end
