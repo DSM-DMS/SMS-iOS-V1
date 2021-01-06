@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import KeychainSwift
+import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController, Storyboarded {
     weak var coordinator: AppCoordinator?
@@ -18,8 +19,8 @@ class LoginViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var idTextField: SkyFloatingLabelTextFieldWithIcon! 
+    @IBOutlet weak var pwTextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var autoLoginCheckBox: UIButton!
     
     override func viewDidLoad() {
