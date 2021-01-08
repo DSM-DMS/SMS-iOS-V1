@@ -10,7 +10,6 @@ target 'SMS' do
 pod 'RxSwift'
 pod 'RxAlamofire'
 pod 'Kingfisher'
-pod 'FSCalendar'
 pod 'RxCocoa'
 pod 'RxOptional'
 pod 'RxFlow'

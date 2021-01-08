@@ -223,10 +223,10 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     fileprivate func updateIconViewHiddenState() {
         switch iconType {
         case .font:
-            self.iconLabel.isHidden = false
+//            self.iconLabel.isHidden = false
             self.iconImageView.isHidden = true
         case .image:
-            self.iconLabel.isHidden = true
+//            self.iconLabel.isHidden = true
             self.iconImageView.isHidden = false
         }
     }

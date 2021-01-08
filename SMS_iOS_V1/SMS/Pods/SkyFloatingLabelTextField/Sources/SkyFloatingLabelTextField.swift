@@ -42,9 +42,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             titleLabel.textAlignment = .left
             errorLabel.textAlignment = .left
         } else {
-            textAlignment = .right
-            titleLabel.textAlignment = .right
-            errorLabel.textAlignment = .right
+            textAlignment = .center
+            titleLabel.textAlignment = .center
+            errorLabel.textAlignment = .center 
         }
 
         // Override error message default alignment
@@ -135,14 +135,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     /// A UIFont value that determines the text font of the title label
     @objc dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
         didSet {
-            updateTitleLabel()
+//            updateTitleLabel()
         }
     }
 
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable dynamic open var titleColor: UIColor = .gray {
         didSet {
-            updateTitleColor()
+//            updateTitleColor()
         }
     }
 
@@ -219,7 +219,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateLineView()
             setNeedsDisplay()
         }
-    }
+    } 
 
     // MARK: View components
 
@@ -315,7 +315,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         didSet {
             setNeedsDisplay()
             updatePlaceholder()
-            updateTitleLabel()
+//            updateTitleLabel()
         }
     }
 
@@ -379,7 +379,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     @objc open func editingChanged() {
         updateControl(true)
-        updateTitleLabel(true)
+//        updateTitleLabel(true)
     }
 
     // MARK: create components
@@ -462,7 +462,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     fileprivate func updateControl(_ animated: Bool = false) {
         updateColors()
         updateLineView()
-        updateTitleLabel(animated)
+//        updateTitleLabel(animated)
     }
 
     fileprivate func updateLineView() {
@@ -532,48 +532,48 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     // MARK: - Title handling
 
-    fileprivate func updateTitleLabel(_ animated: Bool = false) {
-        guard let titleLabel = titleLabel else {
-            return
-        }
-
-        var titleText: String?
-        var errorText: String?
-
-        if errorMessagePlacement == .default {
-            if hasErrorMessage {
-                titleText = titleFormatter(errorMessage!)
-            } else {
-                if editingOrSelected {
-                    titleText = selectedTitleOrTitlePlaceholder()
-                    if titleText == nil {
-                        titleText = titleOrPlaceholder()
-                    }
-                } else {
-                    titleText = titleOrPlaceholder()
-                }
-            }
-        } else {
-            if hasErrorMessage {
-                errorText = titleFormatter(errorMessage!)
-            }
-            if editingOrSelected {
-                titleText = selectedTitleOrTitlePlaceholder()
-                if titleText == nil {
-                    titleText = titleOrPlaceholder()
-                }
-            } else {
-                titleText = titleOrPlaceholder()
-            }
-        }
-        titleLabel.text = titleText
-        titleLabel.font = titleFont
-
-        errorLabel.text = errorText
-        errorLabel.font = titleFont
-        updateTitleVisibility(animated)
-        updateErrorVisibility(animated)
-    }
+//    fileprivate func updateTitleLabel(_ animated: Bool = false) {
+//        guard let titleLabel = titleLabel else {
+//            return
+//        }
+//
+//        var titleText: String?
+//        var errorText: String?
+//
+//        if errorMessagePlacement == .default {
+//            if hasErrorMessage {
+//                titleText = titleFormatter(errorMessage!)
+//            } else {
+//                if editingOrSelected {
+//                    titleText = selectedTitleOrTitlePlaceholder()
+//                    if titleText == nil {
+//                        titleText = titleOrPlaceholder()
+//                    }
+//                } else {
+//                    titleText = titleOrPlaceholder()
+//                }
+//            }
+//        } else {
+//            if hasErrorMessage {
+//                errorText = titleFormatter(errorMessage!)
+//            }
+//            if editingOrSelected {
+//                titleText = selectedTitleOrTitlePlaceholder()
+//                if titleText == nil {
+//                    titleText = titleOrPlaceholder()
+//                }
+//            } else {
+//                titleText = titleOrPlaceholder()
+//            }
+//        }
+//        titleLabel.text = titleText
+//        titleLabel.font = titleFont
+//
+//        errorLabel.text = errorText
+//        errorLabel.font = titleFont
+//        updateTitleVisibility(animated)
+//        updateErrorVisibility(animated)
+//    }
 
     fileprivate var _titleVisible: Bool = false
 
@@ -825,7 +825,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func layoutSubviews() {
         super.layoutSubviews()
 
-        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+//        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
         errorLabel.frame = errorLabelRectForBounds(bounds, editing: isErrorVisible() || _renderingInInterfaceBuilder)
         lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
     }
