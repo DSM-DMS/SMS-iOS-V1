@@ -37,11 +37,25 @@ func globalDateFormatter(_  formType: formType, _ date: String) -> Date {
     return formatter.date(from: date)!
 }
 
-func dateStr(_ date: String) -> [Int] {
+func dateIntArr(_ date: String) -> [Int] {
     return date.split { $0 == " " }
         .map { dateArr in
             Int(dateArr.dropLast())!
         }
+}
+
+func dateStr(_ date: String) -> String {
+   let components = date.split { $0 == " " }
+        .map { dateArr in
+            Int(dateArr.dropLast())!
+        }
+    
+    var string = ""
+    for i in 0..<components.count - 1 {
+        string += "\(components[i])-"
+    }
+    string += String(components[components.count])
+    return string
 }
 
 enum formType: String {
