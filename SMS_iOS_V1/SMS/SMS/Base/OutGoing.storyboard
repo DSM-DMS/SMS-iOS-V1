@@ -1560,7 +1560,7 @@
                                     <constraint firstAttribute="height" constant="35" id="SUR-Td-Bqi"/>
                                 </constraints>
                                 <color key="tintColor" red="0.96471232179999999" green="0.96469420189999999" blue="0.96470659969999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="외출 시작"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rbr-8z-rqy"/>
@@ -1591,7 +1591,9 @@
                         <outlet property="placeView" destination="MZq-MT-duI" id="KB8-zz-OD9"/>
                         <outlet property="popVCBtn" destination="eZy-wE-iBw" id="bjK-lE-7ry"/>
                         <outlet property="profileImageView" destination="Qwe-Tj-Fbk" id="OdL-Iq-OvY"/>
+                        <outlet property="startEndOutingBtn" destination="cH4-W0-EQg" id="brw-Da-v4a"/>
                         <outlet property="stateLbl" destination="akW-p4-I4H" id="RU1-dM-mUj"/>
+                        <outlet property="stateView" destination="tve-DF-LJV" id="DfU-h6-sWW"/>
                         <outlet property="studentIDLbl" destination="6HS-cX-3sa" id="cwA-VK-Szg"/>
                         <outlet property="timeLbl" destination="C94-cC-ChH" id="21u-BQ-5NP"/>
                         <outlet property="timeView" destination="Pdy-oi-TEQ" id="dQT-y5-8DE"/>

@@ -29,6 +29,7 @@ enum SMSAPI {
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
     case location(_ keyWord: String)
+    case outingAction(_ uuid: String, _ action: String)
 }
 
 extension SMSAPI {
@@ -97,6 +98,8 @@ extension SMSAPI {
                 newKeyWord += "%" + String(v, radix: 16, uppercase: true)
             }
             return "/naver-open-api/search/local?keyword=\(newKeyWord)"
+        case .outingAction(let uuid, let action):
+            return "/outings/uuid/\(uuid)/actions/\(action)"
         }
     }
     
@@ -105,6 +108,7 @@ extension SMSAPI {
         case .login,
              .postOuting,
              .startOuting,
+             .outingAction,
              .finishOuting:
             return .post
             
@@ -135,6 +139,7 @@ extension SMSAPI {
              .checkNotReadNotice,
              .schedules,
              .timetables,
+             .outingAction,
              .lookUpAllOuting:
             return [
                 "Authorization" : "Bearer " + token,

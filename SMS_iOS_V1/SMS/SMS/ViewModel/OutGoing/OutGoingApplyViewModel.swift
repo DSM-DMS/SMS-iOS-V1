@@ -43,10 +43,7 @@ class OutGoingApplyViewModel {
                     str = "emergency"
                 }
                 
-                let components = txt.0.split { $0 == " " }
-                    .map { dateArr in
-                        String(dateArr.dropLast())
-                    }
+                let components = dateIntArr(txt.0)
                 
                 let date = "\(components[0])-\(components[1])-\(components[2])"
                 return SMSAPI.postOuting(unix(with: date) + stringToUnix(with: txt.1), unix(with: date) + stringToUnix(with: txt.2), txt.3, txt.4, str)
