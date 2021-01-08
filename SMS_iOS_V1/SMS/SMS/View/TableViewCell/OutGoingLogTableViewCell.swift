@@ -21,6 +21,7 @@ class OutGoingLogTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLbl: UILabel!
     @IBOutlet weak var reasonLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var emergencyImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

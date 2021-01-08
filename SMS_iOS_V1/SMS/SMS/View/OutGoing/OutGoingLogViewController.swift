@@ -45,7 +45,9 @@ extension OutGoingLogViewController {
             cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + String(startDateComponent.minute!)
             cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + String(endDateComponent.minute!)
             cell.placeLbl.text = log.place
-            cell.reasonLbl.text = log.reason
+            cell.reasonLbl.text = log.reason // 셀사이의 간격 늘리기, 날짜 포멧 바꾸기 
+            
+            cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
             
             switch Int(log.outing_status) {
             case -1, -2:

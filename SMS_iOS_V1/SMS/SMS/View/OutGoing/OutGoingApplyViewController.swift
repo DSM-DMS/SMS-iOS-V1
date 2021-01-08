@@ -10,6 +10,7 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import SkyFloatingLabelTextField
 
 class OutGoingApplyViewController: UIViewController, Storyboarded {
     var b = false
@@ -22,14 +23,15 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
     @IBOutlet weak var placeTextField: UITextField!
-    @IBOutlet weak var startTimeTextField: UITextField!
-    @IBOutlet weak var endTimeTextField: UITextField!
+    @IBOutlet weak var startTimeTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var endTimeTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var outReasonTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var applyButton: CustomShadowButton!
     @IBOutlet weak var noticeView: OutGoingAlertXib!
     @IBOutlet weak var locationXib: OutGoingLocationAlertXib!
     @IBOutlet weak var emergencyStateLbl: UILabel!
+    @IBOutlet weak var hiddenViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,9 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
 
 extension OutGoingApplyViewController {
     private func bind() {
+        startTimeTextField.textAlignment = .center
+        endTimeTextField.textAlignment = .center
+        
         self.dateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone), mode: .date)
         self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDonea), mode: .time)
         self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDones), mode: .time)
@@ -59,7 +64,11 @@ extension OutGoingApplyViewController {
         output.response.subscribe { model in
             switch model.status {
             case 201:
-                UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
+//                  아웃팅 유저디폴트에 맞는 키 값 제대로 설정 // 신청한 날짜를 포멧팅해서 키로 넣기
+//                globalDateFormatter(.untilDay, dateStr(self.dateTextField.text!))
+//
+//
+//                UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
                 self.coordinator?.outGoingCompleted()
             default:
                 self.applyButton.shake()
@@ -72,27 +81,27 @@ extension OutGoingApplyViewController {
     private func bindAction() {
         popVCBtn.rx.tap
             .bind { _ in
-                //                self.coordinator?.dismissBar(false)
+                //              self.coordinator?.dismissBar(false)
                 self.coordinator?.pop()
             }
             .disposed(by: disposeBag)
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
-                self.locationXib.isHidden = false
+                self.hiddenView(self.locationXib, false)
                 self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
                     let cell = self.locationXib.tableView.cellForRow(at: indexPath) as! LocationTableViewCell
                     self.placeTextField.text = cell.addressLbl.text
-                    self.locationXib.isHidden = true
+                    self.hiddenView(self.locationXib, true)
                 }).disposed(by: self.disposeBag)
     }.disposed(by: disposeBag)
         
         diseaseBtn.rx.tap
             .bind { [self] _ in
                 if !self.b {
-                    self.noticeView.isHidden = false
+                    self.hiddenView(noticeView, false)
                     self.noticeView.sign = { b in
-                        self.noticeView.isHidden = true
+                        self.hiddenView(noticeView, true)
                         self.b = b
                         if b {
                             self.diseaseBtn.setTitle("취소", for: .normal)
@@ -136,6 +145,11 @@ extension OutGoingApplyViewController {
             endTimeTextField.text = "도착시간 " + dateformatter.string(from: datePicker.date)
         }
         endTimeTextField.resignFirstResponder() // 2-5
+    }
+    
+    func hiddenView(_ view: UIView, _ value: Bool) {
+        view.isHidden = value
+        hiddenViewButton.isHidden = value
     }
 }
 

@@ -23,7 +23,7 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-5I-O5z">
                     <rect key="frame" x="0.0" y="56" width="358" height="333"/>
                 </tableView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lia-aq-huS">
+                <searchBar contentMode="redraw" placeholder="5초마다 검색이 가능합니다" translatesAutoresizingMaskIntoConstraints="NO" id="lia-aq-huS">
                     <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="0VS-62-Feg"/>
