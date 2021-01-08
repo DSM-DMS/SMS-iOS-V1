@@ -79,6 +79,13 @@ extension OutGoingApplyViewController {
     }
     
     private func bindAction() {
+        hiddenViewButton.rx.tap
+            .bind { _ in
+                self.locationXib.isHidden = true
+                self.noticeView.isHidden = true
+                self.hiddenViewButton.isHidden = true
+            }.disposed(by: disposeBag)
+        
         popVCBtn.rx.tap
             .bind { _ in
                 //              self.coordinator?.dismissBar(false)
