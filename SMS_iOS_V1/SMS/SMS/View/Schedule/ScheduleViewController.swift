@@ -1,6 +1,5 @@
 import UIKit
 
-import FSCalendar
 import RxSwift
 import RxCocoa
 import JTAppleCalendar
@@ -8,16 +7,22 @@ import JTAppleCalendar
 class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     weak var coordinator: ScheduleCoordinator?
-
-    @IBOutlet weak var calendarView: JTACMonthView!
+    
+    @IBOutlet weak var calendarView: UIView!
+    @IBOutlet weak var monthLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var previousBtn: UIButton!
+    @IBOutlet weak var calendar: JTACMonthView!
     @IBOutlet weak var changeViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeScheduleView: TimeScheduleXib!
+    @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewSetting()
         self.calendarSetting()
+        bindAction()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -29,12 +34,28 @@ class ScheduleViewController: UIViewController, Storyboarded {
 //MARK- extension
 extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        handleCellTextColor(cell: cell as! DayCell, cellState: cellState)
+        let text = globalDateFormatter(.month, date)
+        monthLbl.text = text
+        handleCellHidden(cell: cell as! DayCell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        calendar.scrollToSegment(.next)
-        print(date)
+        cell?.translatesAutoresizingMaskIntoConstraints = false
+        if cellState.isSelected {
+            let cellLayer = cell?.selectedBackgroundView?.layer
+            cellLayer?.shadowOffset = CGSize(width: 0, height: 2)
+            cellLayer?.shadowColor = UIColor.lightGray.cgColor
+            cellLayer?.opacity = 0.7
+            cellLayer?.shadowRadius = 2
+            cellLayer?.cornerRadius = 10
+        } else {
+            let cellLayer = cell?.selectedBackgroundView?.layer
+            cellLayer?.shadowOffset = CGSize(width: 0, height: 2)
+            cellLayer?.shadowColor = UIColor.lightGray.cgColor
+            cellLayer?.opacity = 0.7
+            cellLayer?.shadowRadius = 2
+            cellLayer?.cornerRadius = 10
+        }
     }
     
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
@@ -47,25 +68,33 @@ extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource
         let startDate = globalDateFormatter(.untilDay, "2020-01-01")
         let endDate = globalDateFormatter(.untilDay, "2030-01-01")
         
-        
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
     
-    func handleCellTextColor(cell: DayCell, cellState: CellState) {
+    func handleCellHidden(cell: DayCell, cellState: CellState) {
         cell.dateLbl.text = cellState.text
+        
+        calendar.visibleDates { visibledate in
+            let text = globalDateFormatter(.month, visibledate.monthDates.first!.date)
+            self.monthLbl.text = text
+        }
+        
         if cellState.dateBelongsTo != .thisMonth {
-//            cell.isHidden = true
+            cell.isHidden = true
+        } else {
+            cell.isHidden = false
         }
     }
+    
 }
- 
+
 extension ScheduleViewController {
     private func calendarSetting() {
-        calendarView.scrollingMode = .stopAtEachCalendarFrame
-        calendarView.scrollDirection = .horizontal
-        calendarView.scrollToDate(Date())
-        calendarView.minimumInteritemSpacing =  0
-        calendarView.minimumLineSpacing = 0
+        calendar.scrollingMode = .stopAtEachCalendarFrame
+        calendar.scrollDirection = .horizontal
+        calendar.scrollToDate(Date())
+        calendar.minimumInteritemSpacing =  0
+        calendar.minimumLineSpacing = 0
     }
     
     private func tableViewSetting() {
@@ -81,9 +110,31 @@ extension ScheduleViewController {
                             cornerRadius: 17)
     }
     
-    private func changeHidden(value: Bool) {
-        tableView.isHidden = !value
-        timeScheduleView.isHidden = value
+    private func changeHidden() {
+        var bool = false
+        tableView.isHidden = bool
+        timeScheduleView.isHidden = !bool
+        calendarView.isHidden = bool
+        headerView.isHidden = bool
+        bool.toggle()
     }
 }
 
+extension ScheduleViewController {
+    private func bindAction() {
+        previousBtn.rx.tap
+            .bind { _ in
+                self.calendar.scrollToSegment(.previous)
+            }.disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                self.calendar.scrollToSegment(.next)
+            }.disposed(by: disposeBag)
+        
+        changeViewBtn.rx.tap
+            .bind { _ in
+                self.changeHidden()
+            }.disposed(by: disposeBag)
+    }
+}
