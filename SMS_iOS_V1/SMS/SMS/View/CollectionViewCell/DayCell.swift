@@ -1,6 +1,5 @@
 import UIKit
 
-import FSCalendar
 import JTAppleCalendar
 
 class DayCell: JTACDayCell {
@@ -19,10 +18,10 @@ class DayCell: JTACDayCell {
     }
     
     override func awakeFromNib() {
-       super.awakeFromNib()
+        super.awakeFromNib()
         autoLayout()
     }
-     
+    
     func autoLayout() {
         dateLbl.translatesAutoresizingMaskIntoConstraints = false
         event1View.translatesAutoresizingMaskIntoConstraints = false
