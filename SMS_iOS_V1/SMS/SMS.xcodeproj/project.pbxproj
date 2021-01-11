@@ -60,7 +60,7 @@
 		D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */; };
 		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
 		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
-		D69892D125A695EA00228637 /* OutGoingCardActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69892D025A695EA00228637 /* OutGoingCardActionModel.swift */; };
+		D698936325A8BC8000228637 /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698936225A8BC8000228637 /* DevCollectionViewCell.swift */; };
 		D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */; };
 		D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */; };
 		D6B3A3DF2582E9D9005C36E6 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */; };
@@ -141,7 +141,7 @@
 		D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
-		D69892D025A695EA00228637 /* OutGoingCardActionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingCardActionModel.swift; sourceTree = "<group>"; };
+		D698936225A8BC8000228637 /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
@@ -328,7 +328,6 @@
 				D6B3A40025838EC2005C36E6 /* OutGoingModel.swift */,
 				D6B3A4132586D9B3005C36E6 /* OutGoingLogModel.swift */,
 				D6F8C939259B5DA100DE967A /* OutGoingCardModel.swift */,
-				D69892D025A695EA00228637 /* OutGoingCardActionModel.swift */,
 			);
 			path = OutGoing;
 			sourceTree = "<group>";
@@ -425,6 +424,7 @@
 		D6E6892E252EDE3000FA09C1 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				D698936225A8BC8000228637 /* DevCollectionViewCell.swift */,
 				D62D8C132518D9B200548FBF /* DayCell.swift */,
 				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
 				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
@@ -664,7 +664,6 @@
 				D630C8FB2587761600BD07C3 /* Storyboarded.swift in Sources */,
 				D6F8C95C259B65FF00DE967A /* UITextField.swift in Sources */,
 				D6F8C97D259C958200DE967A /* OutGoingLocationAlertXib.swift in Sources */,
-				D69892D125A695EA00228637 /* OutGoingCardActionModel.swift in Sources */,
 				D6B8EE93255CA98E00F1F21E /* GlobalProperties.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
 				D67F32EF257E751A0086F75E /* UIView.swift in Sources */,
@@ -708,6 +707,7 @@
 				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
 				D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */,
 				D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */,
+				D698936325A8BC8000228637 /* DevCollectionViewCell.swift in Sources */,
 				D6F8C958259B659C00DE967A /* LocationTableViewCell.swift in Sources */,
 				D6F8C93E259B628100DE967A /* LoginModel.swift in Sources */,
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
