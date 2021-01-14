@@ -8,8 +8,27 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Alamofire
 
 class MypageViewModel {
+    
+    let disposeBag = DisposeBag()
+    
+    struct Input {
+        let userinfo: Driver<String>
+    }
+    
+    struct Output {
+        let userName: Driver<String>
+        let userNum: Driver<String>
+        let userStatus: Driver<String>
+        let userImg: Driver<UIImage>
+        
+    }
+    
+    func transform(_ input: Input) -> Output {
+        
+    }
     
 }
