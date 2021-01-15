@@ -16,6 +16,7 @@
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
+		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA5083257F40640003F87D /* CustomeShadowView.swift */; };
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
@@ -95,6 +96,7 @@
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
+		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
+		478B988925B1D5FB002167EC /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				478B988A25B1D609002167EC /* MypageModel.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
 		479DB1292502522C009A8B08 = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +281,7 @@
 		D67F330A257E76310086F75E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				478B988925B1D5FB002167EC /* Mypage */,
 				D6F8C944259B639600DE967A /* Schedule */,
 				D6F8C940259B62AE00DE967A /* Login */,
 				D6B3A3FF25838E4B005C36E6 /* OutGoing */,
@@ -692,6 +703,7 @@
 				D67F32DB257E74B90086F75E /* UICell.swift in Sources */,
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
+				478B988B25B1D609002167EC /* MypageModel.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
