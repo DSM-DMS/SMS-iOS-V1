@@ -14,8 +14,8 @@ struct MypageModel {
     let message: String
     let grage: Int
     let group: Int
-    let studentNumber: Int
+    let student_number: Int
     let name: String
     let phone_number: String
-    let profileUri: String
+    let profile_uri: String
 }
