@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MypageModel {
+struct MypageModel: Codable {
     let status: Int
     let code: Int
     let message: String
