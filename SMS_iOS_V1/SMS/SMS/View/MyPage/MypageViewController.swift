@@ -27,14 +27,18 @@ class MypageViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
     
     func bind() {
         
-        viewModel.mypageData.subscribe { model in
-            
+        viewModel.mypageData.subscribe { [self] data in
+            let model = try? MypageModel(from: data as! Decoder)
+            nameLabel.text = model!.name
+            numberLabel.text = String(model!.student_number)
+            statusLabel.text = String(model!.status)
         }
-        
+        .disposed(by: disposeBag)
     }
     
 }
