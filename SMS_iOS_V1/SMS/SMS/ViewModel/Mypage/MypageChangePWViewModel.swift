@@ -24,7 +24,17 @@ class MypageChangePWViewModel {
     }
     
     func transform(_ input: Input) -> Output {
-        
+        let pwChangeResponse = input.changeButtonDrver.asObservable()
+            .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldDriver.asObservable(), input.newPWTextFieldDriver.asObservable(), input.confirmPWTextFieldDriver.asObservable()))
+            .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty}
+//            .filter { !$0.1 == !$0.2 }
+            .map { (currentPW, newPW) -> SMSAPI in
+                return SMSAPI.pwChange(currentPW, newPW)
+            }.flatmap { request -> Observable<mypagePWChangeModel> in
+                SMSAPIClient.shared.networking(from: request)
+                
+            }
+        return Output(result: pwChangeResponse)
         
     }
 }
