@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,33 @@
                 <outletCollection property="mondayLabels" destination="0PW-kH-fdb" collectionClass="NSMutableArray" id="gA5-bE-4mU"/>
                 <outletCollection property="mondayLabels" destination="ytY-e2-Ouj" collectionClass="NSMutableArray" id="C6g-u5-XCH"/>
                 <outletCollection property="mondayLabels" destination="VWf-g9-Ffm" collectionClass="NSMutableArray" id="P7a-FZ-8c6"/>
+                <outletCollection property="tuesdayLabels" destination="CST-In-Yc5" collectionClass="NSMutableArray" id="zdb-Q7-Nrf"/>
+                <outletCollection property="tuesdayLabels" destination="2K9-jB-fik" collectionClass="NSMutableArray" id="gBN-Mo-gMb"/>
+                <outletCollection property="tuesdayLabels" destination="NjN-MG-9k3" collectionClass="NSMutableArray" id="Abc-Wn-OWq"/>
+                <outletCollection property="tuesdayLabels" destination="syn-F7-8p3" collectionClass="NSMutableArray" id="LH6-Bc-nli"/>
+                <outletCollection property="tuesdayLabels" destination="Y1h-qH-gEM" collectionClass="NSMutableArray" id="rNN-NV-jUP"/>
+                <outletCollection property="tuesdayLabels" destination="1uS-d9-g1r" collectionClass="NSMutableArray" id="mIa-k4-8YG"/>
+                <outletCollection property="tuesdayLabels" destination="sfB-13-9zD" collectionClass="NSMutableArray" id="7Pq-EN-B4b"/>
+                <outletCollection property="wedsLabels" destination="AtL-RX-3da" collectionClass="NSMutableArray" id="SzY-a5-Rlr"/>
+                <outletCollection property="wedsLabels" destination="SkL-yl-qSO" collectionClass="NSMutableArray" id="SlO-5w-Hww"/>
+                <outletCollection property="wedsLabels" destination="brv-QL-OYI" collectionClass="NSMutableArray" id="szk-uI-Gao"/>
+                <outletCollection property="wedsLabels" destination="yIW-uo-N7X" collectionClass="NSMutableArray" id="MD5-fY-AaI"/>
+                <outletCollection property="wedsLabels" destination="5et-56-cbg" collectionClass="NSMutableArray" id="d5C-UI-Tqs"/>
+                <outletCollection property="wedsLabels" destination="9dU-kd-Fug" collectionClass="NSMutableArray" id="gJ9-SP-CA9"/>
+                <outletCollection property="wedsLabels" destination="OOa-Cg-dce" collectionClass="NSMutableArray" id="yfl-Ih-8vD"/>
+                <outletCollection property="thirsdayLabels" destination="6e6-R9-ROz" collectionClass="NSMutableArray" id="ctT-dJ-6O4"/>
+                <outletCollection property="thirsdayLabels" destination="cDG-xk-kdL" collectionClass="NSMutableArray" id="0ID-em-KWT"/>
+                <outletCollection property="thirsdayLabels" destination="AtV-3s-gnS" collectionClass="NSMutableArray" id="4qR-zx-AbB"/>
+                <outletCollection property="thirsdayLabels" destination="22U-UM-h0a" collectionClass="NSMutableArray" id="TYt-Qp-O2L"/>
+                <outletCollection property="thirsdayLabels" destination="3vX-rW-ngD" collectionClass="NSMutableArray" id="KlX-nX-sNE"/>
+                <outletCollection property="thirsdayLabels" destination="djR-0T-Pa9" collectionClass="NSMutableArray" id="Vfv-hR-lc5"/>
+                <outletCollection property="thirsdayLabels" destination="AFs-Ci-U45" collectionClass="NSMutableArray" id="dxP-J8-QI1"/>
+                <outletCollection property="fridayLabels" destination="ZEN-4e-t8T" collectionClass="NSMutableArray" id="Q9k-dH-bm1"/>
+                <outletCollection property="fridayLabels" destination="x61-So-iS4" collectionClass="NSMutableArray" id="6ui-Xx-2ls"/>
+                <outletCollection property="fridayLabels" destination="LUq-8a-2gz" collectionClass="NSMutableArray" id="4sk-m6-J36"/>
+                <outletCollection property="fridayLabels" destination="CRm-rO-sxU" collectionClass="NSMutableArray" id="EUp-mp-AST"/>
+                <outletCollection property="fridayLabels" destination="VE1-aw-Xsl" collectionClass="NSMutableArray" id="ceu-OG-7DC"/>
+                <outletCollection property="fridayLabels" destination="rTG-2w-7jo" collectionClass="NSMutableArray" id="5RI-MW-Oen"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
