@@ -27,9 +27,9 @@ class MypageChangePWViewModel {
         let pwChangeResponse = input.changeButtonDrver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldDriver.asObservable(), input.newPWTextFieldDriver.asObservable(), input.confirmPWTextFieldDriver.asObservable()))
             .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty}
-//            .filter { !$0.1 == !$0.2 }
-            .map { (currentPW, newPW) -> SMSAPI in
-                return SMSAPI.pwChange(currentPW, newPW)
+            .map { currentPW, changePW, confirmPW -> SMSAPI in
+                guard changePW == confirmPW else { return }
+                return SMSAPI.pwChange(currentPW, changePW)
             }.flatmap { request -> Observable<mypagePWChangeModel> in
                 SMSAPIClient.shared.networking(from: request)
                 

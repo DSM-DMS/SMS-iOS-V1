@@ -17,6 +17,8 @@
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
 		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
+		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
+		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA5083257F40640003F87D /* CustomeShadowView.swift */; };
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
@@ -97,6 +99,8 @@
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
 		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
+		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
+		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4728354A25A5D3E800EA211B /* MypageViewModel.swift */,
+				478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				478B988A25B1D609002167EC /* MypageModel.swift */,
+				478B989025B9A09F002167EC /* MypagePWChangeModel.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -692,6 +698,7 @@
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
+				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
 				D67F3320257E76480086F75E /* ViewModelType.swift in Sources */,
@@ -729,6 +736,7 @@
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
 				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
 				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
+				478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */,
 				D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */,
 				D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */,
 				4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */,
