@@ -30,7 +30,7 @@ class MypageChangePWViewModel {
             .map { currentPW, changePW, confirmPW -> SMSAPI in
                 guard changePW == confirmPW else { return }
                 return SMSAPI.pwChange(currentPW, changePW)
-            }.flatmap { request -> Observable<mypagePWChangeModel> in
+            }.flatMap { request -> Observable<mypagePWChangeModel> in
                 SMSAPIClient.shared.networking(from: request)
                 
             }
