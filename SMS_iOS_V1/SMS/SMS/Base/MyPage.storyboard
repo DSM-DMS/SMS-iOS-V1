@@ -693,6 +693,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="applyButton" destination="Phm-8g-TTa" id="eQn-qr-Clf"/>
+                        <outlet property="confirmPWTextField" destination="QJy-BJ-lxN" id="17K-Hk-vsD"/>
+                        <outlet property="currentPWTextField" destination="lu0-uv-X6l" id="ICG-7U-2rG"/>
+                        <outlet property="newPWTextField" destination="xjd-8s-kos" id="lFp-Ny-ctU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C37-S4-uXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
