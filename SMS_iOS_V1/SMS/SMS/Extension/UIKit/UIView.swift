@@ -29,4 +29,12 @@ extension UIView {
         animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         self.layer.add(animation, forKey: "position")
     }
+    
+    func backgroundColorForDarkMode(_ color: UIColor? = nil) -> UIColor {
+        if self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
+            return color ?? .black
+        } else {
+            return color ?? .white
+        }
+    }
 }
