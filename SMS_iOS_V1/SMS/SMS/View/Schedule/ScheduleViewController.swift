@@ -6,14 +6,17 @@ import JTAppleCalendar
 
 class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    
     var b = true
-    var schedules: [Schedules]? = []
+    var preEvent: [asd] = []
     
     var date: Date = Date() {
         didSet(oldValue) {
             getSchedule()
         }
     }
+    
+    lazy var schedules: [Schedules]? = []
     
     weak var coordinator: ScheduleCoordinator?
     
@@ -42,19 +45,28 @@ class ScheduleViewController: UIViewController, Storyboarded {
 
 //MARK- extension
 extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
+    
+    /// 셀 register 및 캘린더 시작
+    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DayCell.NibName, for: indexPath) as! DayCell
+        self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
+        return cell
+    }
+    
     /// 셀 초기화를 위한 함수
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        handleCellHidden(cell: cell as! DayCell, cellState: cellState)
-//        let cells = a!.cell()!
-        if schedules!.count == 0 { return }
-        for i in 0...schedules!.count - 1 {
-            let start: Date = unix(with: (schedules![i].startTime - 32400) / 1000)
+        var cell = cell as! DayCell
+        let myDate = date + 32400
+        
+        for i in 0..<schedules!.count {
+            let start: Date = unix(with: (schedules![i].startTime / 1000) - 32400)
             let end: Date = unix(with: schedules![i].endTime / 1000)
-            
-            if calendar.generateDateRange(from: start, to: end).contains(Date(timeInterval: 32400, since: cellState.date)) {
-                handleEvent(cell, start, end, schedules![i].uuid)
+//            print(myDate)
+            if calendar.generateDateRange(from: start, to: end).contains(myDate) {
+                cell = handleEvent(cell, schedules![i].uuid, myDate)
             }
         }
+        handleCellHidden(cell: cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) { // 그 날짜에 맞는 옵저버해서 뭐 하던지 -> 포문을 돌려서 스타트  6 7 8
@@ -65,13 +77,6 @@ extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource
     /// 스크롤 후 변경되는 날짜에 따른 날짜 변경을 위한 메소드
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         self.date = visibleDates.monthDates[0].date
-    }
-    
-    /// 셀 register 및 캘린더 시작
-    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DayCell.NibName, for: indexPath) as! DayCell
-        self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
-        return cell
     }
     
     /// 시작날짜와 끝날짜를 정하는 메소드
@@ -98,33 +103,43 @@ extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource
     }
     
     /// 이벤트 처리를 위한 메소드
-    func handleEvent(_ todayCell: JTACDayCell, _ from: Date, _ to: Date, _ uuid: String) {
-//        calendar.generateDateRange(from: from, to: to)
-        
-//        let prevDayCell = prevCell as! DayCell
-        let todayDayCell = todayCell as! DayCell
-        
-        todayDayCell.event1View.isHidden = false
-        
-        if todayDayCell.cellState[0] == 0 {
-            
-            todayDayCell.cellState[0] = 1
-            return
-        } else if todayDayCell.cellState[1] == 0 {
-            todayDayCell.event2View.isHidden = false
-            todayDayCell.cellState[1] = 1
-            return
-        } else {
-            todayDayCell.event3View.isHidden = false
-            todayDayCell.cellState[2] = 1
-            return
+    func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date) -> DayCell {
+        todayCell.cellEvent.append(asd(uuid: uuid, date: date))
+        print(preEvent)
+        for eventCnt in 0..<todayCell.cellEvent.count { // 1
+                for yesterEventCnt in 0..<preEvent.count { // 1
+                    if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
+                        todayCell.event1View.isHidden = false
+                    } else if todayCell.cellEvent[eventCnt].uuid == preEvent[yesterEventCnt].uuid {
+                        switch yesterEventCnt {
+                        case 0:
+                            todayCell.event1View.isHidden = false
+                        case 1:
+                            todayCell.event2View.isHidden = false
+                        default:
+                            todayCell.event3View.isHidden = false
+                        }
+                    } else if todayCell.event2View.isHidden {
+                        todayCell.event2View.isHidden = false
+                    } else {
+                        todayCell.event3View.isHidden = false
+                    }
+                }
+            }
+        preEvent = todayCell.cellEvent // 1
+        return todayCell
         }
         
         
-//        전날의 이벤트 카운트 수만큼 어찌저찌 하면 됨
-//       오늘 이벤트 카운트, 전날의 이벤트 카운트 수, 각 층마다 이벤트 uuid가 같은지 체크
         
-    }
+        
+        //       1. 오늘 이벤트 카운트
+        //       2. 전날의 이벤트 카운트 수
+        //       3. 각 층마다 이벤트 uuid가 같은지 체크
+        //       3-1. 만약 같다면 똑같은 자리에다 긋기
+        //       3-2. 같지 않다면 그냥 오늘 날짜에 맞게 긋기 (자리 알아서)
+        
+    
 }
 
 extension ScheduleViewController {
@@ -198,3 +213,11 @@ extension ScheduleViewController {
             }.disposed(by: disposeBag)
     }
 }
+
+extension JTACMonthView {
+    func selectEvents(_ calendar: JTACMonthView, _ dates: [Date]) {
+        //        let cell = calendar.
+        // 내가 원하는건 시작날짜부터 끝나는 날짜까지의 해당되는 셀
+    }
+}
+
