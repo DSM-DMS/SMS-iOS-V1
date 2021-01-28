@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -74,6 +75,7 @@
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="trailing" constant="10" id="vg0-12-gOb"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <connections>
                 <outlet property="addressLbl" destination="uqQ-aX-03i" id="Ofd-2e-1pz"/>
                 <outlet property="roadAddressLbl" destination="MMa-xg-Qs5" id="cki-ad-fu3"/>
@@ -81,4 +83,9 @@
             <point key="canvasLocation" x="-541" y="-129"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
