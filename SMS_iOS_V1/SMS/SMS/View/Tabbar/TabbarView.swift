@@ -20,7 +20,7 @@ class TabbarView: UIView {
     var oldSelectedRow:Int = 0
     var indicatorViewLeadingConstraint:NSLayoutConstraint!
     var indicatorViewWidthConstraint: NSLayoutConstraint!
-
+    
     var imageNames:[Tabbar] = [
         Tabbar(imageName: "calendar", isSelected: true),
         Tabbar(imageName: "outgoing"),
@@ -34,7 +34,7 @@ class TabbarView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         setupCustomTabBar()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -51,12 +51,12 @@ class TabbarView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
         collectionView.register(CustomCell.self)
         collectionView.layer.masksToBounds = false
         collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.backgroundColor = backgroundColorForDarkMode(UIColor(named: "TabbarColor"))
         collectionView.addShadow(offset: CGSize(width: 0, height: -2.5),
                                  color: .gray,
                                  shadowRadius: 2,
