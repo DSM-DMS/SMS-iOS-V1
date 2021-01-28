@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 class TimeScheduleXib: UIView {
-    var cnt = 0
+    
     let disposeBag = DisposeBag()
     lazy var mondayCompo = Calendar.current.dateComponents([.year, .month, .day], from: getMonday(myDate: Date()))
     
@@ -33,6 +33,8 @@ class TimeScheduleXib: UIView {
     }
     
     func getTimeTable() {
+        var cnt = 0
+        
         Observable
             .range(start: mondayCompo.day!, count: 5)
             .flatMap { day -> Observable<TimeTableModel> in
@@ -41,16 +43,16 @@ class TimeScheduleXib: UIView {
                 let dayArr = [self.mondayLabels, self.tuesdayLabels, self.wedsLabels, self.thirsdayLabels, self.fridayLabels]
                 var arr: [String?]
                
-                if self.cnt == 4 {
+                if cnt == 4 {
                     arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6]
                 } else {
                     arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6, model.time7]
                 }
                 
                 for i in 0..<arr.count {
-                    dayArr[self.cnt]![i].text = arr[i]
+                    dayArr[cnt]![i].text = arr[i]
                 }
-                self.cnt += 1
+                cnt += 1
             }.disposed(by: disposeBag)
     }
 }
