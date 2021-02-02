@@ -13,7 +13,7 @@ import RxCocoa
 class MypageLogoutViewModel {
     
     func Logout() {
-        UserDefaults.standard.setValue(" ", forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "token")
     }
     
 }
