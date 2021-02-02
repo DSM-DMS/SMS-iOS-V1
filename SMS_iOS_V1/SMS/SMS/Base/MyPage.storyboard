@@ -271,6 +271,11 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="LXw-dO-UgU" id="jEF-Dj-evs"/>
+                        <outlet property="numberLabel" destination="VO1-4Y-HX7" id="yKq-HB-9yT"/>
+                        <outlet property="statusLabel" destination="rxI-fH-3AB" id="bx5-HS-2AU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcD-vm-aw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -421,6 +426,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3KX-8H-Idu"/>
                     <connections>
+                        <outlet property="LogoutButton" destination="s99-IT-vxu" id="B1Q-wI-54E"/>
                         <outlet property="backgroundView" destination="ldq-tu-09x" id="TVh-F6-Ieo"/>
                     </connections>
                 </viewController>
@@ -688,6 +694,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="applyButton" destination="Phm-8g-TTa" id="eQn-qr-Clf"/>
+                        <outlet property="confirmPWTextField" destination="QJy-BJ-lxN" id="17K-Hk-vsD"/>
+                        <outlet property="currentPWTextField" destination="lu0-uv-X6l" id="ICG-7U-2rG"/>
+                        <outlet property="newPWTextField" destination="xjd-8s-kos" id="lFp-Ny-ctU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C37-S4-uXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

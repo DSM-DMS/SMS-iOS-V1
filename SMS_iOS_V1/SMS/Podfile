@@ -17,7 +17,7 @@ pod 'RxFlow'
 pod 'LayoutHelper'
 pod 'RNCryptor', '~> 5.0'
 pod 'JTAppleCalendar'
-pod 'SkyFloatingLabelTextField'
+pod 'SkyFloatingLabelTextField', '~> 3.0'
 pod 'KeychainSwift', '~> 19.0'
 
 end

@@ -11,9 +11,15 @@
 		47131020250253C000ED348C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Login.storyboard */; };
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
+		4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */; };
+		4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354A25A5D3E800EA211B /* MypageViewModel.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
+		4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */; };
+		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
+		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
+		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA5083257F40640003F87D /* CustomeShadowView.swift */; };
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
@@ -88,9 +94,15 @@
 		4713101F250253C000ED348C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
+		4728354A25A5D3E800EA211B /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
+		4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewModel.swift; sourceTree = "<group>"; };
+		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
+		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
+		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +206,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4728354925A5D3D800EA211B /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				4728354A25A5D3E800EA211B /* MypageViewModel.swift */,
+				478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */,
+				4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		478B988925B1D5FB002167EC /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				478B988A25B1D609002167EC /* MypageModel.swift */,
+				478B989025B9A09F002167EC /* MypagePWChangeModel.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
 		479DB1292502522C009A8B08 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +290,7 @@
 		D67F330A257E76310086F75E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				478B988925B1D5FB002167EC /* Mypage */,
 				D6F8C944259B639600DE967A /* Schedule */,
 				D6F8C940259B62AE00DE967A /* Login */,
 				D6B3A3FF25838E4B005C36E6 /* OutGoing */,
@@ -269,6 +301,7 @@
 		D67F330E257E76480086F75E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4728354925A5D3D800EA211B /* Mypage */,
 				D67F3317257E76480086F75E /* ViewModelType.swift */,
 				D67F330F257E76480086F75E /* Schedule */,
 				D67F3311257E76480086F75E /* OutGoing */,
@@ -423,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				D62D8C132518D9B200548FBF /* CalendarCollectionViewCell.swift */,
+				4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */,
 				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
 				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
 				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
@@ -667,6 +701,7 @@
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
+				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
 				D67F3320257E76480086F75E /* ViewModelType.swift in Sources */,
@@ -678,6 +713,7 @@
 				D67F32DB257E74B90086F75E /* UICell.swift in Sources */,
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
+				478B988B25B1D609002167EC /* MypageModel.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
@@ -690,6 +726,7 @@
 				D6F8C942259B638100DE967A /* ScheduleModel.swift in Sources */,
 				47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */,
 				D6F8C94A259B647F00DE967A /* OutLocationModel.swift in Sources */,
+				4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */,
 				D67F32F9257E75890086F75E /* StoryBoardName.swift in Sources */,
 				D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */,
 				D67F3307257E76140086F75E /* StatusCode.swift in Sources */,
@@ -702,13 +739,16 @@
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
 				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
 				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
+				478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */,
 				D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */,
 				D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */,
+				4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */,
 				D6F8C958259B659C00DE967A /* LocationTableViewCell.swift in Sources */,
 				D6F8C93E259B628100DE967A /* LoginModel.swift in Sources */,
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
 				D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */,
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
+				4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */,
 				D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */,
 				D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */,
 			);
