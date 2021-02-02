@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F26A321F30138437FC03D69FB018CC0A"
-               BuildableName = "SimpleCheckbox.framework"
-               BlueprintName = "SimpleCheckbox"
+               BlueprintIdentifier = "421B6ABF460857FE6CA2905EFB5A4F74"
+               BuildableName = "JTAppleCalendar.framework"
+               BlueprintName = "JTAppleCalendar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

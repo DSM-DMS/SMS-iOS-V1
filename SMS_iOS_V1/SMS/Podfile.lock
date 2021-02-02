@@ -25,7 +25,7 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
-  - SkyFloatingLabelTextField (4.0.0)
+  - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
   - FSCalendar
@@ -39,7 +39,7 @@ DEPENDENCIES:
   - RxFlow
   - RxOptional
   - RxSwift
-  - SkyFloatingLabelTextField
+  - SkyFloatingLabelTextField (~> 3.0)
 
 SPEC REPOS:
   trunk:
@@ -72,8 +72,8 @@ SPEC CHECKSUMS:
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: cd9903c33aa2e35890ea532e1b14e6df58eadefd
+PODFILE CHECKSUM: 72a372f66268fc9f961cc97d4cc3282a30bf0e33
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
