@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import KeychainSwift
 
 class MypageChangePWViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
@@ -35,6 +36,10 @@ extension MypageChangePWViewController {
         output.result.subscribe { model in
             if model.status == 200 || model.code == 200 {
                 print("패스워드 변경 완료")
+                let keychain = KeychainSwift()
+                keychain.delete("ID")
+                keychain.delete("PW")
+                NSLog("Keychain Deleted")
             }
         } onError: {_ in
             fatalError("비밀번호 변경 실패")
