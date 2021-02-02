@@ -426,6 +426,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3KX-8H-Idu"/>
                     <connections>
+                        <outlet property="LogoutButton" destination="s99-IT-vxu" id="B1Q-wI-54E"/>
                         <outlet property="backgroundView" destination="ldq-tu-09x" id="TVh-F6-Ieo"/>
                     </connections>
                 </viewController>

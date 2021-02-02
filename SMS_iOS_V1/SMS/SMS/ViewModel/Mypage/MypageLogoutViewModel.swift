@@ -9,8 +9,11 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import KeychainSwift
 
 class MypageLogoutViewModel {
+    
+    func Logout() {
+        UserDefaults.standard.setValue(" ", forKey: "token")
+    }
     
 }
