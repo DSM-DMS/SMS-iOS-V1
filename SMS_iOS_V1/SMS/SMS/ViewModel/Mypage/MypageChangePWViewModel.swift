@@ -28,7 +28,8 @@ class MypageChangePWViewModel {
             .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldDriver.asObservable(), input.newPWTextFieldDriver.asObservable(), input.confirmPWTextFieldDriver.asObservable()))
             .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty}
             .map { currentPW, changePW, confirmPW -> SMSAPI in
-                guard changePW == confirmPW else { return }
+                guard (changePW == confirmPW) else {
+                    fatalError("비밀번호가 일치하지 않습니다.") }
                 return SMSAPI.pwChange(currentPW, changePW)
             }.flatMap { request -> Observable<mypagePWChangeModel> in
                 SMSAPIClient.shared.networking(from: request)

@@ -10,6 +10,8 @@ import Foundation
 
 struct mypagePWChangeModel: Codable {
     
+    let status: Int
+    let code: Int
     let current_pw: String
     let revision_pw: String
     

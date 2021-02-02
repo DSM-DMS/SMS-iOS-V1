@@ -23,11 +23,22 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
 }
 extension MypageChangePWViewController {
     func bind() {
+        let input = MypageChangePWViewModel.Input.init(currentPWTextFieldDriver: currentPWTextField.rx.text.orEmpty.asDriver(), newPWTextFieldDriver: newPWTextField.rx.text.orEmpty.asDriver(), confirmPWTextFieldDriver: confirmPWTextField.rx.text.orEmpty.asDriver(), changeButtonDrver: applyButton.rx.tap.asDriver())
         
+        let output = viewModel.transform(input)
+        
+        output.result.subscribe { model in
+            if model.status == 200 || model.code == 200 {
+                print("패스워드 변경 완료")
+            }
+        } onError: {_ in
+            fatalError("비밀번호 변경 실패")
+        }.disposed(by: disposeBag)
         
     }
     
