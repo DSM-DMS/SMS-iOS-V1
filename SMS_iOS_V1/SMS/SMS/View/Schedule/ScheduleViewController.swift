@@ -2,41 +2,49 @@ import UIKit
 
 import RxSwift
 import RxCocoa
-import JTAppleCalendar
+import FSCalendar
 
 class ScheduleViewController: UIViewController, Storyboarded {
+    var value = false
+    weak var coordinator: ScheduleCoordinator?
     let disposeBag = DisposeBag()
-
-    var b = true
-    var preEvent: [asd] = []
-
-    var date: Date = Date() {
+    private lazy var schedules: [Schedules]? = []
+    private var preDict: [Date: [ScheduleData]] = [:]
+    
+    private var date: Date = Date() {
         didSet(oldValue) {
             getSchedule()
         }
     }
-
-    lazy var schedules: [Schedules]? = []
-
-    weak var coordinator: ScheduleCoordinator?
-
-    @IBOutlet weak var calendarView: UIView!
-    @IBOutlet weak var monthLbl: UILabel!
-    @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var previousBtn: UIButton!
-    @IBOutlet weak var calendar: JTACMonthView!
+    
     @IBOutlet weak var changeViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var timeScheduleView: TimeScheduleXib!
-    @IBOutlet weak var headerView: UIView!
-
+    
+    lazy var previousBtn: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "left"), for: .normal)
+        button.frame = CGRect(x: calendarView.frame.midX - calendarView.frame.midX / 2, y: calendarView.frame.minY + 4, width: 8, height: 14)
+        return button
+    }()
+    
+    lazy var nextBtn: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "right"), for: .normal)
+        button.frame = CGRect(x: calendarView.frame.midX + calendarView.frame.midX / 2, y: calendarView.frame.minY + 4, width: 8, height: 14)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableViewSetting()
         self.calendarSetting()
+        self.tableViewSetting()
         bindAction()
+        bindUI()
+        getSchedule()
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         coordinator?.disappear()
@@ -44,107 +52,35 @@ class ScheduleViewController: UIViewController, Storyboarded {
 }
 
 //MARK- extension
-extension ScheduleViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
-
-    /// 셀 register 및 캘린더 시작
-    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DayCell.NibName, for: indexPath) as! DayCell
-        self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
-        return cell
-    }
-
-    /// 셀 초기화를 위한 함수
-    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        var cell = cell as! DayCell
-        let myDate = date + 32400
-
-        for i in 0..<schedules!.count {
-            let start: Date = unix(with: (schedules![i].startTime / 1000) - 32400)
-            let end: Date = unix(with: schedules![i].endTime / 1000)
-//            print(myDate)
-            if calendar.generateDateRange(from: start, to: end).contains(myDate) {
-                cell = handleEvent(cell, schedules![i].uuid, myDate)
-            }
-        }
-        handleCellHidden(cell: cell, cellState: cellState)
-    }
-
-    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) { // 그 날짜에 맞는 옵저버해서 뭐 하던지 -> 포문을 돌려서 스타트  6 7 8
-
-
-    }
-
-    /// 스크롤 후 변경되는 날짜에 따른 날짜 변경을 위한 메소드
-    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        self.date = visibleDates.monthDates[0].date
-    }
-
-    /// 시작날짜와 끝날짜를 정하는 메소드
-    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        let startDate = globalDateFormatter(.untilDay, "2020-01-01")
-        let endDate = globalDateFormatter(.untilDay, "2030-01-01")
-
-        return ConfigurationParameters(startDate: startDate, endDate: endDate)
-    }
-
-    /// 달력 헤더의 날짜와 셀들의 날짜, 셀들의 isHidden을 담당하는 메소드
-    func handleCellHidden(cell: DayCell, cellState: CellState) {
-        cell.dateLbl.text = cellState.text
-
-        calendar.visibleDates { visibledate in
-            self.monthLbl.text = globalDateFormatter(.month, visibledate.monthDates.first!.date)
-        }
-
-        if cellState.dateBelongsTo != .thisMonth {
-            cell.isHidden = true
-        } else {
-            cell.isHidden = false
-        }
-    }
-
-    /// 이벤트 처리를 위한 메소드
-    func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date) -> DayCell {
-        todayCell.cellEvent.append(asd(uuid: uuid, date: date))
-        print(preEvent)
-        for eventCnt in 0..<todayCell.cellEvent.count { // 1
-                for yesterEventCnt in 0..<preEvent.count { // 1
-                    if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
-                        todayCell.event1View.isHidden = false
-                    } else if todayCell.cellEvent[eventCnt].uuid == preEvent[yesterEventCnt].uuid {
-                        switch yesterEventCnt {
-                        case 0:
-                            todayCell.event1View.isHidden = false
-                        case 1:
-                            todayCell.event2View.isHidden = false
-                        default:
-                            todayCell.event3View.isHidden = false
-                        }
-                    } else if todayCell.event2View.isHidden {
-                        todayCell.event2View.isHidden = false
-                    } else {
-                        todayCell.event3View.isHidden = false
-                    }
-                }
-            }
-        preEvent = todayCell.cellEvent // 1
-        return todayCell
-        }
-
-
-
-
-        //       1. 오늘 이벤트 카운트
-        //       2. 전날의 이벤트 카운트 수
-        //       3. 각 층마다 이벤트 uuid가 같은지 체크
-        //       3-1. 만약 같다면 똑같은 자리에다 긋기
-        //       3-2. 같지 않다면 그냥 오늘 날짜에 맞게 긋기 (자리 알아서)
-
-
-}
-
 extension ScheduleViewController {
-    /// 프로퍼티에 있는 날짜에 맞게 통신을 담당하는 메소드
-    func getSchedule() {
+    private func bindUI() {
+        self.view.addSubviews([previousBtn, nextBtn])
+        previousBtn.layer.zPosition = 1
+        nextBtn.layer.zPosition = 1
+    }
+    
+    private func bindAction() {
+        previousBtn.rx.tap
+            .bind { _ in
+                self.date = Calendar.current.date(byAdding: .month, value: -1, to: self.calendarView.currentPage)!
+                self.calendarView.setCurrentPage(self.date, animated: true)
+            }.disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                self.date = Calendar.current.date(byAdding: .month, value: +1, to: self.calendarView.currentPage)!
+                self.calendarView.setCurrentPage(self.date, animated: true)
+            }.disposed(by: disposeBag)
+        
+        changeViewBtn.rx.tap
+            .bind { _ in
+                self.value.toggle()
+                self.changeHidden(value: self.value)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func getSchedule() {
         Observable.just(globalDateFormatter(.month, self.date))
             .map { dateIntArr($0) }
             .debounce(.seconds(2), scheduler: MainScheduler.instance)
@@ -152,19 +88,11 @@ extension ScheduleViewController {
                 return SMSAPIClient.shared.networking(from: .schedules(arr[0], arr[1]))
             }.bind { schedules in
                 self.schedules = schedules.schedules
+                self.calendarView.reloadData()
             }.disposed(by: disposeBag)
     }
-
-    private func calendarSetting() {
-        calendar.scrollingMode = .stopAtEachCalendarFrame
-        calendar.scrollDirection = .horizontal
-        calendar.scrollToDate(Date())
-        calendar.minimumInteritemSpacing =  0
-        calendar.minimumLineSpacing = 0
-    }
-
+    
     private func tableViewSetting() {
-        timeScheduleView.isHidden = true
         tableView.register(ScheduleCell.self)
         tableView.separatorStyle = .none
         tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
@@ -175,49 +103,140 @@ extension ScheduleViewController {
                             opacity: 0.5,
                             cornerRadius: 17)
     }
-
-    private func changeHidden(_ value: Bool) {
-        tableView.isHidden = value
-        timeScheduleView.isHidden = !value
-        calendarView.isHidden = value
-        headerView.isHidden = value
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // 어떻게 쓸지 고민
+        cell.layer.masksToBounds = true
+        let count = 2
+        if count == 2 {
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        } else if indexPath.row == 1 {
+            cell.layer.cornerRadius = 17
+            cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        }
     }
-
-    /// 전 달인지 다음 달인지 확인 후 날짜 변경 및 달력 스크롤
-    func previousOrNext(_ value: Bool) {
-        var dateInterval: TimeInterval
-        var segenmet: SegmentDestination
-        dateInterval = value ? -2529000 : 2529000
-        segenmet = value ? .previous : .next
-        self.date = Date(timeInterval: dateInterval, since: self.date)
-        self.calendar.scrollToSegment(segenmet)
+    
+    private func calendarSetting() {
+        calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
+        calendarView.appearance.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
+        calendarView.today = nil
+        calendarView.placeholderType = .none
+        timeScheduleView.isHidden = true
+        calendarView.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
+        calendarView.appearance.headerDateFormat = formType.month.rawValue
+        calendarView.register(DayCell.self, forCellReuseIdentifier: DayCell.NibName)
+        calendarView.delegate = self
+        calendarView.dataSource = self
+    }
+    
+    private func changeHidden(value: Bool) {
+        previousBtn.isHidden = !value
+        nextBtn.isHidden = !value
+        calendarView.isHidden = !value
+        tableView.isHidden = !value
+        timeScheduleView.isHidden = value
+    }
+    
+    public func generateDateRange(from startDate: Date, to endDate: Date) -> [Date] {
+        let calendar = Calendar.current
+        if startDate > endDate { return [] }
+        var returnDates: [Date] = []
+        var currentDate = startDate
+        repeat {
+            returnDates.append(currentDate + 32400)
+            currentDate = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: currentDate)!)
+        } while currentDate <= endDate
+        return returnDates
     }
 }
 
-extension ScheduleViewController {
-    private func bindAction() {
-        previousBtn.rx.tap
-            .bind { _ in
-                self.previousOrNext(true)
-            }.disposed(by: disposeBag)
-
-        nextBtn.rx.tap
-            .bind { _ in
-                self.previousOrNext(false)
-            }.disposed(by: disposeBag)
-
-        changeViewBtn.rx.tap
-            .bind { _ in
-                self.changeHidden(self.b)
-                self.b.toggle()
+extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        for i in 0..<schedules!.count {
+            let start: Date = unix(with: (schedules![i].startTime / 1000) - 32400)
+            let end: Date = unix(with: schedules![i].endTime / 1000)
+            print(generateDateRange(from: start, to: end))
+            print(date + 32400)
+            if generateDateRange(from: start, to: end).contains(date + 32400) {
+                cell = handleEvent(cell as! DayCell , schedules![i].uuid, date + 32400, schedules![i].detail)
+            }
+        }
+        
+        //    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        //        // 짝수의 눌림때마다 2번눌러야 풀림 -> 해결해야함
+        //        if firstDate == nil {
+        //            firstDate = date
+        //        } else {
+        //            calendar.deselect(firstDate!)
+        //            firstDate = nil
+        //        }
+        //        self.configureVisibleCells()
+        //    }
+    }
+    
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
+        return cell
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        self.date = calendar.currentPage
+    }
+    
+    private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String) -> DayCell {
+        let preEvent = preDict[date - 86400] ?? []
+        
+        if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
+            todayCell.event1View.isHidden = false
+            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail))
+            preDict.updateValue(todayCell.cellEvent, forKey: date)
+            return todayCell
+        }
+        
+        for eventCnt in 0..<todayCell.cellEvent.count {
+            for yesterEventCnt in 0..<preEvent.count {
+                
+            }
+        }
+    
+    
+//    else if todayCell.cellEvent[eventCnt].uuid == preEvent[yesterEventCnt].uuid {
+//        switch yesterEventCnt {
+//        case 0:
+//            todayCell.event1View.isHidden = false
+//        case 1:
+//            todayCell.event2View.isHidden = false
+//        default:
+//            todayCell.event3View.isHidden = false
+//        }
+        todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail))
+        preDict.updateValue(todayCell.cellEvent, forKey: date)
+        return todayCell
+        
+        //        1. 오늘 이벤트 카운트
+        //    //       2. 전날의 이벤트 카운트 수
+        //    //       3. 각 층마다 이벤트 uuid가 같은지 체크
+        //    //       3-1. 만약 같다면 똑같은 자리에다 긋기
+        //    //       3-2. 같지 않다면 그냥 오늘 날짜에 맞게 긋기 (자리 알아서)
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        Observable.just(preDict[date] ?? [])
+            .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
+                cell.scheduleDateLbl.text = "\(schedule.date)"
+                cell.scheduleInfoLbl.text = schedule.detail
+                switch idx {
+                case 1:
+                    cell.scheduleColorView.backgroundColor = .customPurple
+                case 2:
+                    cell.scheduleColorView.backgroundColor = .customRed
+                default:
+                    cell.scheduleColorView.backgroundColor = .customYellow
+                }
             }.disposed(by: disposeBag)
     }
 }
 
-extension JTACMonthView {
-    func selectEvents(_ calendar: JTACMonthView, _ dates: [Date]) {
-        //        let cell = calendar.
-        // 내가 원하는건 시작날짜부터 끝나는 날짜까지의 해당되는 셀
-    }
-}
 
