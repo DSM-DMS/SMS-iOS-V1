@@ -13,7 +13,6 @@ import Alamofire
 
 class MypageViewModel {
     
-    let disposeBag = DisposeBag()
     
     let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: SMSAPI.myInfo) 
     
