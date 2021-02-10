@@ -187,55 +187,48 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String) -> DayCell {
         let preEvent = preDict[date - 86400] ?? []
         
-        if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
-            todayCell.event1View.isHidden = false
+        for _ in 0..<todayCell.cellEvent.count {
+            for yesterEventCnt in 0..<preEvent.count {
+                if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
+                    todayCell.event1View.isHidden = false
+                } else if uuid == preEvent[yesterEventCnt].uuid {
+                    switch yesterEventCnt {
+                    case 0:
+                        todayCell.event1View.isHidden = false
+                    case 1:
+                        todayCell.event2View.isHidden = false
+                    default:
+                        todayCell.event3View.isHidden = false
+                    }
+                } else if todayCell.event1View.isHidden {
+                    todayCell.event1View.isHidden = false
+                } else if todayCell.event2View.isHidden {
+                    todayCell.event2View.isHidden = false
+                } else {
+                    todayCell.event3View.isHidden = false
+                }
+            }
+            
             todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail))
             preDict.updateValue(todayCell.cellEvent, forKey: date)
             return todayCell
         }
         
-        for eventCnt in 0..<todayCell.cellEvent.count {
-            for yesterEventCnt in 0..<preEvent.count {
-                
-            }
+        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            Observable.just(preDict[date] ?? [])
+                .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
+                    cell.scheduleDateLbl.text = "\(schedule.date)"
+                    cell.scheduleInfoLbl.text = schedule.detail
+                    switch idx {
+                    case 1:
+                        cell.scheduleColorView.backgroundColor = .customPurple
+                    case 2:
+                        cell.scheduleColorView.backgroundColor = .customRed
+                    default:
+                        cell.scheduleColorView.backgroundColor = .customYellow
+                    }
+                }.disposed(by: disposeBag)
         }
-    
-    
-//    else if todayCell.cellEvent[eventCnt].uuid == preEvent[yesterEventCnt].uuid {
-//        switch yesterEventCnt {
-//        case 0:
-//            todayCell.event1View.isHidden = false
-//        case 1:
-//            todayCell.event2View.isHidden = false
-//        default:
-//            todayCell.event3View.isHidden = false
-//        }
-        todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail))
-        preDict.updateValue(todayCell.cellEvent, forKey: date)
-        return todayCell
-        
-        //        1. 오늘 이벤트 카운트
-        //    //       2. 전날의 이벤트 카운트 수
-        //    //       3. 각 층마다 이벤트 uuid가 같은지 체크
-        //    //       3-1. 만약 같다면 똑같은 자리에다 긋기
-        //    //       3-2. 같지 않다면 그냥 오늘 날짜에 맞게 긋기 (자리 알아서)
-        
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        Observable.just(preDict[date] ?? [])
-            .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
-                cell.scheduleDateLbl.text = "\(schedule.date)"
-                cell.scheduleInfoLbl.text = schedule.detail
-                switch idx {
-                case 1:
-                    cell.scheduleColorView.backgroundColor = .customPurple
-                case 2:
-                    cell.scheduleColorView.backgroundColor = .customRed
-                default:
-                    cell.scheduleColorView.backgroundColor = .customYellow
-                }
-            }.disposed(by: disposeBag)
     }
 }
 
