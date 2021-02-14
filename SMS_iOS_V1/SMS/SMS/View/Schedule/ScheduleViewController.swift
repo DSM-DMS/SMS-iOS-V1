@@ -159,7 +159,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
             print(generateDateRange(from: start, to: end))
             print(date + 32400)
             if generateDateRange(from: start, to: end).contains(date + 32400) {
-                cell = handleEvent(cell as! DayCell , schedules![i].uuid, date + 32400, schedules![i].detail)
+                handleEvent(cell as! DayCell , schedules![i].uuid, date + 32400, schedules![i].detail)
             }
         }
         

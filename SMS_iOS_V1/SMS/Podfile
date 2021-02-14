@@ -15,9 +15,9 @@ pod 'RxOptional'
 pod 'RxFlow'
 pod 'LayoutHelper'
 pod 'RNCryptor', '~> 5.0'
-pod 'JTAppleCalendar'
 pod 'SkyFloatingLabelTextField'
 pod 'KeychainSwift', '~> 19.0'
 pod 'FSCalendar' 
+pod 'RxDataSources'
 
 end
