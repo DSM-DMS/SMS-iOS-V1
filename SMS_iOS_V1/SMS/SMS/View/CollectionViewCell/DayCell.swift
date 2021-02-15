@@ -1,13 +1,9 @@
 import UIKit
 
-import JTAppleCalendar
+import FSCalendar
 
-class DayCell: JTACDayCell {
-    
-    @IBOutlet weak var event3View: UIView!
-    @IBOutlet weak var event2View: UIView!
-    @IBOutlet weak var event1View: UIView!
-    @IBOutlet weak var dateLbl: UILabel!
+class DayCell: FSCalendarCell {
+    var cellEvent: [ScheduleData] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,29 +13,29 @@ class DayCell: JTACDayCell {
         super.init(coder: aDecoder)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        autoLayout()
+    func hiddenAll() {
+        event1View.isHidden = true
+        event2View.isHidden = true
+        event3View.isHidden = true
     }
     
-    func autoLayout() {
-        dateLbl.translatesAutoresizingMaskIntoConstraints = false
-        event1View.translatesAutoresizingMaskIntoConstraints = false
-        event2View.translatesAutoresizingMaskIntoConstraints = false
-        event3View.translatesAutoresizingMaskIntoConstraints = false
+    func todaySet(_ date: Date, _ detail: String) -> [ScheduleData] {
+        var detailArr: [String] = []
+        var newSchedule: [ScheduleData] = []
+        cellEvent.forEach { (data) in
+            if !detailArr.contains(detail) {
+                newSchedule.append(data)
+                detailArr.append(data.detail)
+            }
+        }
         
-        NSLayoutConstraint.activate([
-            dateLbl.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -5),
-            dateLbl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            event1View.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3),
-            event1View.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            event1View.topAnchor.constraint(equalTo: dateLbl.bottomAnchor, constant: 3.5),
-            event2View.leadingAnchor.constraint(equalTo: event1View.leadingAnchor),
-            event2View.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            event2View.topAnchor.constraint(equalTo: event1View.bottomAnchor, constant: 3),
-            event3View.topAnchor.constraint(equalTo: event2View.bottomAnchor, constant: 3),
-            event3View.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            event3View.leadingAnchor.constraint(equalTo: event2View.leadingAnchor)
-        ])
+        cellEvent = newSchedule
+        
+        newSchedule.forEach { (data) in
+            if data.date != date {
+                cellEvent.remove(at: cellEvent.firstIndex(of: data)!)
+            }
+        }
+        return cellEvent.unique
     }
 }
