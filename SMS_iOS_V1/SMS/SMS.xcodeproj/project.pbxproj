@@ -38,6 +38,8 @@
 		D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */; };
 		D630C8F82586E1C900BD07C3 /* UnixStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630C8F72586E1C900BD07C3 /* UnixStamp.swift */; };
 		D630C8FB2587761600BD07C3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630C8FA2587761600BD07C3 /* Storyboarded.swift */; };
+		D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FA25DAE0F800032F34 /* ScheduleData.swift */; };
+		D66049FE25DAE12B00032F34 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FD25DAE12B00032F34 /* Array.swift */; };
 		D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1A0252A0A09007F0253 /* TabbarViewController.swift */; };
 		D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1B3252A0A1D007F0253 /* PageCell.swift */; };
 		D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1BA252A0A1D007F0253 /* TabbarView.swift */; };
@@ -120,6 +122,8 @@
 		D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingNoticeViewController.swift; sourceTree = "<group>"; };
 		D630C8F72586E1C900BD07C3 /* UnixStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixStamp.swift; sourceTree = "<group>"; };
 		D630C8FA2587761600BD07C3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		D66049FA25DAE0F800032F34 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		D66049FD25DAE12B00032F34 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		D664E1A0252A0A09007F0253 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		D664E1B3252A0A1D007F0253 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		D664E1BA252A0A1D007F0253 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				D67F32F8257E75890086F75E /* StoryBoardName.swift */,
+				D66049FD25DAE12B00032F34 /* Array.swift */,
 				D630C8FA2587761600BD07C3 /* Storyboarded.swift */,
 				D6B8EE84255CA95100F1F21E /* UIKit */,
 			);
@@ -489,6 +494,7 @@
 			children = (
 				D6B9EE0925A57C54006D66EC /* TimeTableModel.swift */,
 				D6F8C941259B638100DE967A /* ScheduleModel.swift */,
+				D66049FA25DAE0F800032F34 /* ScheduleData.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -715,6 +721,8 @@
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
 				D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */,
 				D664E1C3252A0A1D007F0253 /* TabbarView.swift in Sources */,
+				D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */,
+				D66049FE25DAE12B00032F34 /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,7 +860,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DohyunKim.SMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -871,7 +879,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DohyunKim.SMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
