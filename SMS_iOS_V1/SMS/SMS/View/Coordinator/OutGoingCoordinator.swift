@@ -9,7 +9,8 @@
 import UIKit
 
 class OutGoingCoordinator: Coordinator {
-    weak var parentCoordinator: TabbarCoordinator? 
+    weak var parentCoordinator: TabbarCoordinator?
+    var delegate: dismissBarProtocol?
     var children = [Coordinator]()
     var nav: UINavigationController
     
@@ -29,9 +30,21 @@ class OutGoingCoordinator: Coordinator {
     }
     
     func disappear() {
-        parentCoordinator?.parentCoordinator?.disappear(self)
+        parentCoordinator?.disappear(self)
     }
     
+    func pop() {
+        nav.popViewController(animated: true)
+    }
+    
+    func dismissBar() {
+        delegate?.dismissBar(true)
+    }
+    
+    func stopDismiss() {
+        delegate?.dismissBar(false)
+    }
+ 
     func outGoingApply() {
         let vc = OutGoingApplyViewController.instantiate(storyboardName: .outGoingApply)
         vc.coordinator = self
@@ -56,8 +69,8 @@ class OutGoingCoordinator: Coordinator {
         nav.pushViewController(vc, animated: true)
     }
     
-    func popUp() {
-        let vc = OutGoingPopDeedViewController.instantiate(storyboardName: .outGoingPopUp)
+    func outGoingCompleted() {
+        let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
         vc.coordinator = self
         nav.pushViewController(vc, animated: true)
     }

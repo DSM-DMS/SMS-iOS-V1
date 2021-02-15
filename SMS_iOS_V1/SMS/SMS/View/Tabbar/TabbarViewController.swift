@@ -1,13 +1,20 @@
 import UIKit
+import os
+
+protocol dismissBarProtocol {
+    func dismissBar(_ value: Bool)
+}
 
 class TabbarViewController: UIViewController, Storyboarded {
     weak var coordinator: TabbarCoordinator?
-    lazy var vcArr:[Coordinator] = [scheduleCoordinator, outGoingCoordinator, noticeCoordinator, myPageCoordinator]
+    var pageCollectionHeightConstraint: NSLayoutConstraint!
     
     let scheduleCoordinator = ScheduleCoordinator(nav: UINavigationController())
     let outGoingCoordinator = OutGoingCoordinator(nav: UINavigationController())
     let noticeCoordinator = NoticeCoordinator(nav: UINavigationController())
     let myPageCoordinator = MyPageCoordinator(nav: UINavigationController())
+    
+    lazy var vcArr: [Coordinator] = [scheduleCoordinator, outGoingCoordinator, noticeCoordinator, myPageCoordinator]
     
     lazy var pageCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -25,41 +32,61 @@ class TabbarViewController: UIViewController, Storyboarded {
     
     var tabbar = TabbarView()
     
+    var tabbarHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomTabBar()
         setupPageCollectionView()
+        outGoingCoordinator.delegate = self
+        noticeCoordinator.delegate = self
+        myPageCoordinator.delegate = self
     }
-    
+}
+
+extension TabbarViewController {
     func setupCustomTabBar(){
         self.view.addSubviews([tabbar,pageCollectionView])
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
         tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tabbar.heightAnchor.constraint(equalToConstant: self.view.frame.height / 10).isActive = true
+        tabbar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tabbar.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 800).isActive = true
+        self.tabbarHeightConstraint = tabbar.heightAnchor.constraint(equalToConstant: view.frame.height / 10)
+        self.tabbarHeightConstraint.isActive = true
         tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
         tabbar.delegate = self
-    }
-    
-    func tabbarView(scrollTo index: Int) {
-        let indexPath = IndexPath(row: index, section: 0)
-        self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     func setupPageCollectionView(){
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        pageCollectionView.bottomAnchor.constraint(equalTo: tabbar.topAnchor, constant: -5).isActive = true
+        pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10 + 2))
+        pageCollectionHeightConstraint.isActive = true
+        pageCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  view.frame.height - tabbar.frame.height)
     }
 }
 
-extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource, TabbarViewDelegate {
+extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
+    func tabbarView(scrollTo index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    func dismissBar(_ value: Bool) {
+        pageCollectionView.isScrollEnabled = !value
+        pageCollectionView.isPagingEnabled = !value
+        tabbarHeightConstraint.constant = !value ? view.frame.height / 10 : 0
+        pageCollectionHeightConstraint.constant = !value ? view.frame.height - (view.frame.height / 10 + 2) : view.frame.height
+        !value ? setupPageCollectionView() : print(1)
+    }
+}
+
+extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].nav.view!
-        vcArr[indexPath.row].nav.setNavigationBarHidden(true, animated: false)
         vcView.frame = cell.contentView.bounds
         cell.contentView.addSubview(vcView)
         vcArr[indexPath.row].start()

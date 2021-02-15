@@ -9,6 +9,7 @@
 import UIKit
 
 class MyPageCoordinator: Coordinator {
+    var delegate: dismissBarProtocol?
     weak var parentCoordinator: TabbarCoordinator?
     var children = [Coordinator]()
     var nav: UINavigationController
@@ -20,11 +21,20 @@ class MyPageCoordinator: Coordinator {
     func start() {
         let vc = MypageViewController.instantiate(storyboardName: .myPageMain)
         vc.coordinator = self
+        nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
     }
     
     func disappear() {
-        parentCoordinator?.parentCoordinator?.disappear(self)
+        parentCoordinator?.disappear(self)
+    }
+    
+    func dismissBar() {
+        delegate?.dismissBar(true)
+    }
+    
+    func stopDismiss() {
+        delegate?.dismissBar(false)
     }
     
     func introduce() {

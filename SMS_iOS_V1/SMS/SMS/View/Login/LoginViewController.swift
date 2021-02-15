@@ -33,6 +33,22 @@ extension LoginViewController {
     func bind() {
         let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
         
+        let output = viewModel.transform(input)
+        
+        output.result.subscribe { model in
+            if model.status == 200 || model.code == 200 {
+                UserDefaults.standard.setValue(model.access_token!, forKey: "token")
+                UserDefaults.standard.setValue(model
+                                                .student_uuid!, forKey: "uuid")
+                self.coordinator?.tabbar()
+            } else {
+                self.loginButton.shake()
+            }
+        } onError: { _ in
+            self.loginButton.shake()
+        }.disposed(by: disposeBag)
+        
+        // 리팩토링 할 수 있지 않을까
         autoLoginCheckBox.rx.tap
             .bind { _ in
                 self.autoLoginCheckBox.isSelected.toggle()

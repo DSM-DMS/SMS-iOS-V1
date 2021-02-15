@@ -12,9 +12,11 @@ class TabbarCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var children = [Coordinator]()
     var nav: UINavigationController
+    var a = false
     
     init(nav: UINavigationController) {
         self.nav = nav
+        
     }
     
     func start() {
@@ -24,8 +26,14 @@ class TabbarCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
-    func disappear() {
-        parentCoordinator?.disappear(self)
+    func disappear(_ child: Coordinator?) {
+        for (idx, coordinator) in
+            children.enumerated() {
+            if coordinator === child {
+                children.remove(at: idx)
+                break
+            }
+        }
     }
     
     func outGoingMain() {
