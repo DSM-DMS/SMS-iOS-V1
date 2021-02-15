@@ -18,6 +18,5 @@ pod 'RNCryptor', '~> 5.0'
 pod 'SkyFloatingLabelTextField'
 pod 'KeychainSwift', '~> 19.0'
 pod 'FSCalendar' 
-pod 'RxDataSources'
 
 end
