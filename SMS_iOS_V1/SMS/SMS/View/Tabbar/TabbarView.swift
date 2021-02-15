@@ -57,6 +57,15 @@ class TabbarView: UIView {
         return collectionView
     }()
     
+    lazy var stackView: UIStackView = {
+        let stackV = UIStackView(arrangedSubviews: [customTabBarCollectionView, indicatorView])
+        stackV.translatesAutoresizingMaskIntoConstraints = false
+        stackV.axis = .horizontal
+        stackV.spacing = 0
+        stackV.distribution = .fillEqually
+        return stackV
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = false
@@ -77,21 +86,25 @@ class TabbarView: UIView {
     }
     
     func setupCustomCollectionView() {
-        customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        //        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.height).isActive = true
-        customTabBarCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+//        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        //        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.height).isActive = true
+//        customTabBarCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     func setupCustomTabBar(){
-        self.addSubviews([customTabBarCollectionView, indicatorView])
-        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
-        indicatorViewWidthConstraint.isActive = true
-        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        indicatorViewLeadingConstraint.isActive = true
-        indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        self.addSubviews([customTabBarCollectionView, indicatorView, stackView])
+//        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
+//        indicatorViewWidthConstraint.isActive = true
+//        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+//        indicatorViewLeadingConstraint.isActive = true
+//        indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         //        indicatorView.topAnchor.constraint(equalTo: self.customTabBarCollectionView.bottomAnchor).isActive = true
     }
     

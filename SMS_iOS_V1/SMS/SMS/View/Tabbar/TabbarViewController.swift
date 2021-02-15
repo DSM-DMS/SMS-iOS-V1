@@ -59,7 +59,6 @@ extension TabbarViewController {
     }
     
     func setupPageCollectionView(){
-        
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
