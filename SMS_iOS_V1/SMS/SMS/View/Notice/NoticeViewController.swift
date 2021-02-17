@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class NoticeViewController: UIViewController, Storyboarded {
     weak var coordinator: NoticeCoordinator?
     
+    let viewModel = NoticeViewModel()
+    let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var searchTextField: UIView!
     @IBOutlet weak var noticeTableView: UITableView!
-    @IBOutlet weak var searchTxtField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,4 +28,19 @@ class NoticeViewController: UIViewController, Storyboarded {
         coordinator?.disappear()
     }
     
+}
+extension NoticeViewController {
+    
+    func bind() {
+        viewModel.noticeData.subscribe { data in
+            data.element?.
+//            if data.element?.status == 200 || data.element?.code == 200 {
+//
+//                noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)
+//
+//
+//            }
+            
+        }.disposed(by: disposeBag)
+    }
 }
