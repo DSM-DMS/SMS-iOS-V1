@@ -29,17 +29,10 @@ class NoticeCoordinator: Coordinator {
         parentCoordinator?.disappear(self)
     }
     
-    func dismissBar() {
-        delegate?.dismissBar(true)
-    }
-    
-    func stopDismiss() {
-        delegate?.dismissBar(false)
-    }
-    
     func detailNotice() {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: false)
     }
 }

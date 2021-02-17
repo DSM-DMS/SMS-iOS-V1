@@ -27,51 +27,38 @@ class OutGoingCoordinator: Coordinator {
     
     func pop() {
         self.nav.popViewController(animated: true)
+        delegate?.dismissBar(false)
     }
     
     func disappear() {
         parentCoordinator?.disappear(self)
     }
-    
-    func pop() {
-        nav.popViewController(animated: true)
-    }
-    
-    func dismissBar() {
-        delegate?.dismissBar(true)
-    }
-    
-    func stopDismiss() {
-        delegate?.dismissBar(false)
-    }
  
     func outGoingApply() {
         let vc = OutGoingApplyViewController.instantiate(storyboardName: .outGoingApply)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: true)
     }
     
     func outGoingLog() {
         let vc = OutGoingLogViewController.instantiate(storyboardName: .outGoingLog)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: true)
     }
     
     func noticeOutGoing() {
         let vc = OutGoingNoticeViewController.instantiate(storyboardName: .outGoingNotice)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: true)
     }
     
     func outGoingCompleted() {
         let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
         vc.coordinator = self
-        nav.pushViewController(vc, animated: true)
-    }
-    
-    func outGoingCompleted() {
-        let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
-        vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: true)
     }
 }
