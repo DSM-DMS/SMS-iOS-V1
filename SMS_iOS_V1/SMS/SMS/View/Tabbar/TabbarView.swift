@@ -57,15 +57,6 @@ class TabbarView: UIView {
         return collectionView
     }()
     
-    lazy var stackView: UIStackView = {
-        let stackV = UIStackView(arrangedSubviews: [customTabBarCollectionView, indicatorView])
-        stackV.translatesAutoresizingMaskIntoConstraints = false
-        stackV.axis = .horizontal
-        stackV.spacing = 0
-        stackV.distribution = .fillEqually
-        return stackV
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = false
@@ -86,26 +77,21 @@ class TabbarView: UIView {
     }
     
     func setupCustomCollectionView() {
-//        customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-//        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        //        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.height).isActive = true
-//        customTabBarCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.height).isActive = true
     }
     
     func setupCustomTabBar(){
-        self.addSubviews([customTabBarCollectionView, indicatorView, stackView])
-//        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
-//        indicatorViewWidthConstraint.isActive = true
-//        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-//        indicatorViewLeadingConstraint.isActive = true
-//        indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        //        indicatorView.topAnchor.constraint(equalTo: self.customTabBarCollectionView.bottomAnchor).isActive = true
+        self.addSubviews([customTabBarCollectionView, indicatorView])
+        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 8)
+        indicatorViewWidthConstraint.isActive = true
+        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        indicatorViewLeadingConstraint.isActive = true
+        indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        indicatorView.topAnchor.constraint(equalTo: self.customTabBarCollectionView.bottomAnchor).isActive = true
     }
     
     func setSelectedItem(index: Int) -> Void {
@@ -129,7 +115,7 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width / 4, height: self.frame.height)
+        return CGSize(width: self.frame.width / 4, height: self.frame.height - 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -149,6 +135,6 @@ extension TabbarView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
     }
 }

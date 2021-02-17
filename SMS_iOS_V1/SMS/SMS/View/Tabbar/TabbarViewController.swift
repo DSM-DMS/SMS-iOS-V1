@@ -1,5 +1,4 @@
 import UIKit
-import os
 
 protocol dismissBarProtocol {
     func dismissBar(_ value: Bool)
@@ -30,32 +29,50 @@ class TabbarViewController: UIViewController, Storyboarded {
         return collectionView
     }()
     
+    var stackView = UIStackView()
+    
     var tabbar = TabbarView()
     
     var tabbarHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCustomTabBar()
+        setupStackView()
         setupPageCollectionView()
         outGoingCoordinator.delegate = self
         noticeCoordinator.delegate = self
         myPageCoordinator.delegate = self
+        setNeedsUpdateOfHomeIndicatorAutoHidden()
+    }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
     }
 }
 
 extension TabbarViewController {
+    func setupStackView() {
+        self.view.addSubview(stackView)
+        stackView.addArrangedSubview(tabbar)
+        stackView.axis = .vertical
+        stackView.spacing = .zero
+        stackView.alignment = .fill
+        setupCustomTabBar()
+    }
+    
     func setupCustomTabBar(){
-        self.view.addSubviews([tabbar,pageCollectionView])
+        self.view.addSubviews([pageCollectionView])
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
-        tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        tabbar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        tabbar.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 800).isActive = true
+        tabbar.indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
         self.tabbarHeightConstraint = tabbar.heightAnchor.constraint(equalToConstant: view.frame.height / 10)
         self.tabbarHeightConstraint.isActive = true
         tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
         tabbar.delegate = self
+        tabbar.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
     func setupPageCollectionView(){
@@ -64,7 +81,6 @@ extension TabbarViewController {
         pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10 + 2))
         pageCollectionHeightConstraint.isActive = true
-        pageCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  view.frame.height - tabbar.frame.height)
     }
 }
 
@@ -75,11 +91,10 @@ extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
     }
     
     func dismissBar(_ value: Bool) {
-        pageCollectionView.isScrollEnabled = !value
-        pageCollectionView.isPagingEnabled = !value
-        tabbarHeightConstraint.constant = !value ? view.frame.height / 10 : 0
-        pageCollectionHeightConstraint.constant = !value ? view.frame.height - (view.frame.height / 10 + 2) : view.frame.height
-        !value ? setupPageCollectionView() : print(1)
+        pageCollectionView.isScrollEnabled = value
+        pageCollectionView.isPagingEnabled = value
+        stackView.isHidden = value
+        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10 + 2)
     }
 }
 
