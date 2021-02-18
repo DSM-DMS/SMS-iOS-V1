@@ -14,6 +14,8 @@ class ScheduleViewController: UIViewController, Storyboarded {
     var date: BehaviorRelay<Date> = BehaviorRelay(value: Date())
     var dateForTable: BehaviorRelay<Date> = BehaviorRelay(value: Date())
     
+    @IBOutlet weak var combindTableView: UIView!
+    @IBOutlet weak var tableUnderView: UIView!
     @IBOutlet weak var changeViewBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -94,11 +96,12 @@ extension ScheduleViewController {
         calendarView.today = nil
         calendarView.delegate = self
         calendarView.dataSource = self
+        calendarView.select(Date())
         nextBtn.layer.zPosition = 1
         previousBtn.layer.zPosition = 1
         self.view.addSubviews([previousBtn, nextBtn])
         calendarView.placeholderType = .none
-        calendarView.appearance.selectionColor = nil
+        calendarView.appearance.selectionColor = .white
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
         calendarView.appearance.titleSelectionColor = UIColor.black
         calendarView.appearance.headerDateFormat = formType.month.rawValue
@@ -134,18 +137,18 @@ extension ScheduleViewController {
     }
     
     func ascEvent() -> [Int] {
-        var a: [(Date, Int)] = []
+        var arrForEvent: [(Date, Int)] = []
         for i in 0..<schedules!.count {
             let start: Date = unix(with: (schedules![i].startTime / 1000) - 32400)
-            a.append((start, i))
+            arrForEvent.append((start, i))
         }
-        a.sort(by: <)
-        var d: [Int] = []
+        arrForEvent.sort(by: <)
+        var sortedIndex: [Int] = []
         for i in 0..<schedules!.count {
-            d.append(a[i].1)
+            sortedIndex.append(arrForEvent[i].1)
         }
         
-        return d
+        return sortedIndex
     }
 }
 
@@ -153,7 +156,7 @@ extension ScheduleViewController: UITableViewDelegate {
     private func tableViewBind() {
         self.dateForTable.map { self.preDict[$0 + 32400] ?? [] }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
-                cell.scheduleDateLbl.text = "\(schedule.date)"
+                cell.scheduleDateLbl.text = schedule.detailDate
                 cell.scheduleInfoLbl.text = schedule.detail
                 switch schedule.place {
                 case 1:
@@ -170,18 +173,17 @@ extension ScheduleViewController: UITableViewDelegate {
         tableView.delegate = self
         tableView.register(ScheduleCell.self)
         tableView.separatorStyle = .none
-        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tableUnderView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tableUnderView.layer.cornerRadius = 20
+        combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
-        tableView.addShadow(offset: CGSize(width: 0, height: 3),
-                            color: .black,
-                            shadowRadius: 3,
-                            opacity: 0.5,
-                            cornerRadius: 17)
+        combindTableView.addShadow(offset: CGSize(width: 0, height: 2), color: .gray, shadowRadius: 4, opacity: 1, cornerRadius: 10)
     }
 }
 
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        date.accept(calendar.currentPage)
         getSchedule()
     }
     
@@ -193,60 +195,73 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         for i in 0..<cnt {
             let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
             let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
+            let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
+            
             
             if generateDateRange(from: start, to: end).contains(date + 32400) {
-                handleEvent(cell as! DayCell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, position)
+                handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
             }
+            cell.contentView.layer.shadowOpacity = 0
         }
         return cell
     }
     
-    private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String, _ monthPostion: FSCalendarMonthPosition) -> FSCalendarCell {
-        
-        // 그날 이벤트를 내가 이미 해뒀다면 미리 처리 해야함
-        //        if todayCell.todaySet(dat, <#T##detail: String##String#>)
-        
+    private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String, _ dateDetail: String) -> FSCalendarCell {
         let preEvent = preDict[date - 86400] ?? []
-        print(date)
         
         if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
             dispatchViewHidden(todayCell.event1View)
-            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, place: 1))
-            preDict.updateValue(todayCell.todaySet(date, detail), forKey: date)
+            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
+            preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
             return todayCell
         }
         
-        var a: Int = 0
+        var eventPlace: Int = 0
+        let todayEvent = preDict[date] ?? []
+        
+        if todayEvent.contains(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1)) {
+            dispatchViewHidden(todayCell.event1View)
+            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
+            preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
+            return todayCell
+        }
         
         for yesterEventCnt in 0..<preEvent.count {
             if uuid == preEvent[yesterEventCnt].uuid {
+                // 이어주기
                 switch preEvent[yesterEventCnt].place {
                 case 1:
                     dispatchViewHidden(todayCell.event1View)
-                    a = 1
+                    eventPlace = 1
                 case 2:
                     dispatchViewHidden(todayCell.event2View)
-                    a = 2
+                    eventPlace = 2
                 case 3:
                     dispatchViewHidden(todayCell.event3View)
-                    a = 3
+                    eventPlace = 3
+                case 4:
+                    dispatchViewHidden(todayCell.event3View)
+                    eventPlace = 4
                 default: break
                 }
             } else {
                 if todayCell.cellEvent.count == 0 && preEvent.count == 0 {
                     dispatchViewHidden(todayCell.event1View)
-                    a = 1
+                    eventPlace = 1
                 } else if todayCell.cellEvent.count == 1 && preEvent.count == 1{
                     dispatchViewHidden(todayCell.event2View)
-                    a = 2
+                    eventPlace = 2
                 } else if todayCell.cellEvent.count == 2 && preEvent.count == 2 {
                     dispatchViewHidden(todayCell.event3View)
-                    a = 3
+                    eventPlace = 3
+                } else if todayCell.cellEvent.count == 3 && preEvent.count == 4 {
+                    dispatchViewHidden(todayCell.event3View)
+                    eventPlace = 4
                 }
             }
         }
-        todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, place: a))
-        preDict.updateValue(todayCell.todaySet(date, detail), forKey: date)
+        todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: eventPlace))
+        preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
         return todayCell
     }
     
@@ -267,6 +282,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     //        cell!.contentView.layer.masksToBounds = false
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        calendar.cell(for: date, at: monthPosition)!.contentView.layer.shadowOpacity = 0
+        calendar.cell(for: date, at: monthPosition)?.contentView.layer.shadowOpacity = 0
     }
 }

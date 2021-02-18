@@ -12,5 +12,6 @@ struct ScheduleData: Hashable, Equatable {
     let uuid: String
     let date: Date
     let detail: String
+    let detailDate: String
     let place: Int
 }
