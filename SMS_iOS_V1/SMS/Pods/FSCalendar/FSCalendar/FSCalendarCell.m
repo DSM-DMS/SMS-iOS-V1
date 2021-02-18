@@ -20,8 +20,7 @@
 @property (readonly, nonatomic) UIColor *colorForCellBorder;
 @property (readonly, nonatomic) NSArray<UIColor *> *colorsForEvents;
 @property (readonly, nonatomic) CGFloat borderRadius;
-- (void)autoLayoutForEventView;
-
+@property(nonatomic, getter=isSelected) BOOL selected;
 
 @end
 
@@ -89,23 +88,20 @@
     
     self.clipsToBounds = NO;
     self.contentView.clipsToBounds = NO;
-    
 }
-
-
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-        _titleLabel.frame = CGRectMake(
-                                       self.contentView.center.x - 10.25,
-                                       self.contentView.center.y - 13.25,
-                                       20.5,
-                                       20.5
-                                       );
+    _titleLabel.frame = CGRectMake(
+                                   self.contentView.frame.size.width / 2 - 10.25,
+                                   self.contentView.frame.size.height / 2 - 13.25,
+                                   20.5,
+                                   20.5
+                                   );
     _event1View.frame = CGRectMake(
                                    self.contentView.center.x,
-                                   _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 3,
+                                   _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 1,
                                    self.contentView.frame.size.width - 6,
                                    1.5);
     [_event1View.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:3].active = true;
@@ -114,12 +110,12 @@
     [_event1View.heightAnchor constraintEqualToConstant: 1.5].active = true;
     
     [_event2View.leadingAnchor constraintEqualToAnchor:self.event1View.leadingAnchor].active = true;
-    [_event2View.topAnchor constraintEqualToAnchor:_event1View.bottomAnchor constant:3].active = true;
+    [_event2View.topAnchor constraintEqualToAnchor:_event1View.bottomAnchor constant:2.5].active = true;
     [_event2View.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = true;
     [_event2View.heightAnchor constraintEqualToConstant: 1.5].active = true;
     
     [_event3View.leadingAnchor constraintEqualToAnchor:_event2View.leadingAnchor].active = true;
-    [_event3View.topAnchor constraintEqualToAnchor:_event2View.bottomAnchor constant:3].active = true;
+    [_event3View.topAnchor constraintEqualToAnchor:_event2View.bottomAnchor constant:2.5].active = true;
     [_event3View.centerXAnchor constraintEqualToAnchor:_event2View.centerXAnchor].active = true;
     [_event3View.heightAnchor constraintEqualToConstant: 1.5].active = true;
     
@@ -153,7 +149,7 @@
 - (void)performSelecting
 {
     _shapeLayer.opacity = 1;
-        
+    
     CAAnimationGroup *group = [CAAnimationGroup animation];
     CABasicAnimation *zoomOut = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     zoomOut.fromValue = @0.3;
@@ -286,16 +282,16 @@
 \
 - (void)set##CAPITAL:(CGPoint)NAME \
 { \
-    BOOL diff = !CGPointEqualToPoint(NAME, self.NAME); \
-    _##NAME = NAME; \
-    if (diff) { \
-        [self setNeedsLayout]; \
-    } \
+BOOL diff = !CGPointEqualToPoint(NAME, self.NAME); \
+_##NAME = NAME; \
+if (diff) { \
+[self setNeedsLayout]; \
+} \
 } \
 \
 - (CGPoint)NAME \
 { \
-    return CGPointEqualToPoint(_##NAME, CGPointInfinity) ? ALTERNATIVE : _##NAME; \
+return CGPointEqualToPoint(_##NAME, CGPointInfinity) ? ALTERNATIVE : _##NAME; \
 }
 
 OFFSET_PROPERTY(preferredTitleOffset, PreferredTitleOffset, _appearance.titleOffset);
@@ -332,6 +328,3 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
 - (void)configureAppearance {}
 
 @end
-
-
-
