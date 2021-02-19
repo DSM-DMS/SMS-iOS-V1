@@ -20,6 +20,14 @@ func unix(with dateStr: String) -> Int {
     return Int(date!.timeIntervalSince1970)
 }
 
+func unix(with unixInt: Int) -> Date {
+    return Date(timeIntervalSince1970: TimeInterval(unixInt - 32400))
+}
+
+func unix(with unixInt: Int) -> String {
+    return "\(Date(timeIntervalSince1970: TimeInterval(unixInt - 32400)))"
+}
+
 func stringToUnix(with time: String) -> Int {
     let start = time.index(time.startIndex, offsetBy: +5)
     let end = time.index(time.endIndex, offsetBy: -4)
