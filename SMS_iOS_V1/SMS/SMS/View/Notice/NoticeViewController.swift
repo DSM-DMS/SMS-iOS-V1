@@ -21,6 +21,7 @@ class NoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -38,26 +39,27 @@ extension NoticeViewController {
             let title = data.element?.title
             let date = data.element?.date
             let views = data.element?.views
-            let cellElements = [idx!, title!, date!, views!] as [Any]
+            let dataSetArr: [dataSet] = [dataSet.init(idx: idx!, title: title!, date: date!, views: views!)]
             if data.element?.status == 200 || data.element?.code == 200 {
-                Observable.from(optional: cellElements)
+                Observable.repeatElement(dataSetArr)
                     .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)) {_, cellElements, cell in
                         if let celltoUse = cell as? NoticeTableViewCell {
-                            celltoUse.cellNumber.text = cellElements[0]
-                            celltoUse.cellTitle.text = cellElements[1]
-                            celltoUse.cellDate.text = cellElements[2]
-                            celltoUse.cellViews.text = cellElements[3]
+                            celltoUse.cellNumber.text = String(cellElements.idx)
+                            celltoUse.cellTitle.text = cellElements.title
+                            celltoUse.cellDate.text = String(cellElements.date)
+                            celltoUse.cellViews.text = String(cellElements.views)
                         }
-                        
                     }
-                
-//                noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)
-                
-                
             }
             
         }.disposed(by: disposeBag)
-        
     }
+}
+
+struct dataSet {
+    let idx: Int
+    let title: String
+    let date: Int
+    let views: Int
     
 }
