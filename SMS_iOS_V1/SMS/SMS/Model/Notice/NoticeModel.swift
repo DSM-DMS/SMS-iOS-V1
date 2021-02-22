@@ -9,10 +9,14 @@
 import Foundation
 
 struct NoticeModel: Codable {
-    
     let status: Int
-    let code: Int
+    let code: Int?
     let message: String
+    let announcements: [Announcements]?
+    let size: Int?
+}
+
+struct Announcements: Codable {
     let announcement_uuid: String
     let number: Int
     let title: String
@@ -20,6 +24,4 @@ struct NoticeModel: Codable {
     let views: Int
     let writer_name: String
     let is_checked: Int
-    let size: Int
-    
 }

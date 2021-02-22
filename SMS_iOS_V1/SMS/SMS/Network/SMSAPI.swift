@@ -82,7 +82,7 @@ extension SMSAPI {
         case .finishOuting:
             return "/outings/\(uuid)/finish-outing"
         case .lookUpNotice:
-            return "/announcements/types/{type}"
+            return "/announcements/types/school?start=0&count=10"
         case .detailNotice:
             return "/announcements/uuid/\(announcement_uuid)"
         case .timetables(let year, let month, let day):

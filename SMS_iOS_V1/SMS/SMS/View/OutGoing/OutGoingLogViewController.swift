@@ -38,8 +38,8 @@ extension OutGoingLogViewController {
         let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting)
         
         logs.map { ($0.outings ?? []) }.bind(to: tableView.rx.items(cellIdentifier: OutGoingLogTableViewCell.NibName, cellType: OutGoingLogTableViewCell.self)) { idx, log, cell in
-            let startDateComponent = unix(with: log.start_time)
-            let endDateComponent = unix(with: log.end_time)
+            let startDateComponent: DateComponents = unix(with: log.start_time)
+            let endDateComponent:DateComponents = unix(with: log.end_time)
             
             cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
             cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + String(startDateComponent.minute!)

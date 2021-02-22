@@ -49,7 +49,7 @@ extension OutGoingPopDeedViewController {
     }
     
     func bind() {
-        let today = globalDateFormatter(.untilDay, Date())
+        let today: String = globalDateFormatter(.untilDay, Date())
         
         guard let uuid = UserDefaults.standard.value(forKey: "\(today)") as? String else {
             isViewHidden(true)
@@ -60,7 +60,7 @@ extension OutGoingPopDeedViewController {
         
         cardModel.bind { cardData in
             let imageURL = URL(string: cardData.profile_uri)
-            let dateComponent = unix(with: cardData.start_time)
+            let dateComponent: DateComponents = unix(with: cardData.start_time)
             self.dateLbl.text = "\(dateComponent.year!)-\(dateComponent.month!)-\(dateComponent.day!)"
             self.timeLbl.text = "\(dateComponent.hour!):\(dateComponent.minute!)"
             self.nameLbl.text = cardData.name
