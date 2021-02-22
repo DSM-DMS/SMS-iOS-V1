@@ -27,10 +27,8 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
 }
 
 extension NoticeDetailViewController {
-    private func bindAction() {
-//        popVCBtn.rx.tap
-//            .map { self.coordinator?.dis }
-//            .subscribe()
-//            .disposed(by: disposeBag)
+    func bind() {
+        
+        
     }
 }
