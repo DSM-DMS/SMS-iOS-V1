@@ -20,11 +20,9 @@ class NoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-        
-=======
+
         UIbind()
->>>>>>> Notice
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -37,37 +35,37 @@ class NoticeViewController: UIViewController, Storyboarded {
 
 extension NoticeViewController {
     func UIbind() {
-<<<<<<< HEAD
-        viewModel.noticeData.subscribe { [self] data in
-            
-            let idx = data.element?.number
-            let title = data.element?.title
-            let date = data.element?.date
-            let views = data.element?.views
-            let dataSetArr: [dataSet] = [dataSet.init(idx: idx!, title: title!, date: date!, views: views!)]
-            if data.element?.status == 200 || data.element?.code == 200 {
-                Observable.repeatElement(dataSetArr)
-                    .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)) {_, cellElements, cell in
-                        if let celltoUse = cell as? NoticeTableViewCell {
-                            celltoUse.cellNumber.text = String(cellElements.idx)
-                            celltoUse.cellTitle.text = cellElements.title
-                            celltoUse.cellDate.text = String(cellElements.date)
-                            celltoUse.cellViews.text = String(cellElements.views)
-                        }
-                    }
-            }
-            
-        }.disposed(by: disposeBag)
-    }
-}
-
-struct dataSet {
-    let idx: Int
-    let title: String
-    let date: Int
-    let views: Int
-    
-=======
+//<<<<<<< HEAD
+//        viewModel.noticeData.subscribe { [self] data in
+//
+//            let idx = data.element?.number
+//            let title = data.element?.title
+//            let date = data.element?.date
+//            let views = data.element?.views
+//            let dataSetArr: [dataSet] = [dataSet.init(idx: idx!, title: title!, date: date!, views: views!)]
+//            if data.element?.status == 200 || data.element?.code == 200 {
+//                Observable.repeatElement(dataSetArr)
+//                    .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)) {_, cellElements, cell in
+//                        if let celltoUse = cell as? NoticeTableViewCell {
+//                            celltoUse.cellNumber.text = String(cellElements.idx)
+//                            celltoUse.cellTitle.text = cellElements.title
+//                            celltoUse.cellDate.text = String(cellElements.date)
+//                            celltoUse.cellViews.text = String(cellElements.views)
+//                        }
+//                    }
+//            }
+//
+//        }.disposed(by: disposeBag)
+//    }
+//}
+//
+//struct dataSet {
+//    let idx: Int
+//    let title: String
+//    let date: Int
+//    let views: Int
+//
+//=======
         let Notice: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
         
         Notice.subscribe(onNext: { model in
@@ -82,5 +80,5 @@ struct dataSet {
             }
         }).disposed(by: disposeBag)
     }
->>>>>>> Notice
+
 }
