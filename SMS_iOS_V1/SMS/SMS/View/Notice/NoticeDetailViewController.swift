@@ -13,12 +13,16 @@ import RxCocoa
 
 class NoticeDetailViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    let viewModel = NoticeDetailViewModel()
     weak var coordinator: NoticeCoordinator?
     
-    @IBOutlet weak var popVCBtn: UIButton!
-    @IBOutlet weak var viewsLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var dateLbl: UILabel!
+    
+    @IBOutlet weak var noticeTitle: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var views: UILabel!
+    @IBOutlet weak var notice: UITextView!
+    @IBOutlet weak var previousNotice: UIButton!
+    @IBOutlet weak var nextNotice: UIButton!
     
     
     override func viewDidLoad() {
