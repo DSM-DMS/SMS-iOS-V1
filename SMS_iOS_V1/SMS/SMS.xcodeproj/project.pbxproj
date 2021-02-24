@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22354C1F1A56CF2E0D2156E7 /* Pods_SMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6389DA4C65B153958AB64D8F /* Pods_SMS.framework */; };
-		47131020250253C000ED348C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Login.storyboard */; };
+		47131020250253C000ED348C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Auth.storyboard */; };
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
 		4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */; };
@@ -66,6 +66,19 @@
 		D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */; };
 		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
 		D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68BEE5C252C8A6D0008E2EB /* PageCell.xib */; };
+		D696141A25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696140F25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf */; };
+		D696141B25E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141025E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf */; };
+		D696141C25E66E3A00E880D9 /* NotoSansCJKkr-DemiLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141125E66E3A00E880D9 /* NotoSansCJKkr-DemiLight.otf */; };
+		D696141D25E66E3A00E880D9 /* NotoSansCJKkr-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141225E66E3A00E880D9 /* NotoSansCJKkr-Black.otf */; };
+		D696141E25E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141325E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf */; };
+		D696141F25E66E3A00E880D9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = D696141425E66E3A00E880D9 /* README */; };
+		D696142025E66E3A00E880D9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141525E66E3A00E880D9 /* NotoSansCJKkr-Light.otf */; };
+		D696142125E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141625E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf */; };
+		D696142225E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141725E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf */; };
+		D696142325E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D696141825E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf */; };
+		D696142425E66E3A00E880D9 /* LICENSE_OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = D696141925E66E3A00E880D9 /* LICENSE_OFL.txt */; };
+		D696142825E66F8500E880D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696142725E66F8500E880D9 /* RegisterViewController.swift */; };
+		D696142B25E6709E00E880D9 /* CheckCertificationNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696142A25E6709E00E880D9 /* CheckCertificationNumberViewController.swift */; };
 		D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */; };
 		D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */; };
 		D6B3A3DF2582E9D9005C36E6 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */; };
@@ -91,7 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4713101F250253C000ED348C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		4713101F250253C000ED348C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
 		4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +165,19 @@
 		D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68BEE5C252C8A6D0008E2EB /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
+		D696140F25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		D696141025E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		D696141125E66E3A00E880D9 /* NotoSansCJKkr-DemiLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-DemiLight.otf"; sourceTree = "<group>"; };
+		D696141225E66E3A00E880D9 /* NotoSansCJKkr-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Black.otf"; sourceTree = "<group>"; };
+		D696141325E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		D696141425E66E3A00E880D9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		D696141525E66E3A00E880D9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		D696141625E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Thin.otf"; sourceTree = "<group>"; };
+		D696141725E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		D696141825E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		D696141925E66E3A00E880D9 /* LICENSE_OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_OFL.txt; sourceTree = "<group>"; };
+		D696142725E66F8500E880D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D696142A25E6709E00E880D9 /* CheckCertificationNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCertificationNumberViewController.swift; sourceTree = "<group>"; };
 		D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
@@ -198,7 +224,7 @@
 				D6E68931252EDE8A00FA09C1 /* Schedule */,
 				D6E6892E252EDE3000FA09C1 /* CollectionViewCell */,
 				D6E6892F252EDE4600FA09C1 /* TableViewCell */,
-				D6E687AD252DCB1E00FA09C1 /* Login */,
+				D6E687AD252DCB1E00FA09C1 /* Auth */,
 				D6E687AC252DCB1200FA09C1 /* Notice */,
 				D6E687AB252DCAF300FA09C1 /* OutGoing */,
 				D6E687A9252DCAC900FA09C1 /* MyPage */,
@@ -345,6 +371,24 @@
 			path = SMS/Network;
 			sourceTree = SOURCE_ROOT;
 		};
+		D696140E25E66E3A00E880D9 /* NotoSansCJKkr-hinted */ = {
+			isa = PBXGroup;
+			children = (
+				D696140F25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf */,
+				D696141025E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf */,
+				D696141125E66E3A00E880D9 /* NotoSansCJKkr-DemiLight.otf */,
+				D696141225E66E3A00E880D9 /* NotoSansCJKkr-Black.otf */,
+				D696141325E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf */,
+				D696141425E66E3A00E880D9 /* README */,
+				D696141525E66E3A00E880D9 /* NotoSansCJKkr-Light.otf */,
+				D696141625E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf */,
+				D696141725E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf */,
+				D696141825E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf */,
+				D696141925E66E3A00E880D9 /* LICENSE_OFL.txt */,
+			);
+			path = "NotoSansCJKkr-hinted";
+			sourceTree = "<group>";
+		};
 		D6B3A3D42582E995005C36E6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,17 +466,20 @@
 			path = Notice;
 			sourceTree = "<group>";
 		};
-		D6E687AD252DCB1E00FA09C1 /* Login */ = {
+		D6E687AD252DCB1E00FA09C1 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				47131024250255C900ED348C /* LoginViewController.swift */,
+				D696142725E66F8500E880D9 /* RegisterViewController.swift */,
+				D696142A25E6709E00E880D9 /* CheckCertificationNumberViewController.swift */,
 			);
-			path = Login;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D6E687BD252DD9E300FA09C1 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				D696140E25E66E3A00E880D9 /* NotoSansCJKkr-hinted */,
 				D6B8EE8E255CA97200F1F21E /* AppDelegate.swift */,
 				479DB13E2502522E009A8B08 /* Assets.xcassets */,
 			);
@@ -444,7 +491,7 @@
 			children = (
 				D6812860252F182100E9D7CA /* LaunchScreen.storyboard */,
 				D62D8C112518D9B200548FBF /* Schedule.storyboard */,
-				4713101F250253C000ED348C /* Login.storyboard */,
+				4713101F250253C000ED348C /* Auth.storyboard */,
 				477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */,
 				4766CA212510D0170060B330 /* MyPage.storyboard */,
 				4720FE2325119CE300BAE75A /* Notice.storyboard */,
@@ -620,20 +667,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D696141F25E66E3A00E880D9 /* README in Resources */,
+				D696142025E66E3A00E880D9 /* NotoSansCJKkr-Light.otf in Resources */,
 				D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */,
+				D696141E25E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf in Resources */,
 				D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */,
+				D696142325E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf in Resources */,
+				D696141D25E66E3A00E880D9 /* NotoSansCJKkr-Black.otf in Resources */,
 				D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */,
-				47131020250253C000ED348C /* Login.storyboard in Resources */,
+				47131020250253C000ED348C /* Auth.storyboard in Resources */,
 				4766CA222510D0170060B330 /* MyPage.storyboard in Resources */,
 				D6F8C974259C280600DE967A /* OutGoingAlertXib.xib in Resources */,
+				D696141B25E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf in Resources */,
+				D696142225E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf in Resources */,
+				D696141A25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf in Resources */,
 				D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */,
 				4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */,
 				D62D8C1B2518D9B200548FBF /* ScheduleCell.xib in Resources */,
 				D68BEE5D252C8A6D0008E2EB /* PageCell.xib in Resources */,
 				477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */,
 				479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */,
+				D696141C25E66E3A00E880D9 /* NotoSansCJKkr-DemiLight.otf in Resources */,
 				D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */,
 				D62D8C1A2518D9B200548FBF /* Schedule.storyboard in Resources */,
+				D696142425E66E3A00E880D9 /* LICENSE_OFL.txt in Resources */,
+				D696142125E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +772,7 @@
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
 				478B988B25B1D609002167EC /* MypageModel.swift in Sources */,
+				D696142B25E6709E00E880D9 /* CheckCertificationNumberViewController.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
@@ -731,6 +790,7 @@
 				D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */,
 				D67F3307257E76140086F75E /* StatusCode.swift in Sources */,
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
+				D696142825E66F8500E880D9 /* RegisterViewController.swift in Sources */,
 				D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */,
 				D67F32F0257E751A0086F75E /* UIColor.swift in Sources */,
 				D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */,
