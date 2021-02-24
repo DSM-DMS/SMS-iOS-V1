@@ -34,7 +34,7 @@ extension StoryBoardName {
         switch self {
         case .login,
              .tabbar:
-            return "Login"
+            return "Auth"
             
         case .noticeDetail,
              .noticeMain:
