@@ -486,18 +486,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
 
         var titleText: String?
-        if hasErrorMessage {
-            titleText = titleFormatter(errorMessage!)
-        } else {
-            if editingOrSelected {
-                titleText = selectedTitleOrTitlePlaceholder()
-                if titleText == nil {
-                    titleText = titleOrPlaceholder()
-                }
-            } else {
-                titleText = titleOrPlaceholder()
-            }
-        }
+        titleText = selectedTitleOrTitle()
         titleLabel.text = titleText
         titleLabel.font = titleFont
 
@@ -531,10 +520,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
-        let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
-        let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
+        let frame: CGRect = titleLabelRectForBounds(bounds, editing: false)
         let updateBlock = { () -> Void in
-            self.titleLabel.alpha = alpha
+            self.titleLabel.alpha = 1
             self.titleLabel.frame = frame
         }
         if animated {
@@ -543,8 +531,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             #else
                 let animationOptions: UIViewAnimationOptions = .curveEaseOut
             #endif
-            let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
-            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
+            UIView.animate(withDuration: titleFadeOutDuration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
                 }, completion: completion)
         } else {
@@ -615,10 +602,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     - returns: The rectangle that the title label should render in
     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
-        if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
-        }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
     }
 
     /**
@@ -692,15 +676,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     // MARK: - Helpers
 
-    fileprivate func titleOrPlaceholder() -> String? {
-        guard let title = title ?? placeholder else {
-            return nil
-        }
-        return titleFormatter(title)
-    }
-
-    fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
-        guard let title = selectedTitle ?? title ?? placeholder else {
+    fileprivate func selectedTitleOrTitle() -> String? {
+        guard let title = selectedTitle ?? title else {
             return nil
         }
         return titleFormatter(title)
