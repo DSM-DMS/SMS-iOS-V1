@@ -179,24 +179,6 @@
                                     <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMO-OF-pwS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="170" y="103" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="dasd"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="4~16자 사이의 아이디를 입력해주세요"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="ㅁㄴㅇㅁㄴ"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RCT-h0-bTf"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -293,8 +275,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="XLB-Yd-lIo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCm-Ny-mcO">
                                         <rect key="frame" x="0.0" y="25" width="277" height="1"/>
@@ -523,10 +505,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VER-hG-LPP">
-                                <rect key="frame" x="113" y="516" width="149" height="19"/>
+                                <rect key="frame" x="95" y="516" width="185" height="19"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="1wn-aD-kJD"/>
                                     <constraint firstAttribute="height" constant="19" id="J5a-6O-1zQ"/>
-                                    <constraint firstAttribute="width" constant="149" id="XSk-h4-Cm9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                 <state key="normal" title="표시된 정보가 실제 정보와 다른가요?">
@@ -545,22 +527,66 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMO-OF-pwS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="49" y="288" width="252" height="50"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="아이디"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="4~16자 사이의 아이디를 입력해주세요"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3R-Fz-pba" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="49" y="369" width="252" height="50"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="4~16자 사이의 비밀번호를 입력해주세요"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tBC-vW-ZoF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jMO-OF-pwS" firstAttribute="top" secondItem="D8b-OY-aoe" secondAttribute="bottom" constant="26" id="6Ob-KM-XQI"/>
+                            <constraint firstItem="Z3R-Fz-pba" firstAttribute="width" secondItem="jMO-OF-pwS" secondAttribute="width" id="6Zt-BE-7aY"/>
                             <constraint firstItem="5cU-e8-j8X" firstAttribute="top" secondItem="9Jd-qI-gMp" secondAttribute="bottom" constant="38" id="7dw-db-kCa"/>
                             <constraint firstItem="9Jd-qI-gMp" firstAttribute="leading" secondItem="tBC-vW-ZoF" secondAttribute="leading" constant="20" id="8ix-Vp-PAc"/>
                             <constraint firstItem="E8x-Vs-vtl" firstAttribute="leading" secondItem="T5O-pY-EQF" secondAttribute="trailing" constant="50" id="9YS-1Q-S5B"/>
                             <constraint firstItem="D8b-OY-aoe" firstAttribute="leading" secondItem="T5O-pY-EQF" secondAttribute="leading" id="Bcs-vi-1B7"/>
                             <constraint firstItem="80e-2q-DNl" firstAttribute="centerX" secondItem="tBC-vW-ZoF" secondAttribute="centerX" id="Dc7-1p-lPt"/>
+                            <constraint firstItem="Z3R-Fz-pba" firstAttribute="leading" secondItem="jMO-OF-pwS" secondAttribute="leading" id="HGn-I3-GsW"/>
                             <constraint firstItem="tBC-vW-ZoF" firstAttribute="bottom" secondItem="VER-hG-LPP" secondAttribute="bottom" constant="132" id="Lxe-fQ-QqQ"/>
                             <constraint firstItem="VER-hG-LPP" firstAttribute="centerX" secondItem="tBC-vW-ZoF" secondAttribute="centerX" id="N1f-5A-RLk"/>
                             <constraint firstItem="VER-hG-LPP" firstAttribute="top" secondItem="80e-2q-DNl" secondAttribute="bottom" constant="16" id="TEB-Jb-bMJ"/>
                             <constraint firstItem="T5O-pY-EQF" firstAttribute="leading" secondItem="5cU-e8-j8X" secondAttribute="leading" id="UtU-2B-x2E"/>
+                            <constraint firstItem="jMO-OF-pwS" firstAttribute="width" secondItem="D8b-OY-aoe" secondAttribute="width" id="apW-61-cRN"/>
                             <constraint firstItem="9Jd-qI-gMp" firstAttribute="top" secondItem="tBC-vW-ZoF" secondAttribute="top" constant="27" id="beF-V7-gUZ"/>
                             <constraint firstItem="T5O-pY-EQF" firstAttribute="top" secondItem="5cU-e8-j8X" secondAttribute="bottom" constant="36" id="cgz-SW-T5k"/>
                             <constraint firstItem="5cU-e8-j8X" firstAttribute="leading" secondItem="9Jd-qI-gMp" secondAttribute="trailing" constant="9" id="g1z-Bi-lZT"/>
+                            <constraint firstItem="Z3R-Fz-pba" firstAttribute="top" secondItem="jMO-OF-pwS" secondAttribute="bottom" constant="31" id="hU8-oc-mmY"/>
+                            <constraint firstItem="jMO-OF-pwS" firstAttribute="leading" secondItem="D8b-OY-aoe" secondAttribute="leading" id="ldQ-CK-EmW"/>
                             <constraint firstItem="E8x-Vs-vtl" firstAttribute="centerY" secondItem="T5O-pY-EQF" secondAttribute="centerY" id="wRV-cZ-YHp"/>
                             <constraint firstItem="D8b-OY-aoe" firstAttribute="top" secondItem="T5O-pY-EQF" secondAttribute="bottom" constant="26" id="wlg-QZ-hz1"/>
                         </constraints>
@@ -575,11 +601,14 @@
         <designable name="LIg-Gr-D35">
             <size key="intrinsicContentSize" width="125" height="18.5"/>
         </designable>
+        <designable name="Z3R-Fz-pba">
+            <size key="intrinsicContentSize" width="252" height="49.920000000000002"/>
+        </designable>
         <designable name="cpl-42-BLa">
             <size key="intrinsicContentSize" width="137" height="18.5"/>
         </designable>
         <designable name="jMO-OF-pwS">
-            <size key="intrinsicContentSize" width="242" height="34"/>
+            <size key="intrinsicContentSize" width="252" height="49.920000000000002"/>
         </designable>
     </designables>
     <resources>
