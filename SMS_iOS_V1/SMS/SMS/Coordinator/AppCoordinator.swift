@@ -26,6 +26,10 @@ class AppCoordinator: Coordinator {
         }
     }
     
+    func pop() {
+        self.nav.popViewController(animated: true)
+    }
+    
     func start() {
         let vc = LoginViewController.instantiate(storyboardName: .login)
         vc.coordinator = self
@@ -38,6 +42,20 @@ class AppCoordinator: Coordinator {
         tabbarCoordinator.parentCoordinator = self
         self.children.append(tabbarCoordinator)
         tabbarCoordinator.start()
+    }
+    
+    func checkNumber() {
+        let vc = CheckCertificationNumberViewController.instantiate(storyboardName: .certificationNumber)
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: true)
+    }
+    
+    func register(_ data: CertificationNumberModel, _ number: String) {
+        let vc = RegisterViewController.instantiate(storyboardName: .register)
+        vc.data = data
+        vc.number = Int(number)
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: true)
     }
 }
 
