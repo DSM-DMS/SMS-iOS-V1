@@ -1,5 +1,5 @@
 //
-//  RegisterAlertXib.swift
+//  RegisterInvalidAlertXib.swift
 //  SMS
 //
 //  Created by 이현욱 on 2021/02/25.
@@ -11,7 +11,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class RegisterAlertXib: UIView {
+class RegisterInvalidAlertXib: UIView {
     let disposeBag = DisposeBag()
     var sign: ((Bool) -> ())? = nil
     
@@ -29,7 +29,7 @@ class RegisterAlertXib: UIView {
     }
     
     private func commonInit(){
-        let view = Bundle.main.loadNibNamed(RegisterAlertXib.NibName, owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed(RegisterInvalidAlertXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
         bind()
