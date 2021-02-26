@@ -6,4 +6,38 @@
 //  Copyright © 2021 DohyunKim. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+import RxSwift
+import RxCocoa
+
+class RegisterUsingIDAlertXib: UIView {
+    let disposeBag = DisposeBag()
+    var sign: (() -> ())? = nil
+    
+    @IBOutlet weak var checkBtn: UIButton!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.commonInit()
+    }
+    
+    private func commonInit(){
+        let view = Bundle.main.loadNibNamed(RegisterUsingIDAlertXib.NibName, owner: self, options: nil)?.first as! UIView
+        view.frame = self.bounds
+        self.addSubview(view)
+        bind()
+    }
+    
+    func bind() {
+        checkBtn.rx.tap
+            .bind { _ in
+                self.sign?()
+            }.disposed(by: disposeBag)
+    }
+}
