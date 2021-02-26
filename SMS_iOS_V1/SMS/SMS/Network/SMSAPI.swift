@@ -29,6 +29,8 @@ enum SMSAPI {
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
     case location(_ keyWord: String)
+    case certificationNumber(_ number: String)
+    case register(_ code: Int, _ ID: String, _ PW: String)
 }
 
 extension SMSAPI {
@@ -93,10 +95,14 @@ extension SMSAPI {
             return "students/uuid/\(uuid)/announcement-check"
         case .location(let keyWord):
             var newKeyWord = ""
-            for v in keyWord.utf8 {
-                newKeyWord += "%" + String(v, radix: 16, uppercase: true)
+            for idx in keyWord.utf8 {
+                newKeyWord += "%" + String(idx, radix: 16, uppercase: true)
             }
             return "/naver-open-api/search/local?keyword=\(newKeyWord)"
+        case .certificationNumber(let number):
+            return "/students/auth-code/\(number)"
+        case .register:
+            return "/students/with-code"
         }
     }
     
@@ -105,6 +111,7 @@ extension SMSAPI {
         case .login,
              .postOuting,
              .startOuting,
+             .register,
              .finishOuting:
             return .post
             
@@ -120,7 +127,8 @@ extension SMSAPI {
              .detailNotice,
              .timetables,
              .location,
-             .schedules:
+             .schedules,
+             .certificationNumber:
             return .get
         }
     }
@@ -164,7 +172,8 @@ extension SMSAPI {
              .detailNotice,
              .timetables,
              .location,
-             .schedules:
+             .schedules,
+             .certificationNumber:
             return URLEncoding.queryString
         default:
             return JSONEncoding.default
@@ -174,13 +183,33 @@ extension SMSAPI {
     var parameter: Parameters? {
         switch self {
         case .login(let userId,let pw):
-            return ["student_id":userId, "student_pw" : pw]
+            return [
+                "student_id":userId,
+                "student_pw" : pw
+            ]
             
         case .pwChange(let currentPW, let revisionPW):
-            return ["current_pw":currentPW, "revision_pw": revisionPW]
+            return [
+                "current_pw":currentPW,
+                "revision_pw": revisionPW
+            ]
             
         case .postOuting(let startTime, let endTime, let place, let reason, let situation):
-            return ["start_time": startTime, "end_time": endTime, "place": place, "reason": reason, "situation": situation]
+            return [
+                "start_time": startTime,
+                "end_time": endTime,
+                "place": place,
+                "reason": reason,
+                "situation": situation
+            ]
+            
+        case .register(let code, let id, let pw):
+            return [
+                "auth_code": code,
+                "student_id": id,
+                "student_pw": pw
+            ]
+            
         default:
             return nil
         }
