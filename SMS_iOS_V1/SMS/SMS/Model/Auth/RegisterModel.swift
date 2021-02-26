@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct RegisterModel: Codable {
+    let status: Int
+    let code: Int
+    let message: String
+    let student_uuid: String?
+}
