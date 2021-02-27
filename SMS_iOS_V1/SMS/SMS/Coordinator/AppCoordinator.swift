@@ -8,6 +8,8 @@
 
 import UIKit
 
+import RxSwift
+
 class AppCoordinator: Coordinator {
     var children = [Coordinator]()
     var nav: UINavigationController
@@ -28,6 +30,11 @@ class AppCoordinator: Coordinator {
     
     func pop() {
         self.nav.popViewController(animated: true)
+    }
+    
+    func popAll() {
+        self.nav.popToRootViewController(animated: true)
+        self.tabbar()
     }
     
     func start() {
