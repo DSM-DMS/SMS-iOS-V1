@@ -32,4 +32,11 @@ class CheckNumberViewModel: ViewModelType {
         
         return Output(certificationNumberModel: model)
     }
+    
+    func isValid(_ input: Input) -> Observable<Bool> {
+        return input.numberDriver.asObservable()
+            .map { number in
+                return number.count == 6
+        }
+    }
 }

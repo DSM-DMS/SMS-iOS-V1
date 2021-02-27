@@ -35,4 +35,12 @@ class RegisterViewModel: ViewModelType {
         
             return Output(model: model)
     }
+    
+    func isValid(_ input: Input) -> Observable<Bool> {
+        return Observable.combineLatest(input.idDriver.asObservable(),
+                                        input.pwDriver.asObservable())
+            .map { id, pw in
+                return (id.count > 3 && id.count < 17) && (pw.count > 3 && pw.count < 17)
+            }
+    }
 }
