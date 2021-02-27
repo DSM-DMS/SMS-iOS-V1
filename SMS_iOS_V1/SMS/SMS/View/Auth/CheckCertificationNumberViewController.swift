@@ -20,7 +20,7 @@ class CheckCertificationNumberViewController: UIViewController, Storyboarded {
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var checkBtn: UIButton!
     @IBOutlet weak var alertBtn: UIButton!
-    @IBOutlet weak var backgroundBtn: UIButton!
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var invalidAlertView: RegisterInvalidAlertXib!
     @IBOutlet weak var inquireAlertView: RegisterInquireAlertXib!
     
@@ -28,6 +28,7 @@ class CheckCertificationNumberViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         bind()
         bindAction()
+        setting()
     }
 }
 
@@ -37,6 +38,11 @@ extension CheckCertificationNumberViewController {
                                                checkDrvier: checkBtn.rx.tap.asDriver())
         
         let output = viewModel.transform(input)
+        
+        let isValid = viewModel.isValid(input)
+        
+        isValid.bind(to: self.checkBtn.rx.isEnabled).disposed(by: disposeBag)
+        isValid.map { $0 ? 1 : 0.3 }.bind(to: self.checkBtn.rx.alpha).disposed(by: disposeBag)
         
         output.certificationNumberModel.subscribe(onNext: { model in
             if model.status == 200 {
@@ -69,20 +75,33 @@ extension CheckCertificationNumberViewController {
                     self.alertAllHidden(true)
                 }
             }.disposed(by: disposeBag)
-        
-        backgroundBtn.rx.tap
-            .bind { _ in
-                self.alertAllHidden(true)
-            }.disposed(by: disposeBag)
     }
     
     func alertAllHidden(_ value: Bool, _ option: UIView? = nil) {
-        self.backgroundBtn.isHidden = value
+        self.backgroundView.isHidden = value
         self.inquireAlertView.isHidden = value
         self.invalidAlertView.isHidden = value
         if let optionView = option {
             optionView.isHidden = !value
         }
+    }
+    
+    func setting() {checkBtn.addShadow(offset: CGSize(width: 0, height: 3),
+                           color: .gray,
+                           shadowRadius: 6,
+                           opacity: 1,
+                           cornerRadius: 5)
         
+        invalidAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                   color: .gray,
+                                   shadowRadius: 6,
+                                   opacity: 1,
+                                   cornerRadius: 8)
+        
+        inquireAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                   color: .gray,
+                                   shadowRadius: 6,
+                                   opacity: 1,
+                                   cornerRadius: 8)
     }
 }
