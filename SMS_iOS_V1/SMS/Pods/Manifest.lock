@@ -25,6 +25,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
   - SkyFloatingLabelTextField (4.0.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - FSCalendar
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - RxOptional
   - RxSwift
   - SkyFloatingLabelTextField
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -54,6 +56,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SkyFloatingLabelTextField
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -69,7 +72,8 @@ SPEC CHECKSUMS:
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: cfadea59a9572c1f7226068f7f7d3362d8fa6d56
+PODFILE CHECKSUM: d32480ccdef3df9f9bf4d580202a2bf48e6fb496
 
 COCOAPODS: 1.10.0
