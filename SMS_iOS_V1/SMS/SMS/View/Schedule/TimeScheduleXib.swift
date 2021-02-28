@@ -42,7 +42,7 @@ class TimeScheduleXib: UIView {
             }.bind { model in
                 let dayArr = [self.mondayLabels, self.tuesdayLabels, self.wedsLabels, self.thirsdayLabels, self.fridayLabels]
                 var arr: [String?]
-               
+                
                 if cnt == 4 {
                     arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6]
                 } else {
@@ -50,7 +50,11 @@ class TimeScheduleXib: UIView {
                 }
                 
                 for i in 0..<arr.count {
-                    dayArr[cnt]![i].text = arr[i]
+                    if arr[i] == "" {
+                        dayArr[cnt]![i].text = "-"
+                    } else {
+                        dayArr[cnt]![i].text = arr[i]
+                    }
                 }
                 cnt += 1
             }.disposed(by: disposeBag)
