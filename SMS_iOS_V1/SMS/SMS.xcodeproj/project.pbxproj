@@ -13,10 +13,15 @@
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
 		4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */; };
 		4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354A25A5D3E800EA211B /* MypageViewModel.swift */; };
+		473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */; };
+		473DACA525E3715D0086E84F /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
 		4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */; };
+		4787403F25CA78E2001976A3 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787403E25CA78E2001976A3 /* NoticeModel.swift */; };
+		4787404425CA79FF001976A3 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787404325CA79FF001976A3 /* NoticeViewModel.swift */; };
+		4787404925CA7D57001976A3 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */; };
 		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
 		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
 		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
@@ -96,10 +101,15 @@
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
 		4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
 		4728354A25A5D3E800EA211B /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
+		473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
 		4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewModel.swift; sourceTree = "<group>"; };
+		4787403E25CA78E2001976A3 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		4787404325CA79FF001976A3 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
 		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
@@ -216,6 +226,32 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
+		4787403D25CA78D3001976A3 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				4787403E25CA78E2001976A3 /* NoticeModel.swift */,
+				473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		4787404225CA79EF001976A3 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				4787404325CA79FF001976A3 /* NoticeViewModel.swift */,
+				473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		4787404625CA7D1D001976A3 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
 		478B988925B1D5FB002167EC /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +326,7 @@
 		D67F330A257E76310086F75E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4787403D25CA78D3001976A3 /* Notice */,
 				478B988925B1D5FB002167EC /* Mypage */,
 				D6F8C944259B639600DE967A /* Schedule */,
 				D6F8C940259B62AE00DE967A /* Login */,
@@ -301,6 +338,7 @@
 		D67F330E257E76480086F75E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4787404225CA79EF001976A3 /* Notice */,
 				4728354925A5D3D800EA211B /* Mypage */,
 				D67F3317257E76480086F75E /* ViewModelType.swift */,
 				D67F330F257E76480086F75E /* Schedule */,
@@ -468,6 +506,7 @@
 		D6E6892F252EDE4600FA09C1 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4787404625CA7D1D001976A3 /* Notice */,
 				D6F8C955259B659200DE967A /* OutGoing */,
 				D6F8C94F259B650D00DE967A /* Schedule */,
 			);
@@ -697,10 +736,12 @@
 				D6F8C97D259C958200DE967A /* OutGoingLocationAlertXib.swift in Sources */,
 				D6B8EE93255CA98E00F1F21E /* GlobalProperties.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
+				4787404425CA79FF001976A3 /* NoticeViewModel.swift in Sources */,
 				D67F32EF257E751A0086F75E /* UIView.swift in Sources */,
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* CalendarCollectionViewCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
+				473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */,
 				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
@@ -713,7 +754,9 @@
 				D67F32DB257E74B90086F75E /* UICell.swift in Sources */,
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
+				4787403F25CA78E2001976A3 /* NoticeModel.swift in Sources */,
 				478B988B25B1D609002167EC /* MypageModel.swift in Sources */,
+				473DACA525E3715D0086E84F /* NoticeDetailViewModel.swift in Sources */,
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
@@ -745,6 +788,7 @@
 				4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */,
 				D6F8C958259B659C00DE967A /* LocationTableViewCell.swift in Sources */,
 				D6F8C93E259B628100DE967A /* LoginModel.swift in Sources */,
+				4787404925CA7D57001976A3 /* NoticeTableViewCell.swift in Sources */,
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
 				D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */,
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
