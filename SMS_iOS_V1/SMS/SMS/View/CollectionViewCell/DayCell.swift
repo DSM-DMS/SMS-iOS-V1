@@ -19,11 +19,11 @@ class DayCell: FSCalendarCell {
         event3View.isHidden = true
     }
     
-    func todaySet(_ date: Date, _ detail: String) -> [ScheduleData] {
+    func todaySet(_ date: Date, _ uuid: String) -> [ScheduleData] {
         var detailArr: [String] = []
         var newSchedule: [ScheduleData] = []
         cellEvent.forEach { (data) in
-            if !detailArr.contains(detail) {
+            if !detailArr.contains(uuid) {
                 newSchedule.append(data)
                 detailArr.append(data.detail)
             }

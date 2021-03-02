@@ -3,6 +3,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import FSCalendar
+import Toast_Swift
 
 class ScheduleViewController: UIViewController, Storyboarded {
     var value = false
@@ -20,18 +21,28 @@ class ScheduleViewController: UIViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var timeScheduleView: TimeScheduleXib!
+    @IBOutlet weak var lineView: UIView!
     
     lazy var previousBtn: UIButton = {
         let button = UIButton()
+        print(UIScreen.main.bounds.height)
         button.setImage(UIImage(named: "left"), for: .normal)
-        button.frame = CGRect(x: calendarView.frame.midX - calendarView.frame.midX / 2, y: calendarView.frame.minY + 4, width: 8, height: 14)
+        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + 5 + calendarView.frame.height / 4: calendarView.headerHeight
+        button.frame = CGRect(x: UIScreen.main.bounds.midX - 8 - calendarView.frame.width / 4,
+                              y: y,
+                              width: 8,
+                              height: 14)
         return button
     }()
     
     lazy var nextBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "right"), for: .normal)
-        button.frame = CGRect(x: calendarView.frame.midX + calendarView.frame.midX / 2, y: calendarView.frame.minY + 4, width: 8, height: 14)
+        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + 5 + calendarView.frame.height / 4: calendarView.headerHeight
+        button.frame = CGRect(x: UIScreen.main.bounds.midX + calendarView.frame.width / 4,
+                              y: y,
+                              width: 8,
+                              height: 14)
         return button
     }()
     
@@ -71,8 +82,8 @@ extension ScheduleViewController {
         
         changeViewBtn.rx.tap
             .bind {
-                self.value.toggle()
                 self.changeHidden(value: self.value)
+                self.value.toggle()
             }
             .disposed(by: disposeBag)
     }
@@ -96,7 +107,6 @@ extension ScheduleViewController {
         calendarView.today = nil
         calendarView.delegate = self
         calendarView.dataSource = self
-        calendarView.select(Date())
         nextBtn.layer.zPosition = 1
         previousBtn.layer.zPosition = 1
         self.view.addSubviews([previousBtn, nextBtn])
@@ -114,7 +124,7 @@ extension ScheduleViewController {
         previousBtn.isHidden = !value
         nextBtn.isHidden = !value
         calendarView.isHidden = !value
-        tableView.isHidden = !value
+        combindTableView.isHidden = !value
         timeScheduleView.isHidden = value
     }
     
@@ -155,7 +165,15 @@ extension ScheduleViewController {
 extension ScheduleViewController: UITableViewDelegate {
     private func tableViewBind() {
         self.dateForTable.map { self.preDict[$0 + 32400] ?? [] }
+            .skip(1)
+            .filter {
+                if $0.count == 0 {
+                    self.view.makeToast("해당 날짜에는 일정이 없어요")
+                }
+                return true
+            }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
+                
                 cell.scheduleDateLbl.text = schedule.detailDate
                 cell.scheduleInfoLbl.text = schedule.detail
                 switch schedule.place {
@@ -184,7 +202,6 @@ extension ScheduleViewController: UITableViewDelegate {
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         date.accept(calendar.currentPage)
-        getSchedule()
     }
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
@@ -217,6 +234,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         }
         
         var eventPlace: Int = 0
+        
         let todayEvent = preDict[date] ?? []
         
         if todayEvent.contains(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1)) {
@@ -245,13 +263,13 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
                 default: break
                 }
             } else {
-                if todayCell.cellEvent.count == 0 && preEvent.count == 0 {
+                if todayCell.cellEvent.count == 0 && preEvent.count == 0 || preEvent.contains(ScheduleData(uuid: uuid, date: date - 86400, detail: detail, detailDate: dateDetail, place: 1)){
                     dispatchViewHidden(todayCell.event1View)
                     eventPlace = 1
                 } else if todayCell.cellEvent.count == 1 && preEvent.count == 1{
                     dispatchViewHidden(todayCell.event2View)
                     eventPlace = 2
-                } else if todayCell.cellEvent.count == 2 && preEvent.count == 2 {
+                } else if todayCell.cellEvent.count == 2 && preEvent.count == 2 || todayCell.cellEvent.count == 2 && preEvent.count == 1 {
                     dispatchViewHidden(todayCell.event3View)
                     eventPlace = 3
                 } else if todayCell.cellEvent.count == 3 && preEvent.count == 4 {
