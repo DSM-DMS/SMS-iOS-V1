@@ -26,20 +26,13 @@ class OutGoingAlertXib: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
-//        bindAction()
     }
     
     private func commonInit(){
         let view = Bundle.main.loadNibNamed(OutGoingAlertXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
-    }
-    
-    @IBAction func cancelTapped(_ sender: UIButton) {
-        sign?(false)
-    }
-    @IBAction func OKTapped(_ sender: UIButton) {
-        sign?(true)
+        bindAction()
     }
 }
 
