@@ -105,7 +105,7 @@ class TabbarView: UIView {
 
 extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.xibName, for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.NibName, for: indexPath) as! CustomCell
         cell.tabbar = imageNames[indexPath.row]
         return cell
     }

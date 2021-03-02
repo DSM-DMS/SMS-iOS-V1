@@ -12,8 +12,8 @@ import RxSwift
 import RxCocoa
 
 class OutGoingNoticeViewController: UIViewController, Storyboarded {
-    weak var coordinator: OutGoingCoordinator?
     let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var popVCBtn: UIButton!
     
@@ -22,6 +22,13 @@ class OutGoingNoticeViewController: UIViewController, Storyboarded {
         bind()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.disappear()
+    }
+}
+
+extension OutGoingNoticeViewController {
     func bind() {
         popVCBtn.rx.tap
             .bind { self.coordinator?.pop() }

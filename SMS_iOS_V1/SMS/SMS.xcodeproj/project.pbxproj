@@ -57,6 +57,7 @@
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
 		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
 		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
+		D67ACF9F25EE448700648F45 /* OutingActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67ACF9E25EE448700648F45 /* OutingActionModel.swift */; };
 		D67F32DB257E74B90086F75E /* UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32DA257E74B90086F75E /* UICell.swift */; };
 		D67F32EF257E751A0086F75E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32ED257E751A0086F75E /* UIView.swift */; };
 		D67F32F0257E751A0086F75E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32EE257E751A0086F75E /* UIColor.swift */; };
@@ -148,6 +149,7 @@
 		D664E1C7252A0C8E007F0253 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutGoingLocationAlertXib.xib; sourceTree = "<group>"; };
 		D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		D67ACF9E25EE448700648F45 /* OutingActionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutingActionModel.swift; sourceTree = "<group>"; };
 		D67F32DA257E74B90086F75E /* UICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICell.swift; sourceTree = "<group>"; };
 		D67F32ED257E751A0086F75E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D67F32EE257E751A0086F75E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		D6B3A3FF25838E4B005C36E6 /* OutGoing */ = {
 			isa = PBXGroup;
 			children = (
+				D67ACF9E25EE448700648F45 /* OutingActionModel.swift */,
 				D6F8C949259B647F00DE967A /* OutLocationModel.swift */,
 				D6B3A40025838EC2005C36E6 /* OutGoingModel.swift */,
 				D6B3A4132586D9B3005C36E6 /* OutGoingLogModel.swift */,
@@ -441,9 +444,9 @@
 			isa = PBXGroup;
 			children = (
 				D6F8C977259C3DB600DE967A /* AlertXib */,
-				D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */,
 				D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */,
 				D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */,
+				D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */,
 				D62D8C2C2518DABE00548FBF /* OutGoingNoticeViewController.swift */,
 				477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */,
 				D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */,
@@ -725,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67ACF9F25EE448700648F45 /* OutingActionModel.swift in Sources */,
 				47131025250255C900ED348C /* LoginViewController.swift in Sources */,
 				D6B3A3FB2582F0BF005C36E6 /* NoticeDetailViewController.swift in Sources */,
 				D6F8C970259C1B3200DE967A /* OutGoingAlertXib.swift in Sources */,

@@ -23,6 +23,11 @@ class OutGoingLogViewController: UIViewController, Storyboarded {
         bindUI()
         bindAction()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.disappear()
+    }
 }
 
 extension OutGoingLogViewController {
@@ -35,35 +40,48 @@ extension OutGoingLogViewController {
     private func bindUI() {
         tableView.rowHeight = 120
         
-        let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting)
+        let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0,0))
         
-        logs.map { ($0.outings ?? []) }.bind(to: tableView.rx.items(cellIdentifier: OutGoingLogTableViewCell.NibName, cellType: OutGoingLogTableViewCell.self)) { idx, log, cell in
-            let startDateComponent: DateComponents = unix(with: log.start_time)
-            let endDateComponent:DateComponents = unix(with: log.end_time)
-            
-            cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
-            cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + String(startDateComponent.minute!)
-            cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + String(endDateComponent.minute!)
-            cell.placeLbl.text = log.place
-            cell.reasonLbl.text = log.reason // 셀사이의 간격 늘리기, 날짜 포멧 바꾸기 
-            
-            cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
-            
-            switch Int(log.outing_status) {
-            case -1, -2:
-                self.cellState(cell: cell, text: "승인 거부", color: .customRed)
-            case 0, 1, 2:
-                self.cellState(cell: cell, text: "승인대기", color: .customYellow)
-            case 3:
-                self.cellState(cell: cell, text: "외출중", color: .customOrange)
-            case 4:
-                self.cellState(cell: cell, text: "만료", color: .customPurple)
-            case 5:
-                self.cellState(cell: cell, text: "승인 완료", color: .customGreen)
-            default:
-                self.cellState(cell: cell, text: "에러", color: .customBlack)
+        logs.map { logs in
+            if logs.outings?.count == 0 {
+                
             }
-        }.disposed(by: disposeBag)
+            
+            
+//            logs.outings ?? []
+//            if logs.out
+        }
+//        .bind(to: tableView.rx.items(cellIdentifier: OutGoingLogTableViewCell.NibName, cellType: OutGoingLogTableViewCell.self)) { idx, log, cell in
+//            let startDateComponent: DateComponents = unix(with: log.start_time)
+//            let endDateComponent: DateComponents = unix(with: log.end_time)
+//
+//            cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
+//
+//            let zeroForStart = startDateComponent.minute! < 10 ? "0" : ""
+//            let zeroForEnd = endDateComponent.minute! < 10 ? "0" : ""
+//
+//            cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
+//            cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
+//            cell.placeLbl.text = log.place
+//            cell.reasonLbl.text = log.reason
+//
+//            cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
+//
+//            switch Int(log.outing_status) {
+//            case -1, -2:
+//                self.cellState(cell: cell, text: "승인 거부", color: .customRed)
+//            case 0, 1, 2:
+//                self.cellState(cell: cell, text: "승인대기", color: .customYellow)
+//            case 3:
+//                self.cellState(cell: cell, text: "외출중", color: .customOrange)
+//            case 4:
+//                self.cellState(cell: cell, text: "만료", color: .customPurple)
+//            case 5:
+//                self.cellState(cell: cell, text: "승인 완료", color: .customGreen)
+//            default:
+//                self.cellState(cell: cell, text: "에러", color: .customBlack)
+//            }
+//        }.disposed(by: disposeBag)
     }
     
     func cellState(cell: OutGoingLogTableViewCell,text: String, color: UIColor)  {

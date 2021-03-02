@@ -12,14 +12,20 @@ import RxSwift
 import RxCocoa
 
 class OutGoingCompletedViewController: UIViewController, Storyboarded {
-    weak var coordinator: OutGoingCoordinator?
     let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
+    
     
     @IBOutlet weak var checkButton: CustomShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindAction()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.disappear()
     }
 }
 

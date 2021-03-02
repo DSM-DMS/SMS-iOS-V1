@@ -100,7 +100,7 @@ extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
 
 extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.NibName, for: indexPath) as! PageCell
         let vcView = vcArr[indexPath.row].nav.view!
         vcView.frame = cell.contentView.bounds
         cell.contentView.addSubview(vcView)
