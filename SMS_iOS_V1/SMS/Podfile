@@ -10,14 +10,14 @@ target 'SMS' do
 pod 'RxSwift'
 pod 'RxAlamofire'
 pod 'Kingfisher'
-pod 'FSCalendar'
 pod 'RxCocoa'
 pod 'RxOptional'
 pod 'RxFlow'
 pod 'LayoutHelper'
 pod 'RNCryptor', '~> 5.0'
-pod 'JTAppleCalendar'
-pod 'SkyFloatingLabelTextField', '~> 3.0'
+pod 'SkyFloatingLabelTextField'
 pod 'KeychainSwift', '~> 19.0'
+pod 'FSCalendar' 
+pod 'Toast-Swift', '~> 5.0.1'
 
 end
