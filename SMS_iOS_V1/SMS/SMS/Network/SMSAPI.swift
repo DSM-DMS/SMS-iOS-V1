@@ -18,11 +18,10 @@ enum SMSAPI {
     case pwChange(_ currentPW: String, _ revision_pw: String)
     case myInfo
     case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
-    case lookUpAllOuting
+    case lookUpAllOuting(_ start: Int, _ count: Int)
     case certainOutingInfo
-    case lookUpOutingCard(_ uuid: String)
-    case startOuting
-    case finishOuting
+    case lookUpOutingCard
+    case outingAction(_ code: String)
     case lookUpNotice
     case detailNotice
     case timetables(_ year: Int, _ month: Int, _ day: Int)
@@ -71,16 +70,14 @@ extension SMSAPI {
             return "/students/uuid/\(uuid)"
         case .postOuting:
             return "/outings"
-        case .lookUpAllOuting:
-            return "/students/uuid/\(uuid)/outings"
+        case .lookUpAllOuting(let start, let count):
+            return "/students/uuid/\(uuid)/outings?count=\(count)&start=\(start)"
         case .certainOutingInfo:
             return "/outings/uuid/\(outing_uuid)"
-        case .lookUpOutingCard(let uuid):
-            return "/outings/\(uuid)/card"
-        case .startOuting:
-            return "/outings/\(uuid)/outing"
-        case .finishOuting:
-            return "/outings/\(uuid)/finish-outing"
+        case .lookUpOutingCard:
+            return "/outings/uuid/\(outing_uuid)/card"
+        case .outingAction(let code):
+            return "/outings/uuid/\(outing_uuid)/actions/\(code)"
         case .lookUpNotice:
             return "/announcements/types/school?start=0&count=10"
         case .detailNotice:
@@ -103,9 +100,8 @@ extension SMSAPI {
     var method: HTTPMethod {
         switch self {
         case .login,
-             .postOuting,
-             .startOuting,
-             .finishOuting:
+             .outingAction,
+             .postOuting:
             return .post
             
         case .pwChange:
@@ -130,6 +126,7 @@ extension SMSAPI {
         case .myInfo,
              .certainOutingInfo,
              .lookUpOutingCard,
+             .outingAction,
              .lookUpNotice,
              .detailNotice,
              .checkNotReadNotice,
@@ -158,6 +155,9 @@ extension SMSAPI {
     var encoding: ParameterEncoding {
         switch self {
         case .myInfo,
+             .outingAction,
+             .checkNotReadNotice,
+             .lookUpAllOuting,
              .certainOutingInfo,
              .lookUpOutingCard,
              .lookUpNotice,
