@@ -9,13 +9,14 @@
 import UIKit
 
 func unix(with unixInt: Int) -> DateComponents {
-    let date = Date(timeIntervalSince1970: TimeInterval(unixInt - 32400))
+    let date = Date(timeIntervalSince1970: TimeInterval(unixInt))
     return Calendar.current.dateComponents([.year, .month , .day, .hour, .minute], from: date)
 }
 
 func unix(with dateStr: String) -> Int {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-M-d"
+    dateFormatter.locale = Locale(identifier: "ko_KR")
     let date = dateFormatter.date(from: dateStr)
     return Int(date!.timeIntervalSince1970)
 }
@@ -34,7 +35,7 @@ func stringToUnix(with time: String) -> Int {
     let timeString = time[start...end]
     
     let components = timeString.split { $0 == ":" }.map { (x) -> Int in return Int(String(x))! }
-    var time = components[0] * 3600 + components[1] * 60 + 32400
+    var time = components[0] * 3600 + components[1] * 60
     
     if am == "PM" { time += 43200 }
     return time
