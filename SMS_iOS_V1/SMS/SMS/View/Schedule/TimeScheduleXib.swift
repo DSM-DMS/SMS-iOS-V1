@@ -4,9 +4,9 @@ import RxSwift
 import RxCocoa
 
 class TimeScheduleXib: UIView {
+    
     let disposeBag = DisposeBag()
-    let calendar = Calendar.current
-    lazy var mondayCompo = calendar.dateComponents([.year, .month, .day], from: getMonday(myDate: Date()))
+    lazy var mondayCompo = Calendar.current.dateComponents([.year, .month, .day], from: getMonday(myDate: Date()))
     
     @IBOutlet weak var dateView: CustomShadowView!
     @IBOutlet var mondayLabels: [UILabel]!
@@ -29,17 +29,34 @@ class TimeScheduleXib: UIView {
         let view = Bundle.main.loadNibNamed(TimeScheduleXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
+        getTimeTable()
+    }
+    
+    func getTimeTable() {
+        var cnt = 0
         
-        let monday: Observable<TimeTableModel> = SMSAPIClient.shared.networking(from: .timetables(mondayCompo.year!, mondayCompo.month!, mondayCompo.day!))
-        
-        monday.bind{ model in
-            let arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6, model.time7]
-            for i in 0...6 {
-                self.mondayLabels[i].text = arr[i]
-            }
-        }.disposed(by: disposeBag)
-        
-        
-        
+        Observable
+            .range(start: mondayCompo.day!, count: 5)
+            .flatMap { day -> Observable<TimeTableModel> in
+                return SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, day))
+            }.bind { model in
+                let dayArr = [self.mondayLabels, self.tuesdayLabels, self.wedsLabels, self.thirsdayLabels, self.fridayLabels]
+                var arr: [String?]
+                
+                if cnt == 4 {
+                    arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6]
+                } else {
+                    arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6, model.time7]
+                }
+                
+                for i in 0..<arr.count {
+                    if arr[i] == "" {
+                        dayArr[cnt]![i].text = "-"
+                    } else {
+                        dayArr[cnt]![i].text = arr[i]
+                    }
+                }
+                cnt += 1
+            }.disposed(by: disposeBag)
     }
 }

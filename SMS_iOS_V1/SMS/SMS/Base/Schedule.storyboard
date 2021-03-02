@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="ScheduleViewController" autoresizesArchivedViewToFullSize="NO" id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnw-tl-eUh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="328" y="792" width="50" height="50"/>
+                                <rect key="frame" x="289" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Aj-rJ-c6j"/>
@@ -34,40 +34,82 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="15" y="174" width="384" height="238"/>
+                                <rect key="frame" x="15" y="130" width="345" height="87"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mih-y5-1Od">
-                                <rect key="frame" x="40" y="441" width="334" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-Ms-q6H" customClass="FSCalendar">
+                                <rect key="frame" x="40" y="30" width="295" height="336.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-2w-8xu">
+                                        <rect key="frame" x="0.0" y="116" width="295" height="1"/>
+                                        <color key="backgroundColor" red="0.71765202279999996" green="0.71763831379999998" blue="0.71764755250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="A3y-px-Dea"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="snE-Lx-5UQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="HDX-2w-8xu" secondAttribute="trailing" id="B9v-Li-TIc"/>
+                                    <constraint firstAttribute="trailing" secondItem="HDX-2w-8xu" secondAttribute="trailing" id="UU5-D4-ihq"/>
+                                    <constraint firstItem="HDX-2w-8xu" firstAttribute="width" secondItem="CpX-Ms-q6H" secondAttribute="width" id="bAU-3f-BQz"/>
+                                    <constraint firstItem="HDX-2w-8xu" firstAttribute="leading" secondItem="CpX-Ms-q6H" secondAttribute="leading" id="gpc-wS-DQ6"/>
+                                    <constraint firstItem="HDX-2w-8xu" firstAttribute="top" secondItem="CpX-Ms-q6H" secondAttribute="top" constant="116" id="pa1-GU-0nS"/>
+                                    <constraint firstAttribute="width" secondItem="CpX-Ms-q6H" secondAttribute="height" multiplier="334:381" id="q09-ye-rgF"/>
                                 </constraints>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-rU-70O" customClass="FSCalendar">
-                                <rect key="frame" x="40" y="74" width="334" height="347"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="weekdayHeight">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-Wy-aKq">
+                                <rect key="frame" x="40" y="366.5" width="295" height="105"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec3-8h-Iej">
-                                        <rect key="frame" x="286" y="14" width="9" height="22"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-91-pLD">
+                                        <rect key="frame" x="0.0" y="93" width="295" height="12"/>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Ec3-8h-Iej" secondAttribute="height" multiplier="9:22" id="t4S-rz-1Gg"/>
+                                            <constraint firstAttribute="height" constant="12" id="k1v-3o-hRV"/>
                                         </constraints>
-                                        <state key="normal" image="rightBtn"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bl4-Gd-L3L">
-                                        <rect key="frame" x="46" y="14" width="9" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="bl4-Gd-L3L" secondAttribute="height" multiplier="9:22" id="kcQ-8L-tG5"/>
-                                        </constraints>
-                                        <state key="normal" image="leftBtn"/>
-                                    </button>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer. cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mih-y5-1Od">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="93"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="bl4-Gd-L3L" firstAttribute="leading" secondItem="KXO-rU-70O" secondAttribute="leading" constant="46" id="7ZL-JG-chF"/>
-                                    <constraint firstItem="bl4-Gd-L3L" firstAttribute="top" secondItem="KXO-rU-70O" secondAttribute="top" constant="14" id="cxj-lC-5ut"/>
-                                    <constraint firstAttribute="width" secondItem="KXO-rU-70O" secondAttribute="height" multiplier="334:347" id="euG-Bu-Ik0"/>
-                                    <constraint firstItem="Ec3-8h-Iej" firstAttribute="top" secondItem="KXO-rU-70O" secondAttribute="top" constant="14" id="wno-vk-UVf"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ec3-8h-Iej" secondAttribute="trailing" constant="39" id="yl8-23-oPI"/>
+                                    <constraint firstAttribute="trailing" secondItem="mih-y5-1Od" secondAttribute="trailing" id="0IZ-Om-qqM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lic-91-pLD" secondAttribute="bottom" id="10k-4b-aNC"/>
+                                    <constraint firstItem="Lic-91-pLD" firstAttribute="top" secondItem="mih-y5-1Od" secondAttribute="bottom" id="JQg-I7-B7h"/>
+                                    <constraint firstAttribute="height" constant="105" id="Ndw-P1-hZA"/>
+                                    <constraint firstItem="Lic-91-pLD" firstAttribute="top" secondItem="mih-y5-1Od" secondAttribute="bottom" id="S9g-b8-yqd"/>
+                                    <constraint firstItem="mih-y5-1Od" firstAttribute="leading" secondItem="vo4-Wy-aKq" secondAttribute="leading" id="STh-b7-oBf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lic-91-pLD" secondAttribute="trailing" id="dNW-t1-Sjq"/>
+                                    <constraint firstItem="mih-y5-1Od" firstAttribute="top" secondItem="vo4-Wy-aKq" secondAttribute="top" id="gOh-ym-fxn"/>
+                                    <constraint firstItem="Lic-91-pLD" firstAttribute="leading" secondItem="vo4-Wy-aKq" secondAttribute="leading" id="u4u-Je-dOb"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -94,16 +136,42 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
                                         <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="KXO-rU-70O" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="30" id="FEJ-vh-Uel"/>
+                            <constraint firstItem="CpX-Ms-q6H" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="3Pu-LC-GMx"/>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="top" secondItem="CpX-Ms-q6H" secondAttribute="bottom" id="6xc-2r-Blt" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                        <real key="value" value="54"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="54"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                                        <real key="value" value="54"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="I9u-uR-NwM"/>
-                            <constraint firstItem="mih-y5-1Od" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="J5L-tF-feC"/>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="J5L-N6-VmF"/>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="15" id="Nd8-lu-KVH"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="trailing" secondItem="Fpf-hx-FBw" secondAttribute="trailing" constant="36" id="Sdv-Up-6tv"/>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="leading" secondItem="CpX-Ms-q6H" secondAttribute="leading" id="T5a-j7-YTy"/>
+                            <constraint firstItem="CpX-Ms-q6H" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="40" id="USP-uS-UDd"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="0JY-3A-AAr" secondAttribute="bottom" constant="450" id="XKv-sA-dSv"/>
-                            <constraint firstItem="mih-y5-1Od" firstAttribute="width" secondItem="KXO-rU-70O" secondAttribute="width" id="XWm-WR-Ocy"/>
-                            <constraint firstItem="KXO-rU-70O" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="XZM-wc-eAc"/>
+                            <constraint firstItem="CpX-Ms-q6H" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="30" id="YdS-Oy-Idr" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="Fpf-hx-FBw" secondAttribute="bottom" constant="20" id="bYc-Ts-0U1" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
@@ -120,16 +188,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="KXO-rU-70O" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="40" id="fCr-gW-uHY"/>
-                            <constraint firstItem="mih-y5-1Od" firstAttribute="top" secondItem="KXO-rU-70O" secondAttribute="bottom" constant="20" id="hL9-p8-TDv"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="calendarView" destination="KXO-rU-70O" id="qji-0G-Yyg"/>
+                        <outlet property="calendarView" destination="CpX-Ms-q6H" id="yop-AZ-GlI"/>
                         <outlet property="changeViewBtn" destination="Fpf-hx-FBw" id="SgH-E4-pEK"/>
-                        <outlet property="nextMonthBtn" destination="Ec3-8h-Iej" id="WF5-nl-CHU"/>
-                        <outlet property="previousMonthBtn" destination="bl4-Gd-L3L" id="FsV-hE-4aX"/>
+                        <outlet property="combindTableView" destination="vo4-Wy-aKq" id="PpV-sa-Vvh"/>
+                        <outlet property="lineView" destination="HDX-2w-8xu" id="QW7-en-MVM"/>
+                        <outlet property="tableUnderView" destination="Lic-91-pLD" id="7Fq-ZL-aQm"/>
                         <outlet property="tableView" destination="mih-y5-1Od" id="AIN-mb-BL6"/>
                         <outlet property="timeScheduleView" destination="0JY-3A-AAr" id="R9g-FD-u0C"/>
                     </connections>
@@ -141,8 +208,9 @@
     </scenes>
     <resources>
         <image name="change" width="24" height="24"/>
-        <image name="leftBtn" width="9" height="15"/>
-        <image name="rightBtn" width="9" height="15"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
