@@ -29,23 +29,17 @@ class MyPageCoordinator: Coordinator {
         parentCoordinator?.disappear(self)
     }
     
-    func dismissBar() {
-        delegate?.dismissBar(true)
-    }
-    
-    func stopDismiss() {
-        delegate?.dismissBar(false)
-    }
-    
     func introduce() {
         let vc = MypageIntroduceDevViewController.instantiate(storyboardName: .introduceDevlop)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: false)
     }
     
     func changePW() {
         let vc = MypageChangePWViewController.instantiate(storyboardName: .myPageChangePW)
         vc.coordinator = self
+        delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: false)
     }
 }

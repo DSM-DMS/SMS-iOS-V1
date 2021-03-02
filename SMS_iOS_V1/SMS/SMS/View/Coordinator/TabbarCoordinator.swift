@@ -12,11 +12,9 @@ class TabbarCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var children = [Coordinator]()
     var nav: UINavigationController
-    var a = false
     
     init(nav: UINavigationController) {
         self.nav = nav
-        
     }
     
     func start() {
