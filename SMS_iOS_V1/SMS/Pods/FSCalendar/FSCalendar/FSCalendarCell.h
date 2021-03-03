@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class FSCalendar, FSCalendarAppearance;
+@class FSCalendar, FSCalendarAppearance, FSCalendarEventIndicator;
 
 typedef NS_ENUM(NSUInteger, FSCalendarMonthPosition);
 
@@ -21,16 +21,28 @@ typedef NS_ENUM(NSUInteger, FSCalendarMonthPosition);
  */
 @property (weak, nonatomic) UILabel  *titleLabel;
 
-@property (weak, nonatomic) UIView  *event1View;
 
-@property (weak, nonatomic) UIView  *event2View;
+/**
+ The subtitle label of the cell
+ */
+@property (weak, nonatomic) UILabel  *subtitleLabel;
 
-@property (weak, nonatomic) UIView  *event3View;
 
 /**
  The shape layer of the cell
  */
 @property (weak, nonatomic) CAShapeLayer *shapeLayer;
+
+/**
+ The imageView below shape layer of the cell
+ */
+@property (weak, nonatomic) UIImageView *imageView;
+
+
+/**
+ The collection of event dots of the cell
+ */
+@property (weak, nonatomic) FSCalendarEventIndicator *eventIndicator;
 
 /**
  A boolean value indicates that whether the cell is "placeholder". Default is NO.
@@ -74,10 +86,16 @@ typedef NS_ENUM(NSUInteger, FSCalendarMonthPosition);
 // For DIY overridden
 - (void)layoutSubviews NS_REQUIRES_SUPER; // Configure frames of subviews
 - (void)configureAppearance NS_REQUIRES_SUPER; // Configure appearance for cell
-- (void)autoLayoutForEventView;
 
 - (UIColor *)colorForCurrentStateInDictionary:(NSDictionary *)dictionary;
 - (void)performSelecting;
+
+@end
+
+@interface FSCalendarEventIndicator : UIView
+
+@property (assign, nonatomic) NSInteger numberOfEvents;
+@property (strong, nonatomic) id color;
 
 @end
 
@@ -86,3 +104,4 @@ typedef NS_ENUM(NSUInteger, FSCalendarMonthPosition);
 - (void)configureAppearance;
 
 @end
+

@@ -11,7 +11,6 @@
 		47131020250253C000ED348C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Login.storyboard */; };
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
-		4728354725A5D3C300EA211B /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */; };
 		4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354A25A5D3E800EA211B /* MypageViewModel.swift */; };
 		473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */; };
 		473DACA525E3715D0086E84F /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */; };
@@ -57,7 +56,7 @@
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
-		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
+		D66988B025A2ECF8006A1F38 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */; };
 		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
 		D67ACF9F25EE448700648F45 /* OutingActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67ACF9E25EE448700648F45 /* OutingActionModel.swift */; };
 		D67F32DB257E74B90086F75E /* UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32DA257E74B90086F75E /* UICell.swift */; };
@@ -103,7 +102,6 @@
 		4713101F250253C000ED348C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-		4728354625A5D3C300EA211B /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
 		4728354A25A5D3E800EA211B /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
 		473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
@@ -200,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */,
+				D66988B025A2ECF8006A1F38 /* BuildFile in Frameworks */,
 				22354C1F1A56CF2E0D2156E7 /* Pods_SMS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,7 +613,7 @@
 				479DB12E2502522C009A8B08 /* Sources */,
 				479DB12F2502522C009A8B08 /* Frameworks */,
 				479DB1302502522C009A8B08 /* Resources */,
-				E2C67590B9B90057899068A9 /* [CP] Embed Pods Frameworks */,
+				41949FBF28AC70B02EFBDD2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -623,7 +621,7 @@
 			);
 			name = SMS;
 			packageProductDependencies = (
-				D66988AF25A2ECF8006A1F38 /* AesEverywhere */,
+				D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */,
 			);
 			productName = SMS;
 			productReference = 479DB1322502522C009A8B08 /* SMS.app */;
@@ -654,7 +652,7 @@
 			);
 			mainGroup = 479DB1292502522C009A8B08;
 			packageReferences = (
-				D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */,
+				D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 479DB1332502522C009A8B08 /* Products */;
 			projectDirPath = "";
@@ -690,7 +688,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E2C67590B9B90057899068A9 /* [CP] Embed Pods Frameworks */ = {
+		41949FBF28AC70B02EFBDD2F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -993,7 +991,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */ = {
+		D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mervick/aes-everywhere-swift.git";
 			requirement = {
@@ -1004,9 +1002,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D66988AF25A2ECF8006A1F38 /* AesEverywhere */ = {
+		D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */;
+			package = D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */;
 			productName = AesEverywhere;
 		};
 /* End XCSwiftPackageProductDependency section */

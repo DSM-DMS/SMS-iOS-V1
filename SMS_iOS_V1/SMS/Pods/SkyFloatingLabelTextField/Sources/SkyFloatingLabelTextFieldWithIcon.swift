@@ -51,7 +51,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     dynamic open var iconImage: UIImage? {
         didSet {
             // Show a warning if setting an image while the iconType is IconType.font
-//            if self.iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") } // swiftlint:disable:this line_length
+            if self.iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") } // swiftlint:disable:this line_length
             iconImageView?.image = iconImage
         }
     }
@@ -223,10 +223,10 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     fileprivate func updateIconViewHiddenState() {
         switch iconType {
         case .font:
-//            self.iconLabel.isHidden = false
+            self.iconLabel.isHidden = false
             self.iconImageView.isHidden = true
         case .image:
-//            self.iconLabel.isHidden = true
+            self.iconLabel.isHidden = true
             self.iconImageView.isHidden = false
         }
     }
