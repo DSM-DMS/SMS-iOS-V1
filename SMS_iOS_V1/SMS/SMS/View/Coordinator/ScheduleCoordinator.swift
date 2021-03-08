@@ -8,13 +8,19 @@
 
 import UIKit
 
+
+protocol FinishDelegate {
+    func main()
+}
+
 class ScheduleCoordinator: Coordinator {
-    weak var parentCoordinator: TabbarCoordinator?
+    var finishDelegate: FinishDelegate!
     var children = [Coordinator]()
     var nav: UINavigationController
     
-    init(nav: UINavigationController) {
+    init(nav: UINavigationController, finish: FinishDelegate) {
         self.nav = nav
+        self.finishDelegate = finish
     }
     
     func start() {
@@ -24,7 +30,7 @@ class ScheduleCoordinator: Coordinator {
         self.nav.pushViewController(vc, animated: false)
     }
     
-    func disappear() {
-        parentCoordinator?.disappear(self)
+    func main() {
+        finishDelegate.main()
     }
 }

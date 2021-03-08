@@ -12,53 +12,42 @@ class TabbarCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var children = [Coordinator]()
     var nav: UINavigationController
+    let finish: FinishDelegate
     
-    init(nav: UINavigationController) {
+    init(nav: UINavigationController, finish: FinishDelegate) {
         self.nav = nav
+        self.finish = finish
     }
     
     func start() {
         let vc = TabbarViewController.instantiate(storyboardName: .tabbar)
+        vc.finish = finish
         vc.coordinator = self
         nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
     }
     
-    func disappear(_ child: Coordinator?) {
-        for (idx, coordinator) in
-            children.enumerated() {
-            if coordinator === child {
-                children.remove(at: idx)
-                break
-            }
-        }
-    }
-    
     func outGoingMain() {
-        let outGoingCoordinator = OutGoingCoordinator(nav: nav)
+        let outGoingCoordinator = OutGoingCoordinator(nav: nav, finish: finish)
         self.children.append(outGoingCoordinator)
-        outGoingCoordinator.parentCoordinator = self
         outGoingCoordinator.start()
     }
     
     func noticeMain() {
-        let noticeCoordinator = NoticeCoordinator(nav: nav)
+        let noticeCoordinator = NoticeCoordinator(nav: nav, finish: finish)
         self.children.append(noticeCoordinator)
-        noticeCoordinator.parentCoordinator = self
         noticeCoordinator.start()
     }
     
     func myPageMain() {
-        let myPageCoordinator = MyPageCoordinator(nav: nav)
+        let myPageCoordinator = MyPageCoordinator(nav: nav, finish: finish)
         self.children.append(myPageCoordinator)
-        myPageCoordinator.parentCoordinator = self
         myPageCoordinator.start()
     }
     
     func scheduleMain() {
-        let scheduleCoordinator = ScheduleCoordinator(nav: nav)
+        let scheduleCoordinator = ScheduleCoordinator(nav: nav, finish: finish)
         self.children.append(scheduleCoordinator)
-        scheduleCoordinator.parentCoordinator = self
         scheduleCoordinator.start()
     }
 }

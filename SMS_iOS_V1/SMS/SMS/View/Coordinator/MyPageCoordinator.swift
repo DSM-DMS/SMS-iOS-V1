@@ -10,12 +10,17 @@ import UIKit
 
 class MyPageCoordinator: Coordinator {
     var delegate: dismissBarProtocol?
-    weak var parentCoordinator: TabbarCoordinator?
     var children = [Coordinator]()
     var nav: UINavigationController
+    let finishDelegate: FinishDelegate
     
-    init(nav: UINavigationController) {
+    init(nav: UINavigationController, finish: FinishDelegate) {
         self.nav = nav
+        self.finishDelegate = finish
+    }
+    
+    func main() {
+        finishDelegate.main()
     }
     
     func start() {
@@ -25,21 +30,19 @@ class MyPageCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
-    func disappear() {
-        parentCoordinator?.disappear(self)
-    }
-    
     func introduce() {
         let vc = MypageIntroduceDevViewController.instantiate(storyboardName: .introduceDevlop)
         vc.coordinator = self
-        delegate?.dismissBar(true)
-        nav.pushViewController(vc, animated: false)
+        delegate?.dismissBar(true, { [weak self] in
+            self?.nav.pushViewController(vc, animated: true)
+        })
     }
     
     func changePW() {
         let vc = MypageChangePWViewController.instantiate(storyboardName: .myPageChangePW)
         vc.coordinator = self
-        delegate?.dismissBar(true)
-        nav.pushViewController(vc, animated: false)
+        delegate?.dismissBar(true, { [weak self] in
+            self?.nav.pushViewController(vc, animated: true)
+        })
     }
 }
