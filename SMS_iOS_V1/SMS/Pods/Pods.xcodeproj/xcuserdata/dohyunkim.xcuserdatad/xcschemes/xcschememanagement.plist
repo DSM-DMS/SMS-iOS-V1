@@ -14,25 +14,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JTAppleCalendar.xcscheme</key>
-		<dict>
-<<<<<<< Updated upstream
-			<key>isShown</key>
-			<false/>
-=======
-			<key>orderHint</key>
-			<integer>17</integer>
->>>>>>> Stashed changes
-		</dict>
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
-<<<<<<< Updated upstream
 			<key>isShown</key>
 			<false/>
-=======
-			<key>orderHint</key>
-			<integer>14</integer>
->>>>>>> Stashed changes
 		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
@@ -86,13 +71,13 @@
 		</dict>
 		<key>SkyFloatingLabelTextField.xcscheme</key>
 		<dict>
-<<<<<<< Updated upstream
 			<key>isShown</key>
 			<false/>
-=======
-			<key>orderHint</key>
-			<integer>15</integer>
->>>>>>> Stashed changes
+		</dict>
+		<key>Toast-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

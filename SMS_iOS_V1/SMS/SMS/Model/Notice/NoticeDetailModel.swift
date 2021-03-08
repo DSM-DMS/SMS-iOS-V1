@@ -9,7 +9,7 @@
 import Foundation
 
 struct NoticeDetailModel: Codable {
-    let status: String
+    let status: Int
     let code: Int
     let message: String
     let date: Int

@@ -7,12 +7,36 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class MypageChangePWAlertViewController: UIViewController {
+class MypageChangePWAlertViewController: UIViewController, Storyboarded {
+    weak var coordinator: MyPageCoordinator?
     
     @IBOutlet weak var backgroundView: CustomShadowView!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        coordinator?.disappear()
+    }
+    
+    func bindAction() {
+        
+        confirmButton.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
+        
+        cancelButton.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
     }
 }

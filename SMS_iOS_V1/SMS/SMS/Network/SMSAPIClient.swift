@@ -15,7 +15,7 @@ class SMSAPIClient {
     static let shared = SMSAPIClient()
     func networking<T:Codable>(from api: SMSAPI) -> Observable<T> {
         Observable.create { (obs) -> Disposable in
-            let request = Alamofire.request(URL(string: api.baseURL + api.version + api.path)!, method: api.method, parameters: api.parameter, encoding: api.encoding, headers: api.header).responseData { response in
+            let request = AF.request(URL(string: api.baseURL + api.version + api.path)!, method: api.method, parameters: api.parameter, encoding: api.encoding, headers: api.header).responseData { response in
                 debugPrint(response)
                 switch response.result {
                 case .success(let data):

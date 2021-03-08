@@ -9,12 +9,12 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Alamofire
+
 
 class MypageViewModel {
     
     
-    let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: SMSAPI.myInfo) 
+    let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo) 
     
     
 }

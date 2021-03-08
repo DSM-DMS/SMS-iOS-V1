@@ -12,10 +12,11 @@ struct MypageModel: Codable {
     let status: Int
     let code: Int
     let message: String
-    let grage: Int
-    let group: Int
-    let student_number: Int
-    let name: String
-    let phone_number: String
-    let profile_uri: String
+    let grade: Int?
+    let group: Int?
+    let student_number: Int?
+    let name: String?
+    let phone_number: String?
+    let profile_uri: String?
+    let parent_status: String?
 }

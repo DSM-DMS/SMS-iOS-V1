@@ -29,6 +29,10 @@ class NoticeCoordinator: Coordinator {
         parentCoordinator?.disappear(self)
     }
     
+    func pop() {
+        self.nav.popViewController(animated: true)
+    }
+    
     func detailNotice() {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
         vc.coordinator = self

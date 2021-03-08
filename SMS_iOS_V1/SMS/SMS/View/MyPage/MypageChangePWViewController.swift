@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import KeychainSwift
+import RxCocoa
 
 class MypageChangePWViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
@@ -21,11 +22,19 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     @IBOutlet weak var currentPWTextField: UITextField!
     @IBOutlet weak var newPWTextField: UITextField!
     @IBOutlet weak var confirmPWTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        bindAcion()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        coordinator?.disappear()
+    }
+    
 }
 extension MypageChangePWViewController {
     func bind() {
@@ -44,6 +53,21 @@ extension MypageChangePWViewController {
         } onError: {_ in
             fatalError("비밀번호 변경 실패")
         }.disposed(by: disposeBag)
+    }
+    
+    func bindAcion() {
+        
+        backButton.rx.tap
+            .bind { _ in
+                print("pop")
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
+        
+        applyButton.rx.tap
+            .bind { _ in
+//                self.coordinator?.pwConfirm()
+            }.disposed(by: disposeBag)
+        
         
     }
     

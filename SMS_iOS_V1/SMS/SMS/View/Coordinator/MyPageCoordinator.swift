@@ -29,6 +29,10 @@ class MyPageCoordinator: Coordinator {
         parentCoordinator?.disappear(self)
     }
     
+    func pop() {
+        self.nav.popViewController(animated: true)
+    }
+    
     func introduce() {
         let vc = MypageIntroduceDevViewController.instantiate(storyboardName: .introduceDevlop)
         vc.coordinator = self
@@ -41,5 +45,20 @@ class MyPageCoordinator: Coordinator {
         vc.coordinator = self
         delegate?.dismissBar(true)
         nav.pushViewController(vc, animated: false)
+    }
+    
+    func logout() {
+        let vc = MypageLogoutViewController.instantiate(storyboardName: .myPageLogout)
+        vc.coordinator = self
+        delegate?.dismissBar(true)
+        nav.pushViewController(vc, animated: false)
+    }
+    
+    func pwConfirm() {
+        let vc = MypageChangePWAlertViewController.instantiate(storyboardName: .mypageChangePWAlert)
+        vc.coordinator = self
+        delegate?.dismissBar(true)
+        nav.pushViewController(vc, animated: false)
+        
     }
 }

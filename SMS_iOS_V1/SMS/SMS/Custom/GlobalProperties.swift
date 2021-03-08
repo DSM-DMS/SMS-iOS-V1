@@ -73,6 +73,7 @@ func dateStr(_ date: String) -> String {
 }
 
 enum formType: String {
+    case dotDay = "yyyy.M.dd"
     case day = "yyyy년 M월 d일"
     case month = "yyyy년 M월"
     case untilDay = "yyyy-M-d"
