@@ -10,7 +10,6 @@ import UIKit
 
 import RxSwift
 import RxCocoa
-import EditorJSKit
 
 class NoticeDetailViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
@@ -68,11 +67,6 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         bind()
         bindAction()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
     }
 }
 

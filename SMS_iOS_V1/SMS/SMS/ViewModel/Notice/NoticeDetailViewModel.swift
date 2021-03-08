@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 
 class NoticeDetailViewModel {
-//    func uuidGetter() {
-//        UserDefaults.standard.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
-//    } 이거 공지 누를때 넣어주기
-    let NoticeDetailData: Observable<NoticeDetailModel> = SMSAPIClient.shared.networking(from: SMSAPI.detailNotice)
+    
+    let NoticeDetailData: Observable<NoticeDetailModel> = SMSAPIClient.shared.networking(from: .detailNotice)
 }
