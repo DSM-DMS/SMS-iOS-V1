@@ -30,8 +30,8 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var backgroundBtn: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var backgroundView: CustomShadowView!
+//    @IBOutlet weak var outGoingStartView: OutGoingActionAlertXib!
     @IBOutlet weak var outGoingEndView: OutGoingEndActionAlertXib!
-    @IBOutlet weak var outGoingStartView: OutGoingActionAlertXib!
     
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var nameView: UIView!
@@ -42,7 +42,6 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bindAction()
         settingAlert()
         bind()
@@ -64,29 +63,28 @@ extension OutGoingPopDeedViewController {
         outBtn.rx.tap
             .bind { _ in
                 let outingCode = self.b ? "start" : "end"
-                if self.b { // 스타팅이라는 소리
+                if !self.b { // 스타팅이라는 소리
                     self.isHiddenAllAlert(false, self.outGoingEndView)
-                    self.outGoingStartView.sign = { b in
-                        self.isHiddenAllAlert(true)
-                        if b { // 스타팅일떄 외출시작을 눌렀을때
-                            let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-                            
-                            startOuting.bind { model in
-                                if model.status == 200 {
-                                    self.outBtn.setTitle("외출 종료", for: .normal)
-                                    self.stateLbl.text = "외출중"
-                                    self.outBtn.backgroundColor = .customRed
-                                    self.b = false
-                                } else if model.status == 403 {
-                                    // 코디네이터
-                                    return
-                                }
-                            }.disposed(by: self.disposeBag)
-                        }
-                    }
-                    
+//                    self.outGoingStartView.sign = { b in
+//                        self.isHiddenAllAlert(true)
+//                        if b { // 스타팅일떄 외출시작을 눌렀을때
+//                            let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
+//
+//                            startOuting.bind { model in
+//                                if model.status == 200 {
+//                                    self.outBtn.setTitle("외출 종료", for: .normal)
+//                                    self.stateLbl.text = "외출중"
+//                                    self.outBtn.backgroundColor = .customRed
+//                                    self.b = false
+//                                } else if model.status == 401 {
+//                                    self.coordinator?.main()
+//                                    return
+//                                }
+//                            }.disposed(by: self.disposeBag)
+//                        }
+//                    }
                 } else { //종료라는 소리
-                    self.isHiddenAllAlert(false, self.outGoingStartView)
+//                    self.isHiddenAllAlert(false, self.outGoingStartView)
                     self.outGoingEndView.sign = { b in
                         self.isHiddenAllAlert(true)
                         if b {
@@ -100,7 +98,7 @@ extension OutGoingPopDeedViewController {
                                     self.b = true
                                 } else if model.status == 401 {
                                     // 코디네이터
-                                    return 
+                                    return
                                 }
                             }.disposed(by: self.disposeBag)
                         }
@@ -131,7 +129,7 @@ extension OutGoingPopDeedViewController {
             .bind { (date, uuid) in
                 if Calendar.current.isDateInToday(date) {
                     UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
-                    let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
+                    let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard(uuid))
                     
                     cardModel.bind { cardData in
                         if cardData.status == 200 {
@@ -145,7 +143,7 @@ extension OutGoingPopDeedViewController {
                 }
             }.disposed(by: disposeBag)
         } else {
-            let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
+            let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard("outing_uuid"))
             
             cardModel.bind { cardData in
                 if cardData.status == 200 {
@@ -211,7 +209,7 @@ extension OutGoingPopDeedViewController {
     }
     
     func isHiddenAllAlert(_ value: Bool, _ view: UIView? = nil) {
-        outGoingStartView.isHidden = value
+//        outGoingStartView.isHidden = value
         outGoingEndView.isHidden = value
         backgroundBtn.isHidden = value
         
@@ -227,10 +225,10 @@ extension OutGoingPopDeedViewController {
                                   opacity: 1,
                                   cornerRadius: 8)
         
-        outGoingStartView.addShadow(offset: CGSize(width: 0, height: 3),
-                                    color: .gray,
-                                    shadowRadius: 6,
-                                    opacity: 1,
-                                    cornerRadius: 8)
+//        outGoingStartView.addShadow(offset: CGSize(width: 0, height: 3),
+//                                    color: .gray,
+//                                    shadowRadius: 6,
+//                                    opacity: 1,
+//                                    cornerRadius: 8)
     }
 }

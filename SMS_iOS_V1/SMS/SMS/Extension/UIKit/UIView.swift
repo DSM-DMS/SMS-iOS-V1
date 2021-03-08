@@ -18,7 +18,7 @@ extension UIView {
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = opacity
         layer.cornerRadius = cornerRadius
-        layer.maskedCorners = corner ?? [.layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner,.layerMinXMinYCorner]
+        layer.maskedCorners = corner ?? [.layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMinYCorner]
     }
     
     func shake() {
