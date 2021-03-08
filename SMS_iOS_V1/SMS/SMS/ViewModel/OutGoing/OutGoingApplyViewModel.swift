@@ -16,7 +16,7 @@ class OutGoingApplyViewModel: ViewModelType {
         let reasonDriver: Driver<String>
         let startTimeDriver: Driver<String>
         let endTimeDriver:Driver<String>
-        let placeDriver: Driver<String>
+        let placeDriver: Observable<String?>
         let applyDriver: Driver<Void>
         let diseaseIs: BehaviorRelay<Bool>
     }
@@ -33,11 +33,14 @@ class OutGoingApplyViewModel: ViewModelType {
                                                      input.reasonDriver.asObservable(),
                                                      input.diseaseIs.asObservable()
             ))
-            .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty && !$0.3.isEmpty }
+            .filter {
+                let place = $0.2 ?? ""
+                return (!$0.0.isEmpty && !$0.1.isEmpty && !place.isEmpty && !$0.3.isEmpty)
+            }
             .map { txt -> SMSAPI in
                 let str = txt.4 ? "emergency" : "normal"
                 let dateUnix = unix(with: globalDateFormatter(.untilDay, Date()))
-                return SMSAPI.postOuting(dateUnix + stringToUnix(with: txt.0), dateUnix + stringToUnix(with: txt.1), txt.2, txt.3, str)
+                return SMSAPI.postOuting(dateUnix + stringToUnix(with: txt.0), dateUnix + stringToUnix(with: txt.1), txt.2!, txt.3, str)
             }.flatMap { request -> Observable<OutGoingModel> in
                 return SMSAPIClient.shared.networking(from: request)
             }
