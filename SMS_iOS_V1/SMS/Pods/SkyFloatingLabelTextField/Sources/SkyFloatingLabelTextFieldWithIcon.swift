@@ -333,7 +333,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             )
             iconImageView.frame = CGRect(
                 x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom + 4,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )
@@ -346,7 +346,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             )
             iconImageView.frame = CGRect(
                 x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom + 4,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )

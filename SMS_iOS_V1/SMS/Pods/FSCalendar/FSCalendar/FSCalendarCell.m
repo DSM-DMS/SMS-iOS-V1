@@ -20,7 +20,6 @@
 @property (readonly, nonatomic) UIColor *colorForCellBorder;
 @property (readonly, nonatomic) NSArray<UIColor *> *colorsForEvents;
 @property (readonly, nonatomic) CGFloat borderRadius;
-@property(nonatomic, getter=isSelected) BOOL selected;
 
 @end
 
@@ -49,10 +48,9 @@
 - (void)commonInit
 {   
     UILabel *label;
-    UIView *event1;
-    UIView *event2;
-    UIView *event3;
     CAShapeLayer *shapeLayer;
+    UIImageView *imageView;
+    FSCalendarEventIndicator *eventIndicator;
     
     label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.textAlignment = NSTextAlignmentCenter;
@@ -60,23 +58,11 @@
     [self.contentView addSubview:label];
     self.titleLabel = label;
     
-    event1 = [[UIView alloc] initWithFrame:CGRectZero];
-    event1.backgroundColor = UIColor.purpleColor;
-    self.event1View = event1;
-    _event1View.translatesAutoresizingMaskIntoConstraints = false;
-    [self.contentView addSubview:_event1View];
-    
-    event2 = [[UIView alloc] initWithFrame:CGRectZero];
-    event2.backgroundColor = UIColor.redColor;
-    self.event2View = event2;
-    _event2View.translatesAutoresizingMaskIntoConstraints = false;
-    [self.contentView addSubview:_event2View];
-    
-    event3 = [[UIView alloc] initWithFrame:CGRectZero];
-    event3.backgroundColor = UIColor.orangeColor;
-    self.event3View = event3;
-    _event3View.translatesAutoresizingMaskIntoConstraints = false;
-    [self.contentView addSubview:_event3View];
+    label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor lightGrayColor];
+    [self.contentView addSubview:label];
+    self.subtitleLabel = label;
     
     shapeLayer = [CAShapeLayer layer];
     shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -86,24 +72,63 @@
     [self.contentView.layer insertSublayer:shapeLayer below:_titleLabel.layer];
     self.shapeLayer = shapeLayer;
     
+    eventIndicator = [[FSCalendarEventIndicator alloc] initWithFrame:CGRectZero];
+    eventIndicator.backgroundColor = [UIColor clearColor];
+    eventIndicator.hidden = YES;
+    [self.contentView addSubview:eventIndicator];
+    self.eventIndicator = eventIndicator;
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    imageView.contentMode = UIViewContentModeBottom|UIViewContentModeCenter;
+    [self.contentView addSubview:imageView];
+    self.imageView = imageView;
+    
     self.clipsToBounds = NO;
     self.contentView.clipsToBounds = NO;
+    
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _titleLabel.frame = CGRectMake(
-                                   self.contentView.frame.size.width / 2 - 10.25,
-                                   self.contentView.frame.size.height / 2 - 13.25,
-                                   20.5,
-                                   20.5
-                                   );
-    _event1View.frame = CGRectMake(
-                                   self.contentView.center.x,
-                                   _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 1,
-                                   1,
-                                   1.5);
+    if (_subtitle) {
+        _subtitleLabel.text = _subtitle;
+        if (_subtitleLabel.hidden) {
+            _subtitleLabel.hidden = NO;
+        }
+    } else {
+        if (!_subtitleLabel.hidden) {
+            _subtitleLabel.hidden = YES;
+        }
+    }
+    
+    if (_subtitle) {
+        CGFloat titleHeight = self.titleLabel.font.lineHeight;
+        CGFloat subtitleHeight = self.subtitleLabel.font.lineHeight;
+        
+        CGFloat height = titleHeight + subtitleHeight;
+        _titleLabel.frame = CGRectMake(
+                                       self.preferredTitleOffset.x,
+                                       (self.contentView.fs_height*5.0/6.0-height)*0.5+self.preferredTitleOffset.y,
+                                       self.contentView.fs_width,
+                                       titleHeight
+                                       );
+        _subtitleLabel.frame = CGRectMake(
+                                          self.preferredSubtitleOffset.x,
+                                          (_titleLabel.fs_bottom-self.preferredTitleOffset.y) - (_titleLabel.fs_height-_titleLabel.font.pointSize)+self.preferredSubtitleOffset.y,
+                                          self.contentView.fs_width,
+                                          subtitleHeight
+                                          );
+    } else {
+        _titleLabel.frame = CGRectMake(
+                                       self.preferredTitleOffset.x,
+                                       self.preferredTitleOffset.y,
+                                       self.contentView.fs_width,
+                                       floor(self.contentView.fs_height*5.0/6.0)
+                                       );
+    }
+    
+    _imageView.frame = CGRectMake(self.preferredImageOffset.x, self.preferredImageOffset.y, self.contentView.fs_width, self.contentView.fs_height);
     
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);
@@ -118,6 +143,15 @@
     if (!CGPathEqualToPath(_shapeLayer.path,path)) {
         _shapeLayer.path = path;
     }
+    
+    CGFloat eventSize = _shapeLayer.frame.size.height/6.0;
+    _eventIndicator.frame = CGRectMake(
+                                       self.preferredEventOffset.x,
+                                       CGRectGetMaxY(_shapeLayer.frame)+eventSize*0.17+self.preferredEventOffset.y,
+                                       self.fs_width,
+                                       eventSize*0.83
+                                      );
+    
 }
 
 - (void)prepareForReuse
@@ -135,7 +169,7 @@
 - (void)performSelecting
 {
     _shapeLayer.opacity = 1;
-    
+        
     CAAnimationGroup *group = [CAAnimationGroup animation];
     CABasicAnimation *zoomOut = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     zoomOut.fromValue = @0.3;
@@ -165,6 +199,16 @@
     if (![titleFont isEqual:_titleLabel.font]) {
         _titleLabel.font = titleFont;
     }
+    if (_subtitle) {
+        textColor = self.colorForSubtitleLabel;
+        if (![textColor isEqual:_subtitleLabel.textColor]) {
+            _subtitleLabel.textColor = textColor;
+        }
+        titleFont = self.calendar.appearance.subtitleFont;
+        if (![titleFont isEqual:_subtitleLabel.font]) {
+            _subtitleLabel.font = titleFont;
+        }
+    }
     
     UIColor *borderColor = self.colorForCellBorder;
     UIColor *fillColor = self.colorForCellFill;
@@ -193,6 +237,19 @@
         }
         
     }
+    
+    if (![_image isEqual:_imageView.image]) {
+        _imageView.image = _image;
+        _imageView.hidden = !_image;
+    }
+    
+    if (_eventIndicator.hidden == (_numberOfEvents > 0)) {
+        _eventIndicator.hidden = !_numberOfEvents;
+    }
+    
+    _eventIndicator.numberOfEvents = self.numberOfEvents;
+    _eventIndicator.color = self.colorsForEvents;
+
 }
 
 - (UIColor *)colorForCurrentStateInDictionary:(NSDictionary *)dictionary
@@ -268,16 +325,16 @@
 \
 - (void)set##CAPITAL:(CGPoint)NAME \
 { \
-BOOL diff = !CGPointEqualToPoint(NAME, self.NAME); \
-_##NAME = NAME; \
-if (diff) { \
-[self setNeedsLayout]; \
-} \
+    BOOL diff = !CGPointEqualToPoint(NAME, self.NAME); \
+    _##NAME = NAME; \
+    if (diff) { \
+        [self setNeedsLayout]; \
+    } \
 } \
 \
 - (CGPoint)NAME \
 { \
-return CGPointEqualToPoint(_##NAME, CGPointInfinity) ? ALTERNATIVE : _##NAME; \
+    return CGPointEqualToPoint(_##NAME, CGPointInfinity) ? ALTERNATIVE : _##NAME; \
 }
 
 OFFSET_PROPERTY(preferredTitleOffset, PreferredTitleOffset, _appearance.titleOffset);
@@ -309,8 +366,103 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
 
 @end
 
+
+@interface FSCalendarEventIndicator ()
+
+@property (weak, nonatomic) UIView *contentView;
+
+@property (strong, nonatomic) NSPointerArray *eventLayers;
+
+@end
+
+@implementation FSCalendarEventIndicator
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+        [self addSubview:view];
+        self.contentView = view;
+        
+        self.eventLayers = [NSPointerArray weakObjectsPointerArray];
+        for (int i = 0; i < FSCalendarMaximumNumberOfEvents; i++) {
+            CALayer *layer = [CALayer layer];
+            layer.backgroundColor = [UIColor clearColor].CGColor;
+            [self.contentView.layer addSublayer:layer];
+            [self.eventLayers addPointer:(__bridge void * _Nullable)(layer)];
+        }
+        
+    }
+    return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    CGFloat diameter = MIN(MIN(self.fs_width, self.fs_height),FSCalendarMaximumEventDotDiameter);
+    self.contentView.fs_height = self.fs_height;
+    self.contentView.fs_width = (self.numberOfEvents*2-1)*diameter;
+    self.contentView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+}
+
+- (void)layoutSublayersOfLayer:(CALayer *)layer
+{
+    [super layoutSublayersOfLayer:layer];
+    if (layer == self.layer) {
+        
+        CGFloat diameter = MIN(MIN(self.fs_width, self.fs_height),FSCalendarMaximumEventDotDiameter);
+        for (int i = 0; i < self.eventLayers.count; i++) {
+            CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
+            eventLayer.hidden = i >= self.numberOfEvents;
+            if (!eventLayer.hidden) {
+                eventLayer.frame = CGRectMake(2*i*diameter, (self.fs_height-diameter)*0.5, diameter, diameter);
+                if (eventLayer.cornerRadius != diameter/2) {
+                    eventLayer.cornerRadius = diameter/2;
+                }
+            }
+        }
+    }
+}
+
+- (void)setColor:(id)color
+{
+    if (![_color isEqual:color]) {
+        _color = color;
+        
+        if ([_color isKindOfClass:[UIColor class]]) {
+            for (NSInteger i = 0; i < self.eventLayers.count; i++) {
+                CALayer *layer = [self.eventLayers pointerAtIndex:i];
+                layer.backgroundColor = [_color CGColor];
+            }
+        } else if ([_color isKindOfClass:[NSArray class]]) {
+            NSArray<UIColor *> *colors = (NSArray *)_color;
+            for (int i = 0; i < self.eventLayers.count; i++) {
+                CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
+                eventLayer.backgroundColor = colors[MIN(i,colors.count-1)].CGColor;
+            }
+        }
+        
+    }
+}
+
+- (void)setNumberOfEvents:(NSInteger)numberOfEvents
+{
+    if (_numberOfEvents != numberOfEvents) {
+        _numberOfEvents = MIN(MAX(numberOfEvents,0),FSCalendarMaximumNumberOfEvents);
+        [self setNeedsLayout];
+    }
+}
+
+@end
+
+
 @implementation FSCalendarBlankCell
 
 - (void)configureAppearance {}
 
 @end
+
+
+
