@@ -44,7 +44,6 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var bButton: UIButton!
     @IBOutlet weak var nTitle: UILabel!
     @IBOutlet weak var nDate: UILabel!
-    @IBOutlet weak var nViews: UILabel!
     @IBOutlet weak var nContent: UITextView!
     @IBOutlet weak var pNoticeButton: UIButton!
     @IBOutlet weak var nNoticeButton: UIButton!
