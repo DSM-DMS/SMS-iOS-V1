@@ -14,7 +14,7 @@ import KeychainSwift
 import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController, Storyboarded {
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: LoginCoordinator?
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
@@ -26,6 +26,8 @@ class LoginViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        bindAction()
+    
     }
 }
 
@@ -36,10 +38,9 @@ extension LoginViewController {
         let output = viewModel.transform(input)
         
         output.result.subscribe { model in
-            if model.status == 200 || model.code == 200 {
+            if model.status == 200 {
                 UserDefaults.standard.setValue(model.access_token!, forKey: "token")
-                UserDefaults.standard.setValue(model
-                                                .student_uuid!, forKey: "uuid")
+                UserDefaults.standard.setValue(model.student_uuid!, forKey: "uuid") 
                 self.coordinator?.tabbar()
             } else {
                 self.loginButton.shake()
@@ -47,34 +48,12 @@ extension LoginViewController {
         } onError: { _ in
             self.loginButton.shake()
         }.disposed(by: disposeBag)
-        
-        // 리팩토링 할 수 있지 않을까
+    }
+    
+    func bindAction() {
         autoLoginCheckBox.rx.tap
             .bind { _ in
                 self.autoLoginCheckBox.isSelected.toggle()
             }.disposed(by: disposeBag)
-        
-        let output = viewModel.transform(input)
-        
-        output.result.subscribe { model in
-            if model.status == 200 || model.code == 200 {
-                let keyChain = KeychainSwift()
-                
-                self.coordinator?.tabbar()
-                if self.autoLoginCheckBox.isSelected {
-                    keyChain.set(self.idTextField.text!, forKey: "ID")
-                    print("keychian saved")
-                    keyChain.set(self.pwTextField.text!, forKey: "PW")
-                } else { 
-                    keyChain.delete("ID")
-                    print("keychian deleted")
-                    keyChain.delete("PW")
-                }
-            } else {
-                self.loginButton.shake()
-            }
-        } onError: { _ in
-            self.loginButton.shake()
-        }.disposed(by: disposeBag)
     }
 }
