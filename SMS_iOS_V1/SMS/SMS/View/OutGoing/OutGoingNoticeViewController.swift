@@ -21,11 +21,6 @@ class OutGoingNoticeViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         bind()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
-    }
 }
 
 extension OutGoingNoticeViewController {
