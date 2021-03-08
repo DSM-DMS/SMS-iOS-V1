@@ -39,8 +39,13 @@ class OutGoingApplyViewModel: ViewModelType {
             }
             .map { txt -> SMSAPI in
                 let str = txt.4 ? "emergency" : "normal"
+<<<<<<< HEAD
                 let dateUnix = unix(with: globalDateFormatter(.untilDay, Date()))
                 return SMSAPI.postOuting(dateUnix + stringToUnix(with: txt.0), dateUnix + stringToUnix(with: txt.1), txt.2!, txt.3, str)
+=======
+                let dateUnix = unix(with: globalDateFormatter(.dotDay, Date()))
+                return SMSAPI.postOuting(dateUnix + stringToUnix(with: txt.0), dateUnix + stringToUnix(with: txt.1), txt.2, txt.3, str)
+>>>>>>> Develop
             }.flatMap { request -> Observable<OutGoingModel> in
                 return SMSAPIClient.shared.networking(from: request)
             }

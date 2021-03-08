@@ -9,11 +9,19 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EditorJSKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+<<<<<<< HEAD
+=======
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+>>>>>>> Develop
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>

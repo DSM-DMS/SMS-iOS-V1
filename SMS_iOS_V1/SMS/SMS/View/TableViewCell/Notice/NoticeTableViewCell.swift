@@ -9,6 +9,8 @@
 import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
+    
+    var uuid: String?
 
     @IBOutlet weak var cellNumber: UILabel!
     @IBOutlet weak var cellTitle: UILabel!
@@ -17,6 +19,7 @@ class NoticeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //글자수 제한 생각하기.
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

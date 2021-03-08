@@ -20,9 +20,15 @@ class NoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         UIbind()
-
+        //        bindAction()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindAction()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -35,50 +41,49 @@ class NoticeViewController: UIViewController, Storyboarded {
 
 extension NoticeViewController {
     func UIbind() {
-//<<<<<<< HEAD
-//        viewModel.noticeData.subscribe { [self] data in
-//
-//            let idx = data.element?.number
-//            let title = data.element?.title
-//            let date = data.element?.date
-//            let views = data.element?.views
-//            let dataSetArr: [dataSet] = [dataSet.init(idx: idx!, title: title!, date: date!, views: views!)]
-//            if data.element?.status == 200 || data.element?.code == 200 {
-//                Observable.repeatElement(dataSetArr)
-//                    .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName)) {_, cellElements, cell in
-//                        if let celltoUse = cell as? NoticeTableViewCell {
-//                            celltoUse.cellNumber.text = String(cellElements.idx)
-//                            celltoUse.cellTitle.text = cellElements.title
-//                            celltoUse.cellDate.text = String(cellElements.date)
-//                            celltoUse.cellViews.text = String(cellElements.views)
-//                        }
-//                    }
-//            }
-//
-//        }.disposed(by: disposeBag)
-//    }
-//}
-//
-//struct dataSet {
-//    let idx: Int
-//    let title: String
-//    let date: Int
-//    let views: Int
-//
-//=======
+        
         let Notice: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
         
         Notice.subscribe(onNext: { model in
             if model.status == 200 {
                 Observable.of(model.announcements ?? [])
                     .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
-                        cell.cellDate.text = unix(with: notice.date)
+                        cell.uuid = notice.announcement_uuid
+                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date)) 
                         cell.cellNumber.text = "\(notice.number)"
-                        cell.cellTitle.text = notice.title
+                        if(notice.title.count >= 18) {
+                            let titleArr = Array(notice.title)
+                            var noticeTitle = ""
+                            for i in 0..<16 {
+                                noticeTitle.append(titleArr[i])
+                            }
+                            noticeTitle.append("...")
+                            cell.cellTitle.text = noticeTitle
+                        } else {
+                            cell.cellTitle.text = notice.title
+                        }
+                        
                         cell.cellViews.text = "\(notice.views)"
                     }.disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
+        
     }
-
+    
+    func bindAction() {
+        noticeTableView.rx.itemSelected.bind { indexpath in
+            let cell = self.noticeTableView.cellForRow(at: indexpath) as! NoticeTableViewCell
+            UserDefaults.standard.setValue(cell.uuid!, forKey: "announcement_uuid")
+            let storyboard = UIStoryboard(name: "Notice", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
+            self.present(vc, animated: true, completion: nil)
+            
+        }.disposed(by: disposeBag)
+        
+        
+        
+    }
+    
+    
+    
 }

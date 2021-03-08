@@ -30,6 +30,17 @@ class NoticeCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
+<<<<<<< HEAD:SMS_iOS_V1/SMS/SMS/Coordinator/NoticeCoordinator.swift
+=======
+    func disappear() {
+        parentCoordinator?.disappear(self)
+    }
+    
+    func pop() {
+        self.nav.popViewController(animated: true)
+    }
+    
+>>>>>>> Develop:SMS_iOS_V1/SMS/SMS/View/Coordinator/NoticeCoordinator.swift
     func detailNotice() {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
         vc.coordinator = self

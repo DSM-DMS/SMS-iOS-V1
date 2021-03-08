@@ -31,8 +31,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             textAlignment = .left
             titleLabel.textAlignment = .left
         } else {
+<<<<<<< HEAD
             textAlignment = .right
             titleLabel.textAlignment = .right
+=======
+            textAlignment = .center
+            titleLabel.textAlignment = .center
+//            errorLabel.textAlignment = .center
+>>>>>>> Develop
         }
     }
 
@@ -661,7 +667,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func layoutSubviews() {
         super.layoutSubviews()
 
+<<<<<<< HEAD
         titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+=======
+//        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+//        errorLabel.frame = errorLabelRectForBounds(bounds, editing: isErrorVisible() || _renderingInInterfaceBuilder)
+>>>>>>> Develop
         lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
     }
 

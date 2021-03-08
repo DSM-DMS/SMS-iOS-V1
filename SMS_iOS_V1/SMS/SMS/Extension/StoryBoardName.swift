@@ -21,6 +21,7 @@ enum StoryBoardName {
     case outGoingMain
     case myPageMain
     case myPageChangePW
+    case mypageChangePWAlert
     case myPageLogout
     case introduceDevlop
     case schedule
@@ -57,7 +58,9 @@ extension StoryBoardName {
             
         case .myPageMain,
              .myPageLogout,
-             .myPageChangePW:
+             .myPageChangePW,
+             .introduceDevlop,
+             .mypageChangePWAlert:
             return "MyPage"
             
         case .schedule:

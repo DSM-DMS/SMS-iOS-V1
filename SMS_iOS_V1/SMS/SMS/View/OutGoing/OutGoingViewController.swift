@@ -37,6 +37,7 @@ extension OutGoingViewController {
                 self.coordinator?.outGoingApply();
             }.disposed(by: disposeBag)
         
+<<<<<<< HEAD
         outGoingLogButton.rx.tap
             .bind {
                 self.coordinator?.outGoingLog()
@@ -51,6 +52,22 @@ extension OutGoingViewController {
             .bind {
                 self.coordinator?.outGoingPopDeed()
             }.disposed(by: disposeBag)
+=======
+            outGoingLogButton.rx.tap
+            .bind { self.coordinator?.outGoingLog()
+            }
+            .disposed(by: disposeBag)
+        
+                outGoingNoticeButton.rx.tap
+            .bind { self.coordinator?.noticeOutGoing()
+            }
+            .disposed(by: disposeBag)
+        
+//        outGoingPopUpBtn.rx.tap
+////            .bind { self.coordinator?.()
+//            }
+//            .disposed(by: disposeBag)
+>>>>>>> Develop
     }
 }
 

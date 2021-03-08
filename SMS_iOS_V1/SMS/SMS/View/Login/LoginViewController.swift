@@ -40,7 +40,11 @@ extension LoginViewController {
         output.result.subscribe { model in
             if model.status == 200 {
                 UserDefaults.standard.setValue(model.access_token!, forKey: "token")
+<<<<<<< HEAD
                 UserDefaults.standard.setValue(model.student_uuid!, forKey: "uuid") 
+=======
+                UserDefaults.standard.setValue(model.student_uuid!, forKey: "uuid")
+>>>>>>> Develop
                 self.coordinator?.tabbar()
             } else {
                 self.loginButton.shake()
