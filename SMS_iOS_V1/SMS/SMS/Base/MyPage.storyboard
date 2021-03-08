@@ -437,7 +437,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="89k-Ap-owY">
-                                <rect key="frame" x="60" y="130" width="255" height="537"/>
+                                <rect key="frame" x="50" y="130" width="275" height="537"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P5s-Zb-MVt">
                                     <size key="itemSize" width="96" height="139"/>
@@ -484,6 +484,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="96" height="139"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="eSm-Q2-q1P" id="fDo-33-DVS"/>
+                                            <outlet property="nameLbl" destination="S82-Hw-mld" id="ItD-Vt-A2l"/>
+                                            <outlet property="partLbl" destination="4HD-6a-jrX" id="6Gb-dz-fN2"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -503,12 +508,12 @@
                         <constraints>
                             <constraint firstItem="Bf1-zS-8da" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="16" id="AXV-5R-Ngh"/>
                             <constraint firstItem="uTB-uC-lai" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="44" id="B96-d3-32c"/>
-                            <constraint firstItem="5i2-MW-nnw" firstAttribute="trailing" secondItem="89k-Ap-owY" secondAttribute="trailing" constant="60" id="IAm-ct-mSw"/>
+                            <constraint firstItem="5i2-MW-nnw" firstAttribute="trailing" secondItem="89k-Ap-owY" secondAttribute="trailing" constant="50" id="IAm-ct-mSw"/>
                             <constraint firstItem="Bf1-zS-8da" firstAttribute="top" secondItem="5i2-MW-nnw" secondAttribute="top" constant="20" id="VJA-43-8tQ"/>
                             <constraint firstItem="uTB-uC-lai" firstAttribute="top" secondItem="Bf1-zS-8da" secondAttribute="bottom" constant="21" id="Vyo-FT-iEF"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="top" secondItem="5i2-MW-nnw" secondAttribute="top" constant="130" id="cly-hr-Prs"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="top" secondItem="uTB-uC-lai" secondAttribute="bottom" constant="41" id="ct9-Gu-v2q"/>
-                            <constraint firstItem="89k-Ap-owY" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="60" id="h7I-rP-xAS"/>
+                            <constraint firstItem="89k-Ap-owY" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="50" id="h7I-rP-xAS"/>
                             <constraint firstItem="89k-Ap-owY" firstAttribute="bottom" secondItem="5i2-MW-nnw" secondAttribute="bottom" id="qxx-Ms-qbv"/>
                         </constraints>
                     </view>

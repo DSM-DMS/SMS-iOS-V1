@@ -48,6 +48,8 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var pNoticeButton: UIButton!
     @IBOutlet weak var nNoticeButton: UIButton!
     
+    var pNoticeUUID = ""
+    var nNoticeUUID = ""
     
 //    var blockList: EJBlocksList!
 //
@@ -59,13 +61,13 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
-        bindAction()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        bindAction()
+        bind()
+        bindAction()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -114,6 +116,9 @@ extension NoticeDetailViewController {
                 } else {
                     self.pNoticeButton.setTitle(data.next_title, for: .normal)
                 }
+                
+                self.pNoticeUUID = data.previous_announcement_uuid
+                self.nNoticeUUID = data.next_announcement_uuid
             }
         }.disposed(by: disposeBag)
         
@@ -126,6 +131,24 @@ extension NoticeDetailViewController {
             .bind{
                 self.dismiss(animated: true, completion: nil)
             }.disposed(by: disposeBag)
+        
+        pNoticeButton.rx.tap
+            .bind {
+                UserDefaults.standard.setValue(self.nNoticeUUID, forKey: "announcement_uuid")
+                self.presenting()
+            }.disposed(by: disposeBag)
+        
+        nNoticeButton.rx.tap
+            .bind {
+                UserDefaults.standard.setValue(self.pNoticeUUID, forKey: "announcement_uuid")
+                self.presenting()
+            }.disposed(by: disposeBag)
+    }
+    
+    func presenting() {
+        let storyboard = UIStoryboard(name: "Notice", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

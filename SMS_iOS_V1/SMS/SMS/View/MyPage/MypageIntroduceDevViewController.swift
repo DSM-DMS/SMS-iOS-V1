@@ -44,9 +44,9 @@ extension MypageIntroduceDevViewController {
         Observable.just(peopleArr)
             .bind(to: devCollectionView.rx.items(cellIdentifier: DevCollectionViewCell.NibName)) { _, people, cell in
                 if let cellToUse = cell as? DevCollectionViewCell {
-//                    cellToUse.imageView.image = UIImage(named: people.image)
-//                    cellToUse.nameLbl.text = people.name
-//                    cellToUse.partLbl.text = people.part
+                    cellToUse.imageView.image = UIImage(named: people.image)
+                    cellToUse.nameLbl.text = people.name
+                    cellToUse.partLbl.text = people.part
                 }
             }.disposed(by: disposeBag)
     }
