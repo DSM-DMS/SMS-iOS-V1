@@ -2,6 +2,7 @@
 //
 //  Created by Kuldeep Tanwar on 4/15/19.
 //  Copyright © 2019 Kuldeep Tanwar. All rights reserved.
+
 import UIKit
 enum UIDeviceSize  {
     case i3_5Inch
@@ -103,6 +104,7 @@ iPad5              = "iPad 5", //iPad 2017
 iPad6              = "iPad 6", //iPad 2018
 iPad7              = "iPad 7", //iPad 2019
 iPad8              = "iPad 8", //iPad 2020
+
 //iPad Mini
 iPadMini           = "iPad Mini",
 iPadMini2          = "iPad Mini 2",
@@ -171,6 +173,7 @@ unrecognized       = "?unrecognized?"
 // #-#-#-#-#-#-#-#-#-#-#-#-#
 // MARK: UIDevice extensions
 // #-#-#-#-#-#-#-#-#-#-#-#-#
+
 public extension UIDevice {
 
 var type: Model {
