@@ -39,7 +39,15 @@ class TimeScheduleXib: UIView {
             .range(start: mondayCompo.day!, count: 5)
             .flatMap { day -> Observable<TimeTableModel> in
                 return SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, day))
-            }.bind { model in
+            }.filter {
+                if $0.status == 401 {
+                    let vc = ScheduleViewController()
+                    vc.coordinator?.main()
+                    return false
+                }
+                return true
+            }
+            .bind { model in
                 let dayArr = [self.mondayLabels, self.tuesdayLabels, self.wedsLabels, self.thirsdayLabels, self.fridayLabels]
                 var arr: [String?]
                 
@@ -50,11 +58,7 @@ class TimeScheduleXib: UIView {
                 }
                 
                 for i in 0..<arr.count {
-                    if arr[i] == "" {
-                        dayArr[cnt]![i].text = "-"
-                    } else {
-                        dayArr[cnt]![i].text = arr[i]
-                    }
+                    dayArr[cnt]![i].text = arr[i] == "" ? "-" : arr[i]
                 }
                 cnt += 1
             }.disposed(by: disposeBag)
