@@ -34,7 +34,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqQ-aX-03i">
-                        <rect key="frame" x="70" y="12" width="26.5" height="12"/>
+                        <rect key="frame" x="70" y="12" width="278" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMa-xg-Qs5">
-                        <rect key="frame" x="70" y="43" width="26.5" height="12"/>
+                        <rect key="frame" x="70" y="43" width="278" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -68,7 +68,9 @@
                     <constraint firstItem="Wb7-3y-IZh" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="leading" id="14v-cy-AW3"/>
                     <constraint firstItem="Wb7-3y-IZh" firstAttribute="centerY" secondItem="MMa-xg-Qs5" secondAttribute="centerY" id="250-xk-7Mf"/>
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="centerY" secondItem="5sT-rb-USR" secondAttribute="centerY" id="MHf-Cr-G7Y"/>
+                    <constraint firstAttribute="trailing" secondItem="MMa-xg-Qs5" secondAttribute="trailing" constant="10" id="MOc-b1-TJV"/>
                     <constraint firstAttribute="bottom" secondItem="Wb7-3y-IZh" secondAttribute="bottom" constant="14" id="Ogm-8q-GpH"/>
+                    <constraint firstAttribute="trailing" secondItem="uqQ-aX-03i" secondAttribute="trailing" constant="10" id="bs1-gw-82J"/>
                     <constraint firstItem="MMa-xg-Qs5" firstAttribute="leading" secondItem="Wb7-3y-IZh" secondAttribute="trailing" constant="10" id="ct5-G4-8Jg"/>
                     <constraint firstItem="5sT-rb-USR" firstAttribute="top" secondItem="MNG-ng-mli" secondAttribute="top" constant="11" id="rtc-KA-AoA"/>
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="trailing" constant="10" id="vg0-12-gOb"/>
@@ -78,7 +80,7 @@
                 <outlet property="addressLbl" destination="uqQ-aX-03i" id="Ofd-2e-1pz"/>
                 <outlet property="roadAddressLbl" destination="MMa-xg-Qs5" id="cki-ad-fu3"/>
             </connections>
-            <point key="canvasLocation" x="-541" y="-129"/>
+            <point key="canvasLocation" x="-542.02898550724638" y="-129.24107142857142"/>
         </tableViewCell>
     </objects>
 </document>
