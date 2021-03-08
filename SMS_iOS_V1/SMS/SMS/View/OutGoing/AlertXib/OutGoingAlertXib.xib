@@ -25,7 +25,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="334" height="320"/>
+            <rect key="frame" x="0.0" y="0.0" width="334" height="374"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 주의 -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-fv-Epl">
@@ -38,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Or9-A2-0d1">
-                    <rect key="frame" x="167" y="271" width="167" height="49"/>
+                    <rect key="frame" x="167" y="325" width="167" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="hlb-Hb-jHO"/>
                     </constraints>
@@ -78,7 +78,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-8D-cXE">
-                    <rect key="frame" x="40" y="172.5" width="252.5" height="50.5"/>
+                    <rect key="frame" x="40" y="152.5" width="252.5" height="50.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-bg-dpv">
                             <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
@@ -108,7 +108,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ar7-XD-GA0">
-                    <rect key="frame" x="0.0" y="271" width="167" height="49"/>
+                    <rect key="frame" x="0.0" y="325" width="167" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="Jcs-I7-rEf"/>
                     </constraints>
@@ -118,18 +118,18 @@
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-pW-mL2">
-                    <rect key="frame" x="40" y="195" width="202" height="33.5"/>
+                    <rect key="frame" x="40" y="233" width="252.5" height="50.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-j8-5Ts">
-                            <rect key="frame" x="13" y="0.0" width="189" height="33.5"/>
+                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
                             <string key="text">질병 외출은 질병, 부상으로 인한
 외출 시에만 신청하실 수 있습니다.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caj-Sf-6kD">
-                            <rect key="frame" x="0.0" y="0.0" width="3" height="14"/>
+                            <rect key="frame" x="0.0" y="7" width="3" height="14"/>
                             <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="3" id="4uV-ae-hVM"/>
@@ -144,7 +144,7 @@
                         <constraint firstAttribute="bottom" secondItem="bWD-j8-5Ts" secondAttribute="bottom" id="Yn4-hh-UkP"/>
                         <constraint firstItem="bWD-j8-5Ts" firstAttribute="leading" secondItem="Caj-Sf-6kD" secondAttribute="trailing" constant="10" id="cuG-lJ-K5y"/>
                         <constraint firstAttribute="trailing" secondItem="bWD-j8-5Ts" secondAttribute="trailing" id="tQG-N1-2gs"/>
-                        <constraint firstItem="Caj-Sf-6kD" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" id="zns-oa-JOj"/>
+                        <constraint firstItem="Caj-Sf-6kD" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" constant="7" id="zns-oa-JOj"/>
                     </constraints>
                 </view>
             </subviews>
@@ -167,7 +167,7 @@
                 <constraint firstItem="tn0-fv-Epl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="iZI-5v-uZI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="11.594202898550726" y="72.991071428571431"/>
+            <point key="canvasLocation" x="11.594202898550726" y="91.071428571428569"/>
         </view>
     </objects>
     <resources>

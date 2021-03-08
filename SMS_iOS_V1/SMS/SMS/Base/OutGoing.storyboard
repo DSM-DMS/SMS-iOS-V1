@@ -313,7 +313,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="283" height="88"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 장소를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRV-CV-dNO" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="283" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -346,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="143" width="283" height="60.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 사유를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRN-ww-cBb" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="283" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -365,14 +365,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-nU-Ij7">
-                                                <rect key="frame" x="159" y="51.5" width="124" height="24"/>
+                                                <rect key="frame" x="159" y="75" width="124" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <state key="normal" title="질병 외출로 신청하시겠습니까?">
                                                     <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질병 외출로 신청 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-E7-j0n">
-                                                <rect key="frame" x="43.5" y="57.5" width="107.5" height="12"/>
+                                                <rect key="frame" x="43.5" y="81" width="107.5" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -396,13 +396,13 @@
                                         <rect key="frame" x="0.0" y="258.5" width="283" height="65.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djn-p3-1PG">
-                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="283" height="37"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="4wr-WS-SM6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="37"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZO-6p-aDo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="37"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -424,10 +424,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-wU-zCO">
-                                                        <rect key="frame" x="169.5" y="0.0" width="113.5" height="13.5"/>
+                                                        <rect key="frame" x="169.5" y="0.0" width="113.5" height="37"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0U-Sj-2Gp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="37"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -450,7 +450,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-r3-JCv">
-                                                        <rect key="frame" x="136.5" y="-3.5" width="10" height="20.5"/>
+                                                        <rect key="frame" x="136.5" y="8" width="10" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="UTH-05-gOY"/>
                                                         </constraints>
@@ -547,7 +547,7 @@
                                 <color key="backgroundColor" red="0.38817179200000002" green="0.38841283319999997" blue="0.38039129970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnW-Sj-3aS" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="177" width="301" height="314"/>
+                                <rect key="frame" x="40" y="180.5" width="295" height="307"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QnW-Sj-3aS" secondAttribute="height" multiplier="307:320" id="D1m-76-YsC"/>
@@ -593,7 +593,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="SSO-OX-0Oq" firstAttribute="leading" secondItem="QnW-Sj-3aS" secondAttribute="trailing" constant="-341" id="BmH-TR-ubv"/>
                             <constraint firstItem="RVm-It-Wwh" firstAttribute="leading" secondItem="bQ0-Br-a7A" secondAttribute="leading" constant="18" id="DQZ-at-cTi"/>
                             <constraint firstItem="oL6-r3-JCv" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="ETD-C4-0Cc"/>
                             <constraint firstItem="Cxv-gF-452" firstAttribute="centerY" secondItem="SSO-OX-0Oq" secondAttribute="centerY" id="LBo-61-7hD"/>
@@ -1590,23 +1589,10 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="OutGoingEndActionAlertXib" translatesAutoresizingMaskIntoConstraints="NO" id="Sgo-GG-hyT" customClass="OutGoingEndActionAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="251.5" width="295" height="164"/>
+                                <rect key="frame" x="60" y="260.5" width="255" height="146"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Sgo-GG-hyT" secondAttribute="height" multiplier="348:193" id="0f3-RJ-eA9"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-La-sFo">
-                                <rect key="frame" x="40" y="251.5" width="295" height="164"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="v2z-La-sFo" secondAttribute="height" multiplier="348:193" id="A1k-EV-rWY"/>
+                                    <constraint firstAttribute="width" secondItem="Sgo-GG-hyT" secondAttribute="height" multiplier="336:193" id="0f3-RJ-eA9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1621,22 +1607,19 @@
                         <constraints>
                             <constraint firstItem="uhq-be-QhW" firstAttribute="top" secondItem="BqE-KZ-pFV" secondAttribute="top" id="5Qx-XF-GqI"/>
                             <constraint firstItem="rbr-8z-rqy" firstAttribute="bottom" secondItem="pgg-dc-F9U" secondAttribute="bottom" constant="65" id="7J8-oM-BOZ"/>
-                            <constraint firstItem="Sgo-GG-hyT" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" constant="40" id="868-eq-J4V"/>
+                            <constraint firstItem="Sgo-GG-hyT" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" constant="60" id="868-eq-J4V"/>
                             <constraint firstAttribute="bottom" secondItem="uhq-be-QhW" secondAttribute="bottom" id="8Jv-Az-cBE"/>
                             <constraint firstItem="uhq-be-QhW" firstAttribute="trailing" secondItem="rbr-8z-rqy" secondAttribute="trailing" id="8v3-Lk-wms"/>
                             <constraint firstItem="uhq-be-QhW" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" id="8vY-zR-zID"/>
                             <constraint firstItem="cog-eC-UWD" firstAttribute="centerY" secondItem="eZy-wE-iBw" secondAttribute="centerY" id="Arp-wA-hFo"/>
                             <constraint firstItem="cog-eC-UWD" firstAttribute="centerX" secondItem="rbr-8z-rqy" secondAttribute="centerX" id="C5Q-WG-nt5"/>
                             <constraint firstItem="pgg-dc-F9U" firstAttribute="centerX" secondItem="rbr-8z-rqy" secondAttribute="centerX" id="Hfn-UG-elT"/>
-                            <constraint firstItem="v2z-La-sFo" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" constant="40" id="Na0-gM-tfn"/>
                             <constraint firstItem="pgg-dc-F9U" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" constant="30" id="P6P-sP-7Fm"/>
                             <constraint firstItem="cH4-W0-EQg" firstAttribute="leading" secondItem="rbr-8z-rqy" secondAttribute="leading" constant="25" id="PI8-cO-jRC"/>
                             <constraint firstItem="rbr-8z-rqy" firstAttribute="bottom" secondItem="cH4-W0-EQg" secondAttribute="bottom" constant="15" id="Xbi-kt-0JB"/>
                             <constraint firstItem="pgg-dc-F9U" firstAttribute="top" secondItem="cog-eC-UWD" secondAttribute="bottom" constant="20" id="bca-Vn-PYe"/>
                             <constraint firstItem="Sgo-GG-hyT" firstAttribute="centerY" secondItem="uhq-be-QhW" secondAttribute="centerY" id="c3M-ew-PsJ"/>
                             <constraint firstItem="cH4-W0-EQg" firstAttribute="centerX" secondItem="rbr-8z-rqy" secondAttribute="centerX" id="gAG-ms-g5Z"/>
-                            <constraint firstItem="v2z-La-sFo" firstAttribute="centerX" secondItem="uhq-be-QhW" secondAttribute="centerX" id="hsM-Dz-9ei"/>
-                            <constraint firstItem="v2z-La-sFo" firstAttribute="centerY" secondItem="uhq-be-QhW" secondAttribute="centerY" id="ii6-Qg-j64"/>
                             <constraint firstItem="KJ2-nw-E2s" firstAttribute="centerX" secondItem="rbr-8z-rqy" secondAttribute="centerX" id="o1D-YJ-Qct"/>
                             <constraint firstItem="Sgo-GG-hyT" firstAttribute="centerX" secondItem="uhq-be-QhW" secondAttribute="centerX" id="s8J-ns-vZz"/>
                             <constraint firstItem="eZy-wE-iBw" firstAttribute="top" secondItem="rbr-8z-rqy" secondAttribute="top" constant="27" id="sz0-kl-VFZ"/>
@@ -1654,7 +1637,6 @@
                         <outlet property="noneOutingView" destination="gJI-Js-K0L" id="qNv-IO-jW3"/>
                         <outlet property="outBtn" destination="cH4-W0-EQg" id="tnx-U0-eZC"/>
                         <outlet property="outGoingEndView" destination="Sgo-GG-hyT" id="XW9-a7-I1r"/>
-                        <outlet property="outGoingStartView" destination="v2z-La-sFo" id="22g-AP-CII"/>
                         <outlet property="placeLbl" destination="TdA-Gi-nCt" id="oWK-cq-Pm0"/>
                         <outlet property="placeView" destination="MZq-MT-duI" id="KB8-zz-OD9"/>
                         <outlet property="popVCBtn" destination="eZy-wE-iBw" id="bjK-lE-7ry"/>
@@ -1692,16 +1674,16 @@
     </scenes>
     <designables>
         <designable name="AZO-6p-aDo">
-            <size key="intrinsicContentSize" width="83.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="113.5" height="36.693593749999998"/>
         </designable>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="101.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="283" height="36.693593749999998"/>
         </designable>
         <designable name="H0U-Sj-2Gp">
-            <size key="intrinsicContentSize" width="83.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="113.5" height="36.693593749999998"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="101.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="283" height="36.693593749999998"/>
         </designable>
     </designables>
     <resources>
