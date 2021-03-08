@@ -41,7 +41,7 @@ class MypageViewController: UIViewController, Storyboarded {
         mypageData.subscribe(onNext: { model in
             if model.status == 200 {
                 self.nameLabel.text = model.name
-                self.numberLabel.text = String("\(model.grade)학년 \(model.student_number)번")
+                self.numberLabel.text = String("    \(model.grade!)학년 \(model.student_number!)번")
                 //                self.statusLabel.text = String(model.status) 이거 왜 이래대잇누 외출 하면 이거 바꾸도록 해야할듯.
             }
         }
