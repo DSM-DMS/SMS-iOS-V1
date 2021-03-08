@@ -14,7 +14,6 @@ import RxSwift
 class OutGoingViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     weak var coordinator: OutGoingCoordinator?
-//    var delegate: dismissBarProtocol?
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var outGoingApplyButton: UIButton!
@@ -27,11 +26,6 @@ class OutGoingViewController: UIViewController, Storyboarded {
         bind()
         stackView.spacing = UIScreen.main.bounds.height > 800 ? 70 : 35
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
-    }
 }
 
 
@@ -39,24 +33,24 @@ class OutGoingViewController: UIViewController, Storyboarded {
 extension OutGoingViewController {
     private func bind() {
         outGoingApplyButton.rx.tap
-            .bind { self.coordinator?.outGoingApply();
-            }
-            .disposed(by: disposeBag)
+            .bind {
+                self.coordinator?.outGoingApply();
+            }.disposed(by: disposeBag)
         
         outGoingLogButton.rx.tap
-            .bind { self.coordinator?.outGoingLog()
-            }
-            .disposed(by: disposeBag)
+            .bind {
+                self.coordinator?.outGoingLog()
+            }.disposed(by: disposeBag)
         
         outGoingNoticeButton.rx.tap
-            .bind { self.coordinator?.noticeOutGoing()
-            }
-            .disposed(by: disposeBag)
+            .bind {
+                self.coordinator?.noticeOutGoing()
+            }.disposed(by: disposeBag)
         
         outGoingPopUpBtn.rx.tap
-            .bind { self.coordinator?.popUp()
-            }
-            .disposed(by: disposeBag)
+            .bind {
+                self.coordinator?.outGoingPopDeed()
+            }.disposed(by: disposeBag)
     }
 }
 
