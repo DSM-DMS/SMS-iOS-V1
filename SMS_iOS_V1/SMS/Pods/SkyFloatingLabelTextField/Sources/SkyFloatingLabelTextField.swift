@@ -1,12 +1,12 @@
 //  Copyright 2016-2019 Skyscanner Ltd
 //
-//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance 
+//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
 //  with the License. You may obtain a copy of the License at
 //
 //  http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed 
-//  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 
+//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
+//  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
 //  for the specific language governing permissions and limitations under the License.
 
 import UIKit
@@ -27,7 +27,7 @@ public enum ErrorMessagePlacement {
 @IBDesignable
 open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
     /**
-     A Boolean value that determines if the language displayed is LTR. 
+     A Boolean value that determines if the language displayed is LTR.
      Default value set automatically from the application language settings.
      */
     @objc open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
@@ -106,7 +106,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updatePlaceholder() {
-        guard let placeholder = placeholder, let font = placeholderFont ?? font else {
+        guard let placeholder = placeholder, let font = UIFont(name: "Noto Sans CJK KR", size: 12) else {
             return
         }
         let color = isEnabled ? placeholderColor : disabledColor
@@ -133,7 +133,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// A UIFont value that determines the text font of the title label
-    @objc dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
+    @objc dynamic open var titleFont: UIFont = UIFont(name: "Noto Sans CJK KR Regular", size: 12)! {
         didSet {
             updateTitleLabel()
         }
@@ -235,7 +235,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     // MARK: Properties
 
     /**
-    The formatter used before displaying content in the title label. 
+    The formatter used before displaying content in the title label.
     This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
     */
@@ -538,34 +538,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
 
         var titleText: String?
-        var errorText: String?
-
-        if errorMessagePlacement == .default {
-            if hasErrorMessage {
-                titleText = titleFormatter(errorMessage!)
-            } else {
-                if editingOrSelected {
-                    titleText = selectedTitleOrTitlePlaceholder()
-                    if titleText == nil {
-                        titleText = titleOrPlaceholder()
-                    }
-                } else {
-                    titleText = titleOrPlaceholder()
-                }
-            }
-        } else {
-            if hasErrorMessage {
-                errorText = titleFormatter(errorMessage!)
-            }
-            if editingOrSelected {
-                titleText = selectedTitleOrTitlePlaceholder()
-                if titleText == nil {
-                    titleText = titleOrPlaceholder()
-                }
-            } else {
-                titleText = titleOrPlaceholder()
-            }
-        }
+        titleText = selectedTitleOrTitle()
         titleLabel.text = titleText
         titleLabel.font = titleFont
 
@@ -610,10 +583,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
-        let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
-        let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
+        let frame: CGRect = titleLabelRectForBounds(bounds, editing: false)
         let updateBlock = { () -> Void in
-            self.titleLabel.alpha = alpha
+            self.titleLabel.alpha = 1
             self.titleLabel.frame = frame
         }
         if animated {
@@ -622,8 +594,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             #else
                 let animationOptions: UIViewAnimationOptions = .curveEaseOut
             #endif
-            let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
-            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
+            UIView.animate(withDuration: titleFadeOutDuration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
                 }, completion: completion)
         } else {
@@ -694,7 +665,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         let rect = CGRect(
             x: superRect.origin.x,
-            y: titleHeight,
+            y: titleHeight + 5,
             width: superRect.size.width,
             height: height
         )
@@ -713,7 +684,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
         let rect = CGRect(
             x: 0,
-            y: titleHeight(),
+            y: titleHeight() + 5,
             width: bounds.size.width,
             height: height
         )
@@ -729,34 +700,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     - returns: The rectangle that the title label should render in
     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
-        if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
-        }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
     }
 
     /**
-     Calculate the bounds for the error label. Override to create a custom size error field.
-     - parameter bounds: The current bounds of the title
-     - parameter editing: True if the control is selected or highlighted
-     - returns: The rectangle that the title label should render in
-     */
-    open func errorLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
-        if errorMessagePlacement == .default {
-            return CGRect.zero
-        } else {
-            let lineRect = lineViewRectForBounds(bounds, editing: editing)
-            if editing {
-                let originY = lineRect.origin.y + selectedLineHeight
-                return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
-            }
-            let originY = lineRect.origin.y + selectedLineHeight + errorHeight()
-            return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
-        }
-    }
-
-    /**
-     Calculate the bounds for the bottom line of the control. 
+     Calculate the bounds for the bottom line of the control.
      Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
      - parameter editing: True if the control is selected or highlighted
@@ -764,11 +712,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     open func lineViewRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         let height = editing ? selectedLineHeight : lineHeight
-        if errorMessagePlacement == .bottom {
-            return CGRect(x: 0, y: textRect(forBounds: bounds).maxY, width: bounds.size.width, height: height)
-        } else {
-            return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height)
-        }
+        return CGRect(x: 0, y: bounds.size.height - height + 5, width: bounds.size.width, height: height)
     }
 
     /**
@@ -845,15 +789,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     // MARK: - Helpers
 
-    fileprivate func titleOrPlaceholder() -> String? {
-        guard let title = title ?? placeholder else {
-            return nil
-        }
-        return titleFormatter(title)
-    }
-
-    fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
-        guard let title = selectedTitle ?? title ?? placeholder else {
+    fileprivate func selectedTitleOrTitle() -> String? {
+        guard let title = selectedTitle ?? title else {
             return nil
         }
         return titleFormatter(title)

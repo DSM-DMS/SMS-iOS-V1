@@ -8,6 +8,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
             <connections>
@@ -21,8 +29,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 주의 -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-fv-Epl">
-                    <rect key="frame" x="144.5" y="15" width="45" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="143.5" y="15" width="47" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="cpG-E3-hHe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                     <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -31,16 +42,16 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="hlb-Hb-jHO"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                     <state key="normal" title="신청">
                         <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rot-Jm-RU8">
-                    <rect key="frame" x="40" y="68" width="202" height="33.5"/>
+                    <rect key="frame" x="40" y="72" width="252.5" height="50.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOZ-Xn-TjR">
-                            <rect key="frame" x="0.0" y="0.0" width="3" height="14"/>
+                            <rect key="frame" x="0.0" y="6" width="3" height="14"/>
                             <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="9ZS-HK-wQj"/>
@@ -48,10 +59,10 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-Fn-bW6">
-                            <rect key="frame" x="13" y="0.0" width="189" height="33.5"/>
+                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
                             <string key="text">거짓으로 질병 외출로 신청 시,
 불이익과 처벌을 받을 수 있습니다.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -61,24 +72,24 @@
                         <constraint firstItem="WOZ-Xn-TjR" firstAttribute="leading" secondItem="rot-Jm-RU8" secondAttribute="leading" id="93g-jZ-zbX"/>
                         <constraint firstItem="cb4-Fn-bW6" firstAttribute="leading" secondItem="WOZ-Xn-TjR" secondAttribute="trailing" constant="10" id="eIW-HS-Pcm"/>
                         <constraint firstAttribute="trailing" secondItem="cb4-Fn-bW6" secondAttribute="trailing" id="guQ-Ua-x23"/>
-                        <constraint firstItem="WOZ-Xn-TjR" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" id="h6Z-FZ-qZ3"/>
+                        <constraint firstItem="WOZ-Xn-TjR" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" constant="6" id="h6Z-FZ-qZ3"/>
                         <constraint firstItem="cb4-Fn-bW6" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" id="hY7-uK-t5H"/>
                         <constraint firstAttribute="bottom" secondItem="cb4-Fn-bW6" secondAttribute="bottom" id="t2m-9E-hMt"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-8D-cXE">
-                    <rect key="frame" x="40" y="131.5" width="202" height="33.5"/>
+                    <rect key="frame" x="40" y="172.5" width="252.5" height="50.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-bg-dpv">
-                            <rect key="frame" x="13" y="0.0" width="189" height="33.5"/>
+                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
                             <string key="text">질병 외출은 질병, 부상으로 인한
 외출 시에만 신청하실 수 있습니다.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozC-GY-tRI">
-                            <rect key="frame" x="0.0" y="0.0" width="3" height="14"/>
+                            <rect key="frame" x="0.0" y="6" width="3" height="14"/>
                             <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="BF1-af-TwM"/>
@@ -88,7 +99,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="ozC-GY-tRI" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="top" id="8wh-3n-90g"/>
+                        <constraint firstItem="ozC-GY-tRI" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="top" constant="6" id="8wh-3n-90g"/>
                         <constraint firstAttribute="trailing" secondItem="Fxk-bg-dpv" secondAttribute="trailing" id="Yr0-Kc-baP"/>
                         <constraint firstItem="Fxk-bg-dpv" firstAttribute="leading" secondItem="ozC-GY-tRI" secondAttribute="trailing" constant="10" id="aNm-Wq-UQm"/>
                         <constraint firstItem="ozC-GY-tRI" firstAttribute="leading" secondItem="Sgk-8D-cXE" secondAttribute="leading" id="cRy-ZZ-BOp"/>
@@ -101,7 +112,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="Jcs-I7-rEf"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                     <state key="normal" title="취소">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
