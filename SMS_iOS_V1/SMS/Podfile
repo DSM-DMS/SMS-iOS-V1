@@ -19,5 +19,6 @@ pod 'SkyFloatingLabelTextField'
 pod 'KeychainSwift', '~> 19.0'
 pod 'FSCalendar' 
 pod 'Toast-Swift', '~> 5.0.1'
+pod 'EditorJSKit'
 
 end
