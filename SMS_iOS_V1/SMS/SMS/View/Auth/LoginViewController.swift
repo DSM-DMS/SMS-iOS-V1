@@ -50,6 +50,8 @@ extension LoginViewController {
             if model.status == 200 || model.code == 200 {
                 self.coordinator?.tabbar()
                 if self.autoLoginCheckBox.isSelected {
+                    UserDefaults.standard.setValue(model.access_token, forKey: "token")
+                    UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
                     keyChain.set(self.idTextField.text!, forKey: "ID")
                     keyChain.set(self.pwTextField.text!, forKey: "PW")
                 } else {

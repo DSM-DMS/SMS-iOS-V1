@@ -30,11 +30,6 @@ class NoticeViewController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         bindAction()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
-    }
 }
 
 
@@ -49,7 +44,7 @@ extension NoticeViewController {
                 Observable.of(model.announcements ?? [])
                     .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
                         cell.uuid = notice.announcement_uuid
-                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date)) 
+                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date))
                         cell.cellNumber.text = "\(notice.number)"
                         if(notice.title.count >= 18) {
                             let titleArr = Array(notice.title)

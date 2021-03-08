@@ -103,6 +103,9 @@
 		D696147C25E8A33E00E880D9 /* CertificationNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696147B25E8A33E00E880D9 /* CertificationNumberModel.swift */; };
 		D696149225E8B86C00E880D9 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696149125E8B86C00E880D9 /* RegisterViewModel.swift */; };
 		D696149525E8B8BE00E880D9 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696149425E8B8BE00E880D9 /* RegisterModel.swift */; };
+		D6A8E46025F6D7FB00F46C2D /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */; };
+		D6A8E46325F6D83500F46C2D /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */; };
+		D6A8E46625F6D87C00F46C2D /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */; };
 		D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */; };
 		D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */; };
 		D6B3A3DF2582E9D9005C36E6 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */; };
@@ -132,14 +135,12 @@
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
 		4728354A25A5D3E800EA211B /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
-		473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
 		4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewModel.swift; sourceTree = "<group>"; };
 		4787403E25CA78E2001976A3 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		4787404325CA79FF001976A3 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
-		4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
 		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
@@ -228,6 +229,9 @@
 		D696147B25E8A33E00E880D9 /* CertificationNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberModel.swift; sourceTree = "<group>"; };
 		D696149125E8B86C00E880D9 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		D696149425E8B8BE00E880D9 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
 		D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
@@ -303,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				4787404325CA79FF001976A3 /* NoticeViewModel.swift */,
-				473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */,
+				D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -311,7 +315,7 @@
 		4787404625CA7D1D001976A3 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */,
+				D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -607,6 +611,7 @@
 				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
 				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
 				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
+				D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -879,12 +884,14 @@
 				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
+				D6A8E46625F6D87C00F46C2D /* NoticeDetailViewModel.swift in Sources */,
 				D696147825E8A2D700E880D9 /* LoginModel.swift in Sources */,
 				D67F3320257E76480086F75E /* ViewModelType.swift in Sources */,
 				D6B8EE8F255CA97200F1F21E /* AppDelegate.swift in Sources */,
 				D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */,
 				D6F8C93A259B5DA100DE967A /* OutGoingCardModel.swift in Sources */,
 				D67F331A257E76480086F75E /* ScheduleViewModel.swift in Sources */,
+				D6A8E46325F6D83500F46C2D /* NoticeTableViewCell.swift in Sources */,
 				D6B3A3DF2582E9D9005C36E6 /* TabbarCoordinator.swift in Sources */,
 				D696147525E8A24100E880D9 /* CheckNumberViewModel.swift in Sources */,
 				D67F32DB257E74B90086F75E /* UICell.swift in Sources */,
@@ -926,6 +933,7 @@
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
 				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
 				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
+				D6A8E46025F6D7FB00F46C2D /* DevCollectionViewCell.swift in Sources */,
 				D696144325E80E4200E880D9 /* RegisterCompleteAlertXib.swift in Sources */,
 				478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */,
 				D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */,
