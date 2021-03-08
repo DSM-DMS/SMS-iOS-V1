@@ -99,9 +99,9 @@ extension NoticeDetailViewController {
                         noticeTitle.append(titleArr[i])
                     }
                     noticeTitle.append("...")
-                    self.pNoticeButton.setTitle(noticeTitle, for: .normal)
+                    self.nNoticeButton.setTitle(noticeTitle, for: .normal)
                 } else {
-                    self.pNoticeButton.setTitle(data.previous_title, for: .normal)
+                    self.nNoticeButton.setTitle(data.previous_title, for: .normal)
                 }
                 if(data.next_title.count >= 18) {
                     let titleArr = Array(data.next_title)
@@ -110,9 +110,9 @@ extension NoticeDetailViewController {
                         noticeTitle.append(titleArr[i])
                     }
                     noticeTitle.append("...")
-                    self.nNoticeButton.setTitle(noticeTitle, for: .normal)
+                    self.pNoticeButton.setTitle(noticeTitle, for: .normal)
                 } else {
-                    self.nNoticeButton.setTitle(data.next_title, for: .normal)
+                    self.pNoticeButton.setTitle(data.next_title, for: .normal)
                 }
             }
         }.disposed(by: disposeBag)
