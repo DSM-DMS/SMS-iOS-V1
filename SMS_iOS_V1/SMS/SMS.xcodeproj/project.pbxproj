@@ -13,14 +13,12 @@
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
 		4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354A25A5D3E800EA211B /* MypageViewModel.swift */; };
 		473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */; };
-		473DACA525E3715D0086E84F /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA425E3715D0086E84F /* NoticeDetailViewModel.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B1250A015D0056E1D4 /* OutGoing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
 		4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */; };
 		4787403F25CA78E2001976A3 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787403E25CA78E2001976A3 /* NoticeModel.swift */; };
 		4787404425CA79FF001976A3 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787404325CA79FF001976A3 /* NoticeViewModel.swift */; };
-		4787404925CA7D57001976A3 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787404825CA7D57001976A3 /* NoticeTableViewCell.swift */; };
 		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
 		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
 		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
@@ -49,12 +47,11 @@
 		D630C8F82586E1C900BD07C3 /* UnixStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630C8F72586E1C900BD07C3 /* UnixStamp.swift */; };
 		D630C8FB2587761600BD07C3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630C8FA2587761600BD07C3 /* Storyboarded.swift */; };
 		D643282A25EF3F7300AD1461 /* OutGoingActionAlertXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643282925EF3F7300AD1461 /* OutGoingActionAlertXib.swift */; };
-		D643282D25EF3F8200AD1461 /* OutGoingActionAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D643282C25EF3F8200AD1461 /* OutGoingActionAlertXib.xib */; };
 		D643283025EF755600AD1461 /* OutGoingEndActionAlertXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643282F25EF755600AD1461 /* OutGoingEndActionAlertXib.swift */; };
 		D643283325EF756700AD1461 /* OutGoingEndActionAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D643283225EF756700AD1461 /* OutGoingEndActionAlertXib.xib */; };
 		D643289725F34DFE00AD1461 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643289625F34DFD00AD1461 /* UICollectionView.swift */; };
-		D64328B925F4F15A00AD1461 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64328B825F4F15A00AD1461 /* LoginCoordinator.swift */; };
 		D64328BE25F61BF200AD1461 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64328BD25F61BF200AD1461 /* UILabel.swift */; };
+		D643299E25F6300400AD1461 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643299D25F6300400AD1461 /* LoginCoordinator.swift */; };
 		D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FA25DAE0F800032F34 /* ScheduleData.swift */; };
 		D66049FE25DAE12B00032F34 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FD25DAE12B00032F34 /* Array.swift */; };
 		D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1A0252A0A09007F0253 /* TabbarViewController.swift */; };
@@ -63,7 +60,7 @@
 		D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D664E1C6252A0C8E007F0253 /* CustomCell.xib */; };
 		D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664E1C7252A0C8E007F0253 /* CustomCell.swift */; };
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
-		D66988B025A2ECF8006A1F38 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */; };
+		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
 		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
 		D67ACF9F25EE448700648F45 /* OutingActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67ACF9E25EE448700648F45 /* OutingActionModel.swift */; };
 		D67F32DB257E74B90086F75E /* UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32DA257E74B90086F75E /* UICell.swift */; };
@@ -179,8 +176,8 @@
 		D643282F25EF755600AD1461 /* OutGoingEndActionAlertXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingEndActionAlertXib.swift; sourceTree = "<group>"; };
 		D643283225EF756700AD1461 /* OutGoingEndActionAlertXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutGoingEndActionAlertXib.xib; sourceTree = "<group>"; };
 		D643289625F34DFD00AD1461 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
-		D64328B825F4F15A00AD1461 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D64328BD25F61BF200AD1461 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		D643299D25F6300400AD1461 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D66049FA25DAE0F800032F34 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		D66049FD25DAE12B00032F34 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		D664E1A0252A0A09007F0253 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D66988B025A2ECF8006A1F38 /* BuildFile in Frameworks */,
+				D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */,
 				22354C1F1A56CF2E0D2156E7 /* Pods_SMS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,7 +601,6 @@
 		D6E6892E252EDE3000FA09C1 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				D698936225A8BC8000228637 /* DevCollectionViewCell.swift */,
 				D62D8C132518D9B200548FBF /* DayCell.swift */,
 				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
 				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
@@ -653,7 +649,7 @@
 				D67F3334257E76A10086F75E /* OutGoingCoordinator.swift */,
 				D6F39D26257E13A3006ED3C1 /* Coordinator.swift */,
 				D6F39D38257E3AAA006ED3C1 /* AppCoordinator.swift */,
-				D64328B825F4F15A00AD1461 /* LoginCoordinator.swift */,
+				D643299D25F6300400AD1461 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -731,7 +727,7 @@
 			);
 			name = SMS;
 			packageProductDependencies = (
-				D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */,
+				D66988AF25A2ECF8006A1F38 /* AesEverywhere */,
 			);
 			productName = SMS;
 			productReference = 479DB1322502522C009A8B08 /* SMS.app */;
@@ -762,7 +758,7 @@
 			);
 			mainGroup = 479DB1292502522C009A8B08;
 			packageReferences = (
-				D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */,
+				D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */,
 			);
 			productRefGroup = 479DB1332502522C009A8B08 /* Products */;
 			projectDirPath = "";
@@ -877,6 +873,7 @@
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* DayCell.swift in Sources */,
 				D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */,
+				D643299E25F6300400AD1461 /* LoginCoordinator.swift in Sources */,
 				473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */,
 				D643289725F34DFE00AD1461 /* UICollectionView.swift in Sources */,
 				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
@@ -899,7 +896,6 @@
 				D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */,
 				D62D8C3A2518DABE00548FBF /* NoticeViewController.swift in Sources */,
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
-				D64328B925F4F15A00AD1461 /* LoginCoordinator.swift in Sources */,
 				47AA50B2257F40D30003F87D /* LoginViewModel.swift in Sources */,
 				D696142F25E6BE1D00E880D9 /* RegisterInvalidAlertXib.swift in Sources */,
 				D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */,
@@ -934,7 +930,6 @@
 				478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */,
 				D6F39D27257E13A3006ED3C1 /* Coordinator.swift in Sources */,
 				D664E1BC252A0A1D007F0253 /* PageCell.swift in Sources */,
-				D698936325A8BC8000228637 /* DevCollectionViewCell.swift in Sources */,
 				D643282A25EF3F7300AD1461 /* OutGoingActionAlertXib.swift in Sources */,
 				D6F8C958259B659C00DE967A /* LocationTableViewCell.swift in Sources */,
 				D696143D25E80DF100E880D9 /* RegisterInquireAlertXib.swift in Sources */,
@@ -1130,7 +1125,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */ = {
+		D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mervick/aes-everywhere-swift.git";
 			requirement = {
@@ -1141,9 +1136,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D66988AF25A2ECF8006A1F38 /* SwiftPackageProductDependency */ = {
+		D66988AF25A2ECF8006A1F38 /* AesEverywhere */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D66988AE25A2ECF8006A1F38 /* RemoteSwiftPackageReference */;
+			package = D66988AE25A2ECF8006A1F38 /* XCRemoteSwiftPackageReference "aes-everywhere-swift" */;
 			productName = AesEverywhere;
 		};
 /* End XCSwiftPackageProductDependency section */
