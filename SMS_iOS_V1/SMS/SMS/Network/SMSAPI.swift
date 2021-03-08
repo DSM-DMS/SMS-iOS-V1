@@ -20,10 +20,10 @@ enum SMSAPI {
     case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
     case lookUpAllOuting(_ start: Int, _ count: Int)
     case certainOutingInfo
-    case lookUpOutingCard
-    case outingAction(_ code: String)
+    case lookUpOutingCard(_ uuid: String)
     case lookUpNotice
     case detailNotice
+    case outingAction(_ code: String)
     case timetables(_ year: Int, _ month: Int, _ day: Int)
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
@@ -81,7 +81,7 @@ extension SMSAPI {
         case .outingAction(let code):
             return "/outings/uuid/\(outing_uuid)/actions/\(code)"
         case .lookUpNotice:
-            return "/announcements/types/school?start=0&count=10"
+            return "/announcements/types/{type}"
         case .detailNotice:
             return "/announcements/uuid/\(announcement_uuid)"
         case .timetables(let year, let month, let day):
@@ -106,8 +106,9 @@ extension SMSAPI {
     var method: HTTPMethod {
         switch self {
         case .login,
+             .postOuting,
              .outingAction,
-             .postOuting:
+             .register:
             return .post
             
         case .pwChange:
@@ -133,8 +134,8 @@ extension SMSAPI {
         case .myInfo,
              .certainOutingInfo,
              .lookUpOutingCard,
-             .outingAction,
              .lookUpNotice,
+             .outingAction,
              .detailNotice,
              .checkNotReadNotice,
              .schedules,
@@ -162,13 +163,11 @@ extension SMSAPI {
     var encoding: ParameterEncoding {
         switch self {
         case .myInfo,
-             .outingAction,
-             .checkNotReadNotice,
-             .lookUpAllOuting,
              .certainOutingInfo,
              .lookUpOutingCard,
              .lookUpNotice,
              .detailNotice,
+             .outingAction,
              .timetables,
              .location,
              .schedules,
