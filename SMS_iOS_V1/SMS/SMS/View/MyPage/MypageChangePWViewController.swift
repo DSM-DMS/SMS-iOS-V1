@@ -31,10 +31,6 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
         bindAcion()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        coordinator?.disappear()
-    }
-    
 }
 extension MypageChangePWViewController {
     func bind() {

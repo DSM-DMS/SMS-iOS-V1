@@ -23,6 +23,11 @@ class MyPageCoordinator: Coordinator {
         finishDelegate.main()
     }
     
+    func pop() {
+        self.nav.popViewController(animated: false)
+        delegate?.dismissBar(false, nil)
+    }
+    
     func start() {
         let vc = MypageViewController.instantiate(storyboardName: .myPageMain)
         vc.coordinator = self
@@ -30,17 +35,6 @@ class MyPageCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
     
-<<<<<<< HEAD:SMS_iOS_V1/SMS/SMS/Coordinator/MyPageCoordinator.swift
-=======
-    func disappear() {
-        parentCoordinator?.disappear(self)
-    }
-    
-    func pop() {
-        self.nav.popViewController(animated: true)
-    }
-    
->>>>>>> Develop:SMS_iOS_V1/SMS/SMS/View/Coordinator/MyPageCoordinator.swift
     func introduce() {
         let vc = MypageIntroduceDevViewController.instantiate(storyboardName: .introduceDevlop)
         vc.coordinator = self
@@ -60,15 +54,19 @@ class MyPageCoordinator: Coordinator {
     func logout() {
         let vc = MypageLogoutViewController.instantiate(storyboardName: .myPageLogout)
         vc.coordinator = self
-        delegate?.dismissBar(true)
-        nav.pushViewController(vc, animated: false)
+        delegate?.dismissBar(true) {
+            self.nav.pushViewController(vc, animated: false)
+        }
+     
     }
     
     func pwConfirm() {
         let vc = MypageChangePWAlertViewController.instantiate(storyboardName: .mypageChangePWAlert)
         vc.coordinator = self
-        delegate?.dismissBar(true)
-        nav.pushViewController(vc, animated: false)
+        delegate?.dismissBar(true) {
+            self.nav.pushViewController(vc, animated: false)
+        }
+     
         
     }
 }
