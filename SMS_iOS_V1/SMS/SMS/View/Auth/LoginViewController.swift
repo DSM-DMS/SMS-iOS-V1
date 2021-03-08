@@ -13,7 +13,7 @@ import RxCocoa
 import SkyFloatingLabelTextField
 
 final class LoginViewController: UIViewController, Storyboarded {
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: LoginCoordinator?
     private let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     

@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     let viewModel = RegisterViewModel()
     var data: CertificationNumberModel!
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: LoginCoordinator?
     
     @IBOutlet weak var inquireAlertView: RegisterInquireAlertXib!
     @IBOutlet weak var completeAlertView: RegisterCompleteAlertXib!
@@ -45,6 +45,24 @@ extension RegisterViewController {
         phoneNumberLbl.text = data.phone_number
         nameLbl.text = data.name
         numberLbl.text = String(describing: data.grade!) + String(describing: data.group!) + String(describing: data.student_number!)
+        
+        inquireAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                   color: .gray,
+                                   shadowRadius: 6,
+                                   opacity: 1,
+                                   cornerRadius: 8)
+        
+        completeAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                    color: .gray,
+                                    shadowRadius: 6,
+                                    opacity: 1,
+                                    cornerRadius: 8)
+        
+        usingIDAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                   color: .gray,
+                                   shadowRadius: 6,
+                                   opacity: 1,
+                                   cornerRadius: 8)
         
         createBtn.addShadow(offset: CGSize(width: 0, height: 3),
                            color: .gray,

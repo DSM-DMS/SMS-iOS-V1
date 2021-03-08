@@ -14,7 +14,7 @@ import RxCocoa
 class CheckCertificationNumberViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     let viewModel = CheckNumberViewModel()
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: LoginCoordinator?
     
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var numberTextField: UITextField!
@@ -86,7 +86,8 @@ extension CheckCertificationNumberViewController {
         }
     }
     
-    func setting() {checkBtn.addShadow(offset: CGSize(width: 0, height: 3),
+    func setting() {
+        checkBtn.addShadow(offset: CGSize(width: 0, height: 3),
                            color: .gray,
                            shadowRadius: 6,
                            opacity: 1,
