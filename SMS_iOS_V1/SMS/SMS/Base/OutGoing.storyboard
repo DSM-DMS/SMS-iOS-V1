@@ -306,69 +306,33 @@
                                 </constraints>
                                 <state key="normal" image="back"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출신청" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVd-zM-ARQ">
-                                <rect key="frame" x="40.000000000000007" y="123.00000000000001" width="76.666666666666686" height="26.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJp-b9-VAH">
-                                <rect key="frame" x="40" y="192.66666666666666" width="334" height="36.666666666666657"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="O1E-9s-5KR">
+                                <rect key="frame" x="46" y="95" width="283" height="438"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxZ-oV-Sll" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="334" height="13.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                <color key="value" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-zf-LCa">
-                                        <rect key="frame" x="0.0" y="0.0" width="24.666666666666668" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="mxZ-oV-Sll" firstAttribute="leading" secondItem="Kzh-zf-LCa" secondAttribute="leading" id="9bM-kI-O4C"/>
-                                    <constraint firstItem="Kzh-zf-LCa" firstAttribute="leading" secondItem="mJp-b9-VAH" secondAttribute="leading" id="EGk-Tz-p70"/>
-                                    <constraint firstItem="mxZ-oV-Sll" firstAttribute="top" secondItem="Kzh-zf-LCa" secondAttribute="bottom" constant="6" id="eJL-2R-1hr"/>
-                                    <constraint firstAttribute="trailing" secondItem="mxZ-oV-Sll" secondAttribute="trailing" id="f3k-W5-WLc"/>
-                                    <constraint firstAttribute="bottom" secondItem="mxZ-oV-Sll" secondAttribute="bottom" id="jZC-oh-oSj"/>
-                                    <constraint firstItem="Kzh-zf-LCa" firstAttribute="top" secondItem="mJp-b9-VAH" secondAttribute="top" id="uQ3-7g-pm9"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-QG-8Vm">
-                                <rect key="frame" x="40" y="284.33333333333331" width="334" height="64.666666666666686"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 사유를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRN-ww-cBb" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="334" height="13.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                <color key="value" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbt-rb-qid">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-nU-Ij7">
-                                        <rect key="frame" x="210" y="51.666666666666686" width="124" height="13"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-fl-ERZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="88"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 장소를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRV-CV-dNO" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                        <color key="value" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-ZS-q13">
+                                                <rect key="frame" x="0.0" y="0.0" width="24.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="4e3-ZS-q13" firstAttribute="top" secondItem="wKD-fl-ERZ" secondAttribute="top" id="59c-Lm-ozK"/>
                                             <constraint firstItem="4e3-ZS-q13" firstAttribute="leading" secondItem="wKD-fl-ERZ" secondAttribute="leading" id="8Xh-oW-XH0"/>
@@ -377,40 +341,12 @@
                                             <constraint firstAttribute="bottom" secondItem="BRV-CV-dNO" secondAttribute="bottom" id="eJt-WZ-GNr"/>
                                             <constraint firstItem="BRV-CV-dNO" firstAttribute="leading" secondItem="4e3-ZS-q13" secondAttribute="leading" id="suM-N1-IBI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <state key="normal" title="질병 외출로 신청하시겠습니까?">
-                                            <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                    </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질병 외출로 신청 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-E7-j0n">
-                                        <rect key="frame" x="94.666666666666657" y="52.333333333333371" width="107.33333333333334" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="nWM-nU-Ij7" firstAttribute="trailing" secondItem="kRN-ww-cBb" secondAttribute="trailing" id="00E-Vn-OVm"/>
-                                    <constraint firstAttribute="trailing" secondItem="kRN-ww-cBb" secondAttribute="trailing" id="561-cK-vi6"/>
-                                    <constraint firstItem="mbt-rb-qid" firstAttribute="leading" secondItem="zSF-QG-8Vm" secondAttribute="leading" id="5Qf-d2-sZX"/>
-                                    <constraint firstItem="nWM-nU-Ij7" firstAttribute="leading" secondItem="YiR-E7-j0n" secondAttribute="trailing" constant="8" id="6e2-vl-CDB"/>
-                                    <constraint firstItem="nWM-nU-Ij7" firstAttribute="top" secondItem="kRN-ww-cBb" secondAttribute="bottom" constant="15" id="6k4-PV-fp4"/>
-                                    <constraint firstAttribute="bottom" secondItem="nWM-nU-Ij7" secondAttribute="bottom" id="8yh-Af-Zyc"/>
-                                    <constraint firstItem="mbt-rb-qid" firstAttribute="top" secondItem="zSF-QG-8Vm" secondAttribute="top" id="AKT-tA-KJ6"/>
-                                    <constraint firstItem="kRN-ww-cBb" firstAttribute="top" secondItem="mbt-rb-qid" secondAttribute="bottom" constant="6" id="Uys-wI-0ET"/>
-                                    <constraint firstItem="YiR-E7-j0n" firstAttribute="centerY" secondItem="nWM-nU-Ij7" secondAttribute="centerY" id="iIm-Zy-a11"/>
-                                    <constraint firstItem="kRN-ww-cBb" firstAttribute="leading" secondItem="mbt-rb-qid" secondAttribute="leading" id="psd-Gz-mc3"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbQ-Md-s8K">
-                                <rect key="frame" x="40" y="495.66666666666674" width="334" height="58"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djn-p3-1PG">
-                                        <rect key="frame" x="0.0" y="28.999999999999943" width="334" height="29"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-QG-8Vm">
+                                        <rect key="frame" x="0.0" y="143" width="283" height="60.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 사유를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRN-ww-cBb" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="0.0" y="23" width="283" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -429,14 +365,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-nU-Ij7">
-                                                <rect key="frame" x="159" y="72.5" width="124" height="24"/>
+                                                <rect key="frame" x="159" y="51.5" width="124" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <state key="normal" title="질병 외출로 신청하시겠습니까?">
                                                     <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질병 외출로 신청 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-E7-j0n">
-                                                <rect key="frame" x="43.5" y="78.5" width="107.5" height="12"/>
+                                                <rect key="frame" x="43.5" y="57.5" width="107.5" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -460,13 +396,13 @@
                                         <rect key="frame" x="0.0" y="258.5" width="283" height="65.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djn-p3-1PG">
-                                                <rect key="frame" x="0.0" y="23" width="283" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="283" height="13.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="4wr-WS-SM6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="34.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZO-6p-aDo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -488,10 +424,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-wU-zCO">
-                                                        <rect key="frame" x="169.5" y="0.0" width="113.5" height="34.5"/>
+                                                        <rect key="frame" x="169.5" y="0.0" width="113.5" height="13.5"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000년 00월 00일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0U-Sj-2Gp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="13.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -514,7 +450,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-r3-JCv">
-                                                        <rect key="frame" x="136.5" y="7" width="10" height="20.5"/>
+                                                        <rect key="frame" x="136.5" y="-3.5" width="10" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="UTH-05-gOY"/>
                                                         </constraints>
@@ -602,49 +538,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26.333333333333314" id="NeN-I3-Bdn"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKD-fl-ERZ">
-                                <rect key="frame" x="40" y="404" width="334" height="36.666666666666686"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="외출 장소를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRV-CV-dNO" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="334" height="13.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                <color key="value" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-ZS-q13">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="4e3-ZS-q13" firstAttribute="top" secondItem="wKD-fl-ERZ" secondAttribute="top" id="59c-Lm-ozK"/>
-                                    <constraint firstItem="4e3-ZS-q13" firstAttribute="leading" secondItem="wKD-fl-ERZ" secondAttribute="leading" id="8Xh-oW-XH0"/>
-                                    <constraint firstAttribute="trailing" secondItem="BRV-CV-dNO" secondAttribute="trailing" id="A4c-jq-KvK"/>
-                                    <constraint firstItem="BRV-CV-dNO" firstAttribute="top" secondItem="4e3-ZS-q13" secondAttribute="bottom" constant="6" id="brw-7f-hrw"/>
-                                    <constraint firstAttribute="bottom" secondItem="BRV-CV-dNO" secondAttribute="bottom" id="eJt-WZ-GNr"/>
-                                    <constraint firstItem="BRV-CV-dNO" firstAttribute="leading" secondItem="4e3-ZS-q13" secondAttribute="leading" id="suM-N1-IBI"/>
-                                </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSO-OX-0Oq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="897"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                                 <color key="backgroundColor" red="0.38817179200000002" green="0.38841283319999997" blue="0.38039129970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QnW-Sj-3aS" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="331" y="616" width="307" height="320"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnW-Sj-3aS" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="40" y="177" width="301" height="314"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="ZNR-cG-wfk"/>
+                                    <constraint firstAttribute="width" secondItem="QnW-Sj-3aS" secondAttribute="height" multiplier="307:320" id="D1m-76-YsC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -652,8 +558,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-gF-452" customClass="OutGoingLocationAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="-259" y="632" width="295" height="399"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-gF-452" customClass="OutGoingLocationAlertXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="40" y="134.5" width="295" height="399"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="399" id="1hD-dA-Twn"/>
@@ -670,10 +576,23 @@
                         <constraints>
                             <constraint firstItem="Cxv-gF-452" firstAttribute="leading" secondItem="bQ0-Br-a7A" secondAttribute="leading" constant="40" id="2f0-Gq-AGD"/>
                             <constraint firstAttribute="bottom" secondItem="SSO-OX-0Oq" secondAttribute="bottom" constant="-1" id="3p3-2c-LC6"/>
+                            <constraint firstItem="QnW-Sj-3aS" firstAttribute="leading" secondItem="SSO-OX-0Oq" secondAttribute="leading" constant="40" id="7oo-kl-sod"/>
                             <constraint firstItem="QnW-Sj-3aS" firstAttribute="centerY" secondItem="SSO-OX-0Oq" secondAttribute="centerY" id="8El-xT-Aa2"/>
-                            <constraint firstItem="Be7-aO-eGY" firstAttribute="top" secondItem="O1E-9s-5KR" secondAttribute="bottom" constant="44" id="8Wc-5G-qTj"/>
+                            <constraint firstItem="Be7-aO-eGY" firstAttribute="top" secondItem="O1E-9s-5KR" secondAttribute="bottom" constant="44" id="8Wc-5G-qTj" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="bQ0-Br-a7A" firstAttribute="trailing" secondItem="SSO-OX-0Oq" secondAttribute="trailing" id="9X4-ey-Mwf"/>
-                            <constraint firstItem="O1E-9s-5KR" firstAttribute="top" secondItem="Nrq-IO-nIJ" secondAttribute="bottom" constant="44" id="ACU-Nl-BjJ"/>
+                            <constraint firstItem="O1E-9s-5KR" firstAttribute="top" secondItem="Nrq-IO-nIJ" secondAttribute="bottom" constant="44" id="ACU-Nl-BjJ" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="SSO-OX-0Oq" firstAttribute="leading" secondItem="QnW-Sj-3aS" secondAttribute="trailing" constant="-341" id="BmH-TR-ubv"/>
                             <constraint firstItem="RVm-It-Wwh" firstAttribute="leading" secondItem="bQ0-Br-a7A" secondAttribute="leading" constant="18" id="DQZ-at-cTi"/>
                             <constraint firstItem="oL6-r3-JCv" firstAttribute="centerX" secondItem="bQ0-Br-a7A" secondAttribute="centerX" id="ETD-C4-0Cc"/>
@@ -968,7 +887,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="notExistLogView" destination="qWi-oA-zIZ" id="bP5-9f-YT8"/>
+                        <outlet property="notExistLogView" destination="qWi-oA-zIZ" id="Kk4-Sw-Pnh"/>
                         <outlet property="popVCBtn" destination="dVV-9D-xEM" id="NJe-NM-UXs"/>
                         <outlet property="tableView" destination="cIu-Ii-NxM" id="dDn-GU-OYr"/>
                     </connections>
@@ -1124,7 +1043,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
                                         <rect key="frame" x="10" y="20" width="315" height="486"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">1. 외출 신청 시간: 24시간       	
+                                        <string key="text">1. 외출 신청 시간: 24시간
                                                  2. 외출 허용 시간: 16:20~ 20:30까지
      - 질병 외출일 경우 외출 시간을 적용하지 않습니다.
      - 주말 외출은 기숙사 외출로 분류되므로 DMS로 외출 신청
@@ -1147,7 +1066,7 @@
      - 우범지역, 청소년출입금지구역 가지 않기
      - 음주 흡연등 탈선하지 않기
      - 복귀시간 엄수하기
-     - 마스크 필수 착용하기</mutableString>
+     - 마스크 필수 착용하기</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1683,7 +1602,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="OutGoingActionAlertXib" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-La-sFo" customClass="OutGoingActionAlertXib" customModule="SMS" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-La-sFo">
                                 <rect key="frame" x="40" y="251.5" width="295" height="164"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1773,19 +1692,16 @@
     </scenes>
     <designables>
         <designable name="AZO-6p-aDo">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="83.5" height="13.5"/>
         </designable>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="101.5" height="13.5"/>
         </designable>
         <designable name="H0U-Sj-2Gp">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="83.5" height="13.5"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
-        </designable>
-        <designable name="mxZ-oV-Sll">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="101.5" height="13.5"/>
         </designable>
     </designables>
     <resources>
