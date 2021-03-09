@@ -34,7 +34,7 @@ enum SMSAPI {
 
 extension SMSAPI {
     var baseURL: String {
-        return "http://54.180.165.105:80"
+        return "https://api.dsm-sms.com"
     }
     
     var version: String {
@@ -62,12 +62,6 @@ extension SMSAPI {
         return UserDefaults.standard.value(forKey: "announcement_uuid") as! String
     }
     
-    var securityKey: String {
-        let SECURITY_BASE_PLAIN = "SMS_security:\(Date().timeIntervalSince1970)"
-        let SECURITY_PASS_PHRASE = "pdpdlcl14kfkdgody!shfo7owhgdms~^"
-        return try! AES256.encrypt(input: SECURITY_BASE_PLAIN, passphrase: SECURITY_PASS_PHRASE)
-    }
-    
     var path: String {
         switch self {
         case .login:
@@ -91,7 +85,7 @@ extension SMSAPI {
         case .detailNotice:
             return "/announcements/uuid/\(announcement_uuid)"
         case .timetables(let year, let month, let day):
-            return "/time-tables/years/\(year)/months/\(month)/days/\(day)"
+            return "/time-tables/years/\(year)/months/\(month)/days/\(day)?count=5"
         case .schedules(let year, let month):
             return "/schedules/years/\(year)/months/\(month)"
         case .checkNotReadNotice:
