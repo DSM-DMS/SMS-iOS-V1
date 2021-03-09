@@ -6,15 +6,14 @@ import FSCalendar
 import Toast_Swift
 
 class ScheduleViewController: UIViewController, Storyboarded {
-    var value = false
-    weak var coordinator: ScheduleCoordinator?
     let disposeBag = DisposeBag()
-    private lazy var schedules: [Schedules]? = []
-    private var preDict: [Date: [ScheduleData]] = [:]
-    
+    var value = false
     var date: BehaviorRelay<Date> = BehaviorRelay(value: Date())
     var dateForTable: BehaviorRelay<Date> = BehaviorRelay(value: Date())
-    
+    weak var coordinator: ScheduleCoordinator?
+    private var preDict: [Date: [ScheduleData]] = [:]
+    private lazy var schedules: [Schedules]? = []
+   
     @IBOutlet weak var combindTableView: UIView!
     @IBOutlet weak var tableUnderView: UIView!
     @IBOutlet weak var changeViewBtn: UIButton!
@@ -25,7 +24,6 @@ class ScheduleViewController: UIViewController, Storyboarded {
     
     lazy var previousBtn: UIButton = {
         let button = UIButton()
-        print(UIScreen.main.bounds.height)
         button.setImage(UIImage(named: "left"), for: .normal)
         let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + 5 + calendarView.frame.height / 4: calendarView.headerHeight
         button.frame = CGRect(x: UIScreen.main.bounds.midX - 8 - calendarView.frame.width / 4,
@@ -52,21 +50,37 @@ class ScheduleViewController: UIViewController, Storyboarded {
         self.tableViewSetting()
         bindAction()
         tableViewBind()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSchedule()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
-    }
 }
 
 //MARK- extension
 extension ScheduleViewController {
+    func bind() {
+        let myInfo: Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
+        
+        myInfo.filter {
+                if $0.status == 401 {
+                    self.coordinator?.main()
+                    return false
+                }
+                return true
+            }
+            .bind { model in
+                switch model.parent_status {
+                case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.")
+                case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.")
+                case "": print("성공")
+                default: print("에러")
+                }
+            }.disposed(by: disposeBag)
+    }
+    
     private func bindAction() {
         previousBtn.rx.tap
             .bind {
@@ -97,6 +111,13 @@ extension ScheduleViewController {
         .flatMap { arr -> Observable<ScheduleModel> in
             return SMSAPIClient.shared.networking(from: .schedules(arr[0], arr[1]))
         }.observeOn(MainScheduler.instance)
+        .filter {
+            if $0.status == 401 {
+                self.coordinator?.main()
+                return false
+            }
+            return true
+        }
         .bind { schedules in
             self.schedules = schedules.schedules
             self.calendarView.reloadData()
@@ -166,14 +187,14 @@ extension ScheduleViewController: UITableViewDelegate {
     private func tableViewBind() {
         self.dateForTable.map { self.preDict[$0 + 32400] ?? [] }
             .skip(1)
-            .filter {
-                if $0.count == 0 {
-                    self.view.makeToast("해당 날짜에는 일정이 없어요")
-                }
-                return true
+            .map { data in
+                return data.count == 0 ? [ScheduleData(uuid: "", date: Date(), detail: "일정이 없습니다.", detailDate: "", place: 5)] : data
             }
+//            .map { data in
+//
+//                return data
+//            }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
-                
                 cell.scheduleDateLbl.text = schedule.detailDate
                 cell.scheduleInfoLbl.text = schedule.detail
                 switch schedule.place {
@@ -181,8 +202,10 @@ extension ScheduleViewController: UITableViewDelegate {
                     cell.scheduleColorView.backgroundColor = .customPurple
                 case 2:
                     cell.scheduleColorView.backgroundColor = .customRed
-                default:
+                case 3,4:
                     cell.scheduleColorView.backgroundColor = .customYellow
+                default:
+                    cell.scheduleColorView.backgroundColor = .customBlack
                 }
             }.disposed(by: disposeBag)
     }
@@ -191,11 +214,19 @@ extension ScheduleViewController: UITableViewDelegate {
         tableView.delegate = self
         tableView.register(ScheduleCell.self)
         tableView.separatorStyle = .none
-        tableUnderView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableUnderView.layer.cornerRadius = 20
         combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
-        combindTableView.addShadow(offset: CGSize(width: 0, height: 2), color: .gray, shadowRadius: 4, opacity: 1, cornerRadius: 10)
+        combindTableView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        combindTableView.layer.shadowColor = UIColor.gray.cgColor
+        
+        combindTableView.addShadow(offset: CGSize(width: 0, height: 4),
+                                   color: .gray,
+                                   shadowRadius: 4,
+                                   opacity: 1,
+                                   cornerRadius: 10,
+                                   corner: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
     }
 }
 
@@ -208,12 +239,10 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
         cell.hiddenAll()
         let cnt = schedules?.count ?? 0
-        
         for i in 0..<cnt {
             let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
             let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
             let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
-            
             
             if generateDateRange(from: start, to: end).contains(date + 32400) {
                 handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
@@ -223,12 +252,15 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         return cell
     }
     
+    @discardableResult
     private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String, _ dateDetail: String) -> FSCalendarCell {
         let preEvent = preDict[date - 86400] ?? []
         
         if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
             dispatchViewHidden(todayCell.event1View)
             todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
+            todayCell.selectedDate(.continued, .Event1)
+            todayCell.cellContinuedState.append(.Event1)
             preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
             return todayCell
         }
@@ -241,12 +273,15 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
             dispatchViewHidden(todayCell.event1View)
             todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
             preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
+                        if !preEvent.contains(ScheduleData(uuid: uuid, date: date - 86400, detail: detail, detailDate: dateDetail, place: 1)) {
+                            todayCell.selectedDate(.continued, .Event1)
+                            todayCell.cellContinuedState.append(.Event1)
+                        }
             return todayCell
         }
         
         for yesterEventCnt in 0..<preEvent.count {
             if uuid == preEvent[yesterEventCnt].uuid {
-                // 이어주기
                 switch preEvent[yesterEventCnt].place {
                 case 1:
                     dispatchViewHidden(todayCell.event1View)
@@ -263,18 +298,25 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
                 default: break
                 }
             } else {
-                if todayCell.cellEvent.count == 0 && preEvent.count == 0 || preEvent.contains(ScheduleData(uuid: uuid, date: date - 86400, detail: detail, detailDate: dateDetail, place: 1)){
+                if todayCell.cellEvent.count == 0 && preEvent.count == 0 {
                     dispatchViewHidden(todayCell.event1View)
+                    todayCell.selectedDate(.continued, .Event1)
+                    todayCell.cellContinuedState.append(.Event1)
                     eventPlace = 1
                 } else if todayCell.cellEvent.count == 1 && preEvent.count == 1{
                     dispatchViewHidden(todayCell.event2View)
+                    todayCell.selectedDate(.continued, .Event2)
+                    todayCell.cellContinuedState.append(.Event2)
                     eventPlace = 2
                 } else if todayCell.cellEvent.count == 2 && preEvent.count == 2 || todayCell.cellEvent.count == 2 && preEvent.count == 1 {
                     dispatchViewHidden(todayCell.event3View)
+                    todayCell.selectedDate(.continued, .Event3)
+                    todayCell.cellContinuedState.append(.Event3)
                     eventPlace = 3
                 } else if todayCell.cellEvent.count == 3 && preEvent.count == 4 {
                     dispatchViewHidden(todayCell.event3View)
                     eventPlace = 4
+                    todayCell.selectedDate(.continued, .Event3)
                 }
             }
         }
@@ -285,21 +327,24 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.dateForTable.accept(date)
-        let cell = calendar.cell(for: date, at: monthPosition)
-        
-        let layer = cell!.contentView.layer
-        layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
+        let layer = cell.contentView.layer
+        layer.backgroundColor = UIColor.white.cgColor
         layer.shadowRadius = 2
         layer.shadowOpacity = 0.35
         layer.shadowOffset = CGSize(width: 2, height: 2)
-        layer.cornerRadius = cell!.fs_width / 10
+        layer.cornerRadius = cell.frame.width / 10
         layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        cell.selectedDate(.selected)
     }
-    // 이게 왜 안될까
-    //        cell!.contentView.addShadow(offset: CGSize(width: 2, height: 2), color: .gray, shadowRadius: 2, opacity: 0.35, cornerRadius: cell!.fs_width / 10)
-    //        cell!.contentView.layer.masksToBounds = false
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        calendar.cell(for: date, at: monthPosition)?.contentView.layer.shadowOpacity = 0
+        let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
+        cell.selectedDate(.normal)
+        for i in cell.cellContinuedState.indices {
+            cell.selectedDate(.continued, cell.cellContinuedState[i])
+        }
+        cell.contentView.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0)
     }
 }

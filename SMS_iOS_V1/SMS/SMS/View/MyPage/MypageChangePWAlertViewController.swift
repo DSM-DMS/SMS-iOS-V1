@@ -23,10 +23,6 @@ class MypageChangePWAlertViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        coordinator?.disappear()
-    }
-    
     func bindAction() {
         
         confirmButton.rx.tap

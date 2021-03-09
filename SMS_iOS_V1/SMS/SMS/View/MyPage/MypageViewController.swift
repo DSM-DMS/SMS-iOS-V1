@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import EditorJSKit
 
 
 class MypageViewController: UIViewController, Storyboarded {

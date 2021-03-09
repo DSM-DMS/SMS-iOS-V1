@@ -22,37 +22,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyl-dA-08v">
-                                <rect key="frame" x="155" y="106" width="200" height="22"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="4Bq-Qh-8FY">
-                                        <rect key="frame" x="10" y="6" width="10" height="10"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="Cxy-qa-pvH"/>
-                                            <constraint firstAttribute="width" constant="10" id="s9Q-e7-p0o"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색할 공지 제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pmw-fH-1Hn">
-                                        <rect key="frame" x="30" y="6.5" width="170" height="9"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="170" id="MWL-sT-BtK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="34g-7X-8TX"/>
-                                    <constraint firstAttribute="height" constant="22" id="41U-S8-xO0"/>
-                                    <constraint firstItem="4Bq-Qh-8FY" firstAttribute="top" secondItem="gyl-dA-08v" secondAttribute="top" constant="6" id="DUt-IH-PZh"/>
-                                    <constraint firstItem="Pmw-fH-1Hn" firstAttribute="leading" secondItem="4Bq-Qh-8FY" secondAttribute="trailing" constant="10" id="KF9-RL-Q4p"/>
-                                    <constraint firstItem="Pmw-fH-1Hn" firstAttribute="top" secondItem="gyl-dA-08v" secondAttribute="top" constant="6.5" id="NVh-DO-lCU"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pmw-fH-1Hn" secondAttribute="bottom" constant="6.5" id="Oq0-RN-7dl"/>
-                                    <constraint firstItem="4Bq-Qh-8FY" firstAttribute="leading" secondItem="gyl-dA-08v" secondAttribute="leading" constant="10" id="PfT-Le-WSM"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Bq-Qh-8FY" secondAttribute="bottom" constant="6" id="TiG-dO-0AT"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DF-lm-MM0">
                                 <rect key="frame" x="20" y="138" width="335" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,6 +115,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V5q-Te-qIa" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="35" id="3Nq-V8-CtN"/>
+                            <constraint firstItem="1DF-lm-MM0" firstAttribute="top" secondItem="V5q-Te-qIa" secondAttribute="bottom" constant="69" id="48m-r3-MNJ"/>
                             <constraint firstItem="GMv-UA-Oa0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="58a-Di-PjZ"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="a6W-Sc-b1z" secondAttribute="centerY" id="6jL-Dg-V16"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="GMv-UA-Oa0" secondAttribute="trailing" constant="20" id="AA8-MH-jax"/>
@@ -154,14 +124,11 @@
                             <constraint firstItem="1DF-lm-MM0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="FwI-DK-srf"/>
                             <constraint firstAttribute="bottom" secondItem="GMv-UA-Oa0" secondAttribute="bottom" constant="124" id="Iuh-4i-bYy"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="L4A-B5-iE6"/>
-                            <constraint firstItem="gyl-dA-08v" firstAttribute="top" secondItem="hG7-Gj-BQu" secondAttribute="top" constant="106" id="Oxz-Jf-mAM"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="25" id="cLO-ni-pvx"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="v8L-aO-zUT" secondAttribute="centerY" id="kPM-N7-bbd"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="1DF-lm-MM0" secondAttribute="trailing" constant="20" id="lJ7-Ss-Ie0"/>
-                            <constraint firstItem="1DF-lm-MM0" firstAttribute="top" secondItem="gyl-dA-08v" secondAttribute="bottom" constant="10" id="nb1-zY-4nd"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="a6W-Sc-b1z" secondAttribute="trailing" constant="41" id="o6e-Gq-ooO"/>
                             <constraint firstItem="v8L-aO-zUT" firstAttribute="leading" secondItem="m80-yY-4Ha" secondAttribute="trailing" constant="20" id="pzd-0w-Sj4"/>
-                            <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="gyl-dA-08v" secondAttribute="trailing" constant="20" id="rZg-kY-fkY"/>
                             <constraint firstItem="GMv-UA-Oa0" firstAttribute="top" secondItem="m80-yY-4Ha" secondAttribute="bottom" constant="12" id="wcF-2y-vhb"/>
                             <constraint firstItem="a6W-Sc-b1z" firstAttribute="leading" secondItem="TER-hr-end" secondAttribute="trailing" constant="40" id="yMu-Dz-fAn"/>
                         </constraints>
@@ -170,7 +137,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noticeTableView" destination="GMv-UA-Oa0" id="ebI-yk-2Vg"/>
-                        <outlet property="searchTextField" destination="gyl-dA-08v" id="zc9-R5-HEJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-hb-feZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -364,7 +330,6 @@
         <image name="notice" width="24" height="24"/>
         <image name="pagedown" width="6" height="4"/>
         <image name="pageup" width="6" height="4"/>
-        <image name="search" width="11" height="11"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

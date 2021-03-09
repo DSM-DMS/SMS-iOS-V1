@@ -1,17 +1,19 @@
 import UIKit
 
 protocol dismissBarProtocol {
-    func dismissBar(_ value: Bool)
+    func dismissBar(_ value: Bool, _ completion: (()->Void)?)
 }
 
 class TabbarViewController: UIViewController, Storyboarded {
+    var finish: FinishDelegate!
+    var value: Bool = false
     weak var coordinator: TabbarCoordinator?
     var pageCollectionHeightConstraint: NSLayoutConstraint!
     
-    let scheduleCoordinator = ScheduleCoordinator(nav: UINavigationController())
-    let outGoingCoordinator = OutGoingCoordinator(nav: UINavigationController())
-    let noticeCoordinator = NoticeCoordinator(nav: UINavigationController())
-    let myPageCoordinator = MyPageCoordinator(nav: UINavigationController())
+    lazy var scheduleCoordinator = ScheduleCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var outGoingCoordinator = OutGoingCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var noticeCoordinator = NoticeCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var myPageCoordinator = MyPageCoordinator(nav: UINavigationController(), finish: finish)
     
     lazy var vcArr: [Coordinator] = [scheduleCoordinator, outGoingCoordinator, noticeCoordinator, myPageCoordinator]
     
@@ -43,10 +45,7 @@ class TabbarViewController: UIViewController, Storyboarded {
         noticeCoordinator.delegate = self
         myPageCoordinator.delegate = self
         setNeedsUpdateOfHomeIndicatorAutoHidden()
-    }
-    
-    override var prefersHomeIndicatorAutoHidden: Bool {
-        return true
+        self.automaticallyAdjustsScrollViewInsets = false
     }
 }
 
@@ -58,6 +57,12 @@ extension TabbarViewController {
         stackView.spacing = .zero
         stackView.alignment = .fill
         setupCustomTabBar()
+        
+        stackView.addShadow(offset: CGSize(width: 0, height: -2),
+                            color: .gray,
+                            shadowRadius: 10,
+                            opacity: 1,
+                            cornerRadius: 10)
     }
     
     func setupCustomTabBar(){
@@ -79,7 +84,7 @@ extension TabbarViewController {
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10 + 2))
+        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10 - 10))
         pageCollectionHeightConstraint.isActive = true
     }
 }
@@ -90,20 +95,30 @@ extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
         self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    func dismissBar(_ value: Bool) {
-        pageCollectionView.isScrollEnabled = value
-        pageCollectionView.isPagingEnabled = value
+    func dismissBar(_ value: Bool, _ completion: (() -> Void)?) {
+        pageCollectionView.isScrollEnabled = !value
+        pageCollectionView.isPagingEnabled = !value
         stackView.isHidden = value
-        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10 + 2)
+        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10 - 10)
+        self.value = value
+        
+        UIView.performWithoutAnimation {
+            self.pageCollectionView.reloadItems(at: self.pageCollectionView.indexPathsForVisibleItems)
+        }
+        pageCollectionView.layoutIfNeeded()
+        
+        if let completion = completion {
+            completion()
+        }
     }
 }
 
 extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.NibName, for: indexPath) as! PageCell
-        let vcView = vcArr[indexPath.row].nav.view!
-        vcView.frame = cell.contentView.bounds
-        cell.contentView.addSubview(vcView)
+        let vcView = vcArr[indexPath.item].nav.view
+        vcView?.frame = cell.contentView.bounds
+        cell.contentView.addSubview(vcView ?? UIView())
         vcArr[indexPath.row].start()
         return cell
     }
@@ -125,7 +140,8 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: pageCollectionView.frame.width, height: pageCollectionView.frame.height)
+        let height:CGFloat = self.value ? UIScreen.main.bounds.height : view.frame.height - (view.frame.height / 10 - 4)
+        return CGSize(width: pageCollectionView.frame.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

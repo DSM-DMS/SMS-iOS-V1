@@ -80,7 +80,6 @@ class TabbarView: UIView {
         customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.height).isActive = true
     }
     
     func setupCustomTabBar(){
@@ -135,6 +134,6 @@ extension TabbarView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

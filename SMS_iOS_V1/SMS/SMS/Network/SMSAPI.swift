@@ -20,14 +20,16 @@ enum SMSAPI {
     case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
     case lookUpAllOuting(_ start: Int, _ count: Int)
     case certainOutingInfo
-    case lookUpOutingCard
-    case outingAction(_ code: String)
+    case lookUpOutingCard(_ uuid: String)
     case lookUpNotice
     case detailNotice
+    case outingAction(_ code: String)
     case timetables(_ year: Int, _ month: Int, _ day: Int)
     case schedules(_ year: Int, _ month: Int)
     case checkNotReadNotice
     case location(_ keyWord: String)
+    case certificationNumber(_ number: String)
+    case register(_ code: Int, _ ID: String, _ PW: String)
 }
 
 extension SMSAPI {
@@ -45,7 +47,7 @@ extension SMSAPI {
     }
     
     var uuid: String {
-        return UserDefaults.standard.value(forKey: "uuid") as! String
+        return "student-720719405512"
     }
     
     var outing_uuid: String {
@@ -53,7 +55,7 @@ extension SMSAPI {
     }
     
     var token: String {
-        return UserDefaults.standard.value(forKey: "token") as! String
+        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjE1MzI4MTQ3fQ.kqz1JMBvx6voER2k6tDjYCmoNdaz2b9whIF4e-2jmtnKWGWF5HcmbYb2LNF5Y3AbWCD5k0VxoyvXDwDGenNlww"
     }
     
     var announcement_uuid: String {
@@ -96,18 +98,23 @@ extension SMSAPI {
             return "students/uuid/\(uuid)/announcement-check"
         case .location(let keyWord):
             var newKeyWord = ""
-            for v in keyWord.utf8 {
-                newKeyWord += "%" + String(v, radix: 16, uppercase: true)
+            for idx in keyWord.utf8 {
+                newKeyWord += "%" + String(idx, radix: 16, uppercase: true)
             }
             return "/naver-open-api/search/local?keyword=\(newKeyWord)"
+        case .certificationNumber(let number):
+            return "/students/auth-code/\(number)"
+        case .register:
+            return "/students/with-code"
         }
     }
     
     var method: HTTPMethod {
         switch self {
         case .login,
+             .postOuting,
              .outingAction,
-             .postOuting:
+             .register:
             return .post
             
         case .pwChange:
@@ -122,7 +129,8 @@ extension SMSAPI {
              .detailNotice,
              .timetables,
              .location,
-             .schedules:
+             .schedules,
+             .certificationNumber:
             return .get
         }
     }
@@ -132,8 +140,8 @@ extension SMSAPI {
         case .myInfo,
              .certainOutingInfo,
              .lookUpOutingCard,
-             .outingAction,
              .lookUpNotice,
+             .outingAction,
              .detailNotice,
              .checkNotReadNotice,
              .schedules,
@@ -161,16 +169,15 @@ extension SMSAPI {
     var encoding: ParameterEncoding {
         switch self {
         case .myInfo,
-             .outingAction,
-             .checkNotReadNotice,
-             .lookUpAllOuting,
              .certainOutingInfo,
              .lookUpOutingCard,
              .lookUpNotice,
              .detailNotice,
+             .outingAction,
              .timetables,
              .location,
-             .schedules:
+             .schedules,
+             .certificationNumber:
             return URLEncoding.queryString
         default:
             return JSONEncoding.default
@@ -180,13 +187,33 @@ extension SMSAPI {
     var parameter: Parameters? {
         switch self {
         case .login(let userId,let pw):
-            return ["student_id":userId, "student_pw" : pw]
+            return [
+                "student_id":userId,
+                "student_pw" : pw
+            ]
             
         case .pwChange(let currentPW, let revisionPW):
-            return ["current_pw":currentPW, "revision_pw": revisionPW]
+            return [
+                "current_pw":currentPW,
+                "revision_pw": revisionPW
+            ]
             
         case .postOuting(let startTime, let endTime, let place, let reason, let situation):
-            return ["start_time": startTime, "end_time": endTime, "place": place, "reason": reason, "situation": situation]
+            return [
+                "start_time": startTime,
+                "end_time": endTime,
+                "place": place,
+                "reason": reason,
+                "situation": situation
+            ]
+            
+        case .register(let code, let id, let pw):
+            return [
+                "auth_code": code,
+                "student_id": id,
+                "student_pw": pw
+            ]
+            
         default:
             return nil
         }

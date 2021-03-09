@@ -28,14 +28,18 @@ enum StoryBoardName {
     case outGoingPopUp
     case locationAlert
     case outGoingAlert
+    case certificationNumber
+    case register
 }
 
 extension StoryBoardName {
     var name: String? {
         switch self {
         case .login,
-             .tabbar:
-            return "Login"
+             .tabbar,
+             .certificationNumber,
+             .register:
+            return "Auth"
             
         case .noticeDetail,
              .noticeMain:

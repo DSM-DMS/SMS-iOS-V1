@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.1)
-  - EditorJSKit (0.1.6)
   - FSCalendar (2.8.2)
   - KeychainSwift (19.0.0)
   - Kingfisher (6.1.1)
@@ -27,7 +26,6 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
-  - EditorJSKit
   - FSCalendar
   - KeychainSwift (~> 19.0)
   - Kingfisher
@@ -44,7 +42,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - EditorJSKit
     - FSCalendar
     - KeychainSwift
     - Kingfisher
@@ -61,7 +58,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  EditorJSKit: 75784753ee4ec7d0ac7eb4db2879535821006da9
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
@@ -76,6 +72,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 9b8bb96e838246498527ffa495a97e689b4052d8
+PODFILE CHECKSUM: d32480ccdef3df9f9bf4d580202a2bf48e6fb496
 
 COCOAPODS: 1.10.1

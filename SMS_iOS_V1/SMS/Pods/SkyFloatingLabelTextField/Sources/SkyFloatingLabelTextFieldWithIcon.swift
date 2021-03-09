@@ -12,7 +12,7 @@
 import UIKit
 
 /**
- Identify the type of icon. 
+ Identify the type of icon.
     - font: Set your icon by setting the font of iconLabel
     - image: Set your icon by setting the image of iconImageView
  */
@@ -51,7 +51,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     dynamic open var iconImage: UIImage? {
         didSet {
             // Show a warning if setting an image while the iconType is IconType.font
-//            if self.iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") } // swiftlint:disable:this line_length
+            if self.iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") } // swiftlint:disable:this line_length
             iconImageView?.image = iconImage
         }
     }
@@ -118,7 +118,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     /**
-     A float value that determines the left margin of the icon. 
+     A float value that determines the left margin of the icon.
      Use this value to position the icon more precisely horizontally.
      */
     @IBInspectable
@@ -129,7 +129,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     /**
-     A float value that determines the bottom margin of the icon. 
+     A float value that determines the bottom margin of the icon.
      Use this value to position the icon more precisely vertically.
      */
     @IBInspectable
@@ -223,10 +223,10 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     fileprivate func updateIconViewHiddenState() {
         switch iconType {
         case .font:
-//            self.iconLabel.isHidden = false
+            self.iconLabel.isHidden = false
             self.iconImageView.isHidden = true
         case .image:
-//            self.iconLabel.isHidden = true
+            self.iconLabel.isHidden = true
             self.iconImageView.isHidden = false
         }
     }
@@ -300,7 +300,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     /**
-     Calculates the bounds for the placeholder component of the control. 
+     Calculates the bounds for the placeholder component of the control.
      Override to create a custom size textbox in the control.
      - parameter bounds: The current bounds of the placeholder component
      - returns: The rectangle that the placeholder component should render in
@@ -333,7 +333,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             )
             iconImageView.frame = CGRect(
                 x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                y: bounds.size.height - textHeight() - iconMarginBottom + 4,
                 width: iconWidth,
                 height: textHeight()
             )
@@ -346,7 +346,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             )
             iconImageView.frame = CGRect(
                 x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                y: bounds.size.height - textHeight() - iconMarginBottom + 4,
                 width: iconWidth,
                 height: textHeight()
             )

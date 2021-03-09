@@ -47,7 +47,7 @@
 }
 
 - (void)commonInit
-{   
+{
     UILabel *label;
     UIView *event1;
     UIView *event2;
@@ -102,22 +102,8 @@
     _event1View.frame = CGRectMake(
                                    self.contentView.center.x,
                                    _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 1,
-                                   self.contentView.frame.size.width - 6,
+                                   1,
                                    1.5);
-    [_event1View.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:3].active = true;
-    [_event1View.topAnchor constraintEqualToAnchor:_titleLabel.bottomAnchor constant:3].active = true;
-    [_event1View.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = true;
-    [_event1View.heightAnchor constraintEqualToConstant: 1.5].active = true;
-    
-    [_event2View.leadingAnchor constraintEqualToAnchor:self.event1View.leadingAnchor].active = true;
-    [_event2View.topAnchor constraintEqualToAnchor:_event1View.bottomAnchor constant:2.5].active = true;
-    [_event2View.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = true;
-    [_event2View.heightAnchor constraintEqualToConstant: 1.5].active = true;
-    
-    [_event3View.leadingAnchor constraintEqualToAnchor:_event2View.leadingAnchor].active = true;
-    [_event3View.topAnchor constraintEqualToAnchor:_event2View.bottomAnchor constant:2.5].active = true;
-    [_event3View.centerXAnchor constraintEqualToAnchor:_event2View.centerXAnchor].active = true;
-    [_event3View.heightAnchor constraintEqualToConstant: 1.5].active = true;
     
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);

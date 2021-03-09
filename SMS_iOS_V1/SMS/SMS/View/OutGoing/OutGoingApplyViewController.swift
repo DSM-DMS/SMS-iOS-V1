@@ -11,9 +11,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SkyFloatingLabelTextField
+import Toast_Swift
 
 class OutGoingApplyViewController: UIViewController, Storyboarded {
-    
     let disposeBag = DisposeBag()
     let viewModel = OutGoingApplyViewModel()
     let bool: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
@@ -37,11 +37,7 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
         bindAction()
         settingTextField()
         bind()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.disappear()
+        setting()
     }
 }
 
@@ -52,7 +48,7 @@ extension OutGoingApplyViewController {
         let input = OutGoingApplyViewModel.Input(reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
                                                  startTimeDriver: startTimeTextField.rx.text.orEmpty.asDriver(),
                                                  endTimeDriver: endTimeTextField.rx.text.orEmpty.asDriver(),
-                                                 placeDriver: placeTextField.rx.text.orEmpty.asDriver(),
+                                                 placeDriver: self.placeTextField.rx.observe(String.self, "text"),
                                                  applyDriver: applyButton.rx.tap.asDriver(),
                                                  diseaseIs: bool)
         
@@ -61,8 +57,19 @@ extension OutGoingApplyViewController {
         output.response.subscribe { model in
             switch model.status {
             case 201:
+                switch model.code {
+                case 0: self.view.makeToast("승인을 받은 후 모바일을 통해 외출을 시작해주세요.")
+                case -1: self.view.makeToast("연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요.")
+                case -2: self.view.makeToast("학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요.")
+                default:
+                    print("에러")
+                }
+                sleep(1)
                 UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
                 self.coordinator?.outGoingCompleted()
+            case 401:
+                // 코디네이터
+            return
             default:
                 self.applyButton.shake()
             }
@@ -72,6 +79,11 @@ extension OutGoingApplyViewController {
     }
     
     private func bindAction() {
+        hiddenViewButton.rx.tap
+            .bind { _ in
+                self.hiddenView(true)
+            }.disposed(by: disposeBag)
+        
         popVCBtn.rx.tap
             .bind { _ in
                 self.coordinator?.pop()
@@ -80,11 +92,11 @@ extension OutGoingApplyViewController {
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
-                self.hiddenView(self.locationXib, false)
+                self.hiddenView(false, self.noticeView)
                 self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
                     let cell = self.locationXib.tableView.cellForRow(at: indexPath) as! LocationTableViewCell
-                    self.placeTextField.text = cell.addressLbl.text
-                    self.hiddenView(self.locationXib, true)
+                    self.placeTextField.text = cell.addressLbl.text!
+                    self.hiddenView(true, self.noticeView)
                 }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
         
@@ -93,9 +105,9 @@ extension OutGoingApplyViewController {
                 var bool = false
                 self.bool.bind { b in bool = b }.disposed(by: disposeBag)
                 if !bool {
-                    self.hiddenView(noticeView, false)
+                    self.hiddenView(false, locationXib)
                     self.noticeView.sign = { b in
-                        self.hiddenView(noticeView, true)
+                        self.hiddenView(true, locationXib)
                         self.bool.accept(false)
                         if b {
                             self.diseaseBtn.setTitle("취소", for: .normal)
@@ -117,6 +129,22 @@ extension OutGoingApplyViewController {
         endTimeTextField.textAlignment = .center
         self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDonea), mode: .time)
         self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDones), mode: .time)
+    }
+    
+    func setting() {
+        dateLabel.dynamicFont(fontSize: 10, weight: .regular)
+        
+        locationXib.addShadow(offset: CGSize(width: 0, height: 3),
+                              color: .gray,
+                              shadowRadius: 6,
+                              opacity: 1,
+                              cornerRadius: 8)
+        
+        noticeView.addShadow(offset: CGSize(width: 0, height: 3),
+                             color: .gray,
+                             shadowRadius: 6,
+                             opacity: 1,
+                             cornerRadius: 8)
     }
 }
 
@@ -155,9 +183,13 @@ extension OutGoingApplyViewController {
         endTimeTextField.resignFirstResponder() // 2-5
     }
     
-    func hiddenView(_ view: UIView, _ value: Bool) {
-        view.isHidden = value
+    func hiddenView(_ value: Bool, _ view: UIView? = nil) {
+        locationXib.isHidden = value
+        noticeView.isHidden = value
         hiddenViewButton.isHidden = value
+        if let hiddeView = view {
+            hiddeView.isHidden = true
+        }
     }
     
     func getMaxMinDate(_ minHour: Int = 0, _ minMinute: Int? = 0, _ maxHour: Int = 0, _ maxMinute: Int? = 0) -> (Date, Date) {

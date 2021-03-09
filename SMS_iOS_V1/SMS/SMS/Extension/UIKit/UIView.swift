@@ -11,13 +11,14 @@ extension UIView {
         }
     }
     
-    func addShadow(offset: CGSize, color: UIColor, shadowRadius: CGFloat, opacity: Float, cornerRadius: CGFloat) {
-        layer.masksToBounds = false
+    func addShadow(offset: CGSize, color: UIColor, shadowRadius: CGFloat, opacity: Float, cornerRadius: CGFloat, corner: CACornerMask? = nil) {
+        layer.masksToBounds = true
         layer.shadowOffset = offset
         layer.shadowColor = color.cgColor
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = opacity
         layer.cornerRadius = cornerRadius
+        layer.maskedCorners = corner ?? [.layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMinYCorner]
     }
     
     func shake() {

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OutGoingEndActionAlertXib" customModule="SMS" customModuleProvider="target">
+            <connections>
+                <outlet property="applicationBtn" destination="BRk-HH-Rnh" id="kvQ-1c-VIg"/>
+                <outlet property="cancelBtn" destination="JDE-Jw-B2q" id="xsR-gI-0nn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IvI-qF-DQE">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출 종료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1S-uA-Ror">
+                    <rect key="frame" x="34" y="26" width="64" height="24"/>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                    <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9he-WR-cFb">
+                    <rect key="frame" x="34" y="65" width="163" height="37"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출을 종료하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDI-4a-81i">
+                            <rect key="frame" x="0.0" y="0.0" width="153" height="21"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(지금부터 신청하신 외출을 종료합니다)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxT-mV-cT1">
+                            <rect key="frame" x="0.0" y="22" width="163" height="15"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="CxT-mV-cT1" firstAttribute="leading" secondItem="9he-WR-cFb" secondAttribute="leading" id="Lki-dE-5VB"/>
+                        <constraint firstAttribute="bottom" secondItem="CxT-mV-cT1" secondAttribute="bottom" id="W5V-Dh-TRD"/>
+                        <constraint firstItem="EDI-4a-81i" firstAttribute="leading" secondItem="9he-WR-cFb" secondAttribute="leading" id="XjS-S3-UYQ"/>
+                        <constraint firstItem="EDI-4a-81i" firstAttribute="top" secondItem="9he-WR-cFb" secondAttribute="top" id="ZBX-5w-DSG"/>
+                        <constraint firstAttribute="trailing" secondItem="CxT-mV-cT1" secondAttribute="trailing" id="aLp-QK-gG5"/>
+                        <constraint firstItem="CxT-mV-cT1" firstAttribute="top" secondItem="EDI-4a-81i" secondAttribute="bottom" constant="1" id="fAr-x6-cwR"/>
+                        <constraint firstAttribute="height" constant="37" id="gZw-m8-mYy"/>
+                        <constraint firstAttribute="width" constant="163" id="uIw-bf-x0i"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-HH-Rnh">
+                    <rect key="frame" x="168" y="144" width="168" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="HYa-zc-qcq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="확인">
+                        <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDE-Jw-B2q">
+                    <rect key="frame" x="0.0" y="144" width="168" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="xsa-RA-oRk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="취소">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="MKC-HU-Elb"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="JDE-Jw-B2q" secondAttribute="bottom" id="2Px-2Y-W7V"/>
+                <constraint firstItem="G1S-uA-Ror" firstAttribute="leading" secondItem="MKC-HU-Elb" secondAttribute="leading" constant="34" id="4Am-26-mrQ"/>
+                <constraint firstItem="BRk-HH-Rnh" firstAttribute="leading" secondItem="JDE-Jw-B2q" secondAttribute="trailing" id="4MR-64-EjD"/>
+                <constraint firstAttribute="bottom" secondItem="BRk-HH-Rnh" secondAttribute="bottom" id="7OZ-UE-8SW"/>
+                <constraint firstItem="JDE-Jw-B2q" firstAttribute="leading" secondItem="MKC-HU-Elb" secondAttribute="leading" id="GXw-dQ-uwN"/>
+                <constraint firstItem="BRk-HH-Rnh" firstAttribute="width" secondItem="IvI-qF-DQE" secondAttribute="width" multiplier="0.5" id="dx0-WC-f0v"/>
+                <constraint firstItem="MKC-HU-Elb" firstAttribute="trailing" secondItem="BRk-HH-Rnh" secondAttribute="trailing" id="fcS-3b-dBx"/>
+                <constraint firstItem="JDE-Jw-B2q" firstAttribute="width" secondItem="IvI-qF-DQE" secondAttribute="width" multiplier="0.5" id="iOY-Lf-9SS"/>
+                <constraint firstItem="9he-WR-cFb" firstAttribute="top" secondItem="G1S-uA-Ror" secondAttribute="bottom" constant="15" id="kLT-Gs-wEa"/>
+                <constraint firstItem="G1S-uA-Ror" firstAttribute="top" secondItem="IvI-qF-DQE" secondAttribute="top" constant="26" id="qsp-8B-cbD"/>
+                <constraint firstItem="9he-WR-cFb" firstAttribute="leading" secondItem="G1S-uA-Ror" secondAttribute="leading" id="yNC-iH-qpO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="207.24637681159422" y="238.05803571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
