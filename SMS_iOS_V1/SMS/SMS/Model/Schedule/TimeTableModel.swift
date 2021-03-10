@@ -12,11 +12,15 @@ struct TimeTableModel: Codable {
     let status: Int
     let code: Int
     let message: String
-    let time1: String?
-    let time2: String?
-    let time3: String?
-    let time4: String?
-    let time5: String?
-    let time6: String?
-    let time7: String?
+    let time_tables: [Time]?
+}
+
+struct Time: Codable {
+    let time1: String
+    let time2: String
+    let time3: String
+    let time4: String
+    let time5: String
+    let time6: String
+    let time7: String
 }

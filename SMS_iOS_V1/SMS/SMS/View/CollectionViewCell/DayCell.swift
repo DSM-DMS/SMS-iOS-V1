@@ -57,21 +57,21 @@ class DayCell: FSCalendarCell {
         leadingConstraint.isActive = true
         trailingConstraint = event1View.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)
         trailingConstraint.isActive = true
-        event1View.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 3).isActive = true
+        event1View.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2).isActive = true
         event1View.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
         
         leading2Constraint = event2View.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0)
         leading2Constraint.isActive = true
         trailing2Constraint = event2View.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)
         trailing2Constraint.isActive = true
-        event2View.topAnchor.constraint(equalTo: event1View.bottomAnchor, constant: 3).isActive = true
+        event2View.topAnchor.constraint(equalTo: event1View.bottomAnchor, constant: 1.5).isActive = true
         event2View.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
         
         leading3Constraint = event3View.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0)
         leading3Constraint.isActive = true
         trailing3Constraint = event3View.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)
         trailing3Constraint.isActive = true
-        event3View.topAnchor.constraint(equalTo: event2View.bottomAnchor, constant: 3).isActive = true
+        event3View.topAnchor.constraint(equalTo: event2View.bottomAnchor, constant: 1.5).isActive = true
         event3View.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
     }
     

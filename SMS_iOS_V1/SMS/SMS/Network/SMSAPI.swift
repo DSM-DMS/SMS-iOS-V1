@@ -47,7 +47,7 @@ extension SMSAPI {
     }
     
     var uuid: String {
-        return "student-720719405512"
+        return UserDefaults.standard.value(forKey: "uuid") as! String
     }
     
     var outing_uuid: String {
@@ -55,7 +55,7 @@ extension SMSAPI {
     }
     
     var token: String {
-        return "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoic3R1ZGVudC03MjA3MTk0MDU1MTIiLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNjE1MzI4MTQ3fQ.kqz1JMBvx6voER2k6tDjYCmoNdaz2b9whIF4e-2jmtnKWGWF5HcmbYb2LNF5Y3AbWCD5k0VxoyvXDwDGenNlww"
+        return UserDefaults.standard.value(forKey: "token") as! String
     }
     
     var announcement_uuid: String {

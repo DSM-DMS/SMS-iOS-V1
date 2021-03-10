@@ -15,6 +15,7 @@ import SkyFloatingLabelTextField
 final class LoginViewController: UIViewController, Storyboarded {
     weak var coordinator: LoginCoordinator?
     private let viewModel = LoginViewModel()
+    var bool = false
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var registerButton: UIButton!
@@ -37,7 +38,7 @@ final class LoginViewController: UIViewController, Storyboarded {
 
 extension LoginViewController {
     func bind() {
-        let input = LoginViewModel.Input(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver:  pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
+        let input = LoginViewModel.Input(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver:  pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver())
         
         let isValid = viewModel.isValid(input)
         
@@ -47,11 +48,11 @@ extension LoginViewController {
         let output = viewModel.transform(input)
         
         output.result.subscribe { model in
-            if model.status == 200 || model.code == 200 {
+            if model.status == 200 {
                 self.coordinator?.tabbar()
-                if self.autoLoginCheckBox.isSelected {
-                    UserDefaults.standard.setValue(model.access_token, forKey: "token")
-                    UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                UserDefaults.standard.setValue(model.access_token, forKey: "token")
+                UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                if self.bool {
                     keyChain.set(self.idTextField.text!, forKey: "ID")
                     keyChain.set(self.pwTextField.text!, forKey: "PW")
                 } else {
@@ -67,6 +68,12 @@ extension LoginViewController {
     }
     
     func bindAction() {
+        autoLoginCheckBox.rx.tap
+            .bind {  _ in
+                self.autoLoginCheckBox.isSelected = !self.autoLoginCheckBox.isSelected
+                self.bool.toggle()
+            }.disposed(by: disposeBag)
+        
         registerButton.rx.tap
             .bind { _ in
                 self.coordinator?.checkNumber()
