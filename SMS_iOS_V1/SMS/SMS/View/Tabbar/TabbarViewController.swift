@@ -37,6 +37,10 @@ class TabbarViewController: UIViewController, Storyboarded {
     
     var tabbarHeightConstraint: NSLayoutConstraint!
     
+    open override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupStackView()

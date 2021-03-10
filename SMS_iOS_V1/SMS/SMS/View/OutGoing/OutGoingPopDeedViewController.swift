@@ -175,7 +175,7 @@ extension OutGoingPopDeedViewController {
 //        let processor = ResizingImageProcessor(referenceSize: CGSize(width: 100, height: 100))
         self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile")) //, options: [.processor(processor)])
         
-        self.profileImageView.contentMode = .scaleAspectFill
+//        self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
 //        self.profileImageView.clipsToBounds = tru/e
         
