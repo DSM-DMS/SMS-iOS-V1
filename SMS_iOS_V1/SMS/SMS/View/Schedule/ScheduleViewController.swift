@@ -55,23 +55,26 @@ class ScheduleViewController: UIViewController, Storyboarded {
         autoLogin()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        getSchedule()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        getSchedule()
+//    }
 }
 
 //MARK- extension
 extension ScheduleViewController {
     func autoLogin() {
+//        UserDefaults.standard.removeObject(forKey: "token")
+//        UserDefaults.standard.removeObject(forKey: "uuid")
+//        keyChain.delete("ID")
         if let ID = keyChain.get("ID"), let PW = keyChain.get("PW") { // 자동로그인 해두고 지금 들어온애
             let login: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(ID, PW))
             login.bind { model in
                 UserDefaults.standard.setValue(model.access_token, forKey: "token")
                 UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                self.getSchedule()
             }.disposed(by: disposeBag)
             bind()
-            getSchedule()
         } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
             bind()
             getSchedule()

@@ -34,5 +34,10 @@ extension UITextField {
     @objc func tapCancel() {
         self.resignFirstResponder()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
+        return false
+    }
 }
 

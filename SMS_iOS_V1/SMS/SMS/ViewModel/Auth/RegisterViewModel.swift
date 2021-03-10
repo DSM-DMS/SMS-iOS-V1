@@ -16,7 +16,7 @@ class RegisterViewModel: ViewModelType {
         let idDriver: Driver<String>
         let pwDriver: Driver<String>
         let createDriver: Driver<Void>
-        let number: Int
+        let number: Observable<Int>
     }
     
     struct Output {
@@ -26,9 +26,10 @@ class RegisterViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         let model = input.createDriver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.idDriver.asObservable(),
-                                                     input.pwDriver.asObservable()))
-            .map { id, pw in
-                SMSAPI.register(input.number, id, pw)
+                                                     input.pwDriver.asObservable(),
+                                                     input.number))
+            .map { id, pw, num in
+                SMSAPI.register(num, id, pw)
             }.flatMap { request -> Observable<RegisterModel> in
                 SMSAPIClient.shared.networking(from: request)
             }

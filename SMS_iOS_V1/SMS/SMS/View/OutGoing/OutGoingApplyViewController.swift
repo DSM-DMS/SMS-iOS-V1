@@ -114,6 +114,7 @@ extension OutGoingApplyViewController {
                     self.placeTextField.text = cell.addressLbl.text!
                     self.hiddenViewButton.isHidden = true
                     self.locationXib.isHidden = true
+                    
                 }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
         
@@ -174,14 +175,14 @@ extension OutGoingApplyViewController {
 }
 
 extension UITextField {
-    @objc func tappedField(_ dateFormatter: String? = nil, _ text: String? = nil, _ style: DateFormatter.Style) {
-        if let datepicker = self.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.timeStyle = style
-            self.text = text ?? "" + dateformatter.string(from: datepicker.date)
-        }
-        self.resignFirstResponder()
-    }
+//    @objc func tappedField(_ dateFormatter: String? = nil, _ text: String? = nil, _ style: DateFormatter.Style) {
+//        if let datepicker = self.inputView as? UIDatePicker {
+//            let dateformatter = DateFormatter()
+//            dateformatter.timeStyle = style
+//            self.text = text ?? "" + dateformatter.string(from: datepicker.date)
+//        }
+//        self.resignFirstResponder()
+//    }
 }
 
 extension OutGoingApplyViewController {
@@ -227,5 +228,16 @@ extension OutGoingApplyViewController {
         dateComponent.minute = maxMinute
         let maxDate = Calendar.current.date(from: dateComponent)!
         return (minDate, maxDate)
+    }
+}
+
+extension OutGoingApplyViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

@@ -44,7 +44,8 @@ extension RegisterViewController {
     func setting() {
         phoneNumberLbl.text = data.phone_number
         nameLbl.text = data.name
-        numberLbl.text = String(describing: data.grade!) + String(describing: data.group!) + String(describing: data.student_number!)
+        let number = data.student_number! < 10 ? "0" : ""
+        numberLbl.text = String(describing: data.grade!) + String(describing: data.group!) + number + String(describing: data.student_number!)
         
         inquireAlertView.addShadow(offset: CGSize(width: 0, height: 3),
                                    color: .gray,
@@ -72,10 +73,13 @@ extension RegisterViewController {
     }
     
     func bind() {
+        print(number)
+        Observable.of(number!).bind { print($0) }.disposed(by: disposeBag)
+        
         let input = RegisterViewModel.Input(idDriver: idTextField.rx.text.orEmpty.asDriver(),
                                             pwDriver: pwTextField.rx.text.orEmpty.asDriver(),
                                             createDriver: createBtn.rx.tap.asDriver(),
-                                            number: number)
+                                            number: Observable.of(number!))
         
         let output = viewModel.transform(input)
         

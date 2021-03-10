@@ -29,7 +29,7 @@ class TimeScheduleXib: UIView {
         let view = Bundle.main.loadNibNamed(TimeScheduleXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
-//        getTimeTable()
+        getTimeTable()
     }
     
     func getTimeTable() {
@@ -48,7 +48,7 @@ class TimeScheduleXib: UIView {
 
                 for i in 0...4 {
                     for j in 0...6 {
-                        dayArr[i]![j].text = arr[i][j]
+                        dayArr[i]![j].text = arr[i][j] == "" ? "-" : arr[i][j]
                     }
                 }
             }
