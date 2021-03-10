@@ -17,7 +17,13 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        login()
+        tabbar()
+    }
+    
+    func tabbar() {
+        let tabbarCoordinator = TabbarCoordinator(nav: nav, finish: self)
+        self.children.append(tabbarCoordinator)
+        tabbarCoordinator.start()
     }
     
     func login() {

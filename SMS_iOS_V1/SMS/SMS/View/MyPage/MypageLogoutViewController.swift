@@ -22,28 +22,19 @@ class MypageLogoutViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         bindAction()
     }
     
 }
 
 extension MypageLogoutViewController {
-    
-    func bind() {
-//        LogoutButton.rx.tap
-//            .bind {
-//            self.viewModel.Logout()
-//        }.disposed(by: disposeBag)
-        //미구현
-    }
-    
     func bindAction() {
         LogoutButton.rx.tap
             .bind { _ in
-                self.coordinator?.pop()
+                UserDefaults.standard.removeObject(forKey: "token")
+                UserDefaults.standard.removeObject(forKey: "uuid")
+                self.coordinator?.main()
             }.disposed(by: disposeBag)
-        //추후 코디네이터 추가 예정
         
         cancelButton.rx.tap
             .bind { _ in

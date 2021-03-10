@@ -29,7 +29,7 @@ class TimeScheduleXib: UIView {
         let view = Bundle.main.loadNibNamed(TimeScheduleXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
-        getTimeTable()
+//        getTimeTable()
     }
     
     func getTimeTable() {

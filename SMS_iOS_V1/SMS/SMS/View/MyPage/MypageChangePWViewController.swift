@@ -34,7 +34,10 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
 }
 extension MypageChangePWViewController {
     func bind() {
-        let input = MypageChangePWViewModel.Input.init(currentPWTextFieldDriver: currentPWTextField.rx.text.orEmpty.asDriver(), newPWTextFieldDriver: newPWTextField.rx.text.orEmpty.asDriver(), confirmPWTextFieldDriver: confirmPWTextField.rx.text.orEmpty.asDriver(), changeButtonDrver: applyButton.rx.tap.asDriver())
+        let input = MypageChangePWViewModel.Input.init(currentPWTextFieldDriver: currentPWTextField.rx.text.orEmpty.asDriver(),
+                                                       newPWTextFieldDriver: newPWTextField.rx.text.orEmpty.asDriver(),
+                                                       confirmPWTextFieldDriver: confirmPWTextField.rx.text.orEmpty.asDriver(),
+                                                       changeButtonDrver: applyButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input)
         
@@ -61,10 +64,8 @@ extension MypageChangePWViewController {
         
         applyButton.rx.tap
             .bind { _ in
-//                self.coordinator?.pwConfirm()
+                self.coordinator?.pwConfirm()
             }.disposed(by: disposeBag)
-        
-        
     }
     
 }

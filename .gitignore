@@ -16,3 +16,5 @@ SMS_iOS_V1/.DS_Store
 
 
 SMS_iOS_V1/SMS/SMS.xcworkspace/xcuserdata/dohyunkim.xcuserdatad/UserInterfaceState.xcuserstate
+
+SMS_iOS_V1/SMS/SMS/Network/SMSAPI.swift

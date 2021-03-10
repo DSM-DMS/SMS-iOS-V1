@@ -24,7 +24,7 @@ class MyPageCoordinator: Coordinator {
     }
     
     func pop() {
-        self.nav.popViewController(animated: false)
+        self.nav.popViewController(animated: true)
         delegate?.dismissBar(false, nil)
     }
     
