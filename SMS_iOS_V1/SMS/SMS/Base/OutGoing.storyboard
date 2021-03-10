@@ -1055,7 +1055,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
                                         <rect key="frame" x="10" y="20" width="368" height="667"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">1. 외출 신청 시간: 24시간                       2. 외출 허용 시간: 16:20~ 20:30까지
+                                        <string key="text">1. 외출 신청 시간: 24시간                       2. 외출 허용 시간: 16:20~ 20:30까지
    - 질병 외출일 경우 외출 시간을 적용하지 않습니다.
    - 주말 외출은 기숙사 외출로 분류되므로 DMS로 외출 신청  3. 외출 과정
   - 외출 입력 칸을 정상적으로 입력한 후 작성완료를 누릅니다.
@@ -1074,7 +1074,7 @@
   - 우범지역, 청소년출입금지구역 가지 않기
   - 음주 흡연등 탈선하지 않기
   - 복귀시간 엄수하기
-  - 마스크 필수 착용하기</mutableString>
+  - 마스크 필수 착용하기</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

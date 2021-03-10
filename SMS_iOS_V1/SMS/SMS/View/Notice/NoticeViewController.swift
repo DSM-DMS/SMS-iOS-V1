@@ -15,7 +15,8 @@ class NoticeViewController: UIViewController, Storyboarded {
     let viewModel = NoticeViewModel()
     let disposeBag = DisposeBag()
     
-    @IBOutlet weak var searchTextField: UIView!
+    
+    @IBOutlet weak var noticeSearchBar: UISearchBar!
     @IBOutlet weak var noticeTableView: UITableView!
     
     override func viewDidLoad() {
@@ -36,6 +37,25 @@ class NoticeViewController: UIViewController, Storyboarded {
 
 extension NoticeViewController {
     func UIbind() {
+        
+        // 테스트 코드 입니다.
+        //        let arr = ["안녕하세요", "하이하이", "방가방가"]
+        //        Observable.of(arr)
+        //            .bind(to: noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, info, cell in
+        //                cell.cellTitle.text = info
+        //                self.noticeSearchBar.rx.text.orEmpty
+        //                    .debounce(RxTimeInterval.milliseconds(5), scheduler: MainScheduler.instance)
+        //                    .distinctUntilChanged()
+        //                    .subscribe(onNext: { t in
+        //                        if(info.hasPrefix(t)) {
+        //
+        //                        } else {
+        //                            cell.isHidden = true
+        //                        }
+        //
+
+        //                    }).disposed(by: self.disposeBag)
+        //            }.disposed(by: disposeBag)
         
         let Notice: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
         
@@ -59,6 +79,18 @@ extension NoticeViewController {
                         }
                         
                         cell.cellViews.text = "\(notice.views)"
+                        
+                        self.noticeSearchBar.rx.text.orEmpty
+                            .debounce(RxTimeInterval.milliseconds(5), scheduler: MainScheduler.instance)
+                            .distinctUntilChanged()
+                            .subscribe(onNext: { t in
+                                if(notice.title.hasPrefix(t)) {
+                                    
+                                } else {
+                                    cell.isHidden = true
+                                }
+                                
+                            }).disposed(by: self.disposeBag)
                     }.disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)

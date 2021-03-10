@@ -110,10 +110,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="공지 제목을 입력해주세요" translatesAutoresizingMaskIntoConstraints="NO" id="6A2-Qd-cG2">
+                                <rect key="frame" x="135" y="72" width="224" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hG7-Gj-BQu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="6A2-Qd-cG2" secondAttribute="trailing" constant="16" id="032-P8-MTA"/>
                             <constraint firstItem="V5q-Te-qIa" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="35" id="3Nq-V8-CtN"/>
                             <constraint firstItem="1DF-lm-MM0" firstAttribute="top" secondItem="V5q-Te-qIa" secondAttribute="bottom" constant="69" id="48m-r3-MNJ"/>
                             <constraint firstItem="GMv-UA-Oa0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="58a-Di-PjZ"/>
@@ -122,8 +127,10 @@
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="TER-hr-end" secondAttribute="centerY" id="DbE-rX-DEe"/>
                             <constraint firstItem="V5q-Te-qIa" firstAttribute="top" secondItem="hG7-Gj-BQu" secondAttribute="top" constant="42" id="FAQ-5n-8NT"/>
                             <constraint firstItem="1DF-lm-MM0" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="20" id="FwI-DK-srf"/>
+                            <constraint firstItem="1DF-lm-MM0" firstAttribute="top" secondItem="6A2-Qd-cG2" secondAttribute="bottom" constant="10" id="IQE-cD-Tn4"/>
                             <constraint firstAttribute="bottom" secondItem="GMv-UA-Oa0" secondAttribute="bottom" constant="124" id="Iuh-4i-bYy"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="top" secondItem="1DF-lm-MM0" secondAttribute="bottom" constant="13" id="L4A-B5-iE6"/>
+                            <constraint firstItem="6A2-Qd-cG2" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="135" id="T7v-PQ-OXW"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="leading" secondItem="hG7-Gj-BQu" secondAttribute="leading" constant="25" id="cLO-ni-pvx"/>
                             <constraint firstItem="m80-yY-4Ha" firstAttribute="centerY" secondItem="v8L-aO-zUT" secondAttribute="centerY" id="kPM-N7-bbd"/>
                             <constraint firstItem="hG7-Gj-BQu" firstAttribute="trailing" secondItem="1DF-lm-MM0" secondAttribute="trailing" constant="20" id="lJ7-Ss-Ie0"/>
@@ -136,6 +143,7 @@
                     <tabBarItem key="tabBarItem" title="" image="notice" id="sHF-2k-nPR"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="noticeSearchBar" destination="6A2-Qd-cG2" id="7Be-Sb-Xyf"/>
                         <outlet property="noticeTableView" destination="GMv-UA-Oa0" id="ebI-yk-2Vg"/>
                     </connections>
                 </viewController>

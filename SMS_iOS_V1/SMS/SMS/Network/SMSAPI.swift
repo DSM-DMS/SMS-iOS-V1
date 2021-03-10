@@ -62,6 +62,8 @@ extension SMSAPI {
         return UserDefaults.standard.value(forKey: "announcement_uuid") as! String
     }
     
+    //Security code는 깃에 올릴 때 지워주세요
+    
     var path: String {
         switch self {
         case .login:
