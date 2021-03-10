@@ -29,13 +29,12 @@ class TimeScheduleXib: UIView {
         let view = Bundle.main.loadNibNamed(TimeScheduleXib.NibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
-        getTimeTable()
     }
     
     func getTimeTable() {
-        let a: Observable<TimeTableModel> = SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, self.mondayCompo.day!))
+        let timeTable: Observable<TimeTableModel> = SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, self.mondayCompo.day!))
         
-        a.bind { model in
+        timeTable.bind { model in
             if model.status == 200 {
                 
                 var arr: [[String]] = []

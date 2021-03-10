@@ -27,7 +27,10 @@ class ScheduleViewController: UIViewController, Storyboarded {
     lazy var previousBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "left"), for: .normal)
-        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + 5 + calendarView.frame.height / 4: calendarView.headerHeight
+        var y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
+        if y == 812 {
+            y = calendarView.frame.minY + 100 + calendarView.frame.height / 4
+        }
         button.frame = CGRect(x: UIScreen.main.bounds.midX - 8 - calendarView.frame.width / 4,
                               y: y,
                               width: 8,
@@ -38,7 +41,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     lazy var nextBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "right"), for: .normal)
-        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + 5 + calendarView.frame.height / 4: calendarView.headerHeight
+        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
         button.frame = CGRect(x: UIScreen.main.bounds.midX + calendarView.frame.width / 4,
                               y: y,
                               width: 8,
@@ -54,30 +57,24 @@ class ScheduleViewController: UIViewController, Storyboarded {
         tableViewBind()
         autoLogin()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        getSchedule()
-//    }
 }
 
 //MARK- extension
 extension ScheduleViewController {
     func autoLogin() {
-//        UserDefaults.standard.removeObject(forKey: "token")
-//        UserDefaults.standard.removeObject(forKey: "uuid")
-//        keyChain.delete("ID")
         if let ID = keyChain.get("ID"), let PW = keyChain.get("PW") { // 자동로그인 해두고 지금 들어온애
             let login: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(ID, PW))
             login.bind { model in
                 UserDefaults.standard.setValue(model.access_token, forKey: "token")
                 UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
                 self.getSchedule()
+                self.timeScheduleView.getTimeTable()
             }.disposed(by: disposeBag)
             bind()
         } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
             bind()
             getSchedule()
+            self.timeScheduleView.getTimeTable()
         } else { // ud값 없고 -> 로그인을 하지 않았고, keychian값 없고 -> 처음오는 애
             self.coordinator?.main()
         }
@@ -218,7 +215,7 @@ extension ScheduleViewController: UITableViewDelegate {
                 }
             }
             .map { data -> [ScheduleData] in
-                self.tableView.frame.size.height = CGFloat(data.count * 35)
+                self.tableViewHeightConstraint.constant = CGFloat(data.count * 44) + 12
                 return data
             }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
@@ -238,11 +235,14 @@ extension ScheduleViewController: UITableViewDelegate {
     }
     
     private func tableViewSetting() {
+        calendarView.select(Date())
         tableView.delegate = self
         tableView.register(ScheduleCell.self)
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableUnderView.layer.cornerRadius = 20
+        tableViewHeightConstraint = combindTableView.heightAnchor.constraint(equalToConstant: 47)
+        tableViewHeightConstraint.isActive = true
         combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         
@@ -356,6 +356,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
         return todayCell
     }
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.dateForTable.accept(date)
         let cell = calendar.cell(for: date, at: monthPosition) as! DayCell

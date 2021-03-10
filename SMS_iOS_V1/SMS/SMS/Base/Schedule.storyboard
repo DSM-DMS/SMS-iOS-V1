@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="ScheduleViewController" autoresizesArchivedViewToFullSize="NO" id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnw-tl-eUh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="289" y="597" width="50" height="50"/>
+                                <rect key="frame" x="234" y="498" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Aj-rJ-c6j"/>
@@ -33,14 +33,17 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="15" y="130" width="345" height="87"/>
+                                <rect key="frame" x="15" y="130" width="290" height="87"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="c2Y-al-stL"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-Ms-q6H" customClass="FSCalendar">
-                                <rect key="frame" x="40" y="30" width="295" height="336.5"/>
+                                <rect key="frame" x="40" y="30" width="240" height="274"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-2w-8xu">
-                                        <rect key="frame" x="0.0" y="116" width="295" height="1"/>
+                                        <rect key="frame" x="0.0" y="116" width="240" height="1"/>
                                         <color key="backgroundColor" red="0.71765202279999996" green="0.71763831379999998" blue="0.71764755250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="A3y-px-Dea"/>
@@ -78,10 +81,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-Wy-aKq">
-                                <rect key="frame" x="40" y="395" width="295" height="105"/>
+                                <rect key="frame" x="40" y="332.5" width="240" height="145"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-91-pLD">
-                                        <rect key="frame" x="0.0" y="93" width="295" height="12"/>
+                                        <rect key="frame" x="0.0" y="133" width="240" height="12"/>
                                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="k1v-3o-hRV"/>
@@ -94,7 +97,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mih-y5-1Od">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="133"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -103,11 +106,11 @@
                                     <constraint firstAttribute="trailing" secondItem="mih-y5-1Od" secondAttribute="trailing" id="0IZ-Om-qqM"/>
                                     <constraint firstAttribute="bottom" secondItem="Lic-91-pLD" secondAttribute="bottom" id="10k-4b-aNC"/>
                                     <constraint firstItem="Lic-91-pLD" firstAttribute="top" secondItem="mih-y5-1Od" secondAttribute="bottom" id="JQg-I7-B7h"/>
-                                    <constraint firstAttribute="height" constant="105" id="Ndw-P1-hZA"/>
                                     <constraint firstItem="Lic-91-pLD" firstAttribute="top" secondItem="mih-y5-1Od" secondAttribute="bottom" id="S9g-b8-yqd"/>
                                     <constraint firstItem="mih-y5-1Od" firstAttribute="leading" secondItem="vo4-Wy-aKq" secondAttribute="leading" id="STh-b7-oBf"/>
                                     <constraint firstAttribute="trailing" secondItem="Lic-91-pLD" secondAttribute="trailing" id="dNW-t1-Sjq"/>
                                     <constraint firstItem="mih-y5-1Od" firstAttribute="top" secondItem="vo4-Wy-aKq" secondAttribute="top" id="gOh-ym-fxn"/>
+                                    <constraint firstAttribute="height" constant="145" id="ibI-Ea-ys2"/>
                                     <constraint firstItem="Lic-91-pLD" firstAttribute="leading" secondItem="vo4-Wy-aKq" secondAttribute="leading" id="u4u-Je-dOb"/>
                                 </constraints>
                             </view>
@@ -138,6 +141,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="3Pu-LC-GMx"/>
@@ -145,7 +154,6 @@
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="15" id="Nd8-lu-KVH"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="trailing" secondItem="Fpf-hx-FBw" secondAttribute="trailing" constant="36" id="Sdv-Up-6tv"/>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="40" id="USP-uS-UDd"/>
-                            <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="0JY-3A-AAr" secondAttribute="bottom" constant="450" id="XKv-sA-dSv"/>
                             <constraint firstItem="vo4-Wy-aKq" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="Y6a-am-Xmn"/>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="30" id="YdS-Oy-Idr" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>

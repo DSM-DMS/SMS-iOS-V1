@@ -172,12 +172,12 @@ extension OutGoingPopDeedViewController {
         let zeroStr = startDateComponent.minute! < 10 ? "0" : ""
         self.startTimeLbl.text = "\(startDateComponent.hour!):\(zeroStr)\(startDateComponent.minute!)"
         
-        let processor = ResizingImageProcessor(referenceSize: CGSize(width: 100, height: 100))
-        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"), options: [.processor(processor)])
+//        let processor = ResizingImageProcessor(referenceSize: CGSize(width: 100, height: 100))
+        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))//, options: [.processor(processor)])
         
-        self.profileImageView.contentMode = .scaleAspectFill
+//        self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
-        self.profileImageView.clipsToBounds = true
+//        self.profileImageView.clipsToBounds = false
         
         var string = ""
         switch Int(cardData.outing_status!) {
