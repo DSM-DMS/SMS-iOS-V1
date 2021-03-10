@@ -19,6 +19,7 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     let bool: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
     weak var coordinator: OutGoingCoordinator?
     
+    @IBOutlet weak var aboutOuting: AboutOuting!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
@@ -43,18 +44,22 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
 
 extension OutGoingApplyViewController {
     private func bind() {
-        dateLabel.text = globalDateFormatter(.day, Date())
-        
         let input = OutGoingApplyViewModel.Input(reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
                                                  startTimeDriver: startTimeTextField.rx.text.orEmpty.asDriver(),
                                                  endTimeDriver: endTimeTextField.rx.text.orEmpty.asDriver(),
                                                  placeDriver: self.placeTextField.rx.observe(String.self, "text"),
-                                                 applyDriver: applyButton.rx.tap.asDriver(),
+                                                 applyDriver: aboutOuting.checkBtn.rx.tap.asDriver(),
                                                  diseaseIs: bool)
         
         let output = viewModel.transform(input)
         
+        let isValid = viewModel.isValid(input)
+        
+        isValid.bind { b in self.applyButton.alpha = b ? 1 :  0.3}.disposed(by: disposeBag)
+        isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
+        
         output.response.subscribe { model in
+            UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
             switch model.status {
             case 201:
                 switch model.code {
@@ -65,10 +70,9 @@ extension OutGoingApplyViewController {
                     print("에러")
                 }
                 sleep(1)
-                UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
                 self.coordinator?.outGoingCompleted()
             case 401:
-                // 코디네이터
+                self.coordinator?.main()
             return
             default:
                 self.applyButton.shake()
@@ -79,6 +83,17 @@ extension OutGoingApplyViewController {
     }
     
     private func bindAction() {
+        applyButton.rx.tap
+            .bind { _ in
+                self.aboutOuting.isHidden = false
+                self.hiddenViewButton.isHidden = false
+                self.aboutOuting.sign = { b in
+                    self.aboutOuting.isHidden = true
+                    self.hiddenViewButton.isHidden = true
+                }
+            }.disposed(by: disposeBag)
+
+        
         hiddenViewButton.rx.tap
             .bind { _ in
                 self.hiddenView(true)
@@ -92,11 +107,13 @@ extension OutGoingApplyViewController {
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
-                self.hiddenView(false, self.noticeView)
+                self.hiddenViewButton.isHidden = false
+                self.locationXib.isHidden = false
                 self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
                     let cell = self.locationXib.tableView.cellForRow(at: indexPath) as! LocationTableViewCell
                     self.placeTextField.text = cell.addressLbl.text!
-                    self.hiddenView(true, self.noticeView)
+                    self.hiddenViewButton.isHidden = true
+                    self.locationXib.isHidden = true
                 }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
         
@@ -105,9 +122,11 @@ extension OutGoingApplyViewController {
                 var bool = false
                 self.bool.bind { b in bool = b }.disposed(by: disposeBag)
                 if !bool {
-                    self.hiddenView(false, locationXib)
+                    self.noticeView.isHidden = false
+                    self.hiddenViewButton.isHidden = false
                     self.noticeView.sign = { b in
-                        self.hiddenView(true, locationXib)
+                        self.noticeView.isHidden = true
+                        self.hiddenViewButton.isHidden = true
                         self.bool.accept(false)
                         if b {
                             self.diseaseBtn.setTitle("취소", for: .normal)
@@ -132,7 +151,13 @@ extension OutGoingApplyViewController {
     }
     
     func setting() {
-        dateLabel.dynamicFont(fontSize: 10, weight: .regular)
+        dateLabel.text = globalDateFormatter(.day, Date())
+        
+        aboutOuting.addShadow(offset: CGSize(width: 0, height: 3),
+                              color: .gray,
+                              shadowRadius: 6,
+                              opacity: 1,
+                              cornerRadius: 8)
         
         locationXib.addShadow(offset: CGSize(width: 0, height: 3),
                               color: .gray,
@@ -184,6 +209,7 @@ extension OutGoingApplyViewController {
     }
     
     func hiddenView(_ value: Bool, _ view: UIView? = nil) {
+        aboutOuting.isHidden = value
         locationXib.isHidden = value
         noticeView.isHidden = value
         hiddenViewButton.isHidden = value

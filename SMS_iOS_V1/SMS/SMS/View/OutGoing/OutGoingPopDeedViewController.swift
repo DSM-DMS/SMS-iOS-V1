@@ -11,7 +11,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Kingfisher
-import SwiftUI
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     var b = true
@@ -29,8 +28,8 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var backgroundBtn: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var backgroundView: CustomShadowView!
-//    @IBOutlet weak var outGoingStartView: OutGoingActionAlertXib!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var outStartAlertView: OutGoingStartActionAlert!
     @IBOutlet weak var outGoingEndView: OutGoingEndActionAlertXib!
     
     @IBOutlet weak var timeView: UIView!
@@ -63,28 +62,28 @@ extension OutGoingPopDeedViewController {
         outBtn.rx.tap
             .bind { _ in
                 let outingCode = self.b ? "start" : "end"
-                if !self.b { // 스타팅이라는 소리
+                if self.b { // 스타팅이라는 소리
                     self.isHiddenAllAlert(false, self.outGoingEndView)
-//                    self.outGoingStartView.sign = { b in
-//                        self.isHiddenAllAlert(true)
-//                        if b { // 스타팅일떄 외출시작을 눌렀을때
-//                            let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-//
-//                            startOuting.bind { model in
-//                                if model.status == 200 {
-//                                    self.outBtn.setTitle("외출 종료", for: .normal)
-//                                    self.stateLbl.text = "외출중"
-//                                    self.outBtn.backgroundColor = .customRed
-//                                    self.b = false
-//                                } else if model.status == 401 {
-//                                    self.coordinator?.main()
-//                                    return
-//                                }
-//                            }.disposed(by: self.disposeBag)
-//                        }
-//                    }
+                    self.outStartAlertView.sign = { b in
+                        self.isHiddenAllAlert(true)
+                        if b { // 스타팅일떄 외출시작을 눌렀을때
+                            let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
+
+                            startOuting.bind { model in
+                                if model.status == 200 {
+                                    self.outBtn.setTitle("외출 종료", for: .normal)
+                                    self.stateLbl.text = "외출중"
+                                    self.outBtn.backgroundColor = .customRed
+                                    self.b = false
+                                } else if model.status == 401 {
+                                    self.coordinator?.main()
+                                    return
+                                }
+                            }.disposed(by: self.disposeBag)
+                        }
+                    }
                 } else { //종료라는 소리
-//                    self.isHiddenAllAlert(false, self.outGoingStartView)
+                    self.isHiddenAllAlert(false, self.outStartAlertView)
                     self.outGoingEndView.sign = { b in
                         self.isHiddenAllAlert(true)
                         if b {
@@ -93,11 +92,10 @@ extension OutGoingPopDeedViewController {
                             endOuting.bind { model in
                                 if model.status == 200 {
                                     self.stateLbl.text = "선생님 방문 인증 필요"
-                                    self.stateLbl.tintColor = .customRed
+                                    self.stateLbl.textColor = .customRed
                                     self.outBtn.isHidden = true
                                     self.b = true
                                 } else if model.status == 401 {
-                                    // 코디네이터
                                     return
                                 }
                             }.disposed(by: self.disposeBag)
@@ -162,9 +160,11 @@ extension OutGoingPopDeedViewController {
         let imageURL = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(cardData.profile_uri!)")
         let startDateComponent: DateComponents = unix(with: cardData.start_time!)
         let endDateComponent: DateComponents = unix(with: cardData.end_time!)
-        self.dateLbl.text = "\(startDateComponent.year!)-\(startDateComponent.month!)-\(startDateComponent.day!)"
+        let zeroDate = startDateComponent.day! < 10 ? "0" : ""
+        self.dateLbl.text = "\(startDateComponent.year!).\(startDateComponent.month!)." + zeroDate + "\(startDateComponent.day!)"
         self.nameLbl.text = cardData.name
-        self.studentIDLbl.text = "\(cardData.grade!)\(cardData.group!)\(cardData.number!)"
+        let zeroNum = cardData.number! < 10 ? "0" : ""
+        self.studentIDLbl.text = "\(cardData.grade!)\(cardData.group!)" + zeroNum + "\(cardData.number!)"
         let endZeroStr = endDateComponent.minute! < 10 ? "0" : ""
         self.endTimeLabel.text = "\(endDateComponent.hour!):\(endZeroStr)\(endDateComponent.minute!)"
         self.placeLbl.text = cardData.place
@@ -176,7 +176,7 @@ extension OutGoingPopDeedViewController {
         self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"), options: [.processor(processor)])
         
         self.profileImageView.contentMode = .scaleAspectFill
-        self.profileImageView.layer.cornerRadius = 50
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
         self.profileImageView.clipsToBounds = true
         
         var string = ""
@@ -190,9 +190,10 @@ extension OutGoingPopDeedViewController {
             self.b = false
             self.outBtn.setTitle("외출 종료", for: .normal)
         case 4: string = "선생님 방문 인증 필요"
+            self.outBtn.isHidden = true
             self.stateLbl.textColor = .customRed
         case 5: string = "외출 확인 완료"
-            self.stateLbl.tintColor = .black
+            self.stateLbl.textColor = .black
         case -1, -2: string = "승인거부"
         default: string = "에러"
         }
@@ -209,7 +210,7 @@ extension OutGoingPopDeedViewController {
     }
     
     func isHiddenAllAlert(_ value: Bool, _ view: UIView? = nil) {
-//        outGoingStartView.isHidden = value
+        outStartAlertView.isHidden = value
         outGoingEndView.isHidden = value
         backgroundBtn.isHidden = value
         
@@ -219,16 +220,17 @@ extension OutGoingPopDeedViewController {
     }
     
     func settingAlert() {
+        
         outGoingEndView.addShadow(offset: CGSize(width: 0, height: 3),
                                   color: .gray,
                                   shadowRadius: 6,
                                   opacity: 1,
                                   cornerRadius: 8)
         
-//        outGoingStartView.addShadow(offset: CGSize(width: 0, height: 3),
-//                                    color: .gray,
-//                                    shadowRadius: 6,
-//                                    opacity: 1,
-//                                    cornerRadius: 8)
+        outStartAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+                                    color: .gray,
+                                    shadowRadius: 6,
+                                    opacity: 1,
+                                    cornerRadius: 8)
     }
 }
