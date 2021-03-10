@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-Wy-aKq">
-                                <rect key="frame" x="40" y="366.5" width="295" height="105"/>
+                                <rect key="frame" x="40" y="395" width="295" height="105"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-91-pLD">
                                         <rect key="frame" x="0.0" y="93" width="295" height="12"/>
@@ -142,26 +141,12 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="3Pu-LC-GMx"/>
-                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="top" secondItem="CpX-Ms-q6H" secondAttribute="bottom" id="6xc-2r-Blt" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
-                                        <real key="value" value="54"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                        <real key="value" value="54"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
-                                        <real key="value" value="54"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="I9u-uR-NwM"/>
-                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="J5L-N6-VmF"/>
                             <constraint firstItem="0JY-3A-AAr" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="15" id="Nd8-lu-KVH"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="trailing" secondItem="Fpf-hx-FBw" secondAttribute="trailing" constant="36" id="Sdv-Up-6tv"/>
-                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="leading" secondItem="CpX-Ms-q6H" secondAttribute="leading" id="T5a-j7-YTy"/>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="leading" secondItem="56O-W6-qfN" secondAttribute="leading" constant="40" id="USP-uS-UDd"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="0JY-3A-AAr" secondAttribute="bottom" constant="450" id="XKv-sA-dSv"/>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="centerX" secondItem="56O-W6-qfN" secondAttribute="centerX" id="Y6a-am-Xmn"/>
                             <constraint firstItem="CpX-Ms-q6H" firstAttribute="top" secondItem="56O-W6-qfN" secondAttribute="top" constant="30" id="YdS-Oy-Idr" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -172,6 +157,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="leading" secondItem="CpX-Ms-q6H" secondAttribute="leading" id="YwD-Rh-N7l"/>
                             <constraint firstItem="56O-W6-qfN" firstAttribute="bottom" secondItem="Fpf-hx-FBw" secondAttribute="bottom" constant="20" id="bYc-Ts-0U1" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
@@ -186,15 +172,19 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
                                         <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="vo4-Wy-aKq" firstAttribute="top" secondItem="CpX-Ms-q6H" secondAttribute="bottom" constant="28.5" id="fJ8-Km-h9t"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="CpX-Ms-q6H" id="yop-AZ-GlI"/>
                         <outlet property="changeViewBtn" destination="Fpf-hx-FBw" id="SgH-E4-pEK"/>
-                        <outlet property="combindTableView" destination="vo4-Wy-aKq" id="PpV-sa-Vvh"/>
+                        <outlet property="combindTableView" destination="vo4-Wy-aKq" id="jMo-Uq-cbC"/>
                         <outlet property="lineView" destination="HDX-2w-8xu" id="QW7-en-MVM"/>
                         <outlet property="tableUnderView" destination="Lic-91-pLD" id="7Fq-ZL-aQm"/>
                         <outlet property="tableView" destination="mih-y5-1Od" id="AIN-mb-BL6"/>
@@ -203,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nd7-w8-1N2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10.144927536231885" y="-4.6875"/>
+            <point key="canvasLocation" x="-10.4" y="-4.9475262368815596"/>
         </scene>
     </scenes>
     <resources>

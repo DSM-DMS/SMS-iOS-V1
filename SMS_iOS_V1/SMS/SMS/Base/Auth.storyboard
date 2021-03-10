@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eCz-AV-7Gd">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -59,10 +58,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-RV-h7i">
-                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.66666666666668561" width="15" height="13.333333333333334"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="32Z-F5-xZI"/>
-                                            <constraint firstAttribute="height" constant="15" id="54W-eV-LZq"/>
+                                            <constraint firstAttribute="height" constant="13.5" id="54W-eV-LZq"/>
                                         </constraints>
                                         <color key="tintColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" image="stop" catalog="system"/>
@@ -243,10 +242,10 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPe-TY-y3g">
-                                <rect key="frame" x="49" y="122" width="171" height="44"/>
+                                <rect key="frame" x="49" y="122" width="181" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문자로 받은 인증 번호를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-3e-oHf">
-                                        <rect key="frame" x="0.0" y="0.0" width="171" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="aYr-O6-tVI"/>
                                         </constraints>
@@ -255,7 +254,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEX-xo-GnA">
-                                        <rect key="frame" x="0.0" y="24" width="93.666666666666671" height="20"/>
+                                        <rect key="frame" x="0.0" y="24" width="99.666666666666671" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Pah-rl-oU1"/>
                                         </constraints>
@@ -275,13 +274,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHX-Nw-CLZ">
-                                <rect key="frame" x="49" y="206" width="41.666666666666657" height="14"/>
+                                <rect key="frame" x="49" y="206" width="44.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-28-cd1">
-                                <rect key="frame" x="49" y="225" width="330" height="26"/>
+                                <rect key="frame" x="49" y="229" width="330" height="26"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a67-uR-vxx">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="25"/>
@@ -428,7 +427,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 후 계정을 생성해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cU-e8-j8X">
-                                <rect key="frame" x="49" y="122" width="202" height="20"/>
+                                <rect key="frame" x="49" y="122" width="214" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QZQ-qd-zTW"/>
                                 </constraints>
@@ -457,7 +456,7 @@
                                                 <rect key="frame" x="174" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0f-4g-PRW">
-                                                        <rect key="frame" x="0.0" y="21" width="45.333333333333336" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="49.333333333333336" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="vix-mR-FKJ"/>
                                                         </constraints>
@@ -501,7 +500,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-o8-B5J">
-                                                        <rect key="frame" x="0.0" y="21" width="77" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="84.333333333333329" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="F2U-JJ-2hR"/>
                                                         </constraints>
@@ -765,13 +764,13 @@
             <size key="intrinsicContentSize" width="125" height="18.666666666666668"/>
         </designable>
         <designable name="Z3R-Fz-pba">
-            <size key="intrinsicContentSize" width="301.33333333333331" height="34"/>
+            <size key="intrinsicContentSize" width="317" height="34"/>
         </designable>
         <designable name="cpl-42-BLa">
             <size key="intrinsicContentSize" width="137" height="17"/>
         </designable>
         <designable name="jMO-OF-pwS">
-            <size key="intrinsicContentSize" width="286.66666666666669" height="34"/>
+            <size key="intrinsicContentSize" width="301.33333333333331" height="35"/>
         </designable>
     </designables>
     <resources>
