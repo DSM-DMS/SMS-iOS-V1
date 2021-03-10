@@ -58,18 +58,19 @@ extension TabbarViewController {
         stackView.alignment = .fill
         setupCustomTabBar()
         
-        stackView.addShadow(offset: CGSize(width: 0, height: -2),
+        stackView.addShadow(offset: CGSize(width: 0, height: -1),
                             color: .gray,
                             shadowRadius: 10,
-                            opacity: 1,
-                            cornerRadius: 10)
+                            opacity: 0.25,
+                            cornerRadius: 10,
+                            corner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
     
     func setupCustomTabBar(){
         self.view.addSubviews([pageCollectionView])
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
         tabbar.indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        self.tabbarHeightConstraint = tabbar.heightAnchor.constraint(equalToConstant: view.frame.height / 10)
+        self.tabbarHeightConstraint = tabbar.heightAnchor.constraint(equalToConstant: view.frame.height / 8)
         self.tabbarHeightConstraint.isActive = true
         tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
         tabbar.delegate = self
@@ -84,7 +85,7 @@ extension TabbarViewController {
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10 - 10))
+        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10) - 14)
         pageCollectionHeightConstraint.isActive = true
     }
 }
@@ -99,7 +100,7 @@ extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
         pageCollectionView.isScrollEnabled = !value
         pageCollectionView.isPagingEnabled = !value
         stackView.isHidden = value
-        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10 - 10)
+        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10) - 14
         self.value = value
         
         UIView.performWithoutAnimation {
@@ -140,7 +141,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height:CGFloat = self.value ? UIScreen.main.bounds.height : view.frame.height - (view.frame.height / 10 - 4)
+        let height:CGFloat = self.value ? UIScreen.main.bounds.height : view.frame.height - (view.frame.height / 10 ) - 14
         return CGSize(width: pageCollectionView.frame.width, height: height)
     }
     

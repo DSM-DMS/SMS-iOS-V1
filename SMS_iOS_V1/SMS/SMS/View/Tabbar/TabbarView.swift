@@ -48,12 +48,12 @@ class TabbarView: UIView {
         collectionView.isScrollEnabled = false
         collectionView.register(CustomCell.self)
         collectionView.layer.masksToBounds = false
-        collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        collectionView.addShadow(offset: CGSize(width: 0, height: -2.5),
+        collectionView.addShadow(offset: CGSize(width: 0, height: -0.5),
                                  color: .gray,
                                  shadowRadius: 2,
                                  opacity: 0.5,
-                                 cornerRadius: 20)
+                                 cornerRadius: 20,
+                                 corner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         return collectionView
     }()
     
@@ -79,7 +79,8 @@ class TabbarView: UIView {
     func setupCustomCollectionView() {
         customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        let constant: CGFloat = UIScreen.main.bounds.height > 800 ? 30 : 20
+        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: constant).isActive = true
     }
     
     func setupCustomTabBar(){
