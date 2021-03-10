@@ -47,4 +47,14 @@ class OutGoingApplyViewModel: ViewModelType {
         
         return Output(response: outGoingModel)
     }
+    
+    func isValid(_ input: Input) -> Observable<Bool> {
+        return Observable.combineLatest(input.startTimeDriver.asObservable(),
+                                        input.endTimeDriver.asObservable(),
+                                        input.placeDriver.asObservable(),
+                                        input.reasonDriver.asObservable())
+            .map { start, end, place, reason in
+                return !start.isEmpty && !end.isEmpty && !place!.isEmpty && !reason.isEmpty
+            }
+    }
 }
