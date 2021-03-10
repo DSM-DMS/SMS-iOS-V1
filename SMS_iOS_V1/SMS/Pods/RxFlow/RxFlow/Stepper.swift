@@ -1,5 +1,5 @@
 //
-//  Weftable.swift
+//  Stepper.swift
 //  RxFlow
 //
 //  Created by Thibault Wittemberg on 17-07-25.
@@ -80,6 +80,10 @@ public class CompositeStepper: Stepper {
             .concat(nextSteps)
             .bind(to: self.steps)
             .disposed(by: self.disposeBag)
+
+        self.innerSteppers.forEach { stepper in
+            stepper.readyToEmitSteps()
+        }
     }
 }
 

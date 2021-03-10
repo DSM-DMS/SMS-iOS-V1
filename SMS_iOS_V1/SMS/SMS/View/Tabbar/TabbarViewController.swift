@@ -1,13 +1,21 @@
 import UIKit
 
-class TabbarViewController: UIViewController {
-    
-    let loginVC = UIStoryboard(name: "Schedule", bundle: .main).instantiateViewController(identifier: "ScheduleViewController")
-    let outGoingVC = UIStoryboard(name: "OutGoing", bundle: .main).instantiateViewController(identifier: "OutGoingViewController")
-    let noticeVC = UIStoryboard(name: "Notice", bundle: .main).instantiateViewController(identifier: "NoticeViewController")
-    let mypageVC = UIStoryboard(name: "MyPage", bundle: .main).instantiateViewController(identifier: "MypageViewController")
+protocol dismissBarProtocol {
+    func dismissBar(_ value: Bool, _ completion: (()->Void)?)
+}
 
-    lazy var vcArr = [loginVC, outGoingVC, noticeVC, mypageVC]
+class TabbarViewController: UIViewController, Storyboarded {
+    var finish: FinishDelegate!
+    var value: Bool = false
+    weak var coordinator: TabbarCoordinator?
+    var pageCollectionHeightConstraint: NSLayoutConstraint!
+    
+    lazy var scheduleCoordinator = ScheduleCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var outGoingCoordinator = OutGoingCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var noticeCoordinator = NoticeCoordinator(nav: UINavigationController(), finish: finish)
+    lazy var myPageCoordinator = MyPageCoordinator(nav: UINavigationController(), finish: finish)
+    
+    lazy var vcArr: [Coordinator] = [scheduleCoordinator, outGoingCoordinator, noticeCoordinator, myPageCoordinator]
     
     lazy var pageCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -19,48 +27,100 @@ class TabbarViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.register(UINib(nibName: PageCell.xibName, bundle: nil), forCellWithReuseIdentifier: PageCell.xibName)
+        collectionView.register(PageCell.self)
         return collectionView
     }()
     
+    var stackView = UIStackView()
+    
     var tabbar = TabbarView()
+    
+    var tabbarHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCustomTabBar()
+        setupStackView()
         setupPageCollectionView()
+        outGoingCoordinator.delegate = self
+        noticeCoordinator.delegate = self
+        myPageCoordinator.delegate = self
+        setNeedsUpdateOfHomeIndicatorAutoHidden()
+        self.automaticallyAdjustsScrollViewInsets = false
+    }
+}
+
+extension TabbarViewController {
+    func setupStackView() {
+        self.view.addSubview(stackView)
+        stackView.addArrangedSubview(tabbar)
+        stackView.axis = .vertical
+        stackView.spacing = .zero
+        stackView.alignment = .fill
+        setupCustomTabBar()
+        
+        stackView.addShadow(offset: CGSize(width: 0, height: -1),
+                            color: .gray,
+                            shadowRadius: 10,
+                            opacity: 0.25,
+                            cornerRadius: 10,
+                            corner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
     
     func setupCustomTabBar(){
-        self.view.addSubviews([tabbar,pageCollectionView])
-        tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8 
-        tabbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        tabbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        tabbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tabbar.heightAnchor.constraint(equalToConstant: self.view.frame.height / 10).isActive = true
+        self.view.addSubviews([pageCollectionView])
+        tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
+        tabbar.indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        self.tabbarHeightConstraint = tabbar.heightAnchor.constraint(equalToConstant: view.frame.height / 8)
+        self.tabbarHeightConstraint.isActive = true
         tabbar.indicatorViewLeadingConstraint.constant = self.view.frame.width / 16
         tabbar.delegate = self
-    }
-    
-    func tabbarView(scrollTo index: Int) {
-        let indexPath = IndexPath(row: index, section: 0)
-        self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        tabbar.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
     func setupPageCollectionView(){
         pageCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         pageCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        pageCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        pageCollectionView.bottomAnchor.constraint(equalTo: tabbar.topAnchor, constant: -5).isActive = true
+        pageCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        pageCollectionHeightConstraint = pageCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - (view.frame.height / 10) - 14)
+        pageCollectionHeightConstraint.isActive = true
     }
 }
 
-extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource, TabbarViewDelegate {
+extension TabbarViewController: TabbarViewDelegate, dismissBarProtocol {
+    func tabbarView(scrollTo index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        self.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    func dismissBar(_ value: Bool, _ completion: (() -> Void)?) {
+        pageCollectionView.isScrollEnabled = !value
+        pageCollectionView.isPagingEnabled = !value
+        stackView.isHidden = value
+        pageCollectionHeightConstraint.constant = value ? view.frame.height : view.frame.height - (view.frame.height / 10) - 14
+        self.value = value
+        
+        UIView.performWithoutAnimation {
+            self.pageCollectionView.reloadItems(at: self.pageCollectionView.indexPathsForVisibleItems)
+        }
+        pageCollectionView.layoutIfNeeded()
+        
+        if let completion = completion {
+            completion()
+        }
+    }
+}
+
+extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.xibName, for: indexPath) as! PageCell
-        let vcView = vcArr[indexPath.row].view!
-        vcView.frame = cell.contentView.bounds
-        cell.contentView.addSubview(vcView)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCell.NibName, for: indexPath) as! PageCell
+        let vcView = vcArr[indexPath.item].nav.view
+        vcView?.frame = cell.contentView.bounds
+        cell.contentView.addSubview(vcView ?? UIView())
+        vcArr[indexPath.row].start()
         return cell
     }
     
@@ -71,7 +131,7 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tabbar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 4 + self.view.frame.width / 16
     }
-
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
         tabbar.setSelectedItem(index: itemAt)
@@ -81,35 +141,11 @@ extension TabbarViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: pageCollectionView.frame.width, height: pageCollectionView.frame.height)
+        let height:CGFloat = self.value ? UIScreen.main.bounds.height : view.frame.height - (view.frame.height / 10 ) - 14
+        return CGSize(width: pageCollectionView.frame.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
-
-//extension TabbarViewController {
-//    func changeVC<T>(_ storyBoardIdentifier: StoryboardNames ,_ identifier: ViewControllerNames) -> T? {
-//        let storyboard = UIStoryboard.init(name: storyBoardIdentifier.rawValue, bundle: .main)
-//        guard let vc = storyboard.instantiateViewController(identifier: identifier.rawValue) as? T else { return nil}
-//        return vc
-//    }
-//    
-//    enum StoryboardNames: String {
-//        case outgoing = "OutGoing"
-//        case notice = "Notice"
-//        case mypage = "MyPage"
-//    //    case schedule = "Schedule"
-//        case login = "Login"
-//    }
-//
-//    enum ViewControllerNames: String {
-//        case outgoing = "OutGoingViewController"
-//        case notice = "NoticeViewController"
-//        case mypage = "MypageViewController"
-//        case login = "LoginViewController"
-//    }
-//}
-
-// ㅅ작했을때 이미지뷰 색 변겨

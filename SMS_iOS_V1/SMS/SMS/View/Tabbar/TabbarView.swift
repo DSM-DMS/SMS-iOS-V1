@@ -17,8 +17,11 @@ struct Tabbar {
 class TabbarView: UIView {
     
     var delegate: TabbarViewDelegate!
-    var oldSelectedRow:Int = 0
-
+    var oldSelectedRow: Int = 0
+    var indicatorViewLeadingConstraint:NSLayoutConstraint!
+    var indicatorViewWidthConstraint: NSLayoutConstraint!
+    var height: CGFloat = 0
+    
     var imageNames:[Tabbar] = [
         Tabbar(imageName: "calendar", isSelected: true),
         Tabbar(imageName: "outgoing"),
@@ -26,24 +29,12 @@ class TabbarView: UIView {
         Tabbar(imageName: "mypage")
     ]
     
-    var indicatorViewLeadingConstraint:NSLayoutConstraint!
-    var indicatorViewWidthConstraint: NSLayoutConstraint!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.clipsToBounds = false
-        self.translatesAutoresizingMaskIntoConstraints = false
-        setupCustomTabBar()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setupCustomCollectionView()
-    }
+    var indicatorView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .customPurple
+        return view
+    }()
     
     lazy var customTabBarCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -55,29 +46,41 @@ class TabbarView: UIView {
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
-        collectionView.register(UINib(nibName: CustomCell.xibName, bundle: nil), forCellWithReuseIdentifier: CustomCell.xibName)
+        collectionView.register(CustomCell.self)
         collectionView.layer.masksToBounds = false
-        collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        collectionView.addShadow(offset: CGSize(width: 0, height: -2.5),
+        collectionView.addShadow(offset: CGSize(width: 0, height: -0.5),
                                  color: .gray,
                                  shadowRadius: 2,
                                  opacity: 0.5,
-                                 cornerRadius: 20)
+                                 cornerRadius: 20,
+                                 corner: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         return collectionView
     }()
     
-    var indicatorView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .customPurple
-        return view
-    }()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.clipsToBounds = false
+        self.translatesAutoresizingMaskIntoConstraints = false
+        setupCustomTabBar()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if self.height <= 0 {
+            self.height = self.frame.height - 2
+            setupCustomCollectionView()
+        }
+    }
     
     func setupCustomCollectionView() {
         customTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         customTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        customTabBarCollectionView.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+        let constant: CGFloat = UIScreen.main.bounds.height > 800 ? 30 : 20
+        customTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: constant).isActive = true
     }
     
     func setupCustomTabBar(){
@@ -88,6 +91,7 @@ class TabbarView: UIView {
         indicatorViewLeadingConstraint.isActive = true
         indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        indicatorView.topAnchor.constraint(equalTo: self.customTabBarCollectionView.bottomAnchor).isActive = true
     }
     
     func setSelectedItem(index: Int) -> Void {
@@ -101,7 +105,7 @@ class TabbarView: UIView {
 
 extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.xibName, for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.NibName, for: indexPath) as! CustomCell
         cell.tabbar = imageNames[indexPath.row]
         return cell
     }
@@ -111,7 +115,7 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width / 4 , height: self.frame.height)
+        return CGSize(width: self.frame.width / 4, height: self.frame.height - 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -122,11 +126,15 @@ extension TabbarView: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 extension TabbarView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

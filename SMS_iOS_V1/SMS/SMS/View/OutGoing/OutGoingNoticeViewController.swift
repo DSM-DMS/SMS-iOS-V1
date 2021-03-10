@@ -8,11 +8,25 @@
 
 import UIKit
 
-class OutGoingNoticeViewController: UIViewController {
+import RxSwift
+import RxCocoa
+
+class OutGoingNoticeViewController: UIViewController, Storyboarded {
+    let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
+    
+    @IBOutlet weak var popVCBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bind()
     }
-    
+}
+
+extension OutGoingNoticeViewController {
+    func bind() {
+        popVCBtn.rx.tap
+            .bind { self.coordinator?.pop() }
+            .disposed(by: disposeBag)
+    }
 }

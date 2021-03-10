@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LocationTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="70" id="ccO-Fg-oN1" customClass="LocationTableViewCell" customModule="SMS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ccO-Fg-oN1" id="MNG-ng-mli">
+                <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sT-rb-USR">
+                        <rect key="frame" x="20" y="11" width="40" height="14"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.21176470589999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="hVL-5t-SP9"/>
+                            <constraint firstAttribute="height" constant="14" id="qsN-Bz-BcS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqQ-aX-03i">
+                        <rect key="frame" x="70" y="10.5" width="26" height="15"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도로명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb7-3y-IZh">
+                        <rect key="frame" x="20" y="42" width="40" height="14"/>
+                        <color key="backgroundColor" red="0.69327455760000001" green="0.5873447061" blue="0.97258847950000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="PLI-KO-5Ga"/>
+                            <constraint firstAttribute="width" constant="40" id="t5z-O7-uVJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-gh-XBq">
+                        <rect key="frame" x="70" y="41.5" width="26" height="15"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5sT-rb-USR" firstAttribute="leading" secondItem="MNG-ng-mli" secondAttribute="leading" constant="20" symbolic="YES" id="0Pa-be-BKZ"/>
+                    <constraint firstItem="Wb7-3y-IZh" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="leading" id="14v-cy-AW3"/>
+                    <constraint firstItem="I7g-gh-XBq" firstAttribute="leading" secondItem="Wb7-3y-IZh" secondAttribute="trailing" constant="10" id="79V-rL-2uA"/>
+                    <constraint firstItem="uqQ-aX-03i" firstAttribute="centerY" secondItem="5sT-rb-USR" secondAttribute="centerY" id="MHf-Cr-G7Y"/>
+                    <constraint firstAttribute="bottom" secondItem="Wb7-3y-IZh" secondAttribute="bottom" constant="14" id="Ogm-8q-GpH"/>
+                    <constraint firstItem="I7g-gh-XBq" firstAttribute="centerY" secondItem="Wb7-3y-IZh" secondAttribute="centerY" id="gH4-SW-A8q"/>
+                    <constraint firstItem="5sT-rb-USR" firstAttribute="top" secondItem="MNG-ng-mli" secondAttribute="top" constant="11" id="rtc-KA-AoA"/>
+                    <constraint firstItem="uqQ-aX-03i" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="trailing" constant="10" id="vg0-12-gOb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLbl" destination="uqQ-aX-03i" id="Ofd-2e-1pz"/>
+                <outlet property="roadAddressLbl" destination="I7g-gh-XBq" id="44z-7q-tZW"/>
+            </connections>
+            <point key="canvasLocation" x="-542.02898550724638" y="-129.24107142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

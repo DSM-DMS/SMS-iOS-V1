@@ -8,43 +8,51 @@
 
 import UIKit
 
-class OutGoingViewController: UIViewController {
+import RxCocoa
+import RxSwift
+
+class OutGoingViewController: UIViewController, Storyboarded {
+    let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var outGoingApplyButton: UIButton!
     @IBOutlet weak var outGoingLogButton: UIButton!
     @IBOutlet weak var outGoingNoticeButton: UIButton!
-    @IBOutlet weak var outGoingDeedButton: UIButton!
+    @IBOutlet weak var outGoingPopUpBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shadowSetting()
+        bind()
+        stackView.spacing = UIScreen.main.bounds.height > 800 ? 70 : 35
     }
-    
 }
 
- 
+
+
 extension OutGoingViewController {
-    func shadowSetting() {
-        outGoingApplyButton.addShadow(offset: CGSize(width: 0, height: 2),
-                      color: .lightGray,
-                      shadowRadius: 2,
-                      opacity: 0.7,
-                      cornerRadius: 5)
-        outGoingLogButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                    color: .lightGray,
-                                    shadowRadius: 2,
-                                    opacity: 0.7,
-                                    cornerRadius: 5)
-        outGoingNoticeButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                       color: .lightGray,
-                                       shadowRadius: 2,
-                                       opacity: 0.7,
-                                       cornerRadius: 5)
-        outGoingDeedButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                     color: .lightGray,
-                                     shadowRadius: 2,
-                                     opacity: 0.7,
-                                     cornerRadius: 5)
+    private func bind() {
+        outGoingApplyButton.rx.tap
+            .bind {
+                self.coordinator?.outGoingApply();
+            }.disposed(by: disposeBag)
+        
+        outGoingLogButton.rx.tap
+            .bind {
+                self.coordinator?.outGoingLog()
+            }.disposed(by: disposeBag)
+        
+        outGoingNoticeButton.rx.tap
+            .bind {
+                self.coordinator?.noticeOutGoing()
+            }.disposed(by: disposeBag)
+        
+        outGoingPopUpBtn.rx.tap
+            .bind { _ in
+                self.coordinator?.outGoingPopDeed()
+            }.disposed(by: disposeBag)
+        
     }
-
 }
+
+

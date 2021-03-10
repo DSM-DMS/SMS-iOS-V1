@@ -1,7 +1,7 @@
 
-<<<<<<< HEAD
+
 .DS_Store
-=======
+
 SMS_iOS_V1/SMS/SMS/.DS_Store
 
 SMS_iOS_V1/SMS/SMS/View/.DS_Store
@@ -13,4 +13,8 @@ SMS_iOS_V1/SMS/SMS.xcodeproj/xcuserdata/ihyun_wook.xcuserdatad/xcschemes/xcschem
 SMS_iOS_V1/SMS/SMS.xcworkspace/xcuserdata/ihyun_wook.xcuserdatad/UserInterfaceState.xcuserstate
 
 SMS_iOS_V1/.DS_Store
->>>>>>> schedule
+
+
+SMS_iOS_V1/SMS/SMS.xcworkspace/xcuserdata/dohyunkim.xcuserdatad/UserInterfaceState.xcuserstate
+
+SMS_iOS_V1/SMS/SMS/Network/SMSAPI.swift

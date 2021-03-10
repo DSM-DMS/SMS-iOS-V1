@@ -7,17 +7,38 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class MypageLogoutViewController: UIViewController {
+class MypageLogoutViewController: UIViewController, Storyboarded {
+    weak var coordinator: MyPageCoordinator?
     
-    @IBOutlet weak var backgroundView: UIView!
+    let viewModel = MypageLogoutViewModel()
+    let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var backgroundView: CustomShadowView!
+    @IBOutlet weak var LogoutButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.addShadow(offset: CGSize(width: 0, height: 2),
-                                 color: .lightGray,
-                                 shadowRadius: 2,
-                                 opacity: 0.7,
-                                 cornerRadius: 10)
+        bindAction()
+    }
+    
+}
+
+extension MypageLogoutViewController {
+    func bindAction() {
+        LogoutButton.rx.tap
+            .bind { _ in
+                UserDefaults.standard.removeObject(forKey: "token")
+                UserDefaults.standard.removeObject(forKey: "uuid")
+                self.coordinator?.main()
+            }.disposed(by: disposeBag)
+        
+        cancelButton.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
     }
 }

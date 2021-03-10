@@ -8,17 +8,28 @@
 
 import UIKit
 
-class OutGoingCompletedViewController: UIViewController {
-    @IBOutlet weak var checkButton: UIButton!
+import RxSwift
+import RxCocoa
+
+class OutGoingCompletedViewController: UIViewController, Storyboarded {
+    let disposeBag = DisposeBag()
+    weak var coordinator: OutGoingCoordinator?
+    
+    @IBOutlet weak var checkButton: CustomShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                   color: .lightGray,
-                                   shadowRadius: 2,
-                                   opacity: 0.7,
-                                   cornerRadius: 5)
-        
+        bindAction()
     }
-    
 }
+
+extension OutGoingCompletedViewController {
+    private func bindAction() {
+        checkButton.rx.tap
+            .bind { _ in
+                self.coordinator?.popAll()
+            }
+            .disposed(by: disposeBag)
+    }
+}
+

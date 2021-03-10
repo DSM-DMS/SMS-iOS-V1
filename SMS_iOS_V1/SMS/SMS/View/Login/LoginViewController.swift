@@ -8,35 +8,56 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+import RxSwift
+import RxCocoa
+import KeychainSwift
+import SkyFloatingLabelTextField
+
+class LoginViewController: UIViewController, Storyboarded {
+    weak var coordinator: LoginCoordinator?
+    let viewModel = LoginViewModel()
+    let disposeBag = DisposeBag()
     
-    @IBOutlet weak var LoginButton: UIButton!
-    @IBOutlet weak var IDTextField: UITextField!
-    @IBOutlet weak var PWTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var idTextField: SkyFloatingLabelTextFieldWithIcon! 
+    @IBOutlet weak var pwTextField: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var autoLoginCheckBox: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shadowSetting()
-    }
+        bind()
+        bindAction()
     
-    @IBAction func autoLogin(_ sender: UIButton) {
-       
-        
-        
     }
-    
-    @IBAction func touchUpLoginButton(_ sender: UIButton) {
-        print("login")
-    }
-    
 }
 
 extension LoginViewController {
-    func shadowSetting() {
-        self.LoginButton.addShadow(offset: CGSize(width: 0, height: 2),
-                                   color: .lightGray,
-                                   shadowRadius: 2,
-                                   opacity: 0.7,
-                                   cornerRadius: 3)
+    func bind() {
+        let input = LoginViewModel.Input.init(idTextFieldDriver: idTextField.rx.text.orEmpty.asDriver(), pwTextFieldDriver: pwTextField.rx.text.orEmpty.asDriver(), loginBtnDriver: loginButton.rx.tap.asDriver(), autoLoginDriver: autoLoginCheckBox.rx.tap.asDriver())
+        
+        let output = viewModel.transform(input)
+        
+        output.result.subscribe { model in
+            if model.status == 200 {
+                UserDefaults.standard.setValue(model.access_token!, forKey: "token")
+<<<<<<< HEAD
+                UserDefaults.standard.setValue(model.student_uuid!, forKey: "uuid") 
+=======
+                UserDefaults.standard.setValue(model.student_uuid!, forKey: "uuid")
+>>>>>>> Develop
+                self.coordinator?.tabbar()
+            } else {
+                self.loginButton.shake()
+            }
+        } onError: { _ in
+            self.loginButton.shake()
+        }.disposed(by: disposeBag)
+    }
+    
+    func bindAction() {
+        autoLoginCheckBox.rx.tap
+            .bind { _ in
+                self.autoLoginCheckBox.isSelected.toggle()
+            }.disposed(by: disposeBag)
     }
 }

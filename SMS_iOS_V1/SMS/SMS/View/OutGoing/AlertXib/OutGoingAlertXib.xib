@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OutGoingAlertXib" customModule="SMS" customModuleProvider="target">
+            <connections>
+                <outlet property="applicationBtn" destination="Or9-A2-0d1" id="ne6-fW-PhO"/>
+                <outlet property="cancelBtn" destination="Ar7-XD-GA0" id="11P-2m-kKy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="374"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 주의 -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-fv-Epl">
+                    <rect key="frame" x="143.5" y="15" width="47" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="cpG-E3-hHe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                    <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Or9-A2-0d1">
+                    <rect key="frame" x="167" y="325" width="167" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="hlb-Hb-jHO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                    <state key="normal" title="신청">
+                        <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rot-Jm-RU8">
+                    <rect key="frame" x="40" y="72" width="254" height="50.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOZ-Xn-TjR">
+                            <rect key="frame" x="0.0" y="6" width="3" height="14"/>
+                            <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="9ZS-HK-wQj"/>
+                                <constraint firstAttribute="width" constant="3" id="vjW-yI-pMm"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-Fn-bW6">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
+                            <string key="text">거짓으로 질병 외출로 신청 시,
+불이익과 처벌을 받을 수 있습니다.</string>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="WOZ-Xn-TjR" firstAttribute="leading" secondItem="rot-Jm-RU8" secondAttribute="leading" id="93g-jZ-zbX"/>
+                        <constraint firstItem="cb4-Fn-bW6" firstAttribute="leading" secondItem="WOZ-Xn-TjR" secondAttribute="trailing" constant="10" id="eIW-HS-Pcm"/>
+                        <constraint firstAttribute="trailing" secondItem="cb4-Fn-bW6" secondAttribute="trailing" id="guQ-Ua-x23"/>
+                        <constraint firstItem="WOZ-Xn-TjR" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" constant="6" id="h6Z-FZ-qZ3"/>
+                        <constraint firstItem="cb4-Fn-bW6" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" id="hY7-uK-t5H"/>
+                        <constraint firstAttribute="bottom" secondItem="cb4-Fn-bW6" secondAttribute="bottom" id="t2m-9E-hMt"/>
+                        <constraint firstItem="cb4-Fn-bW6" firstAttribute="firstBaseline" secondItem="WOZ-Xn-TjR" secondAttribute="bottom" id="zDI-0o-LhA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-8D-cXE">
+                    <rect key="frame" x="40" y="152.5" width="254" height="50.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-bg-dpv">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
+                            <string key="text">질병 외출은 질병, 부상으로 인한
+외출 시에만 신청하실 수 있습니다.</string>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozC-GY-tRI">
+                            <rect key="frame" x="0.0" y="6" width="3" height="14"/>
+                            <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="BF1-af-TwM"/>
+                                <constraint firstAttribute="width" constant="3" id="zJH-2S-WCh"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ozC-GY-tRI" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="top" constant="6" id="8wh-3n-90g"/>
+                        <constraint firstItem="Fxk-bg-dpv" firstAttribute="firstBaseline" secondItem="ozC-GY-tRI" secondAttribute="bottom" id="IgZ-UX-5kK"/>
+                        <constraint firstAttribute="trailing" secondItem="Fxk-bg-dpv" secondAttribute="trailing" id="Yr0-Kc-baP"/>
+                        <constraint firstItem="Fxk-bg-dpv" firstAttribute="leading" secondItem="ozC-GY-tRI" secondAttribute="trailing" constant="10" id="aNm-Wq-UQm"/>
+                        <constraint firstItem="ozC-GY-tRI" firstAttribute="leading" secondItem="Sgk-8D-cXE" secondAttribute="leading" id="cRy-ZZ-BOp"/>
+                        <constraint firstAttribute="bottom" secondItem="Fxk-bg-dpv" secondAttribute="bottom" id="gOC-UO-Yfx"/>
+                        <constraint firstItem="Fxk-bg-dpv" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="top" id="tl6-lb-wCU"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ar7-XD-GA0">
+                    <rect key="frame" x="0.0" y="325" width="167" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="Jcs-I7-rEf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                    <state key="normal" title="취소">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-pW-mL2">
+                    <rect key="frame" x="40" y="233" width="254" height="50.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-j8-5Ts">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
+                            <string key="text">질병 외출은 질병, 부상으로 인한
+외출 시에만 신청하실 수 있습니다.</string>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caj-Sf-6kD">
+                            <rect key="frame" x="0.0" y="7" width="3" height="13"/>
+                            <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="3" id="4uV-ae-hVM"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Caj-Sf-6kD" firstAttribute="leading" secondItem="1JJ-pW-mL2" secondAttribute="leading" id="UKk-sh-qUS"/>
+                        <constraint firstItem="bWD-j8-5Ts" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" id="YDi-q0-iSW"/>
+                        <constraint firstAttribute="bottom" secondItem="bWD-j8-5Ts" secondAttribute="bottom" id="Yn4-hh-UkP"/>
+                        <constraint firstItem="bWD-j8-5Ts" firstAttribute="leading" secondItem="Caj-Sf-6kD" secondAttribute="trailing" constant="10" id="cuG-lJ-K5y"/>
+                        <constraint firstItem="bWD-j8-5Ts" firstAttribute="firstBaseline" secondItem="Caj-Sf-6kD" secondAttribute="bottom" id="gr4-0a-GhX"/>
+                        <constraint firstAttribute="trailing" secondItem="bWD-j8-5Ts" secondAttribute="trailing" id="tQG-N1-2gs"/>
+                        <constraint firstItem="Caj-Sf-6kD" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" constant="7" id="zns-oa-JOj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Or9-A2-0d1" secondAttribute="trailing" id="2mB-hn-CUo"/>
+                <constraint firstItem="Ar7-XD-GA0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BvA-xi-B4k"/>
+                <constraint firstItem="1JJ-pW-mL2" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="bottom" constant="30" id="CIu-EX-57x"/>
+                <constraint firstItem="Ar7-XD-GA0" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="Gml-2Z-w9Q"/>
+                <constraint firstItem="Or9-A2-0d1" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="IWo-iX-KnR"/>
+                <constraint firstItem="tn0-fv-Epl" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="LqA-bz-OHm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ar7-XD-GA0" secondAttribute="bottom" id="Lqe-39-JeL"/>
+                <constraint firstItem="Sgk-8D-cXE" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="bottom" constant="30" id="OLG-Pt-9VN"/>
+                <constraint firstItem="rot-Jm-RU8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="PYC-WP-RrI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rot-Jm-RU8" secondAttribute="trailing" constant="40" id="SvK-Go-cmQ"/>
+                <constraint firstItem="rot-Jm-RU8" firstAttribute="top" secondItem="tn0-fv-Epl" secondAttribute="bottom" constant="36" id="Wi3-ON-TQ8"/>
+                <constraint firstItem="Or9-A2-0d1" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="eIb-zq-yEw"/>
+                <constraint firstItem="1JJ-pW-mL2" firstAttribute="leading" secondItem="Sgk-8D-cXE" secondAttribute="leading" id="evg-Ov-Ldh"/>
+                <constraint firstItem="Sgk-8D-cXE" firstAttribute="leading" secondItem="rot-Jm-RU8" secondAttribute="leading" id="hKk-3a-w2o"/>
+                <constraint firstItem="tn0-fv-Epl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="iZI-5v-uZI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sgk-8D-cXE" secondAttribute="trailing" constant="40" id="kJa-pP-q23"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1JJ-pW-mL2" secondAttribute="trailing" constant="40" id="wfD-Yx-d42"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="11.594202898550726" y="91.071428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OutGoingEndActionAlertXib" customModule="SMS" customModuleProvider="target">
+            <connections>
+                <outlet property="applicationBtn" destination="lsQ-qz-SAa" id="Y4R-Kp-Vqy"/>
+                <outlet property="cancelBtn" destination="JP5-rK-1XD" id="YnR-GC-7lx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hRg-Co-Wfv">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="201"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출 종료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-QN-bxR">
+                    <rect key="frame" x="34" y="20" width="64" height="24"/>
+                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                    <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-7o-c3X">
+                    <rect key="frame" x="34" y="59" width="163" height="37"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출을 종료하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXA-UU-hCI">
+                            <rect key="frame" x="0.0" y="0.0" width="153" height="21"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(지금부터 신청하신 종료를 시작합니다)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-sy-XXl">
+                            <rect key="frame" x="0.0" y="22" width="163" height="15"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="163" id="0S8-GW-yG6"/>
+                        <constraint firstAttribute="bottom" secondItem="hnY-sy-XXl" secondAttribute="bottom" id="2C1-Kx-ogU"/>
+                        <constraint firstItem="TXA-UU-hCI" firstAttribute="top" secondItem="mhm-7o-c3X" secondAttribute="top" id="90g-gC-dpI"/>
+                        <constraint firstItem="hnY-sy-XXl" firstAttribute="leading" secondItem="mhm-7o-c3X" secondAttribute="leading" id="BTY-qT-S55"/>
+                        <constraint firstItem="TXA-UU-hCI" firstAttribute="leading" secondItem="mhm-7o-c3X" secondAttribute="leading" id="ObO-2D-W9G"/>
+                        <constraint firstAttribute="trailing" secondItem="hnY-sy-XXl" secondAttribute="trailing" id="b9z-5d-daU"/>
+                        <constraint firstAttribute="height" constant="37" id="hrk-7u-9TW"/>
+                        <constraint firstItem="hnY-sy-XXl" firstAttribute="top" secondItem="TXA-UU-hCI" secondAttribute="bottom" constant="1" id="wxB-RM-Che"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsQ-qz-SAa">
+                    <rect key="frame" x="168" y="152" width="168" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="Re6-OW-yGE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="확인">
+                        <color key="titleColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-rK-1XD">
+                    <rect key="frame" x="0.0" y="152" width="168" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="f4X-d5-Eyg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="취소">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="rQP-GN-yZw"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="DpR-QN-bxR" firstAttribute="top" secondItem="hRg-Co-Wfv" secondAttribute="top" constant="20" id="2VM-g1-COe" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstItem="JP5-rK-1XD" firstAttribute="width" secondItem="hRg-Co-Wfv" secondAttribute="width" multiplier="0.5" id="8ez-jm-NBT"/>
+                <constraint firstItem="JP5-rK-1XD" firstAttribute="bottom" secondItem="rQP-GN-yZw" secondAttribute="bottom" id="GyO-38-KuM"/>
+                <constraint firstItem="lsQ-qz-SAa" firstAttribute="leading" secondItem="JP5-rK-1XD" secondAttribute="trailing" id="SpE-kd-hch"/>
+                <constraint firstItem="mhm-7o-c3X" firstAttribute="leading" secondItem="DpR-QN-bxR" secondAttribute="leading" id="TI6-5r-LTW"/>
+                <constraint firstItem="lsQ-qz-SAa" firstAttribute="bottom" secondItem="rQP-GN-yZw" secondAttribute="bottom" id="ZB3-SM-8Zj"/>
+                <constraint firstItem="lsQ-qz-SAa" firstAttribute="trailing" secondItem="rQP-GN-yZw" secondAttribute="trailing" id="h4S-cI-ehp"/>
+                <constraint firstItem="mhm-7o-c3X" firstAttribute="top" secondItem="DpR-QN-bxR" secondAttribute="bottom" constant="15" id="hjP-l2-hQq"/>
+                <constraint firstItem="lsQ-qz-SAa" firstAttribute="leading" secondItem="JP5-rK-1XD" secondAttribute="trailing" id="jUT-1h-NSE"/>
+                <constraint firstItem="JP5-rK-1XD" firstAttribute="leading" secondItem="rQP-GN-yZw" secondAttribute="leading" id="n7j-Av-sTu"/>
+                <constraint firstItem="DpR-QN-bxR" firstAttribute="leading" secondItem="rQP-GN-yZw" secondAttribute="leading" constant="34" id="saZ-8b-lqW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-247.82608695652175" y="250.78125"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

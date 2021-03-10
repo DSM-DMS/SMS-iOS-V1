@@ -13,9 +13,9 @@ RxFlow is a navigation framework for iOS applications based on a **Reactive Flow
 This README is a short story of the whole conception process that led me to this framework.
 
 You will find a very detail explanation of the whole project on my blog:
-- [RxFlow Part 1: In Theory](https://twittemb.github.io/swift/coordinator/rxswift/rxflow/reactive%20programming/2017/11/08/rxflow-part-1-in-theory/)
-- [RxFlow Part 2: In Practice](https://twittemb.github.io/swift/coordinator/reactive/rxflow/reactive%20programming/2017/12/09/rxflow-part-2-in-practice/)
-- [RxFlow Part 3: Tips and Tricks](https://twittemb.github.io/swift/coordinator/reactive/rxswift/reactive%20programming/rxflow/2017/12/22/rxflow-part-3-tips-and-tricks/)
+- [RxFlow Part 1: In Theory](https://twittemb.github.io/posts/2017-11-08-RxFlow-Part1/)
+- [RxFlow Part 2: In Practice](https://twittemb.github.io/posts/2017-12-09-RxFlow-Part2/)
+- [RxFlow Part 3: Tips and Tricks](https://twittemb.github.io/posts/2017-12-22-RxFlow-Part3/)
 
 The Jazzy documentation can be seen here as well: [Documentation](http://community.rxswift.org/RxFlow/)
 
@@ -66,7 +66,7 @@ In your Package.swift:
 let package = Package(
   name: "Example",
   dependencies: [
-    .package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", from: "2.5.0")
+    .package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", from: "2.10.0")
   ],
   targets: [
     .target(name: "Example", dependencies: ["RxFlow"])
@@ -132,7 +132,7 @@ enum DemoStep: Step {
 }
 ```
 
-The idea is to keep the **Steps** `navigation independent` as much as possible. For instance, calling a **Step** `showMovieDetail(withId: Int)` might be a bad idea since it tighlty couples the fact of selecting a movie with the consequence of showing the movie detail screen. It is not up to the emitter of the **Step** to decide where to navigate, this decision belongs to the **Flow**. 
+The idea is to keep the **Steps** `navigation independent` as much as possible. For instance, calling a **Step** `showMovieDetail(withId: Int)` might be a bad idea since it tightly couples the fact of selecting a movie with the consequence of showing the movie detail screen. It is not up to the emitter of the **Step** to decide where to navigate, this decision belongs to the **Flow**. 
 
 ### How to declare a **Flow**
 
@@ -205,6 +205,21 @@ class WatchedFlow: Flow {
 }
 ```
 
+### How to handle Deeplinks
+
+From the AppDelegate you can reach the FlowCoordinator and call the `navigate(to:)` function when receiving a notification for instance.
+
+The step passed to the function will then be passed to all the existing Flows so you can adapt the navigation.
+
+```swift
+func userNotificationCenter(_ center: UNUserNotificationCenter,
+                            didReceive response: UNNotificationResponse,
+                            withCompletionHandler completionHandler: @escaping () -> Void) {
+    // example of how DeepLink can be handled
+    self.coordinator.navigate(to: DemoStep.movieIsPicked(withId: 23452))
+}
+```
+
 ### How to adapt a Step before it triggers a navigation ?
 
 A Flow has a `adapt(step:) -> Single<Step>` function that by default returns the step it has been given
@@ -271,16 +286,21 @@ Of course, it is the aim of a Coordinator. Inside a Flow we can present UIViewCo
 For instance, from the WishlistFlow, we launch the SettingsFlow in a popup.
 
 ```swift
-    private func navigateToSettings() -> FlowContributors {
-        let settingsStepper = SettingsStepper()
-        let settingsFlow = SettingsFlow(withServices: self.services, andStepper: settingsStepper)
+private func navigateToSettings() -> FlowContributors {
+	let settingsStepper = SettingsStepper()
+	let settingsFlow = SettingsFlow(withServices: self.services, andStepper: settingsStepper)
 
-        Flows.whenReady(flow1: settingsFlow) { [unowned self] (root: UISplitViewController) in
-            self.rootViewController.present(root, animated: true)
-        }
-        return .one(flowContributor: .contribute(withNextPresentable: settingsFlow, withNextStepper: settingsStepper))
+    Flows.use(settingsFlow, when: .ready) { [unowned self] root in
+        self.rootViewController.present(root, animated: true)
+    }
+    
+    return .one(flowContributor: .contribute(withNextPresentable: settingsFlow, withNextStepper: settingsStepper))
     }
 ```
+
+The `Flows.use(when:)` takes an `ExecuteStrategy` as a second parameter. It has two possible values:
+- .created: The completion block will be executed instantly
+- .ready: The completion block will be executed once the sub flows (SettingsFlow in the example) have emitted a first step
 
 For more complex cases, see the **DashboardFlow.swift** and the **SettingsFlow.swift** files in which we handle a UITabBarController and a UISplitViewController.
 
