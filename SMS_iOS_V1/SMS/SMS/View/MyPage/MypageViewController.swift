@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import Kingfisher
 
 class MypageViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
@@ -21,29 +21,42 @@ class MypageViewController: UIViewController, Storyboarded {
     @IBOutlet weak var pwChangeButton: CustomShadowButton!
     @IBOutlet weak var logOutButton: CustomShadowButton!
     @IBOutlet weak var introduceDevButton: CustomShadowButton!
-    
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         bind()
         bindAction()
     }
     
     func bind() {
         
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.borderColor = UIColor.clear.cgColor
+        profileImage.clipsToBounds = true
+        
+        
         let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
         
         mypageData.subscribe(onNext: { model in
             if model.status == 200 {
                 self.nameLabel.text = model.name
-                self.numberLabel.text = String("    \(model.grade!)학년 \(model.student_number!)번")
-                //                self.statusLabel.text = String(model.status) 이거 왜 이래대잇누 외출 하면 이거 바꾸도록 해야할듯.
+                
+                let numberFormatter = model.student_number! < 10 ? "0" : ""
+                
+                self.numberLabel.text = String("\(model.grade!)\(model.group!)\(numberFormatter)\(model.student_number!)")
+                
+                let profileUrl = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(model.profile_uri!)")
+                
+                self.profileImage.kf.setImage(with: profileUrl!)
+                
+                
             }
         }
         ).disposed(by: disposeBag)
