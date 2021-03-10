@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgJ-hz-sYG">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,14 +23,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="C3E-zq-0Iu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="C3E-zq-0Iu">
                                 <rect key="frame" x="45" y="76" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ObC-09-42W"/>
                                     <constraint firstAttribute="width" constant="80" id="yqZ-lL-KhM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2학년 2반 22번" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO1-4Y-HX7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO1-4Y-HX7">
                                 <rect key="frame" x="157" y="120" width="80" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="6tz-rz-b9u"/>
@@ -40,14 +39,14 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxI-fH-3AB">
-                                <rect key="frame" x="278" y="95" width="42" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxI-fH-3AB">
+                                <rect key="frame" x="278" y="95" width="39" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출상태" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0My-6f-QfJ">
-                                <rect key="frame" x="278" y="120" width="42" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학번" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0My-6f-QfJ">
+                                <rect key="frame" x="287" y="120" width="21" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -263,9 +262,9 @@
                         <outlet property="introduceDevButton" destination="fYf-sd-LSW" id="C9p-yQ-KKU"/>
                         <outlet property="logOutButton" destination="QV7-xp-uYT" id="UNH-5j-buh"/>
                         <outlet property="nameLabel" destination="LXw-dO-UgU" id="jEF-Dj-evs"/>
-                        <outlet property="numberLabel" destination="VO1-4Y-HX7" id="yKq-HB-9yT"/>
+                        <outlet property="numberLabel" destination="rxI-fH-3AB" id="a9r-LF-e3M"/>
+                        <outlet property="profileImage" destination="C3E-zq-0Iu" id="fHC-fc-vR1"/>
                         <outlet property="pwChangeButton" destination="n2y-C0-URY" id="fAl-Pe-6Jg"/>
-                        <outlet property="statusLabel" destination="rxI-fH-3AB" id="bx5-HS-2AU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcD-vm-aw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
