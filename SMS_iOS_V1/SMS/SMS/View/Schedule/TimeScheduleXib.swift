@@ -33,34 +33,25 @@ class TimeScheduleXib: UIView {
     }
     
     func getTimeTable() {
-        var cnt = 0
+        let a: Observable<TimeTableModel> = SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, self.mondayCompo.day!))
         
-        Observable
-            .range(start: mondayCompo.day!, count: 5)
-            .flatMap { day -> Observable<TimeTableModel> in
-                return SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, day))
-            }.filter {
-                if $0.status == 401 {
-                    let vc = ScheduleViewController()
-                    vc.coordinator?.main()
-                    return false
+        a.bind { model in
+            if model.status == 200 {
+                
+                var arr: [[String]] = []
+                
+                for i in 0...4 {
+                    arr.append([model.time_tables![i].time1, model.time_tables![i].time2, model.time_tables![i].time3, model.time_tables![i].time4, model.time_tables![i].time5, model.time_tables![i].time6, model.time_tables![i].time7])
                 }
-                return true
-            }
-            .bind { model in
+                
                 let dayArr = [self.mondayLabels, self.tuesdayLabels, self.wedsLabels, self.thirsdayLabels, self.fridayLabels]
-                var arr: [String?]
-                
-                if cnt == 4 {
-                    arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6]
-                } else {
-                    arr = [model.time1, model.time2, model.time3, model.time4, model.time5, model.time6, model.time7]
+
+                for i in 0...4 {
+                    for j in 0...6 {
+                        dayArr[i]![j].text = arr[i][j]
+                    }
                 }
-                
-                for i in 0..<arr.count {
-                    dayArr[cnt]![i].text = arr[i] == "" ? "-" : arr[i]
-                }
-                cnt += 1
-            }.disposed(by: disposeBag)
+            }
+        }.disposed(by: disposeBag)
     }
 }
