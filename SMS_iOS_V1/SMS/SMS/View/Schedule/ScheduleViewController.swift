@@ -9,11 +9,13 @@ class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     var value = false
     var date: BehaviorRelay<Date> = BehaviorRelay(value: Date())
+    var tableViewHeightConstraint: NSLayoutConstraint!
     var dateForTable: BehaviorRelay<Date> = BehaviorRelay(value: Date())
+    
     weak var coordinator: ScheduleCoordinator?
     private var preDict: [Date: [ScheduleData]] = [:]
     private lazy var schedules: [Schedules]? = []
-   
+    
     @IBOutlet weak var combindTableView: UIView!
     @IBOutlet weak var tableUnderView: UIView!
     @IBOutlet weak var changeViewBtn: UIButton!
@@ -65,20 +67,20 @@ extension ScheduleViewController {
         let myInfo: Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
         
         myInfo.filter {
-                if $0.status == 401 {
-                    self.coordinator?.main()
-                    return false
-                }
-                return true
+            if $0.status == 401 {
+                self.coordinator?.main()
+                return false
             }
-            .bind { model in
-                switch model.parent_status {
-                case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.")
-                case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.")
-                case "": print("성공")
-                default: print("에러")
-                }
-            }.disposed(by: disposeBag)
+            return true
+        }
+        .bind { model in
+            switch model.parent_status {
+            case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.")
+            case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.")
+            case "": print("성공")
+            default: print("에러")
+            }
+        }.disposed(by: disposeBag)
     }
     
     private func bindAction() {
@@ -86,7 +88,7 @@ extension ScheduleViewController {
             .bind {
                 let date = Calendar.current.date(byAdding: .month, value: -1, to: self.calendarView.currentPage)!
                 self.calendarView.setCurrentPage(date, animated: true)
-            }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag) 
         
         nextBtn.rx.tap
             .bind {
@@ -105,12 +107,12 @@ extension ScheduleViewController {
     private func getSchedule() {
         self.date.map { nDate -> String in
             return globalDateFormatter(.month, nDate)
-        }.observeOn(ConcurrentDispatchQueueScheduler.init(qos: .background))
+        }.observe(on: ConcurrentDispatchQueueScheduler.init(qos: .background))
         .map { dateIntArr($0) }
         .debounce(.seconds(2), scheduler: MainScheduler.instance)
         .flatMap { arr -> Observable<ScheduleModel> in
             return SMSAPIClient.shared.networking(from: .schedules(arr[0], arr[1]))
-        }.observeOn(MainScheduler.instance)
+        }.observe(on: MainScheduler.instance)
         .filter {
             if $0.status == 401 {
                 self.coordinator?.main()
@@ -121,6 +123,7 @@ extension ScheduleViewController {
         .bind { schedules in
             self.schedules = schedules.schedules
             self.calendarView.reloadData()
+            print(1)
         }.disposed(by: disposeBag)
     }
     
@@ -187,13 +190,17 @@ extension ScheduleViewController: UITableViewDelegate {
     private func tableViewBind() {
         self.dateForTable.map { self.preDict[$0 + 32400] ?? [] }
             .skip(1)
-            .map { data in
-                return data.count == 0 ? [ScheduleData(uuid: "", date: Date(), detail: "일정이 없습니다.", detailDate: "", place: 5)] : data
+            .map { data -> [ScheduleData] in
+                if data.count == 0 {
+                    return [ScheduleData(uuid: "", date: Date(), detail: "일정이 없습니다.", detailDate: "", place: 5)]
+                } else {
+                    return data
+                }
             }
-//            .map { data in
-//
-//                return data
-//            }
+            .map { data -> [ScheduleData] in
+                self.tableView.frame.size.height = CGFloat(data.count * 35)
+                return data
+            }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
                 cell.scheduleDateLbl.text = schedule.detailDate
                 cell.scheduleInfoLbl.text = schedule.detail
@@ -218,8 +225,6 @@ extension ScheduleViewController: UITableViewDelegate {
         tableUnderView.layer.cornerRadius = 20
         combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
-        combindTableView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        combindTableView.layer.shadowColor = UIColor.gray.cgColor
         
         combindTableView.addShadow(offset: CGSize(width: 0, height: 4),
                                    color: .gray,
@@ -255,8 +260,20 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     @discardableResult
     private func handleEvent(_ todayCell: DayCell, _ uuid: String, _ date: Date, _ detail: String, _ dateDetail: String) -> FSCalendarCell {
         let preEvent = preDict[date - 86400] ?? []
+        let todayEvent = preDict[date] ?? []
         
-        if preEvent.count == 0 && todayCell.cellEvent.count == 0 {
+        if todayEvent.contains(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1)) {
+            dispatchViewHidden(todayCell.event1View)
+            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
+            preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
+            if !preEvent.contains(ScheduleData(uuid: uuid, date: date - 86400, detail: detail, detailDate: dateDetail, place: 1)) {
+                todayCell.selectedDate(.continued, .Event1)
+                todayCell.cellContinuedState.append(.Event1)
+            }
+            return todayCell
+        }
+        
+        if preEvent.count == 0 && todayCell.cellEvent.count == 0 || preEvent.count == 1 && todayCell.cellEvent.count == 0 {
             dispatchViewHidden(todayCell.event1View)
             todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
             todayCell.selectedDate(.continued, .Event1)
@@ -267,64 +284,58 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         
         var eventPlace: Int = 0
         
-        let todayEvent = preDict[date] ?? []
-        
-        if todayEvent.contains(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1)) {
-            dispatchViewHidden(todayCell.event1View)
-            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 1))
+        if todayCell.cellEvent.count == 1 && preEvent.count == 0 {
+            self.dispatchViewHidden(todayCell.event2View)
+            todayCell.selectedDate(.continued, .Event2)
+            todayCell.cellContinuedState.append(.Event2)
+            todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: 2))
             preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
-                        if !preEvent.contains(ScheduleData(uuid: uuid, date: date - 86400, detail: detail, detailDate: dateDetail, place: 1)) {
-                            todayCell.selectedDate(.continued, .Event1)
-                            todayCell.cellContinuedState.append(.Event1)
-                        }
             return todayCell
         }
         
         for yesterEventCnt in 0..<preEvent.count {
             if uuid == preEvent[yesterEventCnt].uuid {
-                switch preEvent[yesterEventCnt].place {
-                case 1:
+                if preEvent[yesterEventCnt].place == 1 {
                     dispatchViewHidden(todayCell.event1View)
                     eventPlace = 1
-                case 2:
+                } else if preEvent[yesterEventCnt].place == 2 {
                     dispatchViewHidden(todayCell.event2View)
                     eventPlace = 2
-                case 3:
+                } else if preEvent[yesterEventCnt].place == 3 {
                     dispatchViewHidden(todayCell.event3View)
                     eventPlace = 3
-                case 4:
+                } else if preEvent[yesterEventCnt].place == 4 {
                     dispatchViewHidden(todayCell.event3View)
                     eventPlace = 4
-                default: break
                 }
-            } else {
-                if todayCell.cellEvent.count == 0 && preEvent.count == 0 {
-                    dispatchViewHidden(todayCell.event1View)
-                    todayCell.selectedDate(.continued, .Event1)
-                    todayCell.cellContinuedState.append(.Event1)
-                    eventPlace = 1
-                } else if todayCell.cellEvent.count == 1 && preEvent.count == 1{
-                    dispatchViewHidden(todayCell.event2View)
-                    todayCell.selectedDate(.continued, .Event2)
-                    todayCell.cellContinuedState.append(.Event2)
-                    eventPlace = 2
-                } else if todayCell.cellEvent.count == 2 && preEvent.count == 2 || todayCell.cellEvent.count == 2 && preEvent.count == 1 {
-                    dispatchViewHidden(todayCell.event3View)
-                    todayCell.selectedDate(.continued, .Event3)
-                    todayCell.cellContinuedState.append(.Event3)
-                    eventPlace = 3
-                } else if todayCell.cellEvent.count == 3 && preEvent.count == 4 {
-                    dispatchViewHidden(todayCell.event3View)
-                    eventPlace = 4
-                    todayCell.selectedDate(.continued, .Event3)
-                }
+                todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: eventPlace))
+                preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
+                return todayCell
             }
         }
+        if todayCell.cellEvent.count == 0 && preEvent.count == 1 || todayCell.cellEvent.count == 0 && preEvent.count == 2 || todayCell.cellEvent.count == 0 && preEvent.count == 3 {
+            dispatchViewHidden(todayCell.event1View)
+            todayCell.selectedDate(.continued, .Event1)
+            todayCell.cellContinuedState.append(.Event1)
+            eventPlace = 1
+        } else if todayCell.cellEvent.count == 1 && preEvent.count == 0 || todayCell.cellEvent.count == 1 && preEvent.count == 1 || todayCell.cellEvent.count == 1 && preEvent.count == 2 || todayCell.cellEvent.count == 1 && preEvent.count == 3 {
+            dispatchViewHidden(todayCell.event2View)
+            todayCell.selectedDate(.continued, .Event2)
+            todayCell.cellContinuedState.append(.Event2)
+            eventPlace = 2
+        } else if todayCell.cellEvent.count == 2 && preEvent.count == 0 || todayCell.cellEvent.count == 2 && preEvent.count == 2 || todayCell.cellEvent.count == 2 && preEvent.count == 1 || todayCell.cellEvent.count == 2 && preEvent.count == 3 {
+            dispatchViewHidden(todayCell.event3View)
+            todayCell.selectedDate(.continued, .Event3)
+            todayCell.cellContinuedState.append(.Event3)
+            eventPlace = 3
+        } else if todayCell.cellEvent.count == 3 && preEvent.count == 4 {
+            eventPlace = 4
+        }
+        
         todayCell.cellEvent.append(ScheduleData(uuid: uuid, date: date, detail: detail, detailDate: dateDetail, place: eventPlace))
         preDict.updateValue(todayCell.todaySet(date, uuid), forKey: date)
         return todayCell
     }
-    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.dateForTable.accept(date)
         let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
