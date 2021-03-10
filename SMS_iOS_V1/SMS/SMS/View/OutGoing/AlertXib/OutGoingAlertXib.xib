@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -48,7 +47,7 @@
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rot-Jm-RU8">
-                    <rect key="frame" x="40" y="72" width="252.5" height="50.5"/>
+                    <rect key="frame" x="40" y="72" width="254" height="50.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOZ-Xn-TjR">
                             <rect key="frame" x="0.0" y="6" width="3" height="14"/>
@@ -58,8 +57,8 @@
                                 <constraint firstAttribute="width" constant="3" id="vjW-yI-pMm"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-Fn-bW6">
-                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-Fn-bW6">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
                             <string key="text">거짓으로 질병 외출로 신청 시,
 불이익과 처벌을 받을 수 있습니다.</string>
                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
@@ -75,13 +74,14 @@
                         <constraint firstItem="WOZ-Xn-TjR" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" constant="6" id="h6Z-FZ-qZ3"/>
                         <constraint firstItem="cb4-Fn-bW6" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="top" id="hY7-uK-t5H"/>
                         <constraint firstAttribute="bottom" secondItem="cb4-Fn-bW6" secondAttribute="bottom" id="t2m-9E-hMt"/>
+                        <constraint firstItem="cb4-Fn-bW6" firstAttribute="firstBaseline" secondItem="WOZ-Xn-TjR" secondAttribute="bottom" id="zDI-0o-LhA"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-8D-cXE">
-                    <rect key="frame" x="40" y="152.5" width="252.5" height="50.5"/>
+                    <rect key="frame" x="40" y="152.5" width="254" height="50.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-bg-dpv">
-                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-bg-dpv">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
                             <string key="text">질병 외출은 질병, 부상으로 인한
 외출 시에만 신청하실 수 있습니다.</string>
                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
@@ -100,6 +100,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="ozC-GY-tRI" firstAttribute="top" secondItem="Sgk-8D-cXE" secondAttribute="top" constant="6" id="8wh-3n-90g"/>
+                        <constraint firstItem="Fxk-bg-dpv" firstAttribute="firstBaseline" secondItem="ozC-GY-tRI" secondAttribute="bottom" id="IgZ-UX-5kK"/>
                         <constraint firstAttribute="trailing" secondItem="Fxk-bg-dpv" secondAttribute="trailing" id="Yr0-Kc-baP"/>
                         <constraint firstItem="Fxk-bg-dpv" firstAttribute="leading" secondItem="ozC-GY-tRI" secondAttribute="trailing" constant="10" id="aNm-Wq-UQm"/>
                         <constraint firstItem="ozC-GY-tRI" firstAttribute="leading" secondItem="Sgk-8D-cXE" secondAttribute="leading" id="cRy-ZZ-BOp"/>
@@ -118,10 +119,10 @@
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-pW-mL2">
-                    <rect key="frame" x="40" y="233" width="252.5" height="50.5"/>
+                    <rect key="frame" x="40" y="233" width="254" height="50.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-j8-5Ts">
-                            <rect key="frame" x="13" y="0.0" width="239.5" height="50.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-j8-5Ts">
+                            <rect key="frame" x="13" y="0.0" width="241" height="50.5"/>
                             <string key="text">질병 외출은 질병, 부상으로 인한
 외출 시에만 신청하실 수 있습니다.</string>
                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
@@ -129,11 +130,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caj-Sf-6kD">
-                            <rect key="frame" x="0.0" y="7" width="3" height="14"/>
+                            <rect key="frame" x="0.0" y="7" width="3" height="13"/>
                             <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="3" id="4uV-ae-hVM"/>
-                                <constraint firstAttribute="height" constant="14" id="xn5-E0-4mL"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -143,6 +143,7 @@
                         <constraint firstItem="bWD-j8-5Ts" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" id="YDi-q0-iSW"/>
                         <constraint firstAttribute="bottom" secondItem="bWD-j8-5Ts" secondAttribute="bottom" id="Yn4-hh-UkP"/>
                         <constraint firstItem="bWD-j8-5Ts" firstAttribute="leading" secondItem="Caj-Sf-6kD" secondAttribute="trailing" constant="10" id="cuG-lJ-K5y"/>
+                        <constraint firstItem="bWD-j8-5Ts" firstAttribute="firstBaseline" secondItem="Caj-Sf-6kD" secondAttribute="bottom" id="gr4-0a-GhX"/>
                         <constraint firstAttribute="trailing" secondItem="bWD-j8-5Ts" secondAttribute="trailing" id="tQG-N1-2gs"/>
                         <constraint firstItem="Caj-Sf-6kD" firstAttribute="top" secondItem="1JJ-pW-mL2" secondAttribute="top" constant="7" id="zns-oa-JOj"/>
                     </constraints>
@@ -160,11 +161,14 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ar7-XD-GA0" secondAttribute="bottom" id="Lqe-39-JeL"/>
                 <constraint firstItem="Sgk-8D-cXE" firstAttribute="top" secondItem="rot-Jm-RU8" secondAttribute="bottom" constant="30" id="OLG-Pt-9VN"/>
                 <constraint firstItem="rot-Jm-RU8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="PYC-WP-RrI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rot-Jm-RU8" secondAttribute="trailing" constant="40" id="SvK-Go-cmQ"/>
                 <constraint firstItem="rot-Jm-RU8" firstAttribute="top" secondItem="tn0-fv-Epl" secondAttribute="bottom" constant="36" id="Wi3-ON-TQ8"/>
                 <constraint firstItem="Or9-A2-0d1" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="eIb-zq-yEw"/>
                 <constraint firstItem="1JJ-pW-mL2" firstAttribute="leading" secondItem="Sgk-8D-cXE" secondAttribute="leading" id="evg-Ov-Ldh"/>
                 <constraint firstItem="Sgk-8D-cXE" firstAttribute="leading" secondItem="rot-Jm-RU8" secondAttribute="leading" id="hKk-3a-w2o"/>
                 <constraint firstItem="tn0-fv-Epl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="iZI-5v-uZI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sgk-8D-cXE" secondAttribute="trailing" constant="40" id="kJa-pP-q23"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1JJ-pW-mL2" secondAttribute="trailing" constant="40" id="wfD-Yx-d42"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="11.594202898550726" y="91.071428571428569"/>
