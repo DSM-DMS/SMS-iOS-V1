@@ -71,15 +71,17 @@ extension OutGoingLogViewController {
             
             switch Int(log.outing_status) {
             case -1, -2:
-                self.cellState(cell: cell, text: "승인 거부", color: .customRed)
-            case 0, 1, 2:
+                self.cellState(cell: cell, text: "승인 거부", color: .customOrange)
+            case 0, 1:
                 self.cellState(cell: cell, text: "승인대기", color: .customYellow)
+            case 2:
+                self.cellState(cell: cell, text: "외출 가능", color: .customGreen)
             case 3:
-                self.cellState(cell: cell, text: "외출중", color: .customOrange)
+                self.cellState(cell: cell, text: "외출중", color: .customPurple)
             case 4:
-                self.cellState(cell: cell, text: "만료", color: .customPurple)
+                self.cellState(cell: cell, text: "선생님 방문 인증 필요", color: .customRed)
             case 5:
-                self.cellState(cell: cell, text: "승인 완료", color: .customGreen)
+                self.cellState(cell: cell, text: "외출 확인 완료", color: .blue)
             default:
                 self.cellState(cell: cell, text: "에러", color: .customBlack)
             }
