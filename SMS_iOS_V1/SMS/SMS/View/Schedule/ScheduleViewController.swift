@@ -254,19 +254,19 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
-//        cell.hiddenAll()
-//        let cnt = schedules?.count ?? 0
-//        for i in 0..<cnt {
-//            let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
-//            let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
-//            let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
-//
-//            if generateDateRange(from: start, to: end).contains(date + 32400) {
-//
-//                handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
-//            }
-//            cell.contentView.layer.shadowOpacity = 0
-//        }
+        cell.hiddenAll()
+        let cnt = schedules?.count ?? 0
+        for i in 0..<cnt {
+            let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
+            let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
+            let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
+
+            if generateDateRange(from: start, to: end).contains(date + 32400) {
+
+                handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
+            }
+            cell.contentView.layer.shadowOpacity = 0
+        }
         return cell
     }
     

@@ -46,7 +46,7 @@ class MypageViewController: UIViewController, Storyboarded {
             if model.status == 200 {
                 let zero = model.student_number! > 10 ? "" : "0"
                 self.nameLabel.text = model.name
-                self.statusLabel.text = "\(model.grade!)\(model.group!)" + zero + "\(model.student_number!)"
+                self.numberLabel.text = "\(model.grade!)\(model.group!)" + zero + "\(model.student_number!)"
                 let imageURL = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(model.profile_uri!)")
                 self.imageVIew.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
                 self.imageVIew.layer.cornerRadius = self.imageVIew.bounds.height / 2
