@@ -1732,16 +1732,16 @@
     </scenes>
     <designables>
         <designable name="AZO-6p-aDo">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="140" height="32.733593749999997"/>
         </designable>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
         </designable>
         <designable name="H0U-Sj-2Gp">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="140" height="32.733593749999997"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
         </designable>
     </designables>
     <resources>
