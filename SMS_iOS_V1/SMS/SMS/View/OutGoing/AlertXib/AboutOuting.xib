@@ -141,7 +141,7 @@
                     <rect key="frame" x="30" y="226.5" width="315" height="43"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klH-Xz-oVD">
-                            <rect key="frame" x="0.0" y="4" width="3" height="12.5"/>
+                            <rect key="frame" x="0.0" y="4" width="3" height="12"/>
                             <color key="backgroundColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="3" id="6kG-dW-l9K"/>
@@ -153,9 +153,7 @@
                                 <constraint firstAttribute="height" constant="43" id="FeN-iQ-ALx"/>
                             </constraints>
                             <attributedString key="attributedText">
-                                <fragment>
-                                    <string key="content">외출 시작 및 종료는 Android 혹은 iOS 어플리
-케이션을 통해서 진행해주세요. </string>
+                                <fragment content="외출 시작 및 종료는 모바일 어플리케이션을 통해서 진행해주세요. ">
                                     <attributes>
                                         <font key="NSFont" size="14" name="NotoSansCJKkr-Regular"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>

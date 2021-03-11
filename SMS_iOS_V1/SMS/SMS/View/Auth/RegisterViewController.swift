@@ -44,38 +44,40 @@ extension RegisterViewController {
     func setting() {
         phoneNumberLbl.text = data.phone_number
         nameLbl.text = data.name
+        
         let number = data.student_number! < 10 ? "0" : ""
         numberLbl.text = String(describing: data.grade!) + String(describing: data.group!) + number + String(describing: data.student_number!)
         
-        inquireAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        inquireAlertView.addShadow(maskValue: true,
+                                   offset: CGSize(width: 0, height: 3),
                                    color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
-        completeAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        completeAlertView.addShadow(maskValue: true,
+                                    offset: CGSize(width: 0, height: 3),
                                     color: .gray,
                                     shadowRadius: 6,
                                     opacity: 1,
                                     cornerRadius: 8)
         
-        usingIDAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        usingIDAlertView.addShadow(maskValue: true,
+                                   offset: CGSize(width: 0, height: 3),
                                    color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
-        createBtn.addShadow(offset: CGSize(width: 0, height: 3),
-                           color: .gray,
-                           shadowRadius: 6,
-                           opacity: 1,
-                           cornerRadius: 5)
+        createBtn.addShadow(maskValue: true,
+                            offset: CGSize(width: 0, height: 3),
+                            color: .gray,
+                            shadowRadius: 6,
+                            opacity: 1,
+                            cornerRadius: 8)
     }
     
     func bind() {
-        print(number)
-        Observable.of(number!).bind { print($0) }.disposed(by: disposeBag)
-        
         let input = RegisterViewModel.Input(idDriver: idTextField.rx.text.orEmpty.asDriver(),
                                             pwDriver: pwTextField.rx.text.orEmpty.asDriver(),
                                             createDriver: createBtn.rx.tap.asDriver(),
@@ -107,7 +109,6 @@ extension RegisterViewController {
             } else if model.status == 409 {
                 self.usingIDAlertView.isHidden = false
                 self.backgroundView.isHidden = false
-                
                 self.usingIDAlertView.sign = {
                     self.allAlertHidden(true)
                 }

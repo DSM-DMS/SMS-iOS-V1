@@ -87,19 +87,22 @@ extension CheckCertificationNumberViewController {
     }
     
     func setting() {
-        checkBtn.addShadow(offset: CGSize(width: 0, height: 3),
+        checkBtn.addShadow(maskValue: true,
+                           offset: CGSize(width: 0, height: 3),
                            color: .gray,
                            shadowRadius: 6,
                            opacity: 1,
                            cornerRadius: 5)
         
-        invalidAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        invalidAlertView.addShadow(maskValue: true,
+                                   offset: CGSize(width: 0, height: 3),
                                    color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
-        inquireAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        inquireAlertView.addShadow(maskValue: true,
+                                   offset: CGSize(width: 0, height: 3),
                                    color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,

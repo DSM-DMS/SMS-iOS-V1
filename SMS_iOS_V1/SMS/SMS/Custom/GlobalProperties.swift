@@ -11,6 +11,10 @@ import KeychainSwift
 
 let keyChain = KeychainSwift()
 
+func checking<T: Comparable>(e1: T, e2: T) -> Bool {
+    return e1 >= e2
+}
+
 func getMonday(myDate: Date) -> Date {
     let cal = Calendar.current
     var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)

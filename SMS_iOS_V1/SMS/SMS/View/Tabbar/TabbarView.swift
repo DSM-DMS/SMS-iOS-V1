@@ -47,8 +47,8 @@ class TabbarView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
         collectionView.register(CustomCell.self)
-        collectionView.layer.masksToBounds = false
-        collectionView.addShadow(offset: CGSize(width: 0, height: -0.5),
+        collectionView.addShadow(maskValue: true,
+                                 offset: CGSize(width: 0, height: -0.5),
                                  color: .gray,
                                  shadowRadius: 2,
                                  opacity: 0.5,

@@ -28,7 +28,8 @@ final class LoginViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         bind()
         bindAction()
-        loginButton.addShadow(offset: CGSize(width: 0, height: 3),
+        loginButton.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
                               color: .gray,
                               shadowRadius: 6,
                               opacity: 1,
