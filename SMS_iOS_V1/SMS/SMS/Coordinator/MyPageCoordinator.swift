@@ -50,23 +50,4 @@ class MyPageCoordinator: Coordinator {
             self?.nav.pushViewController(vc, animated: true)
         })
     }
-    
-    func logout() {
-        let vc = MypageLogoutViewController.instantiate(storyboardName: .myPageLogout)
-        vc.coordinator = self
-        delegate?.dismissBar(true) {
-            self.nav.pushViewController(vc, animated: false)
-        }
-     
-    }
-    
-    func pwConfirm() {
-        let vc = MypageChangePWAlertViewController.instantiate(storyboardName: .mypageChangePWAlert)
-        vc.coordinator = self
-        delegate?.dismissBar(true) {
-            self.nav.pushViewController(vc, animated: false)
-        }
-     
-        
-    }
 }

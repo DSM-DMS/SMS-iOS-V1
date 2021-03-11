@@ -17,7 +17,6 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     let viewModel = MypageChangePWViewModel()
     let disposeBag = DisposeBag()
     
-    
     @IBOutlet weak var applyButton: CustomShadowButton!
     @IBOutlet weak var currentPWTextField: UITextField!
     @IBOutlet weak var newPWTextField: UITextField!
@@ -30,8 +29,9 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
         bind()
         bindAcion()
     }
-    
 }
+
+
 extension MypageChangePWViewController {
     func bind() {
         let input = MypageChangePWViewModel.Input.init(currentPWTextFieldDriver: currentPWTextField.rx.text.orEmpty.asDriver(),
@@ -41,31 +41,27 @@ extension MypageChangePWViewController {
         
         let output = viewModel.transform(input)
         
+        let isValid = viewModel.isValid(input)
+        
+        isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
+        isValid.bind { b in self.applyButton.alpha = b ? 1 : 0.3 }.disposed(by: disposeBag)
+        
         output.result.subscribe { model in
-            if model.status == 200 || model.code == 200 {
-                print("패스워드 변경 완료")
-                let keychain = KeychainSwift()
-                keychain.delete("ID")
-                keychain.delete("PW")
-                NSLog("Keychain Deleted")
+            if model.status == 200 {
+                keyChain.delete("ID")
+                keyChain.delete("PW")
+                self.coordinator?.main()
             }
         } onError: {_ in
-            fatalError("비밀번호 변경 실패")
+            self.applyButton.shake()
         }.disposed(by: disposeBag)
     }
     
     func bindAcion() {
-        
         backButton.rx.tap
             .bind { _ in
                 print("pop")
                 self.coordinator?.pop()
             }.disposed(by: disposeBag)
-        
-        applyButton.rx.tap
-            .bind { _ in
-                self.coordinator?.pwConfirm()
-            }.disposed(by: disposeBag)
     }
-    
 }

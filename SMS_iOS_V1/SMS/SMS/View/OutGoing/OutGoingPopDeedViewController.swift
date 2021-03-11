@@ -68,7 +68,7 @@ extension OutGoingPopDeedViewController {
                         self.isHiddenAllAlert(true)
                         if b { // 스타팅일떄 외출시작을 눌렀을때
                             let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-
+                            
                             startOuting.bind { model in
                                 if model.status == 200 {
                                     self.outBtn.setTitle("외출 종료", for: .normal)
@@ -132,7 +132,7 @@ extension OutGoingPopDeedViewController {
                     cardModel.bind { cardData in
                         if cardData.status == 200 {
                             self.setting(cardData)
-                        } else if cardData.status == 404 {
+                        } else {
                             self.isViewHidden(true)
                         }
                     }.disposed(by: self.disposeBag)
@@ -143,16 +143,21 @@ extension OutGoingPopDeedViewController {
         } else {
             let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard("outing_uuid"))
             
-            cardModel.bind { cardData in
-                if cardData.status == 200 {
-                    self.setting(cardData)
-                } else if cardData.status == 401 {
-                    self.coordinator?.main()
-                } else if cardData.status == 404 {
-                    self.isViewHidden(true)
+            cardModel
+                .filter {
+                    if $0.status == 401 {
+                        self.coordinator?.main()
+                    }
+                    return true
                 }
-                
-            }.disposed(by: disposeBag)
+                .bind { cardData in
+                    if cardData.status == 200 {
+                        self.setting(cardData)
+                    } else  {
+                        self.isViewHidden(true)
+                    }
+                    
+                }.disposed(by: disposeBag)
         }
     }
     
@@ -171,19 +176,20 @@ extension OutGoingPopDeedViewController {
         
         let zeroStr = startDateComponent.minute! < 10 ? "0" : ""
         self.startTimeLbl.text = "\(startDateComponent.hour!):\(zeroStr)\(startDateComponent.minute!)"
-        
-//        let processor = ResizingImageProcessor(referenceSize: CGSize(width: 100, height: 100))
-        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile")) //, options: [.processor(processor)])
-        
-//        self.profileImageView.contentMode = .scaleAspectFill
+        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
-//        self.profileImageView.clipsToBounds = tru/e
-        
+        let timeCheck = checking(unix(with: cardData.end_time!))
         var string = ""
         switch Int(cardData.outing_status!) {
-        case 0, 1: string = "승인 대기"
-        case 2: string = "외출 가능"
-            self.outBtn.isHidden = false
+        case 0, 1:
+            string = timeCheck ? "승인 대기": "만료"
+            self.stateLbl.textColor = timeCheck ? .label : .customRed
+            
+        case 2:
+            string = timeCheck ? "외출 가능": "만료"
+            self.outBtn.isEnabled = timeCheck ? false : true
+            
+            self.stateLbl.textColor = timeCheck ? .label : .customRed
         case 3: string = "외출중"
             self.outBtn.isHidden = false
             self.outBtn.backgroundColor = .customRed
@@ -194,7 +200,9 @@ extension OutGoingPopDeedViewController {
             self.stateLbl.textColor = .customRed
         case 5: string = "외출 확인 완료"
             self.stateLbl.textColor = .black
-        case -1, -2: string = "승인거부"
+        case -1, -2:
+            string = timeCheck ? "승인거부": "만료"
+            self.stateLbl.textColor = timeCheck ? .label : .customRed
         default: string = "에러"
         }
         self.stateLbl.text = string
@@ -219,15 +227,21 @@ extension OutGoingPopDeedViewController {
         }
     }
     
+    func checking(_ endTime: Date) -> Bool {
+        return endTime > Date() // 안늦음
+    }
+    
     func settingAlert() {
         
-        outGoingEndView.addShadow(offset: CGSize(width: 0, height: 3),
+        outGoingEndView.addShadow(maskValue: true,
+                                  offset: CGSize(width: 0, height: 3),
                                   color: .gray,
                                   shadowRadius: 6,
                                   opacity: 1,
                                   cornerRadius: 8)
         
-        outStartAlertView.addShadow(offset: CGSize(width: 0, height: 3),
+        outStartAlertView.addShadow(maskValue: true,
+                                    offset: CGSize(width: 0, height: 3),
                                     color: .gray,
                                     shadowRadius: 6,
                                     opacity: 1,

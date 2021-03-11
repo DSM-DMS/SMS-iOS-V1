@@ -58,9 +58,8 @@ extension OutGoingLogViewController {
             let endDateComponent: DateComponents = unix(with: log.end_time)
             
             cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
-            
-            let zeroForStart = startDateComponent.minute! < 10 ? "0" : ""
-            let zeroForEnd = endDateComponent.minute! < 10 ? "0" : ""
+            let zeroForStart = SMS.checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
+            let zeroForEnd = SMS.checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
             
             cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
             cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
@@ -69,13 +68,27 @@ extension OutGoingLogViewController {
             
             cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
             
+            let timeCheck = self.checking(unix(with: log.end_time))
+            
             switch Int(log.outing_status) {
             case -1, -2:
-                self.cellState(cell: cell, text: "승인 거부", color: .customOrange)
+                if timeCheck {
+                    self.cellState(cell: cell, text: "승인 거부", color: .customOrange)
+                } else {
+                    self.cellState(cell: cell, text: "만료", color: .customRed)
+                }
             case 0, 1:
-                self.cellState(cell: cell, text: "승인대기", color: .customYellow)
+                if timeCheck {
+                    self.cellState(cell: cell, text: "승인대기", color: .customYellow)
+                } else {
+                    self.cellState(cell: cell, text: "만료", color: .customRed)
+                }
             case 2:
-                self.cellState(cell: cell, text: "외출 가능", color: .customGreen)
+                if timeCheck {
+                    self.cellState(cell: cell, text: "외출 가능", color: .customGreen)
+                } else {
+                    self.cellState(cell: cell, text: "만료", color: .customRed)
+                }
             case 3:
                 self.cellState(cell: cell, text: "외출중", color: .customPurple)
             case 4:
@@ -86,6 +99,10 @@ extension OutGoingLogViewController {
                 self.cellState(cell: cell, text: "에러", color: .customBlack)
             }
         }.disposed(by: disposeBag)
+    }
+    
+    func checking(_ endTime: Date) -> Bool {
+        return endTime > Date() // 안늦음
     }
     
     func cellState(cell: OutGoingLogTableViewCell,text: String, color: UIColor)  {

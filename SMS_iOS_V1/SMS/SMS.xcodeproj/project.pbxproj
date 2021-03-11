@@ -27,17 +27,18 @@
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
 		47AA50AC257F40D30003F87D /* OutGoingApplyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA50A2257F40D20003F87D /* OutGoingApplyViewModel.swift */; };
 		47AA50B2257F40D30003F87D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA50AA257F40D20003F87D /* LoginViewModel.swift */; };
+		D60C3EF225F92C00009D0134 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60C3EF125F92C00009D0134 /* LogOutView.swift */; };
+		D60C3EF525F92C0C009D0134 /* LogOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EF425F92C0C009D0134 /* LogOutView.xib */; };
+		D60C3F0025F93CAE009D0134 /* DevCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */; };
 		D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */; };
 		D62D8C182518D9B200548FBF /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */; };
 		D62D8C1A2518D9B200548FBF /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C112518D9B200548FBF /* Schedule.storyboard */; };
 		D62D8C1B2518D9B200548FBF /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D8C122518D9B200548FBF /* ScheduleCell.xib */; };
 		D62D8C1C2518D9B200548FBF /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C132518D9B200548FBF /* DayCell.swift */; };
 		D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C142518D9B200548FBF /* ScheduleCell.swift */; };
-		D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */; };
 		D62D8C2E2518DABE00548FBF /* OutGoingPopDeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */; };
 		D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */; };
 		D62D8C312518DABE00548FBF /* OutGoingApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */; };
-		D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */; };
 		D62D8C342518DABE00548FBF /* OutGoingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */; };
 		D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */; };
 		D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */; };
@@ -158,17 +159,18 @@
 		47AA50AA257F40D20003F87D /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6389DA4C65B153958AB64D8F /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB747EAB641ED86BA323425 /* Pods-SMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.debug.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.debug.xcconfig"; sourceTree = "<group>"; };
+		D60C3EF125F92C00009D0134 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
+		D60C3EF425F92C0C009D0134 /* LogOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutView.xib; sourceTree = "<group>"; };
+		D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevCollectionViewCell.xib; sourceTree = "<group>"; };
 		D62D8C0E2518D9B200548FBF /* TimeScheduleXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleXib.swift; sourceTree = "<group>"; };
 		D62D8C0F2518D9B200548FBF /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		D62D8C112518D9B200548FBF /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		D62D8C122518D9B200548FBF /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		D62D8C132518D9B200548FBF /* DayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		D62D8C142518D9B200548FBF /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
-		D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangePWAlertViewController.swift; sourceTree = "<group>"; };
 		D62D8C1F2518DABD00548FBF /* OutGoingPopDeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingPopDeedViewController.swift; sourceTree = "<group>"; };
 		D62D8C202518DABD00548FBF /* OutGoingCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCompletedViewController.swift; sourceTree = "<group>"; };
 		D62D8C222518DABD00548FBF /* OutGoingApplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingApplyViewController.swift; sourceTree = "<group>"; };
-		D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewController.swift; sourceTree = "<group>"; };
 		D62D8C252518DABD00548FBF /* OutGoingLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingLogViewController.swift; sourceTree = "<group>"; };
 		D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewController.swift; sourceTree = "<group>"; };
 		D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageIntroduceDevViewController.swift; sourceTree = "<group>"; };
@@ -389,6 +391,43 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D60C3EE125F92925009D0134 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D60C3EF125F92C00009D0134 /* LogOutView.swift */,
+				D60C3EF425F92C0C009D0134 /* LogOutView.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		D60C3EF925F93C3E009D0134 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
+				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
+				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
+				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		D60C3EFB25F93C45009D0134 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				D62D8C132518D9B200548FBF /* DayCell.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		D60C3EFD25F93C4F009D0134 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */,
+				D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		D6148AF2252B57E3009AD0A0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,11 +582,10 @@
 		D6E687A9252DCAC900FA09C1 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				D60C3EE125F92925009D0134 /* Alert */,
 				D62D8C262518DABD00548FBF /* MypageChangePWViewController.swift */,
 				D62D8C272518DABD00548FBF /* MypageIntroduceDevViewController.swift */,
-				D62D8C232518DABD00548FBF /* MypageLogoutViewController.swift */,
 				D62D8C282518DABD00548FBF /* MypageViewController.swift */,
-				D62D8C1E2518DABD00548FBF /* MypageChangePWAlertViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -613,12 +651,9 @@
 		D6E6892E252EDE3000FA09C1 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				D62D8C132518D9B200548FBF /* DayCell.swift */,
-				D664E1B3252A0A1D007F0253 /* PageCell.swift */,
-				D68BEE5C252C8A6D0008E2EB /* PageCell.xib */,
-				D664E1C7252A0C8E007F0253 /* CustomCell.swift */,
-				D664E1C6252A0C8E007F0253 /* CustomCell.xib */,
-				D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */,
+				D60C3EFB25F93C45009D0134 /* Schedule */,
+				D60C3EF925F93C3E009D0134 /* Tabbar */,
+				D60C3EFD25F93C4F009D0134 /* MyPage */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -793,6 +828,7 @@
 				D696142025E66E3A00E880D9 /* NotoSansCJKkr-Light.otf in Resources */,
 				D696144925E80EE500E880D9 /* RegisterCompleteAlertXib.xib in Resources */,
 				D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */,
+				D60C3EF525F92C0C009D0134 /* LogOutView.xib in Resources */,
 				D696141E25E66E3A00E880D9 /* NotoSansCJKkr-Medium.otf in Resources */,
 				D664E1C8252A0C8E007F0253 /* CustomCell.xib in Resources */,
 				D696142325E66E3A00E880D9 /* NotoSansCJKkr-Bold.otf in Resources */,
@@ -822,6 +858,7 @@
 				D696144625E80ED800E880D9 /* RegisterUsingIDAlertXib.xib in Resources */,
 				D6915E2025F7617E005DDEBC /* OutGoingStartActionAlert.xib in Resources */,
 				D696142125E66E3A00E880D9 /* NotoSansCJKkr-Thin.otf in Resources */,
+				D60C3F0025F93CAE009D0134 /* DevCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,7 +956,6 @@
 				D6B9EE0A25A57C54006D66EC /* TimeTableModel.swift in Sources */,
 				47AA50B2257F40D30003F87D /* LoginViewModel.swift in Sources */,
 				D696142F25E6BE1D00E880D9 /* RegisterInvalidAlertXib.swift in Sources */,
-				D62D8C322518DABE00548FBF /* MypageLogoutViewController.swift in Sources */,
 				D64328BE25F61BF200AD1461 /* UILabel.swift in Sources */,
 				D643283025EF755600AD1461 /* OutGoingEndActionAlertXib.swift in Sources */,
 				47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */,
@@ -945,7 +981,6 @@
 				D67F3300257E75F90086F75E /* CustomShadowButton.swift in Sources */,
 				D67F32F3257E753C0086F75E /* UIViewController.swift in Sources */,
 				D62D8C172518D9B200548FBF /* TimeScheduleXib.swift in Sources */,
-				D62D8C2D2518DABE00548FBF /* MypageChangePWAlertViewController.swift in Sources */,
 				D62D8C2F2518DABE00548FBF /* OutGoingCompletedViewController.swift in Sources */,
 				D6A8E46025F6D7FB00F46C2D /* DevCollectionViewCell.swift in Sources */,
 				D696144325E80E4200E880D9 /* RegisterCompleteAlertXib.swift in Sources */,
@@ -956,6 +991,7 @@
 				D6F8C958259B659C00DE967A /* LocationTableViewCell.swift in Sources */,
 				D696143D25E80DF100E880D9 /* RegisterInquireAlertXib.swift in Sources */,
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
+				D60C3EF225F92C00009D0134 /* LogOutView.swift in Sources */,
 				D664E1C9252A0C8E007F0253 /* CustomCell.swift in Sources */,
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
 				4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */,

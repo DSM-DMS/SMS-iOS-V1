@@ -36,9 +36,13 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindAction()
-        settingTextField()
         bind()
         setting()
+        registerForKeyboardNotification()
+    }
+    
+    deinit {
+        removeRegisterForKeyboardNotification()
     }
 }
 
@@ -73,7 +77,7 @@ extension OutGoingApplyViewController {
                 self.coordinator?.outGoingCompleted()
             case 401:
                 self.coordinator?.main()
-            return
+                return
             default:
                 self.applyButton.shake()
             }
@@ -92,7 +96,6 @@ extension OutGoingApplyViewController {
                     self.hiddenViewButton.isHidden = true
                 }
             }.disposed(by: disposeBag)
-
         
         hiddenViewButton.rx.tap
             .bind { _ in
@@ -102,8 +105,7 @@ extension OutGoingApplyViewController {
         popVCBtn.rx.tap
             .bind { _ in
                 self.coordinator?.pop()
-            }
-            .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
@@ -144,29 +146,23 @@ extension OutGoingApplyViewController {
             .disposed(by: disposeBag)
     }
     
-    func settingTextField() {
-        startTimeTextField.textAlignment = .center
-        endTimeTextField.textAlignment = .center
-        self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDonea), mode: .time)
-        self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(tapDones), mode: .time)
-    }
-    
     func setting() {
         dateLabel.text = globalDateFormatter(.day, Date())
         
-        aboutOuting.addShadow(offset: CGSize(width: 0, height: 3),
+        aboutOuting.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
                               color: .gray,
                               shadowRadius: 6,
                               opacity: 1,
                               cornerRadius: 8)
         
-        locationXib.addShadow(offset: CGSize(width: 0, height: 3),
+        locationXib.addShadow(maskValue: true, offset: CGSize(width: 0, height: 3),
                               color: .gray,
                               shadowRadius: 6,
                               opacity: 1,
                               cornerRadius: 8)
         
-        noticeView.addShadow(offset: CGSize(width: 0, height: 3),
+        noticeView.addShadow(maskValue: true, offset: CGSize(width: 0, height: 3),
                              color: .gray,
                              shadowRadius: 6,
                              opacity: 1,
@@ -174,39 +170,27 @@ extension OutGoingApplyViewController {
     }
 }
 
-extension UITextField {
-//    @objc func tappedField(_ dateFormatter: String? = nil, _ text: String? = nil, _ style: DateFormatter.Style) {
-//        if let datepicker = self.inputView as? UIDatePicker {
-//            let dateformatter = DateFormatter()
-//            dateformatter.timeStyle = style
-//            self.text = text ?? "" + dateformatter.string(from: datepicker.date)
-//        }
-//        self.resignFirstResponder()
-//    }
-}
-
 extension OutGoingApplyViewController {
-    // 여기 수정
-    @objc func tapDonea() {
-        if let datePicker = startTimeTextField.inputView as? UIDatePicker { // 2-1
-            let dateformatter = DateFormatter() // 2-2
+    @objc func startTime() {
+        if let datePicker = startTimeTextField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
             dateformatter.timeStyle = .short
             startTimeTextField.text = "시작시간 " + dateformatter.string(from: datePicker.date)
         }
-        startTimeTextField.resignFirstResponder() // 2-5
+        startTimeTextField.resignFirstResponder()
     }
     
-    @objc func tapDones() {
-        if let datePicker = endTimeTextField.inputView as? UIDatePicker { // 2-1
-            let dateformatter = DateFormatter() // 2-2
+    @objc func endTime() {
+        if let datePicker = endTimeTextField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
             dateformatter.timeStyle = .short
-//            datePicker.maximumDate = 
+            //            datePicker.maximumDate =
             //            a.hour = 20
             //            a.minute = 30
             //            datePicker.maximumDate = Calendar.current.date(from: a)
             endTimeTextField.text = "도착시간 " + dateformatter.string(from: datePicker.date)
         }
-        endTimeTextField.resignFirstResponder() // 2-5
+        endTimeTextField.resignFirstResponder()
     }
     
     func hiddenView(_ value: Bool, _ view: UIView? = nil) {
@@ -239,5 +223,47 @@ extension OutGoingApplyViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    @objc func keyBoardShow(notification: NSNotification){
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        if placeTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: placeTextField)
+        }
+        else if startTimeTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: startTimeTextField)
+        }
+        else if endTimeTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: endTimeTextField)
+        }
+        else if outReasonTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: outReasonTextField)
+        }
+    }
+    
+    func registerForKeyboardNotification(){
+        startTimeTextField.textAlignment = .center
+        endTimeTextField.textAlignment = .center
+        self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(startTime), mode: .time)
+        self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(endTime), mode: .time)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeRegisterForKeyboardNotification(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardHide(_ notification: Notification){
+        self.view.transform = .identity
+    }
+    
+    func keyboardAnimate(keyboardRectangle: CGRect ,textField: UITextField){
+        if keyboardRectangle.height > (self.view.frame.height - textField.frame.maxY){
+            self.view.transform = CGAffineTransform(translationX: 0, y: (self.view.frame.height - keyboardRectangle.height - textField.frame.maxY))
+        }
     }
 }

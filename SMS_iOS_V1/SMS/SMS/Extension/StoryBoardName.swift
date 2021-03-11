@@ -65,9 +65,6 @@ extension StoryBoardName {
             
         case .schedule:
             return "Schedule"
-            
-        default:
-            return nil
         }
     }
 }
