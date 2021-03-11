@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 protocol Aaaa {
     func logOutAlertIsHidden(_ value: Bool)
@@ -29,7 +30,6 @@ class MypageViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
     
     
     override func viewDidLoad() {

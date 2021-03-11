@@ -286,9 +286,9 @@
                         <outlet property="logOutButton" destination="QV7-xp-uYT" id="UNH-5j-buh"/>
                         <outlet property="logOutView" destination="YEg-fI-0rQ" id="Lpb-6i-FcV"/>
                         <outlet property="nameLabel" destination="LXw-dO-UgU" id="jEF-Dj-evs"/>
-                        <outlet property="numberLabel" destination="VO1-4Y-HX7" id="yKq-HB-9yT"/>
+                        <outlet property="numberLabel" destination="rxI-fH-3AB" id="a9r-LF-e3M"/>
+                        <outlet property="profileImage" destination="C3E-zq-0Iu" id="fHC-fc-vR1"/>
                         <outlet property="pwChangeButton" destination="n2y-C0-URY" id="fAl-Pe-6Jg"/>
-                        <outlet property="statusLabel" destination="rxI-fH-3AB" id="bx5-HS-2AU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcD-vm-aw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
