@@ -7,12 +7,12 @@ import Toast_Swift
 
 class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    var tableViewHeightConstraint: NSLayoutConstraint!
+    weak var coordinator: ScheduleCoordinator?
+    
     var value = false
     var date: BehaviorRelay<Date> = BehaviorRelay(value: Date())
-    var tableViewHeightConstraint: NSLayoutConstraint!
     var dateForTable: BehaviorRelay<Date> = BehaviorRelay(value: Date())
-    
-    weak var coordinator: ScheduleCoordinator?
     private var preDict: [Date: [ScheduleData]] = [:]
     private lazy var schedules: [Schedules]? = []
     
@@ -28,9 +28,6 @@ class ScheduleViewController: UIViewController, Storyboarded {
         let button = UIButton()
         button.setImage(UIImage(named: "left"), for: .normal)
         var y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
-        if y == 812 {
-            y = calendarView.frame.minY + 100 + calendarView.frame.height / 4
-        }
         button.frame = CGRect(x: UIScreen.main.bounds.midX - 8 - calendarView.frame.width / 4,
                               y: y,
                               width: 8,
@@ -53,9 +50,9 @@ class ScheduleViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         self.calendarSetting()
         self.tableViewSetting()
+        autoLogin()
         bindAction()
         tableViewBind()
-        autoLogin()
     }
 }
 
@@ -69,8 +66,9 @@ extension ScheduleViewController {
                 UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
                 self.getSchedule()
                 self.timeScheduleView.getTimeTable()
+                self.bind()
             }.disposed(by: disposeBag)
-            bind()
+            
         } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
             bind()
             getSchedule()
@@ -101,15 +99,9 @@ extension ScheduleViewController {
     }
     
     private func bindAction() {
-        previousBtn.rx.tap
+        Observable.merge(previousBtn.rx.tap.map { -1 }, nextBtn.rx.tap.map { +1 })
             .bind {
-                let date = Calendar.current.date(byAdding: .month, value: -1, to: self.calendarView.currentPage)!
-                self.calendarView.setCurrentPage(date, animated: true)
-            }.disposed(by: disposeBag) 
-        
-        nextBtn.rx.tap
-            .bind {
-                let date = Calendar.current.date(byAdding: .month, value: +1, to: self.calendarView.currentPage)!
+                let date = Calendar.current.date(byAdding: .month, value: $0, to: self.calendarView.currentPage)!
                 self.calendarView.setCurrentPage(date, animated: true)
             }.disposed(by: disposeBag)
         
@@ -139,8 +131,9 @@ extension ScheduleViewController {
         }
         .bind { schedules in
             self.schedules = schedules.schedules
-            self.calendarView.reloadData()
-            print(1)
+            self.calendarView.collectionView.reloadData {
+                self.calendarView.select(Date() + 32400)
+            }
         }.disposed(by: disposeBag)
     }
     
@@ -182,7 +175,7 @@ extension ScheduleViewController {
     }
     
     func dispatchViewHidden(_ view: UIView, _ time: Int = 10) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(time)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(1)) {
             view.isHidden = false
         }
     }
@@ -215,7 +208,7 @@ extension ScheduleViewController: UITableViewDelegate {
                 }
             }
             .map { data -> [ScheduleData] in
-                self.tableViewHeightConstraint.constant = CGFloat(data.count * 44) + 12
+                self.tableViewHeightConstraint.constant = CGFloat(data.count * 44) + 5
                 return data
             }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in
@@ -235,23 +228,22 @@ extension ScheduleViewController: UITableViewDelegate {
     }
     
     private func tableViewSetting() {
-        calendarView.select(Date())
         tableView.delegate = self
         tableView.register(ScheduleCell.self)
         tableView.separatorStyle = .none
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableUnderView.layer.cornerRadius = 20
         tableViewHeightConstraint = combindTableView.heightAnchor.constraint(equalToConstant: 47)
         tableViewHeightConstraint.isActive = true
         combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
         tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
-        
-        combindTableView.addShadow(offset: CGSize(width: 0, height: 4),
+        tableView.layer.cornerRadius = 4
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        combindTableView.addShadow(maskValue: false,
+                                   offset: CGSize(width: 0, height: 2),
                                    color: .gray,
                                    shadowRadius: 4,
-                                   opacity: 1,
-                                   cornerRadius: 10,
-                                   corner: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
+                                   opacity: 0.25,
+                                   cornerRadius: 10)
     }
 }
 
@@ -262,18 +254,19 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
-        cell.hiddenAll()
-        let cnt = schedules?.count ?? 0
-        for i in 0..<cnt {
-            let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
-            let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
-            let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
-            
-            if generateDateRange(from: start, to: end).contains(date + 32400) {
-                handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
-            }
-            cell.contentView.layer.shadowOpacity = 0
-        }
+//        cell.hiddenAll()
+//        let cnt = schedules?.count ?? 0
+//        for i in 0..<cnt {
+//            let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
+//            let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
+//            let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
+//
+//            if generateDateRange(from: start, to: end).contains(date + 32400) {
+//
+//                handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
+//            }
+//            cell.contentView.layer.shadowOpacity = 0
+//        }
         return cell
     }
     
@@ -360,6 +353,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.dateForTable.accept(date)
         let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
+        
         let layer = cell.contentView.layer
         layer.backgroundColor = UIColor.white.cgColor
         layer.shadowRadius = 2

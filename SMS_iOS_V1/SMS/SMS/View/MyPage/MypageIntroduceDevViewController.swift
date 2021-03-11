@@ -18,36 +18,35 @@ class MypageIntroduceDevViewController: UIViewController, Storyboarded {
     @IBOutlet weak var backButton: UIButton!
     
     let peopleArr: [People] = [
-        People.init(name: "이성진", part: "Front", image: "성진.jpg"),
-        People.init(name: "공영길", part: "Front", image: "영길.jpg"),
-        People.init(name: "박진홍", part: "PM/Backend", image: "진홍.jpg"),
-        People.init(name: "손민기", part: "Backend", image: "민기.jpg"),
-        People.init(name: "김도현", part: "iOS", image: "도현.jpg"),
-        People.init(name: "이현욱", part: "iOS", image: "현욱.jpg"),
-        People.init(name: "윤석준", part: "Android", image: "석준.jpg"),
-        People.init(name: "유재민", part: "Android", image: "재민.jpg"),
-        People.init(name: "강신희", part: "Design", image: "신희.jpg"),
-        People.init(name: "용석현", part: "Design", image: "석현.jpg")
+        People.init(name: "이성진", part: "Front", image: "성진"),
+        People.init(name: "공영길", part: "Front", image: "영길"),
+        People.init(name: "박진홍", part: "PM/Backend", image: "진홍"),
+        People.init(name: "손민기", part: "Backend", image: "민기"),
+        People.init(name: "이현욱", part: "iOS", image: "현욱"),
+        People.init(name: "김도현", part: "iOS", image: "도현"),
+        People.init(name: "윤석준", part: "Android", image: "석준"),
+        People.init(name: "유재민", part: "Android", image: "재민"),
+        People.init(name: "강신희", part: "Design", image: "신희"),
+        People.init(name: "용석현", part: "Design", image: "석현")
     ]
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
         bindAction()
+        setting()
+        devCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
-    
-    
 }
 
-extension MypageIntroduceDevViewController {
+extension MypageIntroduceDevViewController: UIScrollViewDelegate {
     func bind() {
-        Observable.just(peopleArr)
-            .bind(to: devCollectionView.rx.items(cellIdentifier: DevCollectionViewCell.NibName)) { _, people, cell in
-                if let cellToUse = cell as? DevCollectionViewCell {
-                    cellToUse.imageView.image = UIImage(named: people.image)
-                    cellToUse.nameLbl.text = people.name
-                    cellToUse.partLbl.text = people.part
-                }
+        Observable.of(peopleArr)
+            .bind(to: devCollectionView.rx.items(cellIdentifier: DevCollectionViewCell.NibName, cellType: DevCollectionViewCell.self)) { _, people, cell in
+                cell.imageView.image = UIImage(named: people.image)
+                cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
+                cell.nameLbl.text = people.name
+                cell.partLbl.text = people.part
             }.disposed(by: disposeBag)
     }
     
@@ -58,7 +57,13 @@ extension MypageIntroduceDevViewController {
             }.disposed(by: disposeBag)
     }
     
-    
+    func setting() {
+        let flowLayout = UICollectionViewFlowLayout()
+        let height = UIScreen.main.bounds.height / 3.76
+        let width = UIScreen.main.bounds.width / 2.9
+        flowLayout.itemSize = CGSize(width: width, height: height)
+        devCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+    }
 }
 
 struct People {

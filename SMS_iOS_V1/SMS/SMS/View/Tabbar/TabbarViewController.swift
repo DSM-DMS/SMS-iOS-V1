@@ -35,6 +35,8 @@ class TabbarViewController: UIViewController, Storyboarded {
     
     var tabbar = TabbarView()
     
+    var viewOnTabbar = UIView()
+    
     var tabbarHeightConstraint: NSLayoutConstraint!
     
     open override var prefersHomeIndicatorAutoHidden: Bool {
@@ -45,6 +47,8 @@ class TabbarViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupStackView()
         setupPageCollectionView()
+        let vc = MypageViewController()
+        vc.delegate = self
         outGoingCoordinator.delegate = self
         noticeCoordinator.delegate = self
         myPageCoordinator.delegate = self
@@ -62,7 +66,8 @@ extension TabbarViewController {
         stackView.alignment = .fill
         setupCustomTabBar()
         
-        stackView.addShadow(offset: CGSize(width: 0, height: -1),
+        stackView.addShadow(maskValue: true,
+                            offset: CGSize(width: 0, height: -1),
                             color: .gray,
                             shadowRadius: 10,
                             opacity: 0.25,
@@ -71,6 +76,7 @@ extension TabbarViewController {
     }
     
     func setupCustomTabBar(){
+        
         self.view.addSubviews([pageCollectionView])
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
         tabbar.indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
@@ -151,5 +157,13 @@ extension TabbarViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension TabbarViewController: Aaaa {
+    func logOutAlertIsHidden(_ value: Bool) {
+        print("123123123123")
+        tabbar.alpha = value ? 1 : 0.3
+        tabbar.backgroundColor = value ? .white : .black
     }
 }

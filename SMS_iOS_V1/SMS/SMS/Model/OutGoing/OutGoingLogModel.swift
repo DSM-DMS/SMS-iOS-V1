@@ -23,6 +23,7 @@ struct Outings: Codable {
     let end_time: Int
     let outing_situation: String
     let outing_status: String
+    let arrival_time: Int
 }
 
 enum OutingState {
