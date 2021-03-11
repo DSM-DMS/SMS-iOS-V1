@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -265,34 +266,48 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-Zi-BsF">
-                                <rect key="frame" x="20" y="154" width="335" height="265"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RS8-r2-USb">
+                                <rect key="frame" x="0.0" y="145" width="375" height="275"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fOi-zJ-2nk">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rM4-ph-SXa">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fnB-cu-a0J">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T4n-M0-ggo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HQi-TE-HZr" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="30" id="2gC-8M-CVP"/>
                             <constraint firstItem="gMP-2U-iIv" firstAttribute="top" secondItem="eMP-jJ-i9W" secondAttribute="bottom" constant="13" id="42P-Ao-NeE"/>
-                            <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="tr3-Zi-BsF" secondAttribute="trailing" constant="20" id="4Ce-Cb-6fF"/>
                             <constraint firstItem="fnd-iY-IdJ" firstAttribute="leading" secondItem="eMP-jJ-i9W" secondAttribute="trailing" constant="10" id="4fe-xZ-5Yv"/>
                             <constraint firstItem="aWu-On-BDg" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="25" id="844-Jw-3nN"/>
+                            <constraint firstItem="Mg9-Ul-cGr" firstAttribute="top" secondItem="RS8-r2-USb" secondAttribute="bottom" constant="7" id="9eV-A0-gzY"/>
                             <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="WwM-oA-ipc" secondAttribute="trailing" constant="20" id="A0Q-lk-eFc"/>
                             <constraint firstItem="8bx-zN-mq5" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="18" id="B9f-dS-y8I"/>
                             <constraint firstItem="zcl-51-15a" firstAttribute="leading" secondItem="wg4-iQ-Ogh" secondAttribute="trailing" constant="34" id="BYh-uf-SyH"/>
+                            <constraint firstItem="RS8-r2-USb" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" id="BaM-Hz-5yJ"/>
                             <constraint firstItem="9Tc-r3-HWD" firstAttribute="leading" secondItem="fnd-iY-IdJ" secondAttribute="trailing" constant="34" id="C0H-64-saB"/>
                             <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="jOl-Ae-3zN" secondAttribute="trailing" constant="20" id="Ity-ZO-HlR"/>
-                            <constraint firstItem="tr3-Zi-BsF" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="20" id="LQ4-EX-hQk"/>
                             <constraint firstItem="eMP-jJ-i9W" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="25" id="LSo-BA-boy"/>
                             <constraint firstItem="gt1-jf-7Mf" firstAttribute="top" secondItem="NLA-fD-9BS" secondAttribute="bottom" constant="8" id="Qd5-ao-sIe"/>
                             <constraint firstItem="WwM-oA-ipc" firstAttribute="top" secondItem="aWu-On-BDg" secondAttribute="bottom" constant="13" id="SUi-hO-Tk9"/>
                             <constraint firstItem="NLA-fD-9BS" firstAttribute="top" secondItem="8bx-zN-mq5" secondAttribute="bottom" constant="43" id="Sbh-Ca-kdG"/>
+                            <constraint firstItem="RS8-r2-USb" firstAttribute="top" secondItem="HQi-TE-HZr" secondAttribute="bottom" constant="9" id="T8R-gl-wVX"/>
                             <constraint firstItem="gMP-2U-iIv" firstAttribute="top" secondItem="9Tc-r3-HWD" secondAttribute="bottom" constant="14" id="TXy-zX-v0W"/>
+                            <constraint firstItem="RS8-r2-USb" firstAttribute="top" secondItem="HQi-TE-HZr" secondAttribute="bottom" constant="9" id="U8E-Lh-SgX"/>
                             <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="NLA-fD-9BS" secondAttribute="trailing" constant="20" id="VP6-92-sfc"/>
                             <constraint firstItem="2l8-E6-ex1" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="20" id="Xxh-8z-oWV"/>
                             <constraint firstItem="8bx-zN-mq5" firstAttribute="top" secondItem="T4n-M0-ggo" secondAttribute="top" constant="27" id="YeS-Zn-6XK"/>
@@ -307,12 +322,11 @@
                             <constraint firstItem="T4n-M0-ggo" firstAttribute="bottom" secondItem="WwM-oA-ipc" secondAttribute="bottom" constant="122" id="kZm-22-yb9"/>
                             <constraint firstItem="HQi-TE-HZr" firstAttribute="top" secondItem="gt1-jf-7Mf" secondAttribute="bottom" constant="6" id="kz3-8E-yOc"/>
                             <constraint firstItem="NLA-fD-9BS" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="20" id="l2j-E4-qFz"/>
-                            <constraint firstItem="Mg9-Ul-cGr" firstAttribute="top" secondItem="tr3-Zi-BsF" secondAttribute="bottom" constant="8" id="oCh-O8-gjs"/>
+                            <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="RS8-r2-USb" secondAttribute="trailing" id="ooM-T5-saZ"/>
                             <constraint firstItem="gt1-jf-7Mf" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="30" id="pPa-Hp-xRe"/>
                             <constraint firstItem="gMP-2U-iIv" firstAttribute="top" secondItem="fnd-iY-IdJ" secondAttribute="bottom" constant="18" id="pTe-eZ-PHV"/>
                             <constraint firstItem="jOl-Ae-3zN" firstAttribute="top" secondItem="HQi-TE-HZr" secondAttribute="bottom" constant="9" id="qZM-jL-nK0"/>
                             <constraint firstItem="Mg9-Ul-cGr" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="20" id="rcL-Kc-cZB"/>
-                            <constraint firstItem="tr3-Zi-BsF" firstAttribute="top" secondItem="jOl-Ae-3zN" secondAttribute="bottom" constant="8" id="tqc-7l-K4d"/>
                             <constraint firstItem="WwM-oA-ipc" firstAttribute="leading" secondItem="T4n-M0-ggo" secondAttribute="leading" constant="20" id="tx2-g4-Ecr"/>
                             <constraint firstItem="T4n-M0-ggo" firstAttribute="trailing" secondItem="gMP-2U-iIv" secondAttribute="trailing" constant="20" id="vgJ-RI-bOQ"/>
                             <constraint firstItem="WwM-oA-ipc" firstAttribute="top" secondItem="wg4-iQ-Ogh" secondAttribute="bottom" constant="18" id="xck-DK-0rq"/>
@@ -320,12 +334,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bButton" destination="8bx-zN-mq5" id="cXW-ay-QBw"/>
-                        <outlet property="nContent" destination="tr3-Zi-BsF" id="2ad-mv-CGG"/>
-                        <outlet property="nDate" destination="HQi-TE-HZr" id="XfZ-5u-PZE"/>
-                        <outlet property="nNoticeButton" destination="zcl-51-15a" id="rTs-xc-tXj"/>
-                        <outlet property="nTitle" destination="gt1-jf-7Mf" id="8B1-2W-stX"/>
-                        <outlet property="pNoticeButton" destination="9Tc-r3-HWD" id="5CL-6w-85J"/>
+                        <outlet property="bButton" destination="8bx-zN-mq5" id="NVD-Ek-Shy"/>
+                        <outlet property="nDate" destination="HQi-TE-HZr" id="xry-tO-MQ6"/>
+                        <outlet property="nNoticeButton" destination="zcl-51-15a" id="UMM-sD-yvB"/>
+                        <outlet property="nTitle" destination="gt1-jf-7Mf" id="Rv6-Ih-nrX"/>
+                        <outlet property="pNoticeButton" destination="9Tc-r3-HWD" id="HOs-yH-48n"/>
+                        <outlet property="rendererCollectionView" destination="RS8-r2-USb" id="mSN-cr-6MH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZe-ew-ThN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,9 +352,6 @@
         <image name="notice" width="24" height="24"/>
         <image name="pagedown" width="6" height="4"/>
         <image name="pageup" width="6" height="4"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
