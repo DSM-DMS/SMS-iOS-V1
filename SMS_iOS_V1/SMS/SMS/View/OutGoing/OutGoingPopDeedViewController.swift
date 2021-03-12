@@ -15,6 +15,7 @@ import Kingfisher
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     var b = true
     let disposeBag = DisposeBag()
+    lazy var today = globalDateFormatter(.untilDay, Date())
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var dateLbl: UILabel!
@@ -32,6 +33,7 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var outStartAlertView: OutGoingStartActionAlert!
     @IBOutlet weak var outGoingEndView: OutGoingEndActionAlertXib!
     
+    @IBOutlet weak var stateView: UIView!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var IDView: UIView!
@@ -214,6 +216,7 @@ extension OutGoingPopDeedViewController {
         IDView.isHidden = value
         stateView.isHidden = value
         placeView.isHidden = value
+        stateView.isHidden = value
         noneOutingView.isHidden = !value
     }
     
