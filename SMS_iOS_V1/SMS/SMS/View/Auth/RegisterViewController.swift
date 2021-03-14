@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SkyFloatingLabelTextField
+import Toast_Swift
 
 class RegisterViewController: UIViewController, Storyboarded {
     var number: Int!
@@ -50,28 +51,24 @@ extension RegisterViewController {
         
         inquireAlertView.addShadow(maskValue: true,
                                    offset: CGSize(width: 0, height: 3),
-                                   color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
         completeAlertView.addShadow(maskValue: true,
                                     offset: CGSize(width: 0, height: 3),
-                                    color: .gray,
                                     shadowRadius: 6,
                                     opacity: 1,
                                     cornerRadius: 8)
         
         usingIDAlertView.addShadow(maskValue: true,
                                    offset: CGSize(width: 0, height: 3),
-                                   color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
         createBtn.addShadow(maskValue: true,
                             offset: CGSize(width: 0, height: 3),
-                            color: .gray,
                             shadowRadius: 6,
                             opacity: 1,
                             cornerRadius: 8)
@@ -90,7 +87,7 @@ extension RegisterViewController {
         isValid.bind(to: self.createBtn.rx.isEnabled).disposed(by: disposeBag)
         isValid.map { $0 ? 1 : 0.3 }.bind(to: self.createBtn.rx.alpha).disposed(by: disposeBag)
         
-        output.model.bind { model in
+        output.model.subscribe { model in
             if model.status == 201 {
                 self.completeAlertView.isHidden = false
                 self.backgroundView.isHidden = false
@@ -112,6 +109,10 @@ extension RegisterViewController {
                 self.usingIDAlertView.sign = {
                     self.allAlertHidden(true)
                 }
+            }
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
             }
         }.disposed(by: disposeBag)
     }

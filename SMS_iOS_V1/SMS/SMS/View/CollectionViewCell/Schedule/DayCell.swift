@@ -53,6 +53,8 @@ class DayCell: FSCalendarCell {
     }
     
     func setting() {
+        titleLabel.textColor = .label
+        
         leadingConstraint = event1View.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0)
         leadingConstraint.isActive = true
         trailingConstraint = event1View.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0)

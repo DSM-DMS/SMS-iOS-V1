@@ -747,8 +747,8 @@
 				D6F8C973259C280600DE967A /* OutGoingAlertXib.xib */,
 				D6F8C97C259C958200DE967A /* OutGoingLocationAlertXib.swift */,
 				D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */,
-				D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */,
 				D6915E2225F76189005DDEBC /* OutGoingStartActionAlert.swift */,
+				D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */,
 				D643282F25EF755600AD1461 /* OutGoingEndActionAlertXib.swift */,
 				D643283225EF756700AD1461 /* OutGoingEndActionAlertXib.xib */,
 			);
