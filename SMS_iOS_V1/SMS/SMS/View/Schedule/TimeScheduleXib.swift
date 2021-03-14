@@ -34,7 +34,7 @@ class TimeScheduleXib: UIView {
     func getTimeTable() {
         let timeTable: Observable<TimeTableModel> = SMSAPIClient.shared.networking(from: .timetables(self.mondayCompo.year!, self.mondayCompo.month!, self.mondayCompo.day!))
         
-        timeTable.bind { model in
+        timeTable.subscribe { model in
             if model.status == 200 {
                 
                 var arr: [[String]] = []
@@ -50,6 +50,10 @@ class TimeScheduleXib: UIView {
                         dayArr[i]![j].text = arr[i][j] == "" ? "-" : arr[i][j]
                     }
                 }
+            }
+        } onError: {  error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.makeToast("인터넷 연결 실패")
             }
         }.disposed(by: disposeBag)
     }

@@ -11,10 +11,10 @@ extension UIView {
         }
     }
     
-    func addShadow(maskValue: Bool, offset: CGSize, color: UIColor, shadowRadius: CGFloat, opacity: Float, cornerRadius: CGFloat, corner: CACornerMask? = nil) {
+    func addShadow(maskValue: Bool, offset: CGSize, shadowRadius: CGFloat, opacity: Float, cornerRadius: CGFloat, corner: CACornerMask? = nil) {
         layer.masksToBounds = maskValue
         layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
+        layer.shadowColor = UIColor.shadowColor.cgColor
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = opacity
         layer.cornerRadius = cornerRadius
@@ -29,5 +29,13 @@ extension UIView {
         animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
         animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         self.layer.add(animation, forKey: "position")
+    }
+    
+    func backgroundColorForDarkMode(_ color: UIColor? = nil) -> UIColor {
+        if self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
+            return color ?? .black
+        } else {
+            return color ?? .white
+        }
     }
 }

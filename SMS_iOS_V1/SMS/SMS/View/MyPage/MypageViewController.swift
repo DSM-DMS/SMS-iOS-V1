@@ -50,9 +50,14 @@ class MypageViewController: UIViewController, Storyboarded {
                 let imageURL = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(model.profile_uri!)")
                 self.imageVIew.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
                 self.imageVIew.layer.cornerRadius = self.imageVIew.bounds.height / 2
+            } else if model.status == 401 {
+                self.coordinator?.main()
             }
-        }
-        ).disposed(by: disposeBag)
+        }, onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            }
+        }).disposed(by: disposeBag)
     }
     
     func bindAction() {
@@ -93,7 +98,6 @@ class MypageViewController: UIViewController, Storyboarded {
     func setting() {
         logOutView.addShadow(maskValue: true,
                              offset: CGSize(width: 0, height: 3),
-                             color: .gray,
                              shadowRadius: 6,
                              opacity: 1,
                              cornerRadius: 8)

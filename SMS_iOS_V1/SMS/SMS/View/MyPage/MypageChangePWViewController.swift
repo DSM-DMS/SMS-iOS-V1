@@ -51,9 +51,15 @@ extension MypageChangePWViewController {
                 keyChain.delete("ID")
                 keyChain.delete("PW")
                 self.coordinator?.main()
+            } else if model.status == 401 {
+                self.coordinator?.main()
             }
-        } onError: {_ in
-            self.applyButton.shake()
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            } else {
+                self.applyButton.shake()
+            }
         }.disposed(by: disposeBag)
     }
     

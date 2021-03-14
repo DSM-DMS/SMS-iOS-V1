@@ -9,6 +9,14 @@
 import UIKit
 
 extension UIColor {
+    static var tabbarColor: UIColor {
+        return UIColor(named: "TabbarColor")!
+    }
+    
+    static var shadowColor: UIColor {
+        return UIColor(named: "ShadowColor")!
+    }
+    
     static var customPurple: UIColor {
         return rgb(red: 83, green: 35, blue: 178, alpha: 1)
     }

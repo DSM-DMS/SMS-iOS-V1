@@ -68,7 +68,6 @@ extension TabbarViewController {
         
         stackView.addShadow(maskValue: true,
                             offset: CGSize(width: 0, height: -1),
-                            color: .gray,
                             shadowRadius: 10,
                             opacity: 0.25,
                             cornerRadius: 10,

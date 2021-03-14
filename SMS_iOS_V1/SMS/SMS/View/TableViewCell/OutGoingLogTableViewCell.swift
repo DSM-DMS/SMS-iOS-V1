@@ -26,8 +26,8 @@ class OutGoingLogTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.addShadow(maskValue: true, offset: CGSize(width: 0, height: 2),
-                       color: .lightGray,
+        self.addShadow(maskValue: true,
+                       offset: CGSize(width: 0, height: 2),
                        shadowRadius: 2,
                        opacity: 0.7,
                        cornerRadius: 10)

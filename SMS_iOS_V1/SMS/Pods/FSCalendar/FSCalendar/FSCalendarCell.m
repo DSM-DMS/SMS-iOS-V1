@@ -163,7 +163,11 @@
 {
     UIColor *textColor = self.colorForTitleLabel;
     if (![textColor isEqual:_titleLabel.textColor]) {
-        _titleLabel.textColor = textColor;
+        if (@available(iOS 13.0, *)) {
+            _titleLabel.textColor = UIColor.labelColor;
+        } else {
+            
+        }
     }
     UIFont *titleFont = self.calendar.appearance.titleFont;
     if (![titleFont isEqual:_titleLabel.font]) {

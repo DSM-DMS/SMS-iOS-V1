@@ -61,14 +61,17 @@ extension ScheduleViewController {
     func autoLogin() {
         if let ID = keyChain.get("ID"), let PW = keyChain.get("PW") { // 자동로그인 해두고 지금 들어온애
             let login: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(ID, PW))
-            login.bind { model in
+            login.subscribe { model in
                 UserDefaults.standard.setValue(model.access_token, forKey: "token")
                 UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
                 self.getSchedule()
                 self.timeScheduleView.getTimeTable()
                 self.bind()
+            } onError: { (error) in
+                if error as? StatusCode == StatusCode.internalServerError {
+                    self.view.makeToast("인터넷 연결 실패")
+                }
             }.disposed(by: disposeBag)
-            
         } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
             bind()
             getSchedule()
@@ -88,14 +91,18 @@ extension ScheduleViewController {
             }
             return true
         }
-        .bind { model in
+        .subscribe(onNext: { (model) in
             switch model.parent_status {
             case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.")
             case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.")
             case "": print("성공")
             default: print("에러")
             }
-        }.disposed(by: disposeBag)
+        }, onError: { (error) in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func bindAction() {
@@ -128,13 +135,16 @@ extension ScheduleViewController {
                 return false
             }
             return true
-        }
-        .bind { schedules in
+        }.subscribe(onNext: { schedules in
             self.schedules = schedules.schedules
             self.calendarView.collectionView.reloadData {
-                self.calendarView.select(Date() + 32400)
+                self.calendarView.select(Date() + 32400, scrollToDate: false)
             }
-        }.disposed(by: disposeBag)
+        }, onError: { (error) in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func calendarSetting() {
@@ -145,7 +155,7 @@ extension ScheduleViewController {
         previousBtn.layer.zPosition = 1
         self.view.addSubviews([previousBtn, nextBtn])
         calendarView.placeholderType = .none
-        calendarView.appearance.selectionColor = .white
+        calendarView.appearance.selectionColor = .tabbarColor
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
         calendarView.appearance.titleSelectionColor = UIColor.black
         calendarView.appearance.headerDateFormat = formType.month.rawValue
@@ -199,7 +209,6 @@ extension ScheduleViewController {
 extension ScheduleViewController: UITableViewDelegate {
     private func tableViewBind() {
         self.dateForTable.map { self.preDict[$0 + 32400] ?? [] }
-            .skip(1)
             .map { data -> [ScheduleData] in
                 if data.count == 0 {
                     return [ScheduleData(uuid: "", date: Date(), detail: "일정이 없습니다.", detailDate: "", place: 5)]
@@ -234,13 +243,12 @@ extension ScheduleViewController: UITableViewDelegate {
         tableUnderView.layer.cornerRadius = 20
         tableViewHeightConstraint = combindTableView.heightAnchor.constraint(equalToConstant: 47)
         tableViewHeightConstraint.isActive = true
-        combindTableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
-        tableView.backgroundColor = .rgb(red: 247, green: 247, blue: 247, alpha: 1)
+        combindTableView.backgroundColor = .tabbarColor
+        tableView.backgroundColor = .tabbarColor
         tableView.layer.cornerRadius = 4
         tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         combindTableView.addShadow(maskValue: false,
                                    offset: CGSize(width: 0, height: 2),
-                                   color: .gray,
                                    shadowRadius: 4,
                                    opacity: 0.25,
                                    cornerRadius: 10)
@@ -255,14 +263,15 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
         cell.hiddenAll()
+        calendar.deselect(date)
         let cnt = schedules?.count ?? 0
         for i in 0..<cnt {
             let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)
             let end: Date = unix(with: schedules![ascEvent()[i]].endTime / 1000)
             let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
-
+            
             if generateDateRange(from: start, to: end).contains(date + 32400) {
-
+                
                 handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
             }
             cell.contentView.layer.shadowOpacity = 0
@@ -354,23 +363,26 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
         self.dateForTable.accept(date)
         let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
         
+        cell.contentView.backgroundColor = .tabbarColor
+        
         let layer = cell.contentView.layer
-        layer.backgroundColor = UIColor.white.cgColor
+        layer.backgroundColor = UIColor.tabbarColor.cgColor
         layer.shadowRadius = 2
         layer.shadowOpacity = 0.35
         layer.shadowOffset = CGSize(width: 2, height: 2)
         layer.cornerRadius = cell.frame.width / 10
-        layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        layer.shadowColor = UIColor.shadowColor.cgColor
         
         cell.selectedDate(.selected)
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
-        cell.selectedDate(.normal)
-        for i in cell.cellContinuedState.indices {
-            cell.selectedDate(.continued, cell.cellContinuedState[i])
-        }
-        cell.contentView.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0)
+        let cell = calendar.cell(for: date, at: monthPosition)
+        //            as! DayCell
+        //        cell.selectedDate(.normal)
+        //        for i in cell.cellContinuedState.indices {
+        //            cell.selectedDate(.continued, cell.cellContinuedState[i])
+        //        }
+        //        cell.contentView.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0)
     }
 }
