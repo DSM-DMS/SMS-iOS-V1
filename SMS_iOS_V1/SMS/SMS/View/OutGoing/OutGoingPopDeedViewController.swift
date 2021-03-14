@@ -11,11 +11,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Kingfisher
+import Toast_Swift
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     var b = true
     let disposeBag = DisposeBag()
-    lazy var today = globalDateFormatter(.untilDay, Date())
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var dateLbl: UILabel!
@@ -39,7 +39,6 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var IDView: UIView!
     @IBOutlet weak var placeView: UIView!
     @IBOutlet weak var noneOutingView: UIView!
-    @IBOutlet weak var stateView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,8 +124,7 @@ extension OutGoingPopDeedViewController {
             }
             .map { outing -> (Date, String) in
                 return (unix(with: outing.outings![0].start_time), outing.outings![0].outing_uuid)
-            }
-            .bind { (date, uuid) in
+            }.subscribe(onNext: { (date, uuid) in
                 if Calendar.current.isDateInToday(date) {
                     UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
                     let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard(uuid))
@@ -141,25 +139,11 @@ extension OutGoingPopDeedViewController {
                 } else {
                     self.isViewHidden(true)
                 }
-            }.disposed(by: disposeBag)
-        } else {
-            let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard("outing_uuid"))
-            
-            cardModel
-                .filter {
-                    if $0.status == 401 {
-                        self.coordinator?.main()
-                    }
-                    return true
+            }, onError: { error in
+                if error as? StatusCode == StatusCode.internalServerError {
+                    self.view.makeToast("인터넷 연결 실패")
                 }
-                .bind { cardData in
-                    if cardData.status == 200 {
-                        self.setting(cardData)
-                    } else  {
-                        self.isViewHidden(true)
-                    }
-                    
-                }.disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         }
     }
     
@@ -238,14 +222,12 @@ extension OutGoingPopDeedViewController {
         
         outGoingEndView.addShadow(maskValue: true,
                                   offset: CGSize(width: 0, height: 3),
-                                  color: .gray,
                                   shadowRadius: 6,
                                   opacity: 1,
                                   cornerRadius: 8)
         
         outStartAlertView.addShadow(maskValue: true,
                                     offset: CGSize(width: 0, height: 3),
-                                    color: .gray,
                                     shadowRadius: 6,
                                     opacity: 1,
                                     cornerRadius: 8)

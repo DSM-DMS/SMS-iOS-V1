@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SkyFloatingLabelTextField
+import Toast_Swift
 
 final class LoginViewController: UIViewController, Storyboarded {
     weak var coordinator: LoginCoordinator?
@@ -30,7 +31,6 @@ final class LoginViewController: UIViewController, Storyboarded {
         bindAction()
         loginButton.addShadow(maskValue: true,
                               offset: CGSize(width: 0, height: 3),
-                              color: .gray,
                               shadowRadius: 6,
                               opacity: 1,
                               cornerRadius: 5)
@@ -63,8 +63,12 @@ extension LoginViewController {
             } else {
                 self.loginButton.shake()
             }
-        } onError: { _ in
-            self.loginButton.shake()
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            } else {
+                self.loginButton.shake()
+            }
         }.disposed(by: disposeBag)
     }
     

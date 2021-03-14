@@ -10,6 +10,7 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import Toast_Swift
 
 class CheckCertificationNumberViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
@@ -44,7 +45,7 @@ extension CheckCertificationNumberViewController {
         isValid.bind(to: self.checkBtn.rx.isEnabled).disposed(by: disposeBag)
         isValid.map { $0 ? 1 : 0.3 }.bind(to: self.checkBtn.rx.alpha).disposed(by: disposeBag)
         
-        output.certificationNumberModel.subscribe(onNext: { model in
+        output.certificationNumberModel.subscribe { model in
             if model.status == 200 {
                 self.coordinator?.register(model, self.numberTextField.text!)
                 self.alertAllHidden(true)
@@ -59,7 +60,11 @@ extension CheckCertificationNumberViewController {
                     }
                 }
             }
-        }).disposed(by: disposeBag)
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            }
+        }
     }
     
     func bindAction() {
@@ -87,23 +92,22 @@ extension CheckCertificationNumberViewController {
     }
     
     func setting() {
+        numberTextField.becomeFirstResponder()
+        
         checkBtn.addShadow(maskValue: true,
                            offset: CGSize(width: 0, height: 3),
-                           color: .gray,
                            shadowRadius: 6,
                            opacity: 1,
                            cornerRadius: 5)
         
         invalidAlertView.addShadow(maskValue: true,
                                    offset: CGSize(width: 0, height: 3),
-                                   color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
         
         inquireAlertView.addShadow(maskValue: true,
                                    offset: CGSize(width: 0, height: 3),
-                                   color: .gray,
                                    shadowRadius: 6,
                                    opacity: 1,
                                    cornerRadius: 8)
