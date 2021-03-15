@@ -21,6 +21,9 @@
 		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
 		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
 		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
+		479B7F3225FA3288005AA267 /* EditorJSMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 479B7F3125FA3288005AA267 /* EditorJSMock.json */; };
+		479B7F5825FE5FFF005AA267 /* NoticeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479B7F5725FE5FFE005AA267 /* NoticeSearchViewController.swift */; };
+		479B7F5B25FE62B1005AA267 /* NoticeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479B7F5A25FE62B1005AA267 /* NoticeSearchTableViewCell.swift */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA5083257F40640003F87D /* CustomeShadowView.swift */; };
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
@@ -147,6 +150,9 @@
 		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
 		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
+		479B7F3125FA3288005AA267 /* EditorJSMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EditorJSMock.json; path = "../../../../../../Downloads/editor.js-kit-ios-master 2/Example/EditorJSKit/EditorJSMock.json"; sourceTree = "<group>"; };
+		479B7F5725FE5FFE005AA267 /* NoticeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewController.swift; sourceTree = "<group>"; };
+		479B7F5A25FE62B1005AA267 /* NoticeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */,
+				479B7F5A25FE62B1005AA267 /* NoticeSearchTableViewCell.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -596,6 +603,7 @@
 			children = (
 				D62D8C2B2518DABE00548FBF /* NoticeViewController.swift */,
 				D6B3A3FA2582F0BF005C36E6 /* NoticeDetailViewController.swift */,
+				479B7F5725FE5FFE005AA267 /* NoticeSearchViewController.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -901,6 +909,7 @@
 				D6B3A3FB2582F0BF005C36E6 /* NoticeDetailViewController.swift in Sources */,
 				D6F8C970259C1B3200DE967A /* OutGoingAlertXib.swift in Sources */,
 				D67F3338257E76A10086F75E /* OutGoingCoordinator.swift in Sources */,
+				479B7F5B25FE62B1005AA267 /* NoticeSearchTableViewCell.swift in Sources */,
 				D67F3306257E76140086F75E /* SMSAPIClient.swift in Sources */,
 				D630C8F82586E1C900BD07C3 /* UnixStamp.swift in Sources */,
 				D6A25CC125F7D636006BE0FD /* AboutOuting.swift in Sources */,
@@ -952,6 +961,7 @@
 				47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */,
 				D6F8C94A259B647F00DE967A /* OutLocationModel.swift in Sources */,
 				4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */,
+				479B7F5825FE5FFF005AA267 /* NoticeSearchViewController.swift in Sources */,
 				D67F32F9257E75890086F75E /* StoryBoardName.swift in Sources */,
 				D696147C25E8A33E00E880D9 /* CertificationNumberModel.swift in Sources */,
 				D664E1B0252A0A09007F0253 /* TabbarViewController.swift in Sources */,
