@@ -14,6 +14,7 @@
 
 @interface FSCalendarCell ()
 
+@property (copy, nullable) NSString *name;
 @property (readonly, nonatomic) UIColor *colorForCellFill;
 @property (readonly, nonatomic) UIColor *colorForTitleLabel;
 @property (readonly, nonatomic) UIColor *colorForSubtitleLabel;
@@ -112,10 +113,16 @@
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);
     diameter = diameter > FSCalendarStandardCellDiameter ? (diameter - (diameter-FSCalendarStandardCellDiameter)*0.5) : diameter;
-    _shapeLayer.frame = CGRectMake((self.bounds.size.width-diameter)/2,
+    _shapeLayer.frame = CGRectMake(self.contentView.bounds.origin.x,
                                    (titleHeight-diameter)/2,
-                                   diameter,
-                                   diameter);
+                                   self.contentView.frame.size.width,
+                                   self.contentView.frame.size.height);
+    _shapeLayer.shadowRadius = 2;
+    _shapeLayer.shadowOpacity = 1;
+    _shapeLayer.masksToBounds = false;
+    _shapeLayer.shadowOffset = CGSizeMake(0, 3);
+    _name = @"ShadowColor";
+    _shapeLayer.shadowColor = [[UIColor colorNamed:_name] CGColor];
     
     CGPathRef path = [UIBezierPath bezierPathWithRoundedRect:_shapeLayer.bounds
                                                 cornerRadius:CGRectGetWidth(_shapeLayer.bounds)*0.5*self.borderRadius].CGPath;
@@ -166,7 +173,7 @@
         if (@available(iOS 13.0, *)) {
             _titleLabel.textColor = UIColor.labelColor;
         } else {
-            
+            // Fallback on earlier versions
         }
     }
     UIFont *titleFont = self.calendar.appearance.titleFont;
