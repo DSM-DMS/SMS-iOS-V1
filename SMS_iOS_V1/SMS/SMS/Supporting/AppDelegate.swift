@@ -9,13 +9,21 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var coordinator: AppCoordinator? 
     var window:UIWindow?
     // keychain이 저장되어있는지, 와이파이 잡혀있는지 체크 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
+            if !didAllow {
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+            }
+        })
+        UNUserNotificationCenter.current().delegate = self
+        
         let nav = UINavigationController()
+            
         coordinator = AppCoordinator(nav: nav)
         coordinator?.start()
         
@@ -29,6 +37,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "uuid")
-        print("삭제")
     }
 }
