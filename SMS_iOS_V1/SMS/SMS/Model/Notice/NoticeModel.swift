@@ -25,3 +25,5 @@ struct Announcements: Codable {
     let writer_name: String
     let is_checked: Int
 }
+
+var searchKeyword = ""

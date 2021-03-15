@@ -287,7 +287,6 @@
                         <outlet property="logOutView" destination="YEg-fI-0rQ" id="Lpb-6i-FcV"/>
                         <outlet property="nameLabel" destination="LXw-dO-UgU" id="jEF-Dj-evs"/>
                         <outlet property="numberLabel" destination="rxI-fH-3AB" id="a9r-LF-e3M"/>
-                        <outlet property="profileImage" destination="C3E-zq-0Iu" id="fHC-fc-vR1"/>
                         <outlet property="pwChangeButton" destination="n2y-C0-URY" id="fAl-Pe-6Jg"/>
                     </connections>
                 </viewController>
