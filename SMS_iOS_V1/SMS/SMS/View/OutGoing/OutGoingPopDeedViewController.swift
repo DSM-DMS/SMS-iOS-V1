@@ -114,9 +114,10 @@ extension OutGoingPopDeedViewController {
                 if $0.status == 401 {
                     self.isHiddenAllAlert(true)
                     self.coordinator?.main()
+                    return false
                 }
                 
-                if $0.outings?.count == 0  {
+                if $0.outings!.count == 0  {
                     self.isViewHidden(true)
                     return false
                 }
@@ -128,7 +129,6 @@ extension OutGoingPopDeedViewController {
                 if Calendar.current.isDateInToday(date) {
                     UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
                     let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard(uuid))
-                    
                     cardModel.bind { cardData in
                         if cardData.status == 200 {
                             self.setting(cardData)
@@ -144,6 +144,8 @@ extension OutGoingPopDeedViewController {
                     self.view.makeToast("인터넷 연결 실패")
                 }
             }).disposed(by: disposeBag)
+        } else {
+            
         }
     }
     
@@ -219,7 +221,6 @@ extension OutGoingPopDeedViewController {
     }
     
     func settingAlert() {
-        
         outGoingEndView.addShadow(maskValue: true,
                                   offset: CGSize(width: 0, height: 3),
                                   shadowRadius: 6,
