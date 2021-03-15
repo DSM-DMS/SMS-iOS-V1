@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StatusCode {
+enum StatusCode: Error {
     case OK
     case created
     case badRequest

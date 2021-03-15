@@ -3,6 +3,7 @@
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -80,7 +81,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="TabbarColor"/>
                                 <constraints>
                                     <constraint firstItem="nlN-4u-6md" firstAttribute="leading" secondItem="kUZ-O7-jDC" secondAttribute="leading" id="ZwP-y5-gHr"/>
                                     <constraint firstItem="kUZ-O7-jDC" firstAttribute="top" secondItem="btt-Dz-pNz" secondAttribute="top" constant="17" id="dtp-IW-Qi9"/>
@@ -117,7 +118,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="TabbarColor"/>
                                 <constraints>
                                     <constraint firstItem="sbo-IS-wPc" firstAttribute="leading" secondItem="3ke-sd-O2g" secondAttribute="leading" id="4m0-C7-wF9"/>
                                     <constraint firstItem="3ke-sd-O2g" firstAttribute="leading" secondItem="WT1-Gh-8te" secondAttribute="leading" constant="25" id="6S9-n0-xxg"/>
@@ -146,7 +147,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="TabbarColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0fL-FX-MYG"/>
                                     <constraint firstItem="8OS-v7-RbU" firstAttribute="top" secondItem="5sI-a0-7b0" secondAttribute="top" constant="17" id="CN5-m1-fqF"/>
@@ -155,7 +156,7 @@
                                     <constraint firstItem="qCe-VU-ahp" firstAttribute="leading" secondItem="8OS-v7-RbU" secondAttribute="leading" id="um8-0k-TVY"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrZ-QQ-LVd">
+                            <button hidden="YES" opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrZ-QQ-LVd">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
@@ -309,8 +310,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-zS-8da">
-                                <rect key="frame" x="16" y="64" width="74" height="22"/>
-                                <state key="normal" title="Button" image="back"/>
+                                <rect key="frame" x="16" y="64" width="20" height="22"/>
+                                <state key="normal" image="back"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zb5-sS-uSh">
                                 <rect key="frame" x="30" y="173" width="368" height="719"/>
@@ -333,7 +334,6 @@
                                                     <rect key="frame" x="8" y="8" width="114" height="114"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ofG-zo-Apc" secondAttribute="height" multiplier="1:1" id="E64-O7-g8w"/>
-                                                        <constraint firstAttribute="height" constant="120" id="Khf-Vq-XdM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(개발분야)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-VP-5oq">
@@ -350,13 +350,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ofG-zo-Apc" secondAttribute="trailing" constant="8" id="13S-wd-I45"/>
                                                 <constraint firstItem="7tT-VP-5oq" firstAttribute="top" secondItem="jR5-D9-Vjo" secondAttribute="bottom" constant="2" id="BX8-Mv-kZ2"/>
                                                 <constraint firstItem="jR5-D9-Vjo" firstAttribute="centerX" secondItem="ofG-zo-Apc" secondAttribute="centerX" id="F8u-gD-MUo"/>
                                                 <constraint firstItem="jR5-D9-Vjo" firstAttribute="centerX" secondItem="7tT-VP-5oq" secondAttribute="centerX" id="gXc-vO-8dk"/>
                                                 <constraint firstItem="ofG-zo-Apc" firstAttribute="top" secondItem="aeG-fd-0q1" secondAttribute="top" constant="8" id="iwD-hf-oXc"/>
                                                 <constraint firstItem="ofG-zo-Apc" firstAttribute="leading" secondItem="aeG-fd-0q1" secondAttribute="leading" constant="8" id="nGY-Eq-1Dh"/>
                                                 <constraint firstItem="jR5-D9-Vjo" firstAttribute="top" secondItem="ofG-zo-Apc" secondAttribute="bottom" constant="10" id="pqh-8i-U5R"/>
-                                                <constraint firstAttribute="trailing" secondItem="ofG-zo-Apc" secondAttribute="trailing" constant="8" id="yKT-Yi-dkp"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="130" height="177"/>
@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSA-Um-GhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="975.56221889055485"/>
+            <point key="canvasLocation" x="1708.8785046728972" y="975.16198704103681"/>
         </scene>
         <!--비밀번호 변경-->
         <scene sceneID="THH-8N-Cdu">
@@ -496,7 +496,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="YMC-GC-hNU"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="back"/>
+                                <state key="normal" image="back"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6u6-zN-MaH"/>
@@ -602,6 +602,9 @@
     <resources>
         <image name="back" width="20" height="12.333333015441895"/>
         <image name="profile" width="109" height="109"/>
+        <namedColor name="TabbarColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

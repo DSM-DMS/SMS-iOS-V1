@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,7 +196,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.96471232179999999" green="0.96469420189999999" blue="0.96470659969999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="EC2-Lt-WXk" firstAttribute="baseline" secondItem="gcO-Xc-hpt" secondAttribute="baseline" id="2gC-ok-i7I"/>
                                 <constraint firstAttribute="trailing" secondItem="hCz-L7-kGx" secondAttribute="trailing" id="2mh-Vv-COX"/>
@@ -233,7 +234,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.96471232179999999" green="0.96469420189999999" blue="0.96470659969999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="9SA-K5-4P7"/>
                                 <constraint firstItem="4Ct-Vb-85u" firstAttribute="top" secondItem="N5e-kp-HU5" secondAttribute="top" id="NGq-V8-Ham"/>
@@ -247,7 +248,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" name="TabbarColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="orr-pD-EAu" secondAttribute="bottom" constant="12.5" id="2vL-et-NDR"/>
                         <constraint firstAttribute="trailing" secondItem="N5e-kp-HU5" secondAttribute="trailing" constant="18" id="5CL-AV-m8X"/>
@@ -670,6 +671,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="TabbarColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

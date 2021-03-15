@@ -10,6 +10,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Toast_Swift
 
 class OutGoingLogViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
@@ -53,50 +54,58 @@ extension OutGoingLogViewController {
             return true
         }.map {
             return $0.outings!
-        }.bind(to: tableView.rx.items(cellIdentifier: OutGoingLogTableViewCell.NibName, cellType: OutGoingLogTableViewCell.self)) { idx, log, cell in
-            let startDateComponent: DateComponents = unix(with: log.start_time)
-            let endDateComponent: DateComponents = unix(with: log.end_time)
+        }.subscribe { model in
+            Observable.of(model)
+                .bind(to: self.tableView.rx.items(cellIdentifier: OutGoingLogTableViewCell.NibName, cellType: OutGoingLogTableViewCell.self)) { idx, log, cell in
+                    let startDateComponent: DateComponents = unix(with: log.start_time)
+                    let endDateComponent: DateComponents = unix(with: log.end_time)
+                    
+                    cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
+                    let zeroForStart = SMS.checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
+                    let zeroForEnd = SMS.checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
+                    
+                    cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
+                    cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
+                    cell.placeLbl.text = log.place
+                    cell.reasonLbl.text = log.reason
+                    
+                    cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
+                    
+                    let timeCheck = self.checking(unix(with: log.end_time))
+                    
+                    switch Int(log.outing_status) {
+                    case -1, -2:
+                        if timeCheck {
+                            self.cellState(cell: cell, text: "승인 거부", color: .customOrange)
+                        } else {
+                            self.cellState(cell: cell, text: "만료", color: .customRed)
+                        }
+                    case 0, 1:
+                        if timeCheck {
+                            self.cellState(cell: cell, text: "승인대기", color: .customYellow)
+                        } else {
+                            self.cellState(cell: cell, text: "만료", color: .customRed)
+                        }
+                    case 2:
+                        if timeCheck {
+                            self.cellState(cell: cell, text: "외출 가능", color: .customGreen)
+                        } else {
+                            self.cellState(cell: cell, text: "만료", color: .customRed)
+                        }
+                    case 3:
+                        self.cellState(cell: cell, text: "외출중", color: .customPurple)
+                    case 4:
+                        self.cellState(cell: cell, text: "선생님 방문 인증 필요", color: .customRed)
+                    case 5:
+                        self.cellState(cell: cell, text: "외출 확인 완료", color: .blue)
+                    default:
+                        self.cellState(cell: cell, text: "에러", color: .customBlack)
+                    }
+                }.disposed(by: self.disposeBag)
             
-            cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
-            let zeroForStart = SMS.checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
-            let zeroForEnd = SMS.checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
-            
-            cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
-            cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
-            cell.placeLbl.text = log.place
-            cell.reasonLbl.text = log.reason
-            
-            cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
-            
-            let timeCheck = self.checking(unix(with: log.end_time))
-            
-            switch Int(log.outing_status) {
-            case -1, -2:
-                if timeCheck {
-                    self.cellState(cell: cell, text: "승인 거부", color: .customOrange)
-                } else {
-                    self.cellState(cell: cell, text: "만료", color: .customRed)
-                }
-            case 0, 1:
-                if timeCheck {
-                    self.cellState(cell: cell, text: "승인대기", color: .customYellow)
-                } else {
-                    self.cellState(cell: cell, text: "만료", color: .customRed)
-                }
-            case 2:
-                if timeCheck {
-                    self.cellState(cell: cell, text: "외출 가능", color: .customGreen)
-                } else {
-                    self.cellState(cell: cell, text: "만료", color: .customRed)
-                }
-            case 3:
-                self.cellState(cell: cell, text: "외출중", color: .customPurple)
-            case 4:
-                self.cellState(cell: cell, text: "선생님 방문 인증 필요", color: .customRed)
-            case 5:
-                self.cellState(cell: cell, text: "외출 확인 완료", color: .blue)
-            default:
-                self.cellState(cell: cell, text: "에러", color: .customBlack)
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
             }
         }.disposed(by: disposeBag)
     }

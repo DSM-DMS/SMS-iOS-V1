@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "OutGoingApplyComplete.png",
+      "filename" : "도현.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "OutGoingApplyComplete@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "OutGoingApplyComplete@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -33,14 +33,19 @@ class OutGoingLocationAlertXib: UIView {
         view.frame = self.bounds
         self.addSubview(view)
         bind()
+        setting()
     }
 }
 
 extension OutGoingLocationAlertXib {
-    func bind() {
+    func setting() {
         tableView.rowHeight = 70
         tableView.register(LocationTableViewCell.self)
-        
+        tableView.backgroundColor = .tabbarColor
+        locationSearchBar.backgroundColor = .tabbarColor
+    }
+    
+    func bind() {
         locationSearchBar.rx.searchButtonClicked
             .map { self.locationSearchBar.text! }
             .filter { txt in

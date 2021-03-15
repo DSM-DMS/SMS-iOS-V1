@@ -633,7 +633,6 @@
 		D6E687BD252DD9E300FA09C1 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				479B7F3125FA3288005AA267 /* EditorJSMock.json */,
 				D696140E25E66E3A00E880D9 /* NotoSansCJKkr-hinted */,
 				D6B8EE8E255CA97200F1F21E /* AppDelegate.swift */,
 				479DB13E2502522E009A8B08 /* Assets.xcassets */,
@@ -756,8 +755,8 @@
 				D6F8C973259C280600DE967A /* OutGoingAlertXib.xib */,
 				D6F8C97C259C958200DE967A /* OutGoingLocationAlertXib.swift */,
 				D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */,
-				D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */,
 				D6915E2225F76189005DDEBC /* OutGoingStartActionAlert.swift */,
+				D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */,
 				D643282F25EF755600AD1461 /* OutGoingEndActionAlertXib.swift */,
 				D643283225EF756700AD1461 /* OutGoingEndActionAlertXib.xib */,
 			);
@@ -847,7 +846,6 @@
 				D6F8C974259C280600DE967A /* OutGoingAlertXib.xib in Resources */,
 				D696141B25E66E3A00E880D9 /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				D6A25CB325F7BB8E006BE0FD /* OutGoing.storyboard in Resources */,
-				479B7F3225FA3288005AA267 /* EditorJSMock.json in Resources */,
 				D696142225E66E3A00E880D9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				D6A25CC225F7D636006BE0FD /* AboutOuting.xib in Resources */,
 				D696141A25E66E3A00E880D9 /* NotoSansMonoCJKkr-Bold.otf in Resources */,

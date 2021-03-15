@@ -81,8 +81,12 @@ extension OutGoingApplyViewController {
             default:
                 self.applyButton.shake()
             }
-        } onError: { _ in
-            self.applyButton.shake()
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            } else {
+                self.applyButton.shake()
+            }
         }.disposed(by: disposeBag)
     }
     
@@ -151,19 +155,18 @@ extension OutGoingApplyViewController {
         
         aboutOuting.addShadow(maskValue: true,
                               offset: CGSize(width: 0, height: 3),
-                              color: .gray,
                               shadowRadius: 6,
                               opacity: 1,
                               cornerRadius: 8)
         
-        locationXib.addShadow(maskValue: true, offset: CGSize(width: 0, height: 3),
-                              color: .gray,
+        locationXib.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
                               shadowRadius: 6,
                               opacity: 1,
                               cornerRadius: 8)
         
-        noticeView.addShadow(maskValue: true, offset: CGSize(width: 0, height: 3),
-                             color: .gray,
+        noticeView.addShadow(maskValue: true,
+                             offset: CGSize(width: 0, height: 3),
                              shadowRadius: 6,
                              opacity: 1,
                              cornerRadius: 8)
