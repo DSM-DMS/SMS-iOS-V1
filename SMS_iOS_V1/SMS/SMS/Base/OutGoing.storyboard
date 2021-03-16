@@ -330,7 +330,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-ey-rH4">
-                                                <rect key="frame" x="0.0" y="27" width="24.666666666666668" height="20"/>
+                                                <rect key="frame" x="0.0" y="27" width="25.666666666666668" height="20"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -567,10 +567,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-gF-452" customClass="OutGoingLocationAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="194" width="348" height="399"/>
+                                <rect key="frame" x="40" y="143.66666666666663" width="348" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="399" id="1hD-dA-Twn"/>
+                                    <constraint firstAttribute="height" constant="500" id="1hD-dA-Twn"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.conerRadius">
@@ -579,10 +579,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUw-x9-tjz" customClass="AboutOuting" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="30" y="213.66666666666663" width="368" height="500"/>
+                                <rect key="frame" x="30" y="263.66666666666669" width="368" height="400.00000000000006"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="VnF-1s-e0A"/>
+                                    <constraint firstAttribute="height" constant="400" id="VnF-1s-e0A"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1746,16 +1746,16 @@
     </scenes>
     <designables>
         <designable name="AZO-6p-aDo">
-            <size key="intrinsicContentSize" width="140" height="32.733593749999997"/>
+            <size key="intrinsicContentSize" width="140" height="36.693593749999998"/>
         </designable>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
+            <size key="intrinsicContentSize" width="336" height="36.693593749999998"/>
         </designable>
         <designable name="H0U-Sj-2Gp">
-            <size key="intrinsicContentSize" width="140" height="32.733593749999997"/>
+            <size key="intrinsicContentSize" width="140" height="36.693593749999998"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
+            <size key="intrinsicContentSize" width="336" height="36.693593749999998"/>
         </designable>
     </designables>
     <resources>

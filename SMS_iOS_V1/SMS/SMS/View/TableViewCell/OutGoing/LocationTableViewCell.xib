@@ -39,7 +39,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqQ-aX-03i">
-                        <rect key="frame" x="70" y="12" width="24.5" height="12"/>
+                        <rect key="frame" x="70" y="12" width="278" height="12"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -62,16 +62,19 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-gh-XBq">
-                        <rect key="frame" x="70" y="43" width="24.5" height="12"/>
+                        <rect key="frame" x="70" y="43" width="278" height="12"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" name="TabbarColor"/>
                 <constraints>
                     <constraint firstItem="5sT-rb-USR" firstAttribute="leading" secondItem="MNG-ng-mli" secondAttribute="leading" constant="20" symbolic="YES" id="0Pa-be-BKZ"/>
                     <constraint firstItem="Wb7-3y-IZh" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="leading" id="14v-cy-AW3"/>
                     <constraint firstItem="I7g-gh-XBq" firstAttribute="leading" secondItem="Wb7-3y-IZh" secondAttribute="trailing" constant="10" id="79V-rL-2uA"/>
+                    <constraint firstAttribute="trailing" secondItem="I7g-gh-XBq" secondAttribute="trailing" constant="10" id="8GZ-Yj-vac"/>
+                    <constraint firstAttribute="trailing" secondItem="uqQ-aX-03i" secondAttribute="trailing" constant="10" id="LCo-zb-xqM"/>
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="centerY" secondItem="5sT-rb-USR" secondAttribute="centerY" id="MHf-Cr-G7Y"/>
                     <constraint firstAttribute="bottom" secondItem="Wb7-3y-IZh" secondAttribute="bottom" constant="14" id="Ogm-8q-GpH"/>
                     <constraint firstItem="I7g-gh-XBq" firstAttribute="centerY" secondItem="Wb7-3y-IZh" secondAttribute="centerY" id="gH4-SW-A8q"/>
@@ -79,7 +82,7 @@
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="trailing" constant="10" id="vg0-12-gOb"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" name="TabbarColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="addressLbl" destination="uqQ-aX-03i" id="Ofd-2e-1pz"/>
                 <outlet property="roadAddressLbl" destination="I7g-gh-XBq" id="44z-7q-tZW"/>
