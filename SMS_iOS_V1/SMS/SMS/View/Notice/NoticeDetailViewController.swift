@@ -91,10 +91,13 @@ extension NoticeDetailViewController {
                 
                 self.nTitle.text = data.title
                 self.nDate.text = globalDateFormatter(.dotDay, unix(with: data.date / 1000))
+                self.pNoticeButton.setTitle(data.next_title, for: .normal)
+                self.nNoticeButton.setTitle(data.previous_title, for: .normal)
                 guard let data = try? data.content.data(using: .utf8) else { return }
                 
                 self.blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
                 rendererCollectionView.reloadData()
+               
             }
             self.pNoticeUUID = data.previous_announcement_uuid
             self.nNoticeUUID = data.next_announcement_uuid
@@ -110,26 +113,25 @@ extension NoticeDetailViewController {
         pNoticeButton.rx.tap
             .bind {
                 UserDefaults.standard.setValue(self.nNoticeUUID, forKey: "announcement_uuid")
-//                self.presenting()
+                self.presenting()
             }.disposed(by: disposeBag)
 
         nNoticeButton.rx.tap
             .bind {
                 UserDefaults.standard.setValue(self.pNoticeUUID, forKey: "announcement_uuid")
-//                self.presenting()
+                self.presenting()
             }.disposed(by: disposeBag)
     }
 }
 
-///
-//extension NoticeDetailViewController: UICollectionViewDataSource {
-//    func presenting() {
-//        let storyboard = UIStoryboard(name: "Notice", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
-//        self.present(vc, animated: true, completion: nil)
-//    }
 
 extension NoticeDetailViewController: UICollectionViewDataSource {
+    
+    func presenting() {
+        let storyboard = UIStoryboard(name: "Notice", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
+        self.present(vc, animated: true, completion: nil)
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
