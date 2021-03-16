@@ -47,8 +47,6 @@ class TabbarViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupStackView()
         setupPageCollectionView()
-        let vc = MypageViewController()
-        vc.delegate = self
         outGoingCoordinator.delegate = self
         noticeCoordinator.delegate = self
         myPageCoordinator.delegate = self
@@ -59,6 +57,8 @@ class TabbarViewController: UIViewController, Storyboarded {
 
 extension TabbarViewController {
     func setupStackView() {
+        let vc = MypageViewController()
+        vc.delegate = self
         self.view.addSubview(stackView)
         stackView.addArrangedSubview(tabbar)
         stackView.axis = .vertical
@@ -75,7 +75,6 @@ extension TabbarViewController {
     }
     
     func setupCustomTabBar(){
-        
         self.view.addSubviews([pageCollectionView])
         tabbar.indicatorViewWidthConstraint.constant = self.view.frame.width / 8
         tabbar.indicatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
@@ -161,8 +160,8 @@ extension TabbarViewController: UICollectionViewDelegateFlowLayout {
 
 extension TabbarViewController: Aaaa {
     func logOutAlertIsHidden(_ value: Bool) {
-        print("123123123123")
-        tabbar.alpha = value ? 1 : 0.3
-        tabbar.backgroundColor = value ? .white : .black
+        print("123123123123123", value) 
+        stackView.alpha = value ? 0.7 : 1
+        tabbar.backgroundColor = value ? .black : .clear
     }
 }

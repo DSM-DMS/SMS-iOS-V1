@@ -7,9 +7,10 @@
 //
 
 import UIKit
+
 import RxSwift
-import KeychainSwift
 import RxCocoa
+import SkyFloatingLabelTextField
 
 class MypageChangePWViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
@@ -18,9 +19,9 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var applyButton: CustomShadowButton!
-    @IBOutlet weak var currentPWTextField: UITextField!
-    @IBOutlet weak var newPWTextField: UITextField!
-    @IBOutlet weak var confirmPWTextField: UITextField!
+    @IBOutlet weak var currentPWTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var newPWTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var confirmPWTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var backButton: UIButton!
     
     

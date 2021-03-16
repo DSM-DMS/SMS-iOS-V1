@@ -43,7 +43,6 @@ class NoticeViewController: UIViewController, Storyboarded {
 
 extension NoticeViewController {
     func UIbind() {
-        
         self.searchButton.isEnabled = false
         
         //                 테스트 코드 입니다.
@@ -84,33 +83,10 @@ extension NoticeViewController {
                 Observable.of(model.announcements ?? [])
                     .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
                         cell.uuid = notice.announcement_uuid
-                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date))
+                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
                         cell.cellNumber.text = "\(notice.number)"
-                        if(notice.title.count >= 18) {
-                            let titleArr = Array(notice.title)
-                            var noticeTitle = ""
-                            for i in 0..<16 {
-                                noticeTitle.append(titleArr[i])
-                            }
-                            noticeTitle.append("...")
-                            cell.cellTitle.text = noticeTitle
-                        } else {
-                            cell.cellTitle.text = notice.title
-                        }
-                        
+                        cell.cellTitle.text = notice.title
                         cell.cellViews.text = "\(notice.views)"
-                        
-                        //                                        self.noticeSearchBar.rx.text.orEmpty
-                        //                                            .debounce(RxTimeInterval.milliseconds(5), scheduler: MainScheduler.instance)
-                        //                                            .distinctUntilChanged()
-                        //                                            .subscribe(onNext: { t in
-                        //                                                if(notice.title.hasPrefix(t)) {
-                        //
-                        //                                                } else {
-                        //                                                    cell.isHidden = true
-                        //                                                }
-                        //
-                        //                                            }).disposed(by: self.disposeBag)
                     }.disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
@@ -163,7 +139,4 @@ extension NoticeViewController {
         
         
     }
-    
-    
-    
 }

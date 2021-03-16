@@ -61,7 +61,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Dz-pNz" customClass="CustomShadowView" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Dz-pNz" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="511" width="388" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS 개발에 참여한 개발자들을 소개합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-4u-6md">
@@ -304,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발자 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTB-uC-lai">
-                                <rect key="frame" x="44" y="107" width="96" height="26"/>
+                                <rect key="frame" x="66" y="62" width="96" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -314,7 +314,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zb5-sS-uSh">
-                                <rect key="frame" x="30" y="173" width="368" height="719"/>
+                                <rect key="frame" x="30" y="128" width="368" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ly7-vX-rgI">
                                     <size key="itemSize" width="130" height="177"/>
@@ -374,11 +374,11 @@
                         <constraints>
                             <constraint firstItem="5i2-MW-nnw" firstAttribute="bottom" secondItem="zb5-sS-uSh" secondAttribute="bottom" id="7Fr-OU-a8Q"/>
                             <constraint firstItem="Bf1-zS-8da" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="16" id="AXV-5R-Ngh"/>
-                            <constraint firstItem="uTB-uC-lai" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="44" id="B96-d3-32c"/>
                             <constraint firstItem="zb5-sS-uSh" firstAttribute="top" secondItem="uTB-uC-lai" secondAttribute="bottom" constant="40" id="C4z-WX-G5e"/>
                             <constraint firstItem="zb5-sS-uSh" firstAttribute="centerX" secondItem="5i2-MW-nnw" secondAttribute="centerX" id="IIl-4Y-wm7"/>
                             <constraint firstItem="Bf1-zS-8da" firstAttribute="top" secondItem="5i2-MW-nnw" secondAttribute="top" constant="20" id="VJA-43-8tQ"/>
-                            <constraint firstItem="uTB-uC-lai" firstAttribute="top" secondItem="Bf1-zS-8da" secondAttribute="bottom" constant="21" id="Vyo-FT-iEF"/>
+                            <constraint firstItem="uTB-uC-lai" firstAttribute="leading" secondItem="Bf1-zS-8da" secondAttribute="trailing" constant="30" id="ZEl-lB-hJP"/>
+                            <constraint firstItem="uTB-uC-lai" firstAttribute="centerY" secondItem="Bf1-zS-8da" secondAttribute="centerY" id="yvR-bi-CGQ"/>
                             <constraint firstItem="zb5-sS-uSh" firstAttribute="leading" secondItem="5i2-MW-nnw" secondAttribute="leading" constant="30" id="znW-oj-IdC"/>
                         </constraints>
                     </view>
@@ -408,74 +408,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-za-sNP">
-                                <rect key="frame" x="46" y="194" width="77" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fw-8w-kVe">
-                                <rect key="frame" x="46" y="242" width="336" height="1"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="5QL-lO-1BG"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lu0-uv-X6l">
-                                <rect key="frame" x="46" y="221" width="283" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="MME-xS-xcT"/>
-                                    <constraint firstAttribute="width" constant="283" id="SEj-Tp-8tL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-GZ-F7M">
-                                <rect key="frame" x="46" y="278" width="65" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gpn-2d-0K5">
-                                <rect key="frame" x="46" y="326" width="336" height="1"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="KXH-jJ-lto"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="변경할 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-8s-kos">
-                                <rect key="frame" x="46" y="305" width="283" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Nhw-vK-Osj"/>
-                                    <constraint firstAttribute="width" constant="283" id="lA7-WT-EI7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-GX-Yy8">
-                                <rect key="frame" x="46" y="362" width="77" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oi1-Uj-1pL">
-                                <rect key="frame" x="46" y="410" width="336" height="1"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="sQp-dp-Nvj"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="변경할 비밀번호를 한번 더 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-BJ-lxN">
-                                <rect key="frame" x="46" y="389" width="283" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="283" id="NAW-Oc-aTX"/>
-                                    <constraint firstAttribute="height" constant="20" id="hnk-Dl-5aq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-8g-TTa" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="491" width="348" height="40"/>
+                                <rect key="frame" x="40" y="720" width="348" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ced-pZ-CyR"/>
@@ -498,83 +432,125 @@
                                 </constraints>
                                 <state key="normal" image="back"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTL-NC-beY">
+                                <rect key="frame" x="46" y="212" width="336" height="60.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-za-sNP">
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2PA-oa-4Or" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="22.999999999999996" width="336" height="37.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" systemColor="labelColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="2PA-oa-4Or" firstAttribute="top" secondItem="4jo-za-sNP" secondAttribute="bottom" constant="6" id="Ckm-Iu-AiD"/>
+                                    <constraint firstItem="4jo-za-sNP" firstAttribute="leading" secondItem="UTL-NC-beY" secondAttribute="leading" id="G45-PR-Yks"/>
+                                    <constraint firstItem="4jo-za-sNP" firstAttribute="top" secondItem="UTL-NC-beY" secondAttribute="top" id="I3d-UA-gaj"/>
+                                    <constraint firstAttribute="bottom" secondItem="2PA-oa-4Or" secondAttribute="bottom" id="M9V-9A-Tj7"/>
+                                    <constraint firstAttribute="trailing" secondItem="2PA-oa-4Or" secondAttribute="trailing" id="sXE-Sb-d1K"/>
+                                    <constraint firstItem="2PA-oa-4Or" firstAttribute="leading" secondItem="UTL-NC-beY" secondAttribute="leading" id="wOi-1C-NtR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27Y-46-Rhy">
+                                <rect key="frame" x="46" y="308.66666666666669" width="336" height="60.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-YA-h0b">
+                                        <rect key="frame" x="0.0" y="0.0" width="64.333333333333329" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWH-9x-AiK" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="23.000000000000004" width="336" height="37.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" systemColor="labelColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zWH-9x-AiK" firstAttribute="top" secondItem="1OW-YA-h0b" secondAttribute="bottom" constant="6" id="4F9-4o-M2B"/>
+                                    <constraint firstItem="1OW-YA-h0b" firstAttribute="leading" secondItem="27Y-46-Rhy" secondAttribute="leading" id="EdN-nv-ayg"/>
+                                    <constraint firstItem="1OW-YA-h0b" firstAttribute="top" secondItem="27Y-46-Rhy" secondAttribute="top" id="MJX-ta-H9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="zWH-9x-AiK" secondAttribute="trailing" id="ciR-d9-xCr"/>
+                                    <constraint firstAttribute="bottom" secondItem="zWH-9x-AiK" secondAttribute="bottom" id="dcR-hq-w4o"/>
+                                    <constraint firstItem="zWH-9x-AiK" firstAttribute="leading" secondItem="27Y-46-Rhy" secondAttribute="leading" id="dds-7d-Nf8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-QI-BMx">
+                                <rect key="frame" x="46" y="405" width="336" height="60.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnN-Vv-J02">
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgo-dn-GLl" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="22.999999999999996" width="336" height="37.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" systemColor="labelColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vnN-Vv-J02" firstAttribute="leading" secondItem="XzF-QI-BMx" secondAttribute="leading" id="Rg8-Pu-UPU"/>
+                                    <constraint firstAttribute="bottom" secondItem="zgo-dn-GLl" secondAttribute="bottom" id="bOP-vN-2e6"/>
+                                    <constraint firstItem="zgo-dn-GLl" firstAttribute="top" secondItem="vnN-Vv-J02" secondAttribute="bottom" constant="6" id="eMW-Z6-Cgz"/>
+                                    <constraint firstAttribute="trailing" secondItem="zgo-dn-GLl" secondAttribute="trailing" id="fVE-kq-uXA"/>
+                                    <constraint firstItem="vnN-Vv-J02" firstAttribute="top" secondItem="XzF-QI-BMx" secondAttribute="top" id="o8l-O0-rMm"/>
+                                    <constraint firstItem="zgo-dn-GLl" firstAttribute="leading" secondItem="XzF-QI-BMx" secondAttribute="leading" id="sBC-M2-VHn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6u6-zN-MaH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CWd-GZ-F7M" firstAttribute="top" secondItem="7Fw-8w-kVe" secondAttribute="bottom" constant="35" id="2Wd-VP-WAI" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="70"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="45"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="4jo-za-sNP" firstAttribute="leading" secondItem="lu0-uv-X6l" secondAttribute="leading" id="5hK-vG-Kjf"/>
-                            <constraint firstItem="QJy-BJ-lxN" firstAttribute="leading" secondItem="lKb-GX-Yy8" secondAttribute="leading" id="8PK-3b-jYC"/>
-                            <constraint firstItem="Gpn-2d-0K5" firstAttribute="top" secondItem="xjd-8s-kos" secondAttribute="bottom" constant="1" id="BBM-30-3Ub"/>
+                            <constraint firstItem="UTL-NC-beY" firstAttribute="top" secondItem="bys-RI-6HI" secondAttribute="bottom" constant="66" id="9mK-Wy-096"/>
+                            <constraint firstItem="XzF-QI-BMx" firstAttribute="centerX" secondItem="6u6-zN-MaH" secondAttribute="centerX" id="Bjv-27-Fxw"/>
                             <constraint firstItem="bys-RI-6HI" firstAttribute="top" secondItem="QUL-64-rPY" secondAttribute="bottom" constant="34" id="D33-of-Jao"/>
-                            <constraint firstItem="xjd-8s-kos" firstAttribute="top" secondItem="CWd-GZ-F7M" secondAttribute="bottom" constant="10" id="EeH-zZ-0Tl"/>
                             <constraint firstItem="bys-RI-6HI" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="Ex6-p1-6Mf"/>
-                            <constraint firstItem="Phm-8g-TTa" firstAttribute="top" secondItem="oi1-Uj-1pL" secondAttribute="bottom" constant="80" id="GrJ-4Q-whX" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
-                                        <real key="value" value="80"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="130"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="120"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="Phm-8g-TTa" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="40" id="J2K-Cs-198"/>
                             <constraint firstItem="QUL-64-rPY" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="16" id="Kp0-Gw-QB1"/>
-                            <constraint firstItem="CWd-GZ-F7M" firstAttribute="leading" secondItem="4jo-za-sNP" secondAttribute="leading" id="OgC-iI-XmZ"/>
-                            <constraint firstItem="lu0-uv-X6l" firstAttribute="top" secondItem="4jo-za-sNP" secondAttribute="bottom" constant="10" id="On3-E5-4E2"/>
-                            <constraint firstItem="lKb-GX-Yy8" firstAttribute="top" secondItem="Gpn-2d-0K5" secondAttribute="bottom" constant="35" id="OnD-6Z-O6g" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="70"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="45"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="UTL-NC-beY" firstAttribute="centerX" secondItem="6u6-zN-MaH" secondAttribute="centerX" id="OOK-oP-EYP"/>
                             <constraint firstItem="QUL-64-rPY" firstAttribute="top" secondItem="6u6-zN-MaH" secondAttribute="top" constant="20" id="PiH-Ih-6lK"/>
-                            <constraint firstItem="6u6-zN-MaH" firstAttribute="trailing" secondItem="oi1-Uj-1pL" secondAttribute="trailing" constant="46" id="RU6-6B-FRm"/>
-                            <constraint firstItem="7Fw-8w-kVe" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="TiO-DG-uqy"/>
-                            <constraint firstItem="xjd-8s-kos" firstAttribute="leading" secondItem="CWd-GZ-F7M" secondAttribute="leading" id="USQ-rB-QRf"/>
-                            <constraint firstItem="6u6-zN-MaH" firstAttribute="trailing" secondItem="Gpn-2d-0K5" secondAttribute="trailing" constant="46" id="YV6-p0-hee"/>
-                            <constraint firstItem="oi1-Uj-1pL" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="bhP-RW-9Xz"/>
-                            <constraint firstItem="4jo-za-sNP" firstAttribute="leading" secondItem="bys-RI-6HI" secondAttribute="leading" id="dy2-Ms-i7U"/>
-                            <constraint firstItem="7Fw-8w-kVe" firstAttribute="top" secondItem="lu0-uv-X6l" secondAttribute="bottom" constant="1" id="hAT-LJ-iLP"/>
-                            <constraint firstItem="QJy-BJ-lxN" firstAttribute="top" secondItem="lKb-GX-Yy8" secondAttribute="bottom" constant="10" id="jSU-4I-iHk"/>
-                            <constraint firstItem="4jo-za-sNP" firstAttribute="top" secondItem="bys-RI-6HI" secondAttribute="bottom" constant="48" id="mzk-Mk-MLv"/>
-                            <constraint firstItem="6u6-zN-MaH" firstAttribute="trailing" secondItem="7Fw-8w-kVe" secondAttribute="trailing" constant="46" id="qIE-XL-SfR"/>
+                            <constraint firstItem="27Y-46-Rhy" firstAttribute="top" secondItem="UTL-NC-beY" secondAttribute="bottom" constant="36" id="PnH-Ev-GTk"/>
+                            <constraint firstItem="XzF-QI-BMx" firstAttribute="leading" secondItem="27Y-46-Rhy" secondAttribute="leading" id="Ygg-LS-ywt"/>
+                            <constraint firstItem="6u6-zN-MaH" firstAttribute="bottom" secondItem="Phm-8g-TTa" secondAttribute="bottom" constant="132" id="cSo-xa-f7A"/>
+                            <constraint firstItem="27Y-46-Rhy" firstAttribute="leading" secondItem="UTL-NC-beY" secondAttribute="leading" id="gEo-nv-abe"/>
+                            <constraint firstItem="UTL-NC-beY" firstAttribute="leading" secondItem="bys-RI-6HI" secondAttribute="leading" id="gwZ-GA-hJC"/>
+                            <constraint firstItem="27Y-46-Rhy" firstAttribute="centerX" secondItem="6u6-zN-MaH" secondAttribute="centerX" id="l53-z1-XkK"/>
+                            <constraint firstItem="XzF-QI-BMx" firstAttribute="top" secondItem="27Y-46-Rhy" secondAttribute="bottom" constant="36" id="mmP-DL-Wtp"/>
                             <constraint firstItem="6u6-zN-MaH" firstAttribute="trailing" secondItem="Phm-8g-TTa" secondAttribute="trailing" constant="40" id="r3X-hL-xEz"/>
-                            <constraint firstItem="Gpn-2d-0K5" firstAttribute="leading" secondItem="6u6-zN-MaH" secondAttribute="leading" constant="46" id="sRA-oA-4tP"/>
-                            <constraint firstItem="oi1-Uj-1pL" firstAttribute="top" secondItem="QJy-BJ-lxN" secondAttribute="bottom" constant="1" id="uMd-ni-H4T"/>
-                            <constraint firstItem="lKb-GX-Yy8" firstAttribute="leading" secondItem="CWd-GZ-F7M" secondAttribute="leading" id="va0-iF-aph"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="비밀번호 변경" id="TZm-mf-uHO">
@@ -589,22 +565,36 @@
                     <connections>
                         <outlet property="applyButton" destination="Phm-8g-TTa" id="eQn-qr-Clf"/>
                         <outlet property="backButton" destination="QUL-64-rPY" id="2Q5-Wj-0hT"/>
-                        <outlet property="confirmPWTextField" destination="QJy-BJ-lxN" id="17K-Hk-vsD"/>
-                        <outlet property="currentPWTextField" destination="lu0-uv-X6l" id="ICG-7U-2rG"/>
-                        <outlet property="newPWTextField" destination="xjd-8s-kos" id="lFp-Ny-ctU"/>
+                        <outlet property="confirmPWTextField" destination="zgo-dn-GLl" id="Jgq-iG-0sc"/>
+                        <outlet property="currentPWTextField" destination="2PA-oa-4Or" id="Jys-eP-0tu"/>
+                        <outlet property="newPWTextField" destination="zWH-9x-AiK" id="ZfJ-R8-4YW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C37-S4-uXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="148.87556221889056"/>
+            <point key="canvasLocation" x="1708.8785046728972" y="148.38012958963284"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2PA-oa-4Or">
+            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
+        </designable>
+        <designable name="zWH-9x-AiK">
+            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
+        </designable>
+        <designable name="zgo-dn-GLl">
+            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
+        </designable>
+    </designables>
     <resources>
         <image name="back" width="20" height="12.333333015441895"/>
         <image name="profile" width="109" height="109"/>
         <namedColor name="TabbarColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

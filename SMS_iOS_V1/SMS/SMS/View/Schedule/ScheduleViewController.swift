@@ -138,7 +138,7 @@ extension ScheduleViewController {
         }.subscribe(onNext: { schedules in
             self.schedules = schedules.schedules
             self.calendarView.collectionView.reloadData {
-                self.calendarView.select(Date() + 32400, scrollToDate: false)
+                self.calendarView.select(Date(), scrollToDate: false)
             }
         }, onError: { (error) in
             if error as? StatusCode == StatusCode.internalServerError {
@@ -155,9 +155,11 @@ extension ScheduleViewController {
         previousBtn.layer.zPosition = 1
         self.view.addSubviews([previousBtn, nextBtn])
         calendarView.placeholderType = .none
+        calendarView.appearance.todaySelectionColor = .tabbarColor
         calendarView.appearance.selectionColor = .tabbarColor
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
         calendarView.appearance.titleSelectionColor = UIColor.black
+        calendarView.appearance.borderRadius = 0.2
         calendarView.appearance.headerDateFormat = formType.month.rawValue
         calendarView.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
         calendarView.register(DayCell.self, forCellReuseIdentifier: DayCell.NibName)
@@ -275,6 +277,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
                 handleEvent(cell, schedules![ascEvent()[i]].uuid, date + 32400, schedules![ascEvent()[i]].detail, detailDate)
             }
             cell.contentView.layer.shadowOpacity = 0
+            cell.contentView.backgroundColor = UIColor.clear
         }
         return cell
     }
@@ -362,27 +365,16 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.dateForTable.accept(date)
         let cell = calendar.cell(for: date, at: monthPosition) as! DayCell
-        
-        cell.contentView.backgroundColor = .tabbarColor
-        
-        let layer = cell.contentView.layer
-        layer.backgroundColor = UIColor.tabbarColor.cgColor
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.35
-        layer.shadowOffset = CGSize(width: 2, height: 2)
-        layer.cornerRadius = cell.frame.width / 10
-        layer.shadowColor = UIColor.shadowColor.cgColor
-        
         cell.selectedDate(.selected)
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let cell = calendar.cell(for: date, at: monthPosition)
-        //            as! DayCell
-        //        cell.selectedDate(.normal)
-        //        for i in cell.cellContinuedState.indices {
-        //            cell.selectedDate(.continued, cell.cellContinuedState[i])
-        //        }
-        //        cell.contentView.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0)
+        let cell = calendar.cell(for: date, at: monthPosition) as? DayCell
+        cell?.selectedDate(.normal)
+        let a = cell?.cellContinuedState.count ?? 0
+        for i in 0..<a {
+            cell?.selectedDate(.continued, cell?.cellContinuedState[i])
+        }
+        cell?.contentView.backgroundColor = UIColor.clear
     }
 }

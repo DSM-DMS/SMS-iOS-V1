@@ -64,7 +64,7 @@ extension CheckCertificationNumberViewController {
             if error as? StatusCode == StatusCode.internalServerError {
                 self.view.makeToast("인터넷 연결 실패")
             }
-        }
+        }.disposed(by: disposeBag)
     }
     
     func bindAction() {

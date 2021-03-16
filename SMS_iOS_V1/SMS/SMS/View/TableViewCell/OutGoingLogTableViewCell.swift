@@ -14,6 +14,7 @@ import RxCocoa
 class OutGoingLogTableViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
+    @IBOutlet var lateView: UIView!
     @IBOutlet weak var statusColorView: UIView!
     @IBOutlet weak var endTimeLbl: UILabel!
     @IBOutlet weak var startTimeLbl: UILabel!
@@ -25,15 +26,24 @@ class OutGoingLogTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setting()
+       
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    func setting() {
+        self.lateView.layer.cornerRadius = 10
+        self.lateView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        
+        reasonLbl.layer.zPosition = 1
         
         self.addShadow(maskValue: true,
                        offset: CGSize(width: 0, height: 2),
                        shadowRadius: 2,
                        opacity: 0.7,
                        cornerRadius: 10)
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }
