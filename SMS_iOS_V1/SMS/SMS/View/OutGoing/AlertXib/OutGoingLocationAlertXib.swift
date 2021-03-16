@@ -39,10 +39,10 @@ class OutGoingLocationAlertXib: UIView {
 
 extension OutGoingLocationAlertXib {
     func setting() {
+        locationSearchBar.barTintColor = .tabbarColor
+        tableView.backgroundColor = .tabbarColor
         tableView.rowHeight = 70
         tableView.register(LocationTableViewCell.self)
-        tableView.backgroundColor = .tabbarColor
-        locationSearchBar.backgroundColor = .tabbarColor
     }
     
     func bind() {

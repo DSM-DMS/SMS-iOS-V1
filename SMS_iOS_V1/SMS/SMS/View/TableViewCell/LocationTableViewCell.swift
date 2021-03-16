@@ -14,6 +14,7 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = .tabbarColor
         // Initialization code
     }
 

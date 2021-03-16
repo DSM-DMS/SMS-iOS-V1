@@ -148,6 +148,7 @@ extension SMSAPI {
                 "Request-Security": securityKey
             ]
         case .postOuting,
+             .pwChange,
              .location:
             return [
                 "Authorization" : "Bearer " + token,

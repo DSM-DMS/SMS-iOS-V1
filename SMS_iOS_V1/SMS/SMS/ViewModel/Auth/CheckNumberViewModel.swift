@@ -26,6 +26,7 @@ class CheckNumberViewModel: ViewModelType {
         
         let model = input.checkDrvier.asObservable()
             .withLatestFrom(numberTextField)
+            .debounce(.seconds(2), scheduler: MainScheduler.instance)
             .flatMap { number -> Observable<CertificationNumberModel> in
                 SMSAPIClient.shared.networking(from: .certificationNumber(number))
             }

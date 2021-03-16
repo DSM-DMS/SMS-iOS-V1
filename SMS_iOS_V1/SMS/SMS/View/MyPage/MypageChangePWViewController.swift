@@ -24,7 +24,6 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     @IBOutlet weak var confirmPWTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var backButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
