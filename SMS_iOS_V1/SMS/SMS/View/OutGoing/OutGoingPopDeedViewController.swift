@@ -145,7 +145,9 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
                     let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard(uuid))
                     cardModel.bind { cardData in
                         if cardData.status == 200 {
-                            self.setting(cardData)
+                            if Date() == unix(with: cardData.start_time!) {
+                                self.setting(cardData)
+                            }
                         } else {
                             self.isViewHidden(true)
                         }
@@ -168,7 +170,7 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
                 return true
             }
             .subscribe(onNext: { cardData in
-                if cardData.status == 200 {
+                if Date() == unix(with: cardData.start_time!) {
                     self.setting(cardData)
                 } else  {
                     self.isViewHidden(true)

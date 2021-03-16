@@ -38,6 +38,11 @@ class RegisterViewController: UIViewController, Storyboarded {
         setting()
         bind()
         bindAction()
+        registerForKeyboardNotification()
+    }
+    
+    deinit {
+        removeRegisterForKeyboardNotification()
     }
 }
 
@@ -139,5 +144,43 @@ extension RegisterViewController {
         completeAlertView.isHidden = value
         usingIDAlertView.isHidden = value
         backgroundView.isHidden = value
+    }
+}
+
+extension RegisterViewController {
+    func registerForKeyboardNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeRegisterForKeyboardNotification(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardHide(_ notification: Notification){
+        self.view.transform = .identity
+    }
+    
+    @objc func keyBoardShow(notification: NSNotification){
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        if idTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: idTextField)
+        }
+        else if pwTextField.isEditing == true{
+            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: pwTextField)
+        }
+    }
+    
+    func keyboardAnimate(keyboardRectangle: CGRect ,textField: UITextField){
+        print(textField.frame.maxY)
+        print(self.view.frame.height)
+        print(keyboardRectangle.height)
+        print(self.view.frame.height - keyboardRectangle.height)
+        if textField.frame.maxY > (self.view.frame.height - (keyboardRectangle.height + 200)) {
+            self.view.transform = CGAffineTransform(translationX: 0, y: -40)
+        }
     }
 }
