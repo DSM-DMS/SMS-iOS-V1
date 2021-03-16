@@ -23,6 +23,7 @@
 		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
 		479B7F5825FE5FFF005AA267 /* NoticeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479B7F5725FE5FFE005AA267 /* NoticeSearchViewController.swift */; };
 		479B7F5B25FE62B1005AA267 /* NoticeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479B7F5A25FE62B1005AA267 /* NoticeSearchTableViewCell.swift */; };
+		479B80762600C645005AA267 /* EditorJSMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 479B80752600C645005AA267 /* EditorJSMock.json */; };
 		479DB13F2502522E009A8B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 479DB13E2502522E009A8B08 /* Assets.xcassets */; };
 		47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA5083257F40640003F87D /* CustomeShadowView.swift */; };
 		47AA508E257F407F0003F87D /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA508B257F407F0003F87D /* SMSAPI.swift */; };
@@ -151,6 +152,7 @@
 		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
 		479B7F5725FE5FFE005AA267 /* NoticeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewController.swift; sourceTree = "<group>"; };
 		479B7F5A25FE62B1005AA267 /* NoticeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchTableViewCell.swift; sourceTree = "<group>"; };
+		479B80752600C645005AA267 /* EditorJSMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = EditorJSMock.json; path = ../View/Notice/EditorJSMock.json; sourceTree = "<group>"; };
 		479DB1322502522C009A8B08 /* SMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		479DB13E2502522E009A8B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		479DB1432502522E009A8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 		D6E687BD252DD9E300FA09C1 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				479B80752600C645005AA267 /* EditorJSMock.json */,
 				D696140E25E66E3A00E880D9 /* NotoSansCJKkr-hinted */,
 				D6B8EE8E255CA97200F1F21E /* AppDelegate.swift */,
 				479DB13E2502522E009A8B08 /* Assets.xcassets */,
@@ -816,6 +819,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479B80762600C645005AA267 /* EditorJSMock.json in Resources */,
 				D696141F25E66E3A00E880D9 /* README in Resources */,
 				D696142025E66E3A00E880D9 /* NotoSansCJKkr-Light.otf in Resources */,
 				D696144925E80EE500E880D9 /* RegisterCompleteAlertXib.xib in Resources */,
