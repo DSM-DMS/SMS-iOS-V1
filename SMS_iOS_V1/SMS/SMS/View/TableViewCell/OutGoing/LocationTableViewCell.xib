@@ -68,7 +68,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" name="TabbarColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="5sT-rb-USR" firstAttribute="leading" secondItem="MNG-ng-mli" secondAttribute="leading" constant="20" symbolic="YES" id="0Pa-be-BKZ"/>
                     <constraint firstItem="Wb7-3y-IZh" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="leading" id="14v-cy-AW3"/>
@@ -82,7 +82,7 @@
                     <constraint firstItem="uqQ-aX-03i" firstAttribute="leading" secondItem="5sT-rb-USR" secondAttribute="trailing" constant="10" id="vg0-12-gOb"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="TabbarColor"/>
             <connections>
                 <outlet property="addressLbl" destination="uqQ-aX-03i" id="Ofd-2e-1pz"/>
                 <outlet property="roadAddressLbl" destination="I7g-gh-XBq" id="44z-7q-tZW"/>

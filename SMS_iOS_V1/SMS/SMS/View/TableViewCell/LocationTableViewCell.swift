@@ -14,13 +14,11 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .tabbarColor
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.contentView.backgroundColor = backgroundColorForDarkMode()
-        
+        self.contentView.backgroundColor = .tabbarColor
     }
 }
