@@ -97,6 +97,7 @@ extension NoticeViewController {
         noticeTableView.rx.itemSelected.bind { indexpath in
             let cell = self.noticeTableView.cellForRow(at: indexpath) as! NoticeTableViewCell
             UserDefaults.standard.setValue(cell.uuid!, forKey: "announcement_uuid")
+            cell.cellTitle.font = .boldSystemFont(ofSize: 11)
             
             self.detailViewModel.NoticeDetailData
                 .bind { data in
