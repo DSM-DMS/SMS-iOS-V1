@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,20 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smsLunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="CUg-bw-VXn">
-                                <rect key="frame" x="139" y="300" width="116" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMSLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="CUg-bw-VXn">
+                                <rect key="frame" x="102" y="245" width="171" height="177"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="JaZ-oo-Un2"/>
-                                    <constraint firstAttribute="width" constant="116" id="UX4-HJ-RPF"/>
+                                    <constraint firstAttribute="height" constant="177" id="DfF-7U-ePY"/>
+                                    <constraint firstAttribute="width" constant="171" id="Lme-HS-aYD"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CUg-bw-VXn" secondAttribute="trailing" constant="120" id="9Iz-QU-vOM"/>
-                            <constraint firstItem="CUg-bw-VXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="d8U-ro-zdh"/>
-                            <constraint firstItem="CUg-bw-VXn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="pxA-2M-44R"/>
+                            <constraint firstItem="CUg-bw-VXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="4EP-YK-YXh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CUg-bw-VXn" secondAttribute="trailing" constant="102" id="Fhj-xa-ASH"/>
+                            <constraint firstItem="CUg-bw-VXn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="245" id="QhP-Aa-ay2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CUg-bw-VXn" secondAttribute="bottom" constant="245" id="y7b-ot-5DY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="smsLunchImage" width="95" height="82"/>
+        <image name="SMSLOGO" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
