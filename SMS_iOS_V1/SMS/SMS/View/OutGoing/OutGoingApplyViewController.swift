@@ -19,13 +19,13 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     let bool: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
     weak var coordinator: OutGoingCoordinator?
     
+    @IBOutlet weak var startDatePicker: UIDatePicker!
+    @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var aboutOuting: AboutOuting!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var popVCBtn: UIButton!
     @IBOutlet weak var diseaseBtn: UIButton!
     @IBOutlet weak var placeTextField: UITextField!
-    @IBOutlet weak var startTimeTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var endTimeTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var outReasonTextField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var noticeView: OutGoingAlertXib!
@@ -38,19 +38,16 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
         bindAction()
         bind()
         setting()
-        registerForKeyboardNotification()
-    }
-    
-    deinit {
-        removeRegisterForKeyboardNotification()
     }
 }
 
 extension OutGoingApplyViewController {
     private func bind() {
+        
+        
         let input = OutGoingApplyViewModel.Input(reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
-                                                 startTimeDriver: startTimeTextField.rx.text.orEmpty.asDriver(),
-                                                 endTimeDriver: endTimeTextField.rx.text.orEmpty.asDriver(),
+                                                 startTimeDriver: startDatePicker.rx.date.asDriver(),
+                                                 endTimeDriver: endDatePicker.rx.date.asDriver(),
                                                  placeDriver: self.placeTextField.rx.observe(String.self, "text"),
                                                  applyDriver: aboutOuting.checkBtn.rx.tap.asDriver(),
                                                  diseaseIs: bool)
@@ -59,7 +56,7 @@ extension OutGoingApplyViewController {
         
         let isValid = viewModel.isValid(input)
         
-        isValid.bind { b in self.applyButton.alpha = b ? 1 :  0.3}.disposed(by: disposeBag)
+        isValid.bind { b in self.applyButton.alpha = b ? 1 :  0.3 }.disposed(by: disposeBag)
         isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
         
         output.response.subscribe { model in
@@ -171,30 +168,6 @@ extension OutGoingApplyViewController {
                              opacity: 1,
                              cornerRadius: 8)
     }
-}
-
-extension OutGoingApplyViewController {
-    @objc func startTime() {
-        if let datePicker = startTimeTextField.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.timeStyle = .short
-            startTimeTextField.text = "시작시간 " + dateformatter.string(from: datePicker.date)
-        }
-        startTimeTextField.resignFirstResponder()
-    }
-    
-    @objc func endTime() {
-        if let datePicker = endTimeTextField.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.timeStyle = .short
-            //            datePicker.maximumDate =
-            //            a.hour = 20
-            //            a.minute = 30
-            //            datePicker.maximumDate = Calendar.current.date(from: a)
-            endTimeTextField.text = "도착시간 " + dateformatter.string(from: datePicker.date)
-        }
-        endTimeTextField.resignFirstResponder()
-    }
     
     func hiddenView(_ value: Bool, _ view: UIView? = nil) {
         aboutOuting.isHidden = value
@@ -204,17 +177,6 @@ extension OutGoingApplyViewController {
         if let hiddeView = view {
             hiddeView.isHidden = true
         }
-    }
-    
-    func getMaxMinDate(_ minHour: Int = 0, _ minMinute: Int? = 0, _ maxHour: Int = 0, _ maxMinute: Int? = 0) -> (Date, Date) {
-        var dateComponent = Calendar.current.dateComponents([.hour, .minute], from: Date())
-        dateComponent.hour = minHour
-        dateComponent.minute = minMinute
-        let minDate = Calendar.current.date(from: dateComponent)!
-        dateComponent.hour = maxHour
-        dateComponent.minute = maxMinute
-        let maxDate = Calendar.current.date(from: dateComponent)!
-        return (minDate, maxDate)
     }
 }
 
@@ -226,47 +188,5 @@ extension OutGoingApplyViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    @objc func keyBoardShow(notification: NSNotification){
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        if placeTextField.isEditing == true{
-            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: placeTextField)
-        }
-        else if startTimeTextField.isEditing == true{
-            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: startTimeTextField)
-        }
-        else if endTimeTextField.isEditing == true{
-            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: endTimeTextField)
-        }
-        else if outReasonTextField.isEditing == true{
-            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: outReasonTextField)
-        }
-    }
-    
-    func registerForKeyboardNotification(){
-        startTimeTextField.textAlignment = .center
-        endTimeTextField.textAlignment = .center
-        self.startTimeTextField.setInputViewDatePicker(target: self, selector: #selector(startTime), mode: .time)
-        self.endTimeTextField.setInputViewDatePicker(target: self, selector: #selector(endTime), mode: .time)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    func removeRegisterForKeyboardNotification(){
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardHide(_ notification: Notification){
-        self.view.transform = .identity
-    }
-    
-    func keyboardAnimate(keyboardRectangle: CGRect ,textField: UITextField){
-        if keyboardRectangle.height > (self.view.frame.height - textField.frame.maxY){
-            self.view.transform = CGAffineTransform(translationX: 0, y: (self.view.frame.height - keyboardRectangle.height - textField.frame.maxY))
-        }
     }
 }

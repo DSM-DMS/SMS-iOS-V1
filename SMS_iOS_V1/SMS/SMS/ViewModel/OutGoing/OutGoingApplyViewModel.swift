@@ -14,8 +14,8 @@ import RxSwift
 class OutGoingApplyViewModel: ViewModelType {
     struct Input {
         let reasonDriver: Driver<String>
-        let startTimeDriver: Driver<String>
-        let endTimeDriver:Driver<String>
+        let startTimeDriver: Driver<Date>
+        let endTimeDriver:Driver<Date>
         let placeDriver: Observable<String?>
         let applyDriver: Driver<Void>
         let diseaseIs: BehaviorRelay<Bool>
@@ -35,12 +35,16 @@ class OutGoingApplyViewModel: ViewModelType {
             ))
             .filter {
                 let place = $0.2 ?? ""
-                return (!$0.0.isEmpty && !$0.1.isEmpty && !place.isEmpty && !$0.3.isEmpty)
+                return (!place.isEmpty && !$0.3.isEmpty)
+            }.filter {
+                let start = datecommponent($0.0)
+                let end = datecommponent($0.1)
+                
+                return (start.hour! == 4 && start.minute! >= 20) || start.hour! >= 16 && start.hour! <= 20 && end.hour! >= start.hour! || (end.minute! <= 30 && end.hour! == 8)
             }
             .map { txt -> SMSAPI in
                 let str = txt.4 ? "emergency" : "normal"
-                let dateUnix = unix(with: globalDateFormatter(.dotDay, Date()))
-                return SMSAPI.postOuting(dateUnix + stringToUnix(with: txt.0), dateUnix + stringToUnix(with: txt.1), txt.2!, txt.3, str)
+                return SMSAPI.postOuting(Int(txt.0.timeIntervalSince1970), Int(txt.1.timeIntervalSince1970), txt.2!, txt.3, str)
             }.flatMap { request -> Observable<OutGoingModel> in
                 return SMSAPIClient.shared.networking(from: request)
             }
@@ -54,7 +58,7 @@ class OutGoingApplyViewModel: ViewModelType {
                                         input.placeDriver.asObservable(),
                                         input.reasonDriver.asObservable())
             .map { start, end, place, reason in
-                return !start.isEmpty && !end.isEmpty && !place!.isEmpty && !reason.isEmpty
+                return !place!.isEmpty && !reason.isEmpty
             }
     }
 }

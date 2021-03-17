@@ -12,12 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var coordinator: AppCoordinator? 
     var window:UIWindow?
+    static var notiAllow = true
     // keychain이 저장되어있는지, 와이파이 잡혀있는지 체크 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
             if !didAllow {
-                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                AppDelegate.notiAllow = false
             }
         })
         UNUserNotificationCenter.current().delegate = self

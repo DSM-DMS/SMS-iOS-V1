@@ -30,6 +30,10 @@ let globalDateFormatter = { (formStr: formType) -> DateFormatter in
     return formatter
 }
 
+func datecommponent( _ date: Date) -> DateComponents {
+    return Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+}
+
 func globalDateFormatter(_  formType: formType, _ date: Date) -> String {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "ko_KR")

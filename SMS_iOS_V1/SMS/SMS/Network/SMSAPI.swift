@@ -20,7 +20,7 @@ enum SMSAPI {
     case postOuting(_ startTime: Int, _ endTime: Int, _ place: String, _ reason: String, _ situation: String)
     case lookUpAllOuting(_ start: Int, _ count: Int)
     case certainOutingInfo
-    case lookUpOutingCard(_ uuid: String)
+    case lookUpOutingCard
     case lookUpNotice
     case detailNotice
     case outingAction(_ code: String)

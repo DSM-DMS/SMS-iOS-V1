@@ -15,7 +15,7 @@ import Toast_Swift
 import UserNotifications
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
-    var b = true
+    var starting = true
     let disposeBag = DisposeBag()
     weak var coordinator: OutGoingCoordinator?
     
@@ -63,128 +63,125 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         
         outBtn.rx.tap
             .bind { _ in
-                let outingCode = self.b ? "start" : "end"
-                
-                if self.b { // 스타팅이라는 소리
+                if self.starting {
                     self.isHiddenAllAlert(false, self.outGoingEndView)
                     self.outStartAlertView.sign = { b in
                         self.isHiddenAllAlert(true)
-                        if b { // 스타팅일떄 외출시작을 눌렀을때
-                            let startOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-                            
-                            startOuting.bind { model in
-                                if model.status == 200 {
-                                    self.outBtn.setTitle("외출 종료", for: .normal)
-                                    self.stateLbl.text = "외출중"
-                                    let content = UNMutableNotificationContent()
-                                    content.title = "외출이 시작되었습니다."
-                                    content.body = "귀사 시간 전까지 귀사 후 외출을 종료해주세요."
-                                    let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-                                    let request = UNNotificationRequest(identifier: "startingOuting", content: content, trigger: TimeIntervalTrigger)
-                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                    self.outBtn.backgroundColor = .customRed
-                                    self.b = false
-                                } else if model.status == 401 {
-                                    self.coordinator?.main()
-                                    return
-                                }
-                            }.disposed(by: self.disposeBag)
+                        if b {
+                            self.asdasda(true, self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true))
                         }
                     }
-                } else { //종료라는 소리
+                } else {
                     self.isHiddenAllAlert(false, self.outStartAlertView)
                     self.outGoingEndView.sign = { b in
                         self.isHiddenAllAlert(true)
                         if b {
-                            let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-                            
-                            endOuting.bind { model in
-                                if model.status == 200 {
-                                    self.stateLbl.text = "선생님 방문 인증 필요"
-                                    self.stateLbl.textColor = .customRed
-                                    self.outBtn.isHidden = true
-                                    let content = UNMutableNotificationContent()
-                                    content.title = "외출이 종료되었습니다."
-                                    content.body = "선생님께 방문하여 최종 확인을 받아주세요."
-                                    let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-                                    let request = UNNotificationRequest(identifier: "endingOuting", content: content, trigger: TimeIntervalTrigger)
-                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                    self.b = true
-                                } else if model.status == 401 {
-                                    return
-                                }
-                            }.disposed(by: self.disposeBag)
+                            self.asdasda(false, self.makeNoti("외출이 종료되었습니다.", "선생님께 방문하여 최종 확인을 받아주세요.", "endingOuting", timeOrDate: true))
                         }
                     }
                 }
             }.disposed(by: disposeBag)
     }
     
+    func asdasda(_ value: Bool, _ noti: Void) {
+        let outingCode = self.starting ? "start" : "end"
+            let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
+            
+            endOuting.bind { model in
+                if model.status == 200 {
+                    self.outing(value)
+                } else if model.status == 401 {
+                    self.coordinator?.main()
+                }
+            }.disposed(by: self.disposeBag)
+    }
+    
+    func outing(_ value: Bool) {
+        let text = value ? "외출중" : "선생님 방문 인증 필요"
+        let color: UIColor = value ? .label : .customRed
+        self.stateLbl.text = text
+        self.stateLbl.textColor = color
+        self.outBtn.isHidden = !value
+        self.starting = !value
+        if value {
+            self.outBtn.setTitle("외출 종료", for: .normal)
+            self.outBtn.backgroundColor = .customRed
+        }
+    }
+    
     func bind() {
-        if (UserDefaults.standard.value(forKey: "outing_uuid") as? String) == nil  {
-            let outings: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0, 1))
-            
-            outings.filter {
-                if $0.status == 401 {
-                    self.isHiddenAllAlert(true)
-                    self.coordinator?.main()
-                    return false
-                }
-                
-                if $0.outings!.count == 0  {
-                    self.isViewHidden(true)
-                    return false
-                }
-                return true
+        let outings: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0, 1))
+        
+        outings.filter {
+            if $0.status == 401 {
+                self.isHiddenAllAlert(true)
+                self.coordinator?.main()
+                return false
             }
-            .map { outing -> (Date, String) in
-                return (unix(with: outing.outings![0].start_time), outing.outings![0].outing_uuid)
-            }.subscribe(onNext: { (date, uuid) in
-                if Calendar.current.isDateInToday(date) {
-                    UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
-                    let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard(uuid))
-                    cardModel.bind { cardData in
-                        if cardData.status == 200 {
-                            if Date() == unix(with: cardData.start_time!) {
-                                self.setting(cardData)
-                            }
-                        } else {
-                            self.isViewHidden(true)
-                        }
-                    }.disposed(by: self.disposeBag)
-                } else {
-                    self.isViewHidden(true)
-                }
-            }, onError: { error in
-                if error as? StatusCode == StatusCode.internalServerError {
-                    self.view.makeToast("인터넷 연결 실패")
-                }
-            }).disposed(by: disposeBag)
-        } else {
-            let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard("outing_uuid"))
             
-            cardModel.filter {
-                if $0.status == 401 {
-                    self.coordinator?.main()
-                }
-                return true
+            if $0.outings!.count == 0  {
+                self.isViewHidden(true)
+                return false
             }
-            .subscribe(onNext: { cardData in
-                if Date() == unix(with: cardData.start_time!) {
-                    self.setting(cardData)
-                } else  {
-                    self.isViewHidden(true)
+            return true
+        }
+        .map { outing -> (Date, String) in
+            return (unix(with: outing.outings![0].start_time), outing.outings![0].outing_uuid)
+        }.subscribe(onNext: { (date, uuid) in
+            if Calendar.current.isDateInToday(date) {
+                UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
+                let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
+                cardModel.filter {
+                    if $0.status == 401 {
+                        self.coordinator?.main()
+                    }
+                    return true
                 }
-            }, onError: { error in
-                if error as? StatusCode == StatusCode.internalServerError {
-                    self.view.makeToast("인터넷 연결 실패")
-                }
-            }).disposed(by: disposeBag)
+                .subscribe(onNext: { cardData in
+                    if cardData.status == 200 {
+                        self.setting(cardData)
+                    } else  {
+                        self.isViewHidden(true)
+                    }
+                }, onError: { error in
+                    if error as? StatusCode == StatusCode.internalServerError {
+                        self.view.makeToast("인터넷 연결 실패")
+                    }
+                }).disposed(by: self.disposeBag)
+            }
+        }, onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
+    }
+    
+    func makeNoti(_ title: String, _ body: String, _ identifier: String, timeOrDate: Bool, unixTime: Int? = nil) {
+        if AppDelegate.notiAllow {
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            
+            if timeOrDate {
+                let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: TimeIntervalTrigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            } else {
+                let date: DateComponents = unix(with: unixTime!)
+                let calendartrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: calendartrigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            }
         }
     }
     
     func setting(_ cardData: OutGoingCardModel) {
         let imageURL = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(cardData.profile_uri!)")
+        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
+        if Int(cardData.outing_status!) == 3 && unix(with: cardData.end_time! - 1800) > Date() {
+            self.makeNoti("외출 종료 30분 전입니다.", "30분 이내로 귀사 후 외출을 종료해주세요.", "before30", timeOrDate: false, unixTime: cardData.end_time! - 1800)
+        }
+        
+        makeNoti("외출 시간이 만료되었습니다.", "빠른 기간 내에 귀사 후 외출을 종료해주세요.", "lateOuting", timeOrDate: false, unixTime: cardData.end_time)
         let startDateComponent: DateComponents = unix(with: cardData.start_time!)
         let endDateComponent: DateComponents = unix(with: cardData.end_time!)
         let zeroDate = startDateComponent.day! < 10 ? "0" : ""
@@ -195,29 +192,10 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         let endZeroStr = endDateComponent.minute! < 10 ? "0" : ""
         self.endTimeLabel.text = "\(endDateComponent.hour!):\(endZeroStr)\(endDateComponent.minute!)"
         self.placeLbl.text = cardData.place
-        if Int(cardData.outing_status!) == 3 && unix(with: cardData.end_time! - 1800) > Date() {
-            let content = UNMutableNotificationContent()
-            content.title = "외출 종료 30분 전입니다."
-            content.body = "30분 이내로 귀사 후 외출을 종료해주세요."
-            let date: DateComponents = unix(with: cardData.end_time! - 1800)
-            let calendartrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-            let request = UNNotificationRequest(identifier: "before30", content: content, trigger: calendartrigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        
-        let content = UNMutableNotificationContent()
-        content.title = "외출 시간이 만료되었습니다."
-        content.body = "빠른 기간 내에 귀사 후 외출을 종료해주세요."
-        let date: DateComponents = unix(with: cardData.end_time!)
-        let calendartrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "lateOuting", content: content, trigger: calendartrigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
         let zeroStr = startDateComponent.minute! < 10 ? "0" : ""
         self.startTimeLbl.text = "\(startDateComponent.hour!):\(zeroStr)\(startDateComponent.minute!)"
-        self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
-        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
-        let timeCheck = checking(unix(with: cardData.end_time!))
+        
+        let timeCheck = unix(with: cardData.end_time!) > Date()
         var string = ""
         switch Int(cardData.outing_status!) {
         case 0, 1:
@@ -231,7 +209,7 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         case 3: string = "외출중"
             self.outBtn.isHidden = false
             self.outBtn.backgroundColor = .customRed
-            self.b = false
+            self.starting = false
             self.outBtn.setTitle("외출 종료", for: .normal)
         case 4: string = "선생님 방문 필요"
             self.outBtn.isHidden = true
@@ -266,10 +244,6 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         }
     }
     
-    func checking(_ endTime: Date) -> Bool {
-        return endTime > Date() // 안늦음
-    }
-    
     func settingAlert() {
         UNUserNotificationCenter.current().delegate = self
         
@@ -296,6 +270,5 @@ extension OutGoingPopDeedViewController {
         let settingsViewController = UIViewController()
         settingsViewController.view.backgroundColor = .gray
         self.present(settingsViewController, animated: true, completion: nil)
-        
     }
 }
