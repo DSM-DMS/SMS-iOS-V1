@@ -43,22 +43,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ul-mV-asL">
-                                <rect key="frame" x="47" y="114" width="58" height="27"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <rect key="frame" x="47" y="114.00000000000001" width="61" height="32.666666666666671"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-kd-A7g">
-                                <rect key="frame" x="46" y="394.33333333333331" width="80" height="15"/>
+                                <rect key="frame" x="46" y="353" width="80" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdb-TB-sZt">
-                                        <rect key="frame" x="22" y="0.0" width="58" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="22" y="0.0" width="58" height="18"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-RV-h7i">
-                                        <rect key="frame" x="0.0" y="1" width="15" height="13.333333333333334"/>
+                                        <rect key="frame" x="0.0" y="1.9999999999999991" width="15" height="13.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="32Z-F5-xZI"/>
                                             <constraint firstAttribute="height" constant="13.5" id="54W-eV-LZq"/>
@@ -85,13 +85,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BTb-8P-eDe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Gr-D35" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="227" width="336" height="41.333333333333314"/>
+                                <rect key="frame" x="46" y="232.66666666666666" width="336" height="18.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -130,7 +130,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpl-42-BLa" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="326" width="336" height="41.333333333333314"/>
+                                <rect key="frame" x="46" y="309" width="336" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -319,7 +319,7 @@
                                     <constraint firstAttribute="width" constant="295" id="1tq-y6-Un2"/>
                                     <constraint firstAttribute="height" constant="40" id="6Ih-bJ-DJ4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="18"/>
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -378,10 +378,10 @@
                             <constraint firstItem="MPe-TY-y3g" firstAttribute="leading" secondItem="tA6-tL-yHv" secondAttribute="trailing" constant="9" id="6fG-Qv-BNK"/>
                             <constraint firstItem="L8d-28-cd1" firstAttribute="leading" secondItem="MPe-TY-y3g" secondAttribute="leading" id="7Ga-r6-tpV"/>
                             <constraint firstItem="ter-Uf-ARW" firstAttribute="leading" secondItem="2GY-vH-4sD" secondAttribute="leading" constant="40" id="91G-Kb-jiK"/>
+                            <constraint firstItem="Fan-ri-reG" firstAttribute="top" secondItem="MBe-Cn-U5r" secondAttribute="top" id="9AI-FQ-9ra"/>
                             <constraint firstItem="tA6-tL-yHv" firstAttribute="top" secondItem="2GY-vH-4sD" secondAttribute="top" constant="27" id="AZR-7c-QfP"/>
                             <constraint firstItem="Fan-ri-reG" firstAttribute="centerX" secondItem="ctN-ST-V8z" secondAttribute="centerX" id="Eng-vb-Fo2"/>
                             <constraint firstItem="ctN-ST-V8z" firstAttribute="centerX" secondItem="2GY-vH-4sD" secondAttribute="centerX" id="Jbb-nX-ZCa"/>
-                            <constraint firstItem="Fan-ri-reG" firstAttribute="top" secondItem="MBe-Cn-U5r" secondAttribute="topMargin" constant="-44" id="T9z-hl-odR"/>
                             <constraint firstItem="gck-Zu-SMg" firstAttribute="centerX" secondItem="Fan-ri-reG" secondAttribute="centerX" id="WJA-If-qzg"/>
                             <constraint firstItem="MPe-TY-y3g" firstAttribute="top" secondItem="tA6-tL-yHv" secondAttribute="bottom" constant="38" id="XdC-Wi-5f7"/>
                             <constraint firstItem="kHX-Nw-CLZ" firstAttribute="top" secondItem="MPe-TY-y3g" secondAttribute="bottom" constant="40" id="fac-Wt-zzE"/>
@@ -764,16 +764,16 @@
     </scenes>
     <designables>
         <designable name="LIg-Gr-D35">
-            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
+            <size key="intrinsicContentSize" width="125" height="18.666666666666668"/>
         </designable>
         <designable name="Z3R-Fz-pba">
-            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
+            <size key="intrinsicContentSize" width="317" height="34"/>
         </designable>
         <designable name="cpl-42-BLa">
-            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
+            <size key="intrinsicContentSize" width="137" height="17"/>
         </designable>
         <designable name="jMO-OF-pwS">
-            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
+            <size key="intrinsicContentSize" width="301.33333333333331" height="35"/>
         </designable>
     </designables>
     <resources>

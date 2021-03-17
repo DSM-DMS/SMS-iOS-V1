@@ -22,11 +22,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" interfaceStyle="dark" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="499"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4s-Xh-goR">
-                    <rect key="frame" x="187.5" y="496" width="187.5" height="49"/>
+                    <rect key="frame" x="187.5" y="450" width="187.5" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="aal-HJ-vkS"/>
                     </constraints>
@@ -36,7 +36,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-6U-fNs">
-                    <rect key="frame" x="0.0" y="496" width="187.5" height="49"/>
+                    <rect key="frame" x="0.0" y="450" width="187.5" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="Mih-Uc-PQO"/>
                     </constraints>
@@ -274,7 +274,7 @@
                 <constraint firstItem="ra4-lk-9vv" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="yez-2X-oi1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-341.304347826087" y="-23.102678571428569"/>
+            <point key="canvasLocation" x="-341.304347826087" y="-38.504464285714285"/>
         </view>
     </objects>
     <resources>
