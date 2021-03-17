@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // keychain이 저장되어있는지, 와이파이 잡혀있는지 체크 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        Thread.sleep(forTimeInterval: 1)
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
             if !didAllow {
                 AppDelegate.notiAllow = false

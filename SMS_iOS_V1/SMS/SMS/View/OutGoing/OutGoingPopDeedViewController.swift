@@ -137,20 +137,18 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
                     }
                     return true
                 }
-                .subscribe(onNext: { cardData in
+                .bind { cardData in
                     if cardData.status == 200 {
                         self.setting(cardData)
                     } else  {
                         self.isViewHidden(true)
                     }
-                }, onError: { error in
-                    if error as? StatusCode == StatusCode.internalServerError {
-                        self.view.makeToast("인터넷 연결 실패")
-                    }
-                }).disposed(by: self.disposeBag)
+                }.disposed(by: self.disposeBag)
             }
         }, onError: { error in
-            print(error)
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패")
+            }
         }).disposed(by: disposeBag)
     }
     

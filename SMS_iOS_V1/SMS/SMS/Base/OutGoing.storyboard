@@ -330,7 +330,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-ey-rH4">
-                                                <rect key="frame" x="0.0" y="27" width="24.666666666666668" height="20"/>
+                                                <rect key="frame" x="0.0" y="27" width="25.666666666666668" height="20"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -540,10 +540,10 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-gF-452" customClass="OutGoingLocationAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="143.66666666666663" width="348" height="500"/>
+                                <rect key="frame" x="40" y="193.66666666666663" width="348" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="1hD-dA-Twn"/>
+                                    <constraint firstAttribute="height" constant="400" id="1hD-dA-Twn"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.conerRadius">
