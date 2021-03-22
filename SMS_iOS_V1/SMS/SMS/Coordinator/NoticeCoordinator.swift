@@ -26,20 +26,22 @@ class NoticeCoordinator: Coordinator {
     func start() {
         let vc = NoticeViewController.instantiate(storyboardName: .noticeMain)
         vc.coordinator = self
+       
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notice"), selectedImage: nil)
+        vc.title = ""
         nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
     }
     
     func pop() {
         self.nav.popViewController(animated: false)
-        delegate?.dismissBar(false, nil)
+        delegate?.dismissBar(false)
     }
     
     func detailNotice() {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
         vc.coordinator = self
-        delegate?.dismissBar(true, { [weak self] in
-            self?.nav.pushViewController(vc, animated: true)
-        })
+        self.nav.pushViewController(vc, animated: true)
+        delegate?.dismissBar(true)
     }
 }

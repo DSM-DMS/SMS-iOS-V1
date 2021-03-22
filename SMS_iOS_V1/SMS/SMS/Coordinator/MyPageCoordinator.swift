@@ -25,12 +25,15 @@ class MyPageCoordinator: Coordinator {
     
     func pop() {
         self.nav.popViewController(animated: true)
-        delegate?.dismissBar(false, nil)
+        delegate?.dismissBar(false)
     }
     
     func start() {
         let vc = MypageViewController.instantiate(storyboardName: .myPageMain)
         vc.coordinator = self
+      
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "mypage"), selectedImage: nil)
+        vc.tabBarItem.title = ""
         nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
     }
@@ -38,16 +41,14 @@ class MyPageCoordinator: Coordinator {
     func introduce() {
         let vc = MypageIntroduceDevViewController.instantiate(storyboardName: .introduceDevlop)
         vc.coordinator = self
-        delegate?.dismissBar(true, { [weak self] in
-            self?.nav.pushViewController(vc, animated: true)
-        })
+        self.nav.pushViewController(vc, animated: true)
+        delegate?.dismissBar(true)
     }
     
     func changePW() {
         let vc = MypageChangePWViewController.instantiate(storyboardName: .myPageChangePW)
         vc.coordinator = self
-        delegate?.dismissBar(true, { [weak self] in
-            self?.nav.pushViewController(vc, animated: true)
-        })
+        delegate?.dismissBar(true)
+        self.nav.pushViewController(vc, animated: true)
     }
 }
