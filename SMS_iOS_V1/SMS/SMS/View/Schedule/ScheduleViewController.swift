@@ -7,6 +7,7 @@ import Toast_Swift
 
 class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    var selectedProduct = 0
     var tableViewHeightConstraint: NSLayoutConstraint!
     weak var coordinator: ScheduleCoordinator?
     
@@ -48,6 +49,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.largeContentImageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.calendarSetting()
         self.tableViewSetting()
         autoLogin()

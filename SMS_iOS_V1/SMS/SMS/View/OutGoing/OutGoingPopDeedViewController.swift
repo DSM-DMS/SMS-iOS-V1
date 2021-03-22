@@ -15,7 +15,6 @@ import Toast_Swift
 import UserNotifications
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
-    var starting = true
     let disposeBag = DisposeBag()
     weak var coordinator: OutGoingCoordinator?
     
@@ -32,7 +31,6 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var outStartAlertView: OutGoingStartActionAlert!
-    @IBOutlet weak var outGoingEndView: OutGoingEndActionAlertXib!
     
     @IBOutlet weak var stateView: UIView!
     @IBOutlet weak var timeView: UIView!
@@ -49,8 +47,34 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     }
 }
 
+extension OutGoingPopDeedViewController {
+    func isViewHidden(_ value: Bool) {
+        timeView.isHidden = value
+        nameView.isHidden = value
+        IDView.isHidden = value
+        stateView.isHidden = value
+        placeView.isHidden = value
+        stateView.isHidden = value
+        noneOutingView.isHidden = !value
+    }
+    
+    func isHiddenAllAlert(_ value: Bool) {
+        outStartAlertView.isHidden = value
+        backgroundBtn.isHidden = value
+    }
+    
+    func settingAlert() {
+        UNUserNotificationCenter.current().delegate = self
+        outStartAlertView.addShadow(maskValue: true,
+                                    offset: CGSize(width: 0, height: 3),
+                                    shadowRadius: 6,
+                                    opacity: 1,
+                                    cornerRadius: 8)
+    }
+}
 
-extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
+
+extension OutGoingPopDeedViewController {
     func bindAction() {
         popVCBtn.rx.tap
             .bind { self.coordinator?.pop()}
@@ -63,49 +87,36 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         
         outBtn.rx.tap
             .bind { _ in
-                if self.starting {
-                    self.isHiddenAllAlert(false, self.outGoingEndView)
-                    self.outStartAlertView.sign = { b in
-                        self.isHiddenAllAlert(true)
-                        if b {
-                            self.asdasda(true, self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true))
-                        }
-                    }
-                } else {
-                    self.isHiddenAllAlert(false, self.outStartAlertView)
-                    self.outGoingEndView.sign = { b in
-                        self.isHiddenAllAlert(true)
-                        if b {
-                            self.asdasda(false, self.makeNoti("외출이 종료되었습니다.", "선생님께 방문하여 최종 확인을 받아주세요.", "endingOuting", timeOrDate: true))
-                        }
+                self.isHiddenAllAlert(false)
+                self.outStartAlertView.sign = { b in
+                    self.isHiddenAllAlert(true)
+                    if b {
+                        let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
+                        
+                        endOuting.bind { model in
+                            if model.status == 200 {
+                                self.outing(true)
+                                self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true)
+                            } else if model.status == 401 {
+                                self.coordinator?.main()
+                            }
+                        }.disposed(by: self.disposeBag)
                     }
                 }
             }.disposed(by: disposeBag)
     }
     
-    func asdasda(_ value: Bool, _ noti: Void) {
-        let outingCode = self.starting ? "start" : "end"
-            let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction(outingCode))
-            
-            endOuting.bind { model in
-                if model.status == 200 {
-                    self.outing(value)
-                } else if model.status == 401 {
-                    self.coordinator?.main()
-                }
-            }.disposed(by: self.disposeBag)
-    }
-    
     func outing(_ value: Bool) {
-        let text = value ? "외출중" : "선생님 방문 인증 필요"
-        let color: UIColor = value ? .label : .customRed
-        self.stateLbl.text = text
-        self.stateLbl.textColor = color
+        self.stateLbl.text = value ? "외출중" : "선생님 방문 인증 필요"
+        self.stateLbl.textColor = value ? .label : .customRed
         self.outBtn.isHidden = !value
-        self.starting = !value
         if value {
-            self.outBtn.setTitle("외출 종료", for: .normal)
-            self.outBtn.backgroundColor = .customRed
+            self.outBtn.isEnabled = false
+            self.outBtn.setTitle("외출중", for: .normal)
+            self.outBtn.backgroundColor = .systemBackground
+            self.outBtn.layer.borderColor = UIColor.customPurple.cgColor
+            self.outBtn.setTitleColor(.customPurple, for: .normal)
+            self.outBtn.layer.borderWidth = 1
         }
     }
     
@@ -113,14 +124,13 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         let outings: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0, 1))
         
         outings.filter {
+            self.isViewHidden(true)
             if $0.status == 401 {
-                self.isHiddenAllAlert(true)
                 self.coordinator?.main()
                 return false
             }
             
             if $0.outings!.count == 0  {
-                self.isViewHidden(true)
                 return false
             }
             return true
@@ -139,6 +149,7 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
                 }
                 .bind { cardData in
                     if cardData.status == 200 {
+                        self.isViewHidden(false)
                         self.setting(cardData)
                     } else  {
                         self.isViewHidden(true)
@@ -193,73 +204,36 @@ extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
         let zeroStr = startDateComponent.minute! < 10 ? "0" : ""
         self.startTimeLbl.text = "\(startDateComponent.hour!):\(zeroStr)\(startDateComponent.minute!)"
         
-        let timeCheck = unix(with: cardData.end_time!) > Date()
+        let timeCheck = unix(with: cardData.end_time!) < Date()
         var string = ""
         switch Int(cardData.outing_status!) {
         case 0, 1:
-            string = timeCheck ? "승인 대기": "만료"
-            self.stateLbl.textColor = timeCheck ? .label : .customRed
+            a(timeCheck)
         case 2:
-            string = timeCheck ? "외출 가능": "만료"
-            self.outBtn.isEnabled = timeCheck ? true : false
-            self.outBtn.isHidden = false
-            self.stateLbl.textColor = timeCheck ? .label : .customRed
+            a(timeCheck)
+            string = timeCheck ? "만료" :"외출 가능"
+            self.outBtn.isHidden = timeCheck
+            self.stateLbl.textColor = timeCheck ? .customRed: .label
         case 3: string = "외출중"
-            self.outBtn.isHidden = false
-            self.outBtn.backgroundColor = .customRed
-            self.starting = false
-            self.outBtn.setTitle("외출 종료", for: .normal)
-        case 4: string = "선생님 방문 필요"
-            self.outBtn.isHidden = true
-            self.stateLbl.textColor = .customRed
+            outing(true)
+        case 4:
+            outing(false)
         case 5: string = "외출 확인 완료"
-            self.stateLbl.textColor = .black
+            self.stateLbl.textColor = .customBlue
         case -1, -2:
-            string = timeCheck ? "승인거부": "만료"
-            self.stateLbl.textColor = timeCheck ? .label : .customRed
+            string = timeCheck ? "만료" : "승인거부"
+            self.stateLbl.textColor = timeCheck ? .customRed: .label
         default: string = "에러"
         }
         self.stateLbl.text = string
     }
     
-    func isViewHidden(_ value: Bool) {
-        timeView.isHidden = value
-        nameView.isHidden = value
-        IDView.isHidden = value
-        stateView.isHidden = value
-        placeView.isHidden = value
-        stateView.isHidden = value
-        noneOutingView.isHidden = !value
-    }
-    
-    func isHiddenAllAlert(_ value: Bool, _ view: UIView? = nil) {
-        outStartAlertView.isHidden = value
-        outGoingEndView.isHidden = value
-        backgroundBtn.isHidden = value
-        
-        if let hiddeView = view {
-            hiddeView.isHidden = true
-        }
-    }
-    
-    func settingAlert() {
-        UNUserNotificationCenter.current().delegate = self
-        
-        outGoingEndView.addShadow(maskValue: true,
-                                  offset: CGSize(width: 0, height: 3),
-                                  shadowRadius: 6,
-                                  opacity: 1,
-                                  cornerRadius: 8)
-        
-        outStartAlertView.addShadow(maskValue: true,
-                                    offset: CGSize(width: 0, height: 3),
-                                    shadowRadius: 6,
-                                    opacity: 1,
-                                    cornerRadius: 8)
+    func a(_ value: Bool)  {
+        self.stateLbl.text = value ? "만료" : "승인 대기"
     }
 }
 
-extension OutGoingPopDeedViewController {
+extension OutGoingPopDeedViewController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound, .badge])
     }

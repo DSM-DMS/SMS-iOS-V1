@@ -68,7 +68,7 @@ extension OutGoingLogViewController {
                     cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
                     cell.placeLbl.text = log.place
                     cell.reasonLbl.text = log.reason
-                    cell.lateView.backgroundColor = log.arrival_time > log.end_time ? .rgb(red: 244, green: 51, blue: 51, alpha: 0.5) : .tabbarColor
+                    
                     
                     cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
                     
@@ -97,8 +97,9 @@ extension OutGoingLogViewController {
                         self.cellState(cell: cell, text: "외출중", color: .customPurple)
                     case 4:
                         self.cellState(cell: cell, text: "선생님 방문 필요", color: .customRed)
+                        cell.lateView.backgroundColor = log.arrival_time > log.end_time ? .rgb(red: 244, green: 51, blue: 51, alpha: 0.5) : .tabbarColor
                     case 5:
-                        self.cellState(cell: cell, text: "외출 확인 완료", color: .blue)
+                        self.cellState(cell: cell, text: "외출 확인 완료", color: .customBlue)
                     default:
                         self.cellState(cell: cell, text: "에러", color: .customBlack)
                     }

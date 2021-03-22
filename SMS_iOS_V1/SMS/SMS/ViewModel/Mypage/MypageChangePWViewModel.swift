@@ -32,7 +32,7 @@ class MypageChangePWViewModel {
             .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty }
             .filter { $0.1 == $0.2 }
             .map { currentPW, changePW, confirmPW -> SMSAPI in
-                return SMSAPI.pwChange(currentPW, changePW)
+                SMSAPI.pwChange(currentPW, changePW)
             }.flatMap { request -> Observable<mypagePWChangeModel> in
                 SMSAPIClient.shared.networking(from: request)
             }
