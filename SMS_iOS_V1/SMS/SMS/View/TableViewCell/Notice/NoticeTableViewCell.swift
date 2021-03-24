@@ -9,7 +9,6 @@
 import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
-    
     var uuid: String?
 
     @IBOutlet weak var cellNumber: UILabel!
@@ -18,14 +17,10 @@ class NoticeTableViewCell: UITableViewCell {
     @IBOutlet weak var cellViews: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        //글자수 제한 생각하기.
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

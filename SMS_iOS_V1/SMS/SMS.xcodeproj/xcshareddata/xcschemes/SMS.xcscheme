@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D6DAE7F72602D03C00968028"
+               BuildableName = "SMSUITests.xctest"
+               BlueprintName = "SMSUITests"
+               ReferencedContainer = "container:SMS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D6DAE8072602D04100968028"
+               BuildableName = "SMSTests.xctest"
+               BlueprintName = "SMSTests"
+               ReferencedContainer = "container:SMS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

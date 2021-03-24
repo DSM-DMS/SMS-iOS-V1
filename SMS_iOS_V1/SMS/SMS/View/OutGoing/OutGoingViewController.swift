@@ -24,7 +24,7 @@ class OutGoingViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        stackView.spacing = UIScreen.main.bounds.height > 800 ? 70 : 35
+        stackView.spacing = UIScreen.main.bounds.height > 900 ? 70 : 50
     }
 }
 
@@ -34,7 +34,7 @@ extension OutGoingViewController {
     private func bind() {
         outGoingApplyButton.rx.tap
             .bind {
-                self.coordinator?.outGoingApply();
+                self.coordinator?.outGoingApply()
             }.disposed(by: disposeBag)
         
         outGoingLogButton.rx.tap

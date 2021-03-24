@@ -48,8 +48,7 @@ extension MypageChangePWViewController {
         
         output.result.subscribe { model in
             if model.status == 200 {
-                keyChain.delete("ID")
-                keyChain.delete("PW")
+                Account.shared.removeKeyChain()
                 self.coordinator?.main()
             } else if model.status == 401 {
                 self.coordinator?.main()

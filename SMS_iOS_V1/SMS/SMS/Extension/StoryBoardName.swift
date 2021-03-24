@@ -30,6 +30,7 @@ enum StoryBoardName {
     case outGoingAlert
     case certificationNumber
     case register
+    case searchNotice
 }
 
 extension StoryBoardName {
@@ -42,6 +43,7 @@ extension StoryBoardName {
             return "Auth"
             
         case .noticeDetail,
+             .searchNotice,
              .noticeMain:
             return "Notice"
             

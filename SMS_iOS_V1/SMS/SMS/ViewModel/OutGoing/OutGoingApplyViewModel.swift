@@ -61,4 +61,19 @@ class OutGoingApplyViewModel: ViewModelType {
                 return !place!.isEmpty && !reason.isEmpty
             }
     }
+    
+    func asd(_ input: Input) -> Observable<Bool> {
+        return input.applyDriver.asObservable()
+            .withLatestFrom(Observable.combineLatest(input.startTimeDriver.asObservable(),
+                                                     input.endTimeDriver.asObservable(),
+                                                     input.placeDriver.asObservable(),
+                                                     input.reasonDriver.asObservable(),
+                                                     input.diseaseIs.asObservable()
+            ))
+        .map { data in
+            let start = datecommponent(data.0)
+            let end = datecommponent(data.1)
+                return (start.hour! == 4 && start.minute! >= 20) || start.hour! >= 16 && start.hour! <= 20 && end.hour! >= start.hour! || (end.minute! <= 30 && end.hour! == 8)
+        }
+    }
 }
