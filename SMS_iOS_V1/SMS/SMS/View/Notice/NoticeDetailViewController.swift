@@ -92,7 +92,13 @@ extension NoticeDetailViewController {
                 self.nTitle.text = data.title
                 self.nDate.text = globalDateFormatter(.dotDay, unix(with: data.date / 1000))
                 self.pNoticeButton.setTitle(data.next_title, for: .normal)
+                if pNoticeButton.titleLabel?.text == "" {
+                    pNoticeButton.isEnabled = false
+                }
                 self.nNoticeButton.setTitle(data.previous_title, for: .normal)
+                if nNoticeButton.titleLabel?.text == "" {
+                    nNoticeButton.isEnabled = false
+                }
                 guard let data = try? data.content.data(using: .utf8) else { return }
                 
                 self.blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
@@ -128,9 +134,14 @@ extension NoticeDetailViewController {
 extension NoticeDetailViewController: UICollectionViewDataSource {
     
     func presenting() {
-        let storyboard = UIStoryboard(name: "Notice", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
-        self.present(vc, animated: true, completion: nil)
+        guard let pvc = self.presentingViewController else { return }
+        
+        self.dismiss(animated: true) {
+            let storyboard = UIStoryboard(name: "Notice", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NoticeDetailViewController")
+            pvc.present(vc, animated: true, completion: nil)
+        }
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
