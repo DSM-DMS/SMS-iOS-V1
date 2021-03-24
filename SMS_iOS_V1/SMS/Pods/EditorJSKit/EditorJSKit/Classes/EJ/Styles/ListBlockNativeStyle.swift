@@ -21,9 +21,10 @@ public protocol EJListBlockStyle: EJBlockStyle {
 }
 
 ///
+@available(iOS 13.0, *)
 class ListBlockNativeStyle: EJListBlockStyle {
     let font = UIFont.systemFont(ofSize: 18)
-    let color = UIColor.black
+    let color = UIColor.label
     let leftInset: CGFloat = 0
     let rightInset: CGFloat = 0
     let lineSpacing: CGFloat = 4

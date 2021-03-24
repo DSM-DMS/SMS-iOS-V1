@@ -27,18 +27,19 @@ public protocol EJLinkBlockStyle: EJBlockStyle {
 }
 
 ///
+@available(iOS 13.0, *)
 class LinkBlockNativeStyle: EJLinkBlockStyle {
     var cornerRadius: CGFloat = 3
     var titleFont: UIFont = .systemFont(ofSize: 20)
-    var titleColor: UIColor = .black
+    var titleColor: UIColor = .label
     var titleTextAlignment: NSTextAlignment = .left
     var linkFont: UIFont = .systemFont(ofSize: 15)
-    var linkColor: UIColor = .black
+    var linkColor: UIColor = .label
     var linkTextAlignment: NSTextAlignment = .left
     var backgroundColor: UIColor = UIColor.lightGray.withAlphaComponent(0.15)
     var imageCornerRadius: CGFloat = 3
     var descriptionFont: UIFont = .systemFont(ofSize: 18)
-    var descriptionColor: UIColor = .black
+    var descriptionColor: UIColor = .label
     var descriptionTextAlignment: NSTextAlignment = .left
     var imageWidthHeight: CGFloat = 70
     var imageRightInset: CGFloat = 5
