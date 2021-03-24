@@ -207,10 +207,10 @@ extension OutGoingPopDeedViewController {
         let timeCheck = unix(with: cardData.end_time!) < Date()
         var string = ""
         switch Int(cardData.outing_status!) {
-        case 0, 1:
-            a(timeCheck)
+        case 0,1:
+            string = timeCheck ? "만료" : "승인 대기"
+            self.stateLbl.textColor = timeCheck ? .customRed: .label
         case 2:
-            a(timeCheck)
             string = timeCheck ? "만료" :"외출 가능"
             self.outBtn.isHidden = timeCheck
             self.stateLbl.textColor = timeCheck ? .customRed: .label
@@ -226,10 +226,6 @@ extension OutGoingPopDeedViewController {
         default: string = "에러"
         }
         self.stateLbl.text = string
-    }
-    
-    func a(_ value: Bool)  {
-        self.stateLbl.text = value ? "만료" : "승인 대기"
     }
 }
 

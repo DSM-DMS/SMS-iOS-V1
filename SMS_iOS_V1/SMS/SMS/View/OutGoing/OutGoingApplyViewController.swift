@@ -59,6 +59,14 @@ extension OutGoingApplyViewController {
         isValid.bind { b in self.applyButton.alpha = b ? 1 :  0.3 }.disposed(by: disposeBag)
         isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
         
+        let notFormTime = viewModel.asd(input)
+        
+        notFormTime.bind {
+            if !$0 {
+                self.applyButton.shake()
+            }
+        }.disposed(by: disposeBag)
+        
         output.response.subscribe { model in
             UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
             switch model.status {
@@ -146,6 +154,7 @@ extension OutGoingApplyViewController {
             }
             .disposed(by: disposeBag)
     }
+    
     
     func setting() {
         dateLabel.text = globalDateFormatter(.day, Date())

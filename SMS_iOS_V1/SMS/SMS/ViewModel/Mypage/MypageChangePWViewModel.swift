@@ -10,8 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class MypageChangePWViewModel {
-    
+class MypageChangePWViewModel: ViewModelType {
     struct Input {
         let currentPWTextFieldDriver: Driver<String>
         let newPWTextFieldDriver: Driver<String>

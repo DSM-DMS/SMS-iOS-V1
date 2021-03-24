@@ -7,7 +7,6 @@ import Toast_Swift
 
 class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    var selectedProduct = 0
     var tableViewHeightConstraint: NSLayoutConstraint!
     weak var coordinator: ScheduleCoordinator?
     
@@ -64,8 +63,7 @@ extension ScheduleViewController {
         if let ID = keyChain.get("ID"), let PW = keyChain.get("PW") { // 자동로그인 해두고 지금 들어온애
             let login: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(ID, PW))
             login.subscribe { model in
-                UserDefaults.standard.setValue(model.access_token, forKey: "token")
-                UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                Account.shared.setUD(model.access_token, model.student_uuid)
                 self.getSchedule()
                 self.timeScheduleView.getTimeTable()
                 self.bind()
@@ -141,6 +139,9 @@ extension ScheduleViewController {
             self.schedules = schedules.schedules
             self.calendarView.collectionView.reloadData {
                 self.calendarView.select(Date(), scrollToDate: false)
+                let cell = self.calendarView.cell(for: self.calendarView.selectedDate!, at: .current) as? DayCell
+                cell?.selectedDate(.selected)
+                self.dateForTable.accept(self.calendarView.selectedDate!)
             }
         }, onError: { (error) in
             if error as? StatusCode == StatusCode.internalServerError {
@@ -267,7 +268,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: DayCell.NibName, for: date, at: position) as! DayCell
         cell.hiddenAll()
-        calendar.deselect(date)
         let cnt = schedules?.count ?? 0
         for i in 0..<cnt {
             let start: Date = unix(with: (schedules![ascEvent()[i]].startTime / 1000) - 32400)

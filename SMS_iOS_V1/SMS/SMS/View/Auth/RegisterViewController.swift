@@ -102,8 +102,7 @@ extension RegisterViewController {
                     let loginResult: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(self.idTextField.text!, self.pwTextField.text!))
                     
                     loginResult.bind { model in
-                        UserDefaults.standard.setValue(model.access_token, forKey: "token")
-                        UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                        Account.shared.setUD(model.access_token!, model.student_uuid!)
                     }.disposed(by: self.disposeBag)
                     
                     self.coordinator?.popAll()

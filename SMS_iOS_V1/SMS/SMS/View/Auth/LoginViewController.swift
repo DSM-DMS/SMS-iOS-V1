@@ -51,14 +51,11 @@ extension LoginViewController {
         output.result.subscribe { model in
             if model.status == 200 {
                 self.coordinator?.tabbar()
-                UserDefaults.standard.setValue(model.access_token, forKey: "token")
-                UserDefaults.standard.setValue(model.student_uuid, forKey: "uuid")
+                Account.shared.setUD(model.access_token!, model.student_uuid!)
                 if self.bool {
-                    keyChain.set(self.idTextField.text!, forKey: "ID")
-                    keyChain.set(self.pwTextField.text!, forKey: "PW")
+                    Account.shared.setKeyChain(self.idTextField.text!, self.pwTextField.text!)
                 } else {
-                    keyChain.delete("ID")
-                    keyChain.delete("PW")
+                    Account.shared.removeKeyChain()
                 }
             } else {
                 self.loginButton.shake()
