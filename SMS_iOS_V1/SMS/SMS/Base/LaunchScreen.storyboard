@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMSLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="CUg-bw-VXn">
-                                <rect key="frame" x="102" y="245" width="171" height="177"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SMSLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="CUg-bw-VXn">
+                                <rect key="frame" x="102" y="246" width="171" height="177"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="177" id="DfF-7U-ePY"/>
                                     <constraint firstAttribute="width" constant="171" id="Lme-HS-aYD"/>
@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SMSLOGO" width="150" height="150"/>
+        <image name="SMSLOGO" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,14 +11,8 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-protocol Aaaa {
-    func logOutAlertIsHidden(_ value: Bool)
-}
-
 class MypageViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
-    var delegate: Aaaa?
-    let viewModel = MypageViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var imageVIew: UIImageView!
@@ -31,14 +25,15 @@ class MypageViewController: UIViewController, Storyboarded {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
         bindAction()
         setting()
     }
-    
+}
+
+extension MypageViewController {
     func bind() {
         let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
         
@@ -63,7 +58,7 @@ class MypageViewController: UIViewController, Storyboarded {
     func bindAction() {
         backgroundBtn.rx.tap
             .bind { _ in
-                self.isAllHidden()
+                self.isAllHidden(true)
             }.disposed(by: disposeBag)
         
         pwChangeButton.rx.tap
@@ -73,17 +68,12 @@ class MypageViewController: UIViewController, Storyboarded {
         
         logOutButton.rx.tap
             .bind { _ in
-                self.delegate?.logOutAlertIsHidden(false)
-                self.logOutView.isHidden = false
-                self.backgroundBtn.isHidden = false
+                self.isAllHidden(false)
                 self.logOutView.sign = { b in
-                    self.delegate?.logOutAlertIsHidden(true)
-                    self.isAllHidden()
+                    self.isAllHidden(true)
                     if b {
-                        keyChain.delete("ID")
-                        keyChain.delete("PW")
-                        UserDefaults.standard.removeObject(forKey: "token")
-                        UserDefaults.standard.removeObject(forKey: "uuid")
+                        Account.shared.removeUD()
+                        Account.shared.removeKeyChain()
                         self.coordinator?.main()
                     }
                 }
@@ -103,8 +93,8 @@ class MypageViewController: UIViewController, Storyboarded {
                              cornerRadius: 8)
     }
     
-    func isAllHidden() {
-        logOutView.isHidden = true
-        backgroundBtn.isHidden = true
+    func isAllHidden(_ value: Bool) {
+        logOutView.isHidden = value
+        backgroundBtn.isHidden = value
     }
 }

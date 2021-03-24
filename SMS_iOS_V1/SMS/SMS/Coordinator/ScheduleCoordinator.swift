@@ -26,6 +26,9 @@ class ScheduleCoordinator: Coordinator {
     func start() {
         let vc = ScheduleViewController.instantiate(storyboardName: .schedule)
         vc.coordinator = self
+   
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "calendar"), selectedImage: nil)
+        vc.tabBarItem.title = ""
         nav.setNavigationBarHidden(true, animated: false)
         self.nav.pushViewController(vc, animated: false)
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EditorJSKit
 
 class NoticeCoordinator: Coordinator {
     var delegate: dismissBarProtocol?
@@ -26,20 +27,31 @@ class NoticeCoordinator: Coordinator {
     func start() {
         let vc = NoticeViewController.instantiate(storyboardName: .noticeMain)
         vc.coordinator = self
+       
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notice"), selectedImage: nil)
+        vc.title = ""
         nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
     }
     
     func pop() {
-        self.nav.popViewController(animated: false)
-        delegate?.dismissBar(false, nil)
+        self.nav.popViewController(animated: true)
+        delegate?.dismissBar(false)
     }
     
-    func detailNotice() {
+    func detailNotice(_ uuid: String) {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
+        vc.uuid = uuid
         vc.coordinator = self
-        delegate?.dismissBar(true, { [weak self] in
-            self?.nav.pushViewController(vc, animated: true)
-        })
+        self.nav.pushViewController(vc, animated: true)
+        delegate?.dismissBar(true)
+    }
+    
+    func searchNotice(_ searchText: String) {
+        let vc = NoticeSearchViewController.instantiate(storyboardName: .searchNotice)
+        vc.coordinator = self
+        vc.searchText = searchText
+        self.nav.pushViewController(vc, animated: true)
+        delegate?.dismissBar(true)
     }
 }

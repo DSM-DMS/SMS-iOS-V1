@@ -24,6 +24,7 @@ class OutGoingLogViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         bindUI()
         bindAction()
+        tableView.rowHeight = 146
     }
 }
 
@@ -35,8 +36,6 @@ extension OutGoingLogViewController {
     }
     
     private func bindUI() {
-        tableView.rowHeight = 146
-        
         let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0,0))
         
         logs.filter {
@@ -68,11 +67,10 @@ extension OutGoingLogViewController {
                     cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
                     cell.placeLbl.text = log.place
                     cell.reasonLbl.text = log.reason
-                    cell.lateView.backgroundColor = log.arrival_time > log.end_time ? .rgb(red: 244, green: 51, blue: 51, alpha: 0.5) : .tabbarColor
                     
                     cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
                     
-                    let timeCheck = self.checking(unix(with: log.end_time))
+                    let timeCheck = unix(with: log.end_time) > Date()
                     
                     switch Int(log.outing_status) {
                     case -1, -2:
@@ -97,8 +95,9 @@ extension OutGoingLogViewController {
                         self.cellState(cell: cell, text: "외출중", color: .customPurple)
                     case 4:
                         self.cellState(cell: cell, text: "선생님 방문 필요", color: .customRed)
+//                        cell.lateView.backgroundColor = log.arrival_time > log.end_time ? .rgb(red: 244, green: 51, blue: 51, alpha: 0.5) : .tabbarColor
                     case 5:
-                        self.cellState(cell: cell, text: "외출 확인 완료", color: .blue)
+                        self.cellState(cell: cell, text: "외출 확인 완료", color: .customBlue)
                     default:
                         self.cellState(cell: cell, text: "에러", color: .customBlack)
                     }
@@ -109,10 +108,6 @@ extension OutGoingLogViewController {
                 self.view.makeToast("인터넷 연결 실패")
             }
         }.disposed(by: disposeBag)
-    }
-    
-    func checking(_ endTime: Date) -> Bool {
-        return endTime > Date() // 안늦음
     }
     
     func cellState(cell: OutGoingLogTableViewCell,text: String, color: UIColor)  {

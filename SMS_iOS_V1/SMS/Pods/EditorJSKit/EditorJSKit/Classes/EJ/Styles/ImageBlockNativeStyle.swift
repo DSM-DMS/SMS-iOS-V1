@@ -21,10 +21,11 @@ public protocol EJImageBlockStyle: EJBlockStyle {
 }
 
 ///
+@available(iOS 13.0, *)
 class ImageBlockNativeStyle: EJImageBlockStyle  {
     var imageViewBackgroundColor = UIColor(red: 97/255, green: 199/255, blue: 243/255, alpha: 1)
     var font = UIFont.systemFont(ofSize: 20)
-    var captionColor: UIColor = .black
+    var captionColor: UIColor = .label
     var textAlignment: NSTextAlignment = .left
     var imageViewCornerRadius: CGFloat = 5
     var captionInsets: UIEdgeInsets = .zero

@@ -21,6 +21,10 @@ extension UIColor {
         return UIColor(named: "TimeViewColor")!
     }
     
+    static var customBlue: UIColor {
+        return rgb(red: 52, green: 79, blue: 230, alpha: 1)
+    }
+    
     static var customPurple: UIColor {
         return rgb(red: 83, green: 35, blue: 178, alpha: 1)
     }

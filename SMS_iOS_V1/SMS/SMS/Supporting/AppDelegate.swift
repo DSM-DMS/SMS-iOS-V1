@@ -10,13 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    var coordinator: AppCoordinator? 
+    var coordinator: AppCoordinator?
     var window:UIWindow?
     static var notiAllow = true
-    // keychain이 저장되어있는지, 와이파이 잡혀있는지 체크 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Thread.sleep(forTimeInterval: 1)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
@@ -39,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaults.standard.removeObject(forKey: "token")
-        UserDefaults.standard.removeObject(forKey: "uuid")
+        Account.shared.removeUD()
     }
 }

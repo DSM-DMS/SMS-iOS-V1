@@ -12,12 +12,17 @@ import Foundation
 class NativeStyle: EJStyle {
 
     override init(blockStyles: [BlockStyle]? = nil) {
-        super.init(blockStyles: [(EJNativeBlockType.header, HeaderBlockNativeStyle()),
-                                 (EJNativeBlockType.image, ImageBlockNativeStyle()),
-                                 (EJNativeBlockType.linkTool, LinkBlockNativeStyle()),
-                                 (EJNativeBlockType.list, ListBlockNativeStyle()),
-                                 (EJNativeBlockType.delimiter, DelimiterBlockNativeStyle()),
-                                 (EJNativeBlockType.paragraph, ParagraphBlockNativeStyle()),
-                                 (EJNativeBlockType.raw, RawHtmlBlockNativeStyle())])
+        if #available(iOS 13.0, *) {
+            super.init(blockStyles: [(EJNativeBlockType.header, HeaderBlockNativeStyle()),
+                                     (EJNativeBlockType.image, ImageBlockNativeStyle()),
+                                     (EJNativeBlockType.linkTool, LinkBlockNativeStyle()),
+                                     (EJNativeBlockType.list, ListBlockNativeStyle()),
+                                     (EJNativeBlockType.delimiter, DelimiterBlockNativeStyle()),
+                                     (EJNativeBlockType.paragraph, ParagraphBlockNativeStyle()),
+                                     (EJNativeBlockType.raw, RawHtmlBlockNativeStyle())])
+        } else {
+            super.init()
+            // Fallback on earlier versions
+        }
     }
 }
