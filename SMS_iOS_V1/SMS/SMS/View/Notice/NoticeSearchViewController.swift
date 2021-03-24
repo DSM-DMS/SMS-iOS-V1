@@ -53,7 +53,7 @@ extension NoticeSearchViewController {
                         let count = announcement.count
                         if count != 0 {
                             
-                            for i in 0...count {
+                            for i in 0...count - 1{
                                 if announcement[i].title.hasPrefix(searchKeyword) {
                                     self.searchAnnounceMent.append(announcement[i])
                                 }
