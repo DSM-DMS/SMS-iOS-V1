@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EditorJSKit
 
 class NoticeCoordinator: Coordinator {
     var delegate: dismissBarProtocol?
@@ -34,13 +35,22 @@ class NoticeCoordinator: Coordinator {
     }
     
     func pop() {
-        self.nav.popViewController(animated: false)
+        self.nav.popViewController(animated: true)
         delegate?.dismissBar(false)
     }
     
-    func detailNotice() {
+    func detailNotice(_ uuid: String) {
         let vc = NoticeDetailViewController.instantiate(storyboardName: .noticeDetail)
+        vc.uuid = uuid
         vc.coordinator = self
+        self.nav.pushViewController(vc, animated: true)
+        delegate?.dismissBar(true)
+    }
+    
+    func searchNotice(_ searchText: String) {
+        let vc = NoticeSearchViewController.instantiate(storyboardName: .searchNotice)
+        vc.coordinator = self
+        vc.searchText = searchText
         self.nav.pushViewController(vc, animated: true)
         delegate?.dismissBar(true)
     }
