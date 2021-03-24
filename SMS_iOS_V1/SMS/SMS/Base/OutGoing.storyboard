@@ -249,7 +249,7 @@
                                         <real key="value" value="70"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="40"/>
+                                        <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
@@ -267,10 +267,7 @@
                                         <real key="value" value="60"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="30"/>
+                                        <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
@@ -335,8 +332,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-ey-rH4">
-                                                <rect key="frame" x="0.0" y="27" width="25.666666666666668" height="20"/>
-                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
+                                                <rect key="frame" x="0.0" y="27" width="29.666666666666668" height="20"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1051,13 +1048,13 @@
                                         <string key="text">1. 외출 신청 시간: 24시간                       2. 외출 허용 시간: 16:20~ 20:30까지
    - 질병 외출일 경우 외출 시간을 적용하지 않습니다.
    - 주말 외출은 기숙사 외출로 분류되므로 DMS로 외출 신청  3. 외출 과정
-  - 외출 입력 칸을 정상적으로 입력한 후 작성완료를 누릅니다.
-  - 외출 신청이 정상적으로 진행되었다면, 선생님께 직접 방문하여 선생님 승인을 받아주세요. (빨간색)
-  - 외출 승인 후 외출을 시작하게 되면, 해당 계정과 연결된 학부모의 전화번호로 외출 통보 문자가 전송됩니다.
-  - (학부모 계정에 연결되지 않은 계정이거나 학부모가 문자 사용을 동의하지 않았다면 건너뛰게 됩니다.)
-  - 외출 시작은 외출 전 지킴이 선생님께  '모바일 &gt; 오늘의 외출증'을 보여드리고, 시작 버튼을 누르시면 됩니다. (빨간색)
-  - 외출 완료 및 복귀 후에는 직접 종료를 할 수 없고, 선생님께 직접 방문하여 선생님을 통해 종료해야 합니다. (빨간색)
-  - 외출 종료 후에는 선생님께 직접 방문해서 꼭 최종 확인을 받아야합니다.    4. 외출 사이트를 통해서 이루어진 외출신청만 정식 외출로 인정되며, 이외의 다른 이유로 신청한 외출은 무단외출로 간주합니다.
+   - 외출 입력 칸을 정상적으로 입력한 후 작성완료를 누릅니다.
+   - 외출 신청이 정상적으로 진행되었다면, 선생님께 직접 방문하여 선생님 승인을 받아주세요. (빨간색)
+   - 외출 승인 후 외출을 시작하게 되면, 해당 계정과 연결된 학부모의 전화번호로 외출 통보 문자가 전송됩니다.
+   - (학부모 계정에 연결되지 않은 계정이거나 학부모가 문자 사용을 동의하지 않았다면 건너뛰게 됩니다.)
+   - 외출 시작은 외출 전 지킴이 선생님께  '모바일 &gt; 오늘의 외출증'을 보여드리고, 시작 버튼을 누르시면 됩니다. (빨간색)
+   - 외출 완료 및 복귀 후에는 직접 종료를 할 수 없고, 선생님께 직접 방문하여 선생님을 통해 종료해야 합니다. (빨간색)
+   - 외출 종료 후에는 선생님께 직접 방문해서 꼭 최종 확인을 받아야합니다.    4. 외출 사이트를 통해서 이루어진 외출신청만 정식 외출로 인정되며, 이외의 다른 이유로 신청한 외출은 무단외출로 간주합니다.
      - 외출 사이트 비정상적으로 작동 시, 수기 외출 신청도 가능  5. 외출 신청은 최대 하루에 한 번으로 제한됩니다.  6. 외출 사이트에서는 24시간제를 사용합니다. (오후6시 외출할 경우 -&gt; 18시로 신청)  7. 안전 유의사항
   - 불법택시(흑차), 불법오토바이 이용하지 않기
   - 문제 발생 시 비상연락처(보호자 또는 학교)로 바로 연락하기
@@ -1699,10 +1696,10 @@
     </scenes>
     <designables>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="13.666666666666666"/>
+            <size key="intrinsicContentSize" width="336" height="32.733593749999997"/>
         </designable>
     </designables>
     <resources>
