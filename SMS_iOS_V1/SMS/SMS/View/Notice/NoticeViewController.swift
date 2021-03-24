@@ -87,6 +87,7 @@ extension NoticeViewController {
                         cell.cellNumber.text = "\(notice.number)"
                         cell.cellTitle.text = notice.title
                         cell.cellViews.text = "\(notice.views)"
+                        cell.selectionStyle = .none
                     }.disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
