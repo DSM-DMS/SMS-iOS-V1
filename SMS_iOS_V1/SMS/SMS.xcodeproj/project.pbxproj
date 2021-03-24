@@ -11,13 +11,10 @@
 		47131020250253C000ED348C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713101F250253C000ED348C /* Auth.storyboard */; };
 		47131025250255C900ED348C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47131024250255C900ED348C /* LoginViewController.swift */; };
 		4720FE2425119CE300BAE75A /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4720FE2325119CE300BAE75A /* Notice.storyboard */; };
-		4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728354A25A5D3E800EA211B /* MypageViewModel.swift */; };
 		473DACA225E36B0C0086E84F /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */; };
 		4766CA222510D0170060B330 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4766CA212510D0170060B330 /* MyPage.storyboard */; };
 		477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */; };
-		4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */; };
 		4787403F25CA78E2001976A3 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787403E25CA78E2001976A3 /* NoticeModel.swift */; };
-		4787404425CA79FF001976A3 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4787404325CA79FF001976A3 /* NoticeViewModel.swift */; };
 		478B988B25B1D609002167EC /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988A25B1D609002167EC /* MypageModel.swift */; };
 		478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */; };
 		478B989125B9A09F002167EC /* MypagePWChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478B989025B9A09F002167EC /* MypagePWChangeModel.swift */; };
@@ -30,6 +27,7 @@
 		47AA50AC257F40D30003F87D /* OutGoingApplyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA50A2257F40D20003F87D /* OutGoingApplyViewModel.swift */; };
 		47AA50B2257F40D30003F87D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA50AA257F40D20003F87D /* LoginViewModel.swift */; };
 		D600F3E72608DA0D00D5A1A8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D600F3E62608DA0D00D5A1A8 /* TabBarController.swift */; };
+		D600F3F8260962EF00D5A1A8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D600F3F7260962EF00D5A1A8 /* Account.swift */; };
 		D60C3EF225F92C00009D0134 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60C3EF125F92C00009D0134 /* LogOutView.swift */; };
 		D60C3EF525F92C0C009D0134 /* LogOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EF425F92C0C009D0134 /* LogOutView.xib */; };
 		D60C3F0025F93CAE009D0134 /* DevCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */; };
@@ -98,7 +96,6 @@
 		D6A25CC225F7D636006BE0FD /* AboutOuting.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A25CC025F7D636006BE0FD /* AboutOuting.xib */; };
 		D6A8E46025F6D7FB00F46C2D /* DevCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */; };
 		D6A8E46325F6D83500F46C2D /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */; };
-		D6A8E46625F6D87C00F46C2D /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */; };
 		D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */; };
 		D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */; };
 		D6B3A3DF2582E9D9005C36E6 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */; };
@@ -145,14 +142,11 @@
 		4713101F250253C000ED348C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		47131024250255C900ED348C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4720FE2325119CE300BAE75A /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
-		4728354A25A5D3E800EA211B /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
 		4766CA212510D0170060B330 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		477FF0B0250A015D0056E1D4 /* OutGoing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutGoing.storyboard; sourceTree = "<group>"; };
 		477FF0B2250A04CF0056E1D4 /* OutGoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingViewController.swift; sourceTree = "<group>"; };
-		4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLogoutViewModel.swift; sourceTree = "<group>"; };
 		4787403E25CA78E2001976A3 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
-		4787404325CA79FF001976A3 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		478B988A25B1D609002167EC /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
 		478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageChangePWViewModel.swift; sourceTree = "<group>"; };
 		478B989025B9A09F002167EC /* MypagePWChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePWChangeModel.swift; sourceTree = "<group>"; };
@@ -169,6 +163,7 @@
 		6389DA4C65B153958AB64D8F /* Pods_SMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB747EAB641ED86BA323425 /* Pods-SMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMS.debug.xcconfig"; path = "Target Support Files/Pods-SMS/Pods-SMS.debug.xcconfig"; sourceTree = "<group>"; };
 		D600F3E62608DA0D00D5A1A8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D600F3F7260962EF00D5A1A8 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D60C3EF125F92C00009D0134 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
 		D60C3EF425F92C0C009D0134 /* LogOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutView.xib; sourceTree = "<group>"; };
 		D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -235,7 +230,6 @@
 		D6A25CC025F7D636006BE0FD /* AboutOuting.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutOuting.xib; sourceTree = "<group>"; };
 		D6A8E45F25F6D7FB00F46C2D /* DevCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6A8E46225F6D83500F46C2D /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
-		D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
 		D6B3A3D72582E9D9005C36E6 /* NoticeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3D82582E9D9005C36E6 /* ScheduleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCoordinator.swift; sourceTree = "<group>"; };
 		D6B3A3DA2582E9D9005C36E6 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
@@ -311,9 +305,7 @@
 		4728354925A5D3D800EA211B /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
-				4728354A25A5D3E800EA211B /* MypageViewModel.swift */,
 				478B988D25B99FAD002167EC /* MypageChangePWViewModel.swift */,
-				4787401625C939B4001976A3 /* MypageLogoutViewModel.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -323,15 +315,6 @@
 			children = (
 				4787403E25CA78E2001976A3 /* NoticeModel.swift */,
 				473DACA125E36B0C0086E84F /* NoticeDetailModel.swift */,
-			);
-			path = Notice;
-			sourceTree = "<group>";
-		};
-		4787404225CA79EF001976A3 /* Notice */ = {
-			isa = PBXGroup;
-			children = (
-				4787404325CA79FF001976A3 /* NoticeViewModel.swift */,
-				D6A8E46525F6D87C00F46C2D /* NoticeDetailViewModel.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -464,7 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				D67F3317257E76480086F75E /* ViewModelType.swift */,
-				4787404225CA79EF001976A3 /* Notice */,
 				4728354925A5D3D800EA211B /* Mypage */,
 				D67F3311257E76480086F75E /* OutGoing */,
 				D67F3318257E76480086F75E /* Auth */,
@@ -556,6 +538,7 @@
 				D67F32FF257E75F90086F75E /* CustomShadowButton.swift */,
 				D6B8EE92255CA98E00F1F21E /* GlobalProperties.swift */,
 				D630C8F72586E1C900BD07C3 /* UnixStamp.swift */,
+				D600F3F7260962EF00D5A1A8 /* Account.swift */,
 			);
 			name = Util;
 			path = SMS/Util;
@@ -977,7 +960,6 @@
 				D6F8C97D259C958200DE967A /* OutGoingLocationAlertXib.swift in Sources */,
 				D6B8EE93255CA98E00F1F21E /* GlobalProperties.swift in Sources */,
 				D62D8C3B2518DABE00548FBF /* OutGoingNoticeViewController.swift in Sources */,
-				4787404425CA79FF001976A3 /* NoticeViewModel.swift in Sources */,
 				D67F32EF257E751A0086F75E /* UIView.swift in Sources */,
 				D62D8C372518DABE00548FBF /* MypageViewController.swift in Sources */,
 				D62D8C1C2518D9B200548FBF /* DayCell.swift in Sources */,
@@ -988,7 +970,6 @@
 				478B988E25B99FAD002167EC /* MypageChangePWViewModel.swift in Sources */,
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
-				D6A8E46625F6D87C00F46C2D /* NoticeDetailViewModel.swift in Sources */,
 				D696147825E8A2D700E880D9 /* LoginModel.swift in Sources */,
 				D67F3320257E76480086F75E /* ViewModelType.swift in Sources */,
 				D6B8EE8F255CA97200F1F21E /* AppDelegate.swift in Sources */,
@@ -1000,6 +981,7 @@
 				D67F32DB257E74B90086F75E /* UICell.swift in Sources */,
 				D62D8C362518DABE00548FBF /* MypageIntroduceDevViewController.swift in Sources */,
 				D6F39D39257E3AAA006ED3C1 /* AppCoordinator.swift in Sources */,
+				D600F3F8260962EF00D5A1A8 /* Account.swift in Sources */,
 				4787403F25CA78E2001976A3 /* NoticeModel.swift in Sources */,
 				478B988B25B1D609002167EC /* MypageModel.swift in Sources */,
 				D696142B25E6709E00E880D9 /* CheckCertificationNumberViewController.swift in Sources */,
@@ -1019,7 +1001,6 @@
 				D6F8C942259B638100DE967A /* ScheduleModel.swift in Sources */,
 				47AA5085257F40640003F87D /* CustomeShadowView.swift in Sources */,
 				D6F8C94A259B647F00DE967A /* OutLocationModel.swift in Sources */,
-				4728354B25A5D3E800EA211B /* MypageViewModel.swift in Sources */,
 				479B7F5825FE5FFF005AA267 /* NoticeSearchViewController.swift in Sources */,
 				D67F32F9257E75890086F75E /* StoryBoardName.swift in Sources */,
 				D696147C25E8A33E00E880D9 /* CertificationNumberModel.swift in Sources */,
@@ -1044,7 +1025,6 @@
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
 				D60C3EF225F92C00009D0134 /* LogOutView.swift in Sources */,
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
-				4787401725C939B4001976A3 /* MypageLogoutViewModel.swift in Sources */,
 				D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */,
 				D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */,
 				D66049FE25DAE12B00032F34 /* Array.swift in Sources */,
@@ -1205,7 +1185,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.22;
+				CURRENT_PROJECT_VERSION = 1.0.23;
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				INFOPLIST_FILE = SMS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1213,7 +1193,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.12;
+				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaeduckSoftwareMeisterHighSchool.SMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1227,7 +1207,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.22;
+				CURRENT_PROJECT_VERSION = 1.0.23;
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				INFOPLIST_FILE = SMS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1235,7 +1215,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.12;
+				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaeduckSoftwareMeisterHighSchool.SMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
