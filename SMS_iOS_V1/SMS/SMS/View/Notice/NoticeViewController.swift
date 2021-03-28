@@ -34,14 +34,21 @@ extension NoticeViewController {
         
         Notice.filter { $0.status == 200 }
             .map { ($0.announcements ?? []) }
-            .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
-                cell.uuid = notice.announcement_uuid
-                cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-                cell.cellNumber.text = "\(notice.number)"
-                cell.cellTitle.text = notice.title
-                cell.cellViews.text = "\(notice.views)"
-                cell.selectionStyle = .none
-            }.disposed(by: self.disposeBag)
+            .subscribe(onNext: { abc in
+                Observable.of(abc)
+                    .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
+                        cell.uuid = notice.announcement_uuid
+                        cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
+                        cell.cellNumber.text = "\(notice.number)"
+                        cell.cellTitle.text = notice.title
+                        cell.cellViews.text = "\(notice.views)"
+                        cell.selectionStyle = .none
+                    }.disposed(by: self.disposeBag)
+            }, onError: { (error) in
+                if error as? StatusCode == StatusCode.internalServerError {
+                    self.view.makeToast("인터넷 연결 실패")
+                }
+            }).disposed(by: disposeBag)
     }
     
     func bindAction() {
