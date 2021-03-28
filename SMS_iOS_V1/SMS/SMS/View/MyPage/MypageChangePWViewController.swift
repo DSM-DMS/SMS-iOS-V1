@@ -65,7 +65,6 @@ extension MypageChangePWViewController {
     func bindAcion() {
         backButton.rx.tap
             .bind { _ in
-                print("pop")
                 self.coordinator?.pop()
             }.disposed(by: disposeBag)
     }
