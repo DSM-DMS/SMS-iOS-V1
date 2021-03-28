@@ -23,7 +23,7 @@ class HeaderBlockNativeStyle: EJHeaderBlockStyle {
         switch level {
         case 1: return UIFont.systemFont(ofSize: 30, weight: .bold)
         case 2: return UIFont.systemFont(ofSize: 24, weight: .bold)
-        default: return UIFont.systemFont(ofSize: 18, weight: .bold)
+        default: return UIFont.systemFont(ofSize: 14, weight: .bold)
         }
     }
     
