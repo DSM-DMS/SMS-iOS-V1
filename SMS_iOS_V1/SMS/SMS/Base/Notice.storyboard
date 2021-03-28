@@ -108,9 +108,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellDate" destination="B4J-Dm-zH4" id="132-JB-ZwX"/>
-                                            <outlet property="cellNumber" destination="aQW-Hk-mBi" id="Qgg-Pz-6x3"/>
+                                            <outlet property="cellNumber" destination="Eob-ra-tdm" id="9oU-3r-hT5"/>
                                             <outlet property="cellTitle" destination="hYh-PX-Cn7" id="GCu-sx-sGF"/>
-                                            <outlet property="cellViews" destination="Eob-ra-tdm" id="vxd-0s-gIj"/>
+                                            <outlet property="cellViews" destination="aQW-Hk-mBi" id="L2U-ud-Pb2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

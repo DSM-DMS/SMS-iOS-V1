@@ -37,9 +37,9 @@ extension NoticeViewController {
             .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
                 cell.uuid = notice.announcement_uuid
                 cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-                cell.cellNumber.text = "\(notice.views)"
+                cell.cellNumber.text = "\(notice.number)"
                 cell.cellTitle.text = notice.title
-                cell.cellViews.text = "\(notice.number)"
+                cell.cellViews.text = "\(notice.views)"
                 cell.selectionStyle = .none
             }.disposed(by: self.disposeBag)
     }
