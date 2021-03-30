@@ -9,9 +9,17 @@
 import Foundation
 
 struct ScheduleData: Hashable, Equatable {
+    let start: Date
     let uuid: String
     let date: Date
     let detail: String
     let detailDate: String
-    let place: Int
+    let selected: Bool
+    let place: Int?
+}
+
+extension ScheduleData {
+    func contain(_ date: Date) -> Bool {
+        return self.date == date
+    }
 }

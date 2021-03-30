@@ -56,7 +56,6 @@
 		D64328BE25F61BF200AD1461 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64328BD25F61BF200AD1461 /* UILabel.swift */; };
 		D643299E25F6300400AD1461 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643299D25F6300400AD1461 /* LoginCoordinator.swift */; };
 		D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FA25DAE0F800032F34 /* ScheduleData.swift */; };
-		D66049FE25DAE12B00032F34 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66049FD25DAE12B00032F34 /* Array.swift */; };
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
 		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
 		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
@@ -193,7 +192,6 @@
 		D64328BD25F61BF200AD1461 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		D643299D25F6300400AD1461 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D66049FA25DAE0F800032F34 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
-		D66049FD25DAE12B00032F34 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutGoingLocationAlertXib.xib; sourceTree = "<group>"; };
 		D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		D66A5E4E260C0C3D00089F79 /* SMSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSAPI.swift; sourceTree = "<group>"; };
@@ -426,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				D67F32F8257E75890086F75E /* StoryBoardName.swift */,
-				D66049FD25DAE12B00032F34 /* Array.swift */,
 				D630C8FA2587761600BD07C3 /* Storyboarded.swift */,
 				D6B8EE84255CA95100F1F21E /* UIKit */,
 			);
@@ -1030,7 +1027,6 @@
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
 				D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */,
 				D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */,
-				D66049FE25DAE12B00032F34 /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
