@@ -70,14 +70,18 @@ extension NoticeDetailViewController {
         .bind { notice in
             if notice.status == 200 {
                 self.nTitle.text = notice.title
-                self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date / 1000))
+                self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date! / 1000))
                 self.pNoticeButton.setTitle(notice.next_title, for: .normal)
                 self.nNoticeButton.setTitle(notice.previous_title, for: .normal)
-                guard let data = try? notice.content.data(using: .utf8) else { return }
+                guard let data = try? notice.content!.data(using: .utf8) else { return }
                 self.blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
                 self.rendererCollectionView.reloadData()
-                self.pNoticeUUID = notice.previous_announcement_uuid
-                self.nNoticeUUID = notice.next_announcement_uuid
+                self.pNoticeUUID = notice.previous_announcement_uuid!
+                self.nNoticeUUID = notice.next_announcement_uuid!
+            } else if notice.status == 408 {
+                self.view.makeToast("TimeError")
+                sleep(1)
+                self.coordinator?.pop()
             }
         }.disposed(by: disposeBag)
     }
