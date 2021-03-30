@@ -41,7 +41,13 @@ public class HeaderNativeView: UIView, EJBlockStyleApplicable {
     public func apply(style: EJBlockStyle) {
         guard let style = style as? EJHeaderBlockStyle else { return }
         label.textAlignment = style.alignment
-        //
+        label.font = .boldSystemFont(ofSize: 14)
+        label.numberOfLines = 4
+        if #available(iOS 13.0, *) {
+            label.textColor = .label
+        } else {
+            // Fallback on earlier versions
+        }
         backgroundColor = style.backgroundColor
         layer.cornerRadius = style.cornerRadius
     }
@@ -50,7 +56,7 @@ public class HeaderNativeView: UIView, EJBlockStyleApplicable {
         guard let attributed = item.attributedString, let style = style ?? EJKit.shared.style.getStyle(forBlockType: EJNativeBlockType.header)  else { return .zero }
         let newBoundingWidth = boundingWidth - (style.insets.left + style.insets.right)
         let height = attributed.height(withConstrainedWidth: newBoundingWidth)
-        return CGSize(width: boundingWidth, height: height)
+        return CGSize(width: newBoundingWidth, height: height)
     }
 }
 

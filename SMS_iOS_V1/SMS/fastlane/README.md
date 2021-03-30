@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios release
 ```
 Push a new release build to the App Store
+### ios send_slack
+```
+fastlane ios send_slack
+```
+
 ### ios tests
 ```
 fastlane ios tests

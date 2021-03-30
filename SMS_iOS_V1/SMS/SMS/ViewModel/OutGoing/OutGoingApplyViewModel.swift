@@ -62,7 +62,7 @@ class OutGoingApplyViewModel: ViewModelType {
             }
     }
     
-    func asd(_ input: Input) -> Observable<Bool> {
+    func timeCheck(_ input: Input) -> Observable<Bool> {
         return input.applyDriver.asObservable()
             .withLatestFrom(Observable.combineLatest(input.startTimeDriver.asObservable(),
                                                      input.endTimeDriver.asObservable(),

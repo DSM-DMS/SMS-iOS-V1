@@ -32,26 +32,6 @@ class DayCell: FSCalendarCell {
         event3View.isHidden = true
     }
     
-    func todaySet(_ date: Date, _ uuid: String) -> [ScheduleData] {
-        var detailArr: [String] = []
-        var newSchedule: [ScheduleData] = []
-        cellEvent.forEach { (data) in
-            if !detailArr.contains(uuid) {
-                newSchedule.append(data)
-                detailArr.append(data.detail)
-            }
-        }
-        
-        cellEvent = newSchedule
-        
-        newSchedule.forEach { (data) in
-            if data.date != date {
-                cellEvent.remove(at: cellEvent.firstIndex(of: data)!)
-            }
-        }
-        return cellEvent.unique
-    }
-    
     func setting() {
         titleLabel.textColor = .label
         
@@ -77,8 +57,6 @@ class DayCell: FSCalendarCell {
         event3View.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
     }
     
-    // 선택했는지 디폴트인지 연결인지 체크, 연결이라면 몇번쨰 뷰가 그런지
-    
     func selectedDate(_ width: State, _ view: View? = nil) {
         switch width {
         case .continued:
@@ -87,6 +65,8 @@ class DayCell: FSCalendarCell {
                 case .Event1: leadingConstraint.constant = 3
                 case .Event2: leading2Constraint.constant = 3
                 case .Event3: leading3Constraint.constant = 3
+                case .Event4:
+                    print("")
                 }
             }
         case .normal:
@@ -119,4 +99,5 @@ enum View {
     case Event1
     case Event2
     case Event3
+    case Event4
 }

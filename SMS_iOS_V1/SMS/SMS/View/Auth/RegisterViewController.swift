@@ -174,10 +174,6 @@ extension RegisterViewController {
     }
     
     func keyboardAnimate(keyboardRectangle: CGRect ,textField: UITextField){
-        print(textField.frame.maxY)
-        print(self.view.frame.height)
-        print(keyboardRectangle.height)
-        print(self.view.frame.height - keyboardRectangle.height)
         if textField.frame.maxY > (self.view.frame.height - (keyboardRectangle.height + 200)) {
             self.view.transform = CGAffineTransform(translationX: 0, y: -40)
         }

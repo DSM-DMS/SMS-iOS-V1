@@ -22,6 +22,16 @@ platform :ios do
     build_app(workspace: "SMS.xcworkspace", scheme: "SMS")
     upload_to_app_store
   end
+
+ lane :send_slack do |options|
+    slack(
+      message: "앱이 App Store Connect에 성공적으로 업로드 되었습니다.",
+      channel: "#이현욱[iOS]",
+      payload: {
+        "Version": options[:version]
+      }
+    )
+  end
 	
   lane :tests do
     scan

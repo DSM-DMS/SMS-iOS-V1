@@ -13,6 +13,12 @@ class SMSUITests: XCTestCase {
     let app = XCUIApplication()
 
     override func setUpWithError() throws {
+        
+        let app = XCUIApplication()
+         setupSnapshot(app)
+         app.launch()
+
+
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -28,15 +34,33 @@ class SMSUITests: XCTestCase {
     }
     
     
-    func test_SearchUserResultAvailable() {
     
+    func test_SearchUserResultAvailable() {
         
-//        let app = XCUIApplication()
-//                app.collectionViews.containing(.other, identifier:"Vertical scroll bar, 1 page").children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap()
-//        let collectionViewsQuery = app.collectionViews
-//        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["back"]/*[[".cells.buttons[\"back\"]",".buttons[\"back\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        element.children(matching: .other).element(boundBy: 0).children(matching: .button).element.tap()
-//        collectionViewsQuery/*@START_MENU_TOKEN@*/.textFields["외출 사유를 입력해주세요"]/*[[".cells.textFields[\"외출 사유를 입력해주세요\"]",".textFields[\"외출 사유를 입력해주세요\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let app = XCUIApplication()
+        addUIInterruptionMonitor(withDescription: "Allow push") { (alerts) -> Bool in
+                    if(alerts.buttons["Allow"].exists){
+                        alerts.buttons["Allow"].tap();
+                    }
+                    return true;
+                }
+        let idText = app.textFields["아이디를 입력해주세요"]
+        idText.tap()
+        idText.typeText("student1")
+        let pwText = app.secureTextFields["비밀번호를 입력해주세요"]
+        pwText.tap()
+        pwText.typeText("student1")
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+        app.buttons["로그인"].tap()
+        snapshot("Schedule")
+        let tabBar = app.tabBars["Tab Bar"]
+        tabBar.children(matching: .button).element(boundBy: 1).tap()
+        snapshot("Outing")
+        tabBar.children(matching: .button).element(boundBy: 2).tap()
+        snapshot("Notice")
+        tabBar.children(matching: .button).element(boundBy: 3).tap()
+        snapshot("MyPage")
+               
     }
 
     func testLaunchPerformance() throws {

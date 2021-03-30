@@ -33,17 +33,26 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rendererCollectionView.delegate = self
-        rendererCollectionView.dataSource = self
         performNetworkTask()
         bindAction()
         bind()
+        setting()
     }
 }
 
 
 
 extension NoticeDetailViewController {
+    func setting() {
+        rendererCollectionView.delegate = self
+        rendererCollectionView.dataSource = self
+        let cellSize = CGSize(width: rendererCollectionView.frame.width, height: 60)
+
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = cellSize
+        rendererCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
     private func performNetworkTask() {
         guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else { return }
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
@@ -61,14 +70,18 @@ extension NoticeDetailViewController {
         .bind { notice in
             if notice.status == 200 {
                 self.nTitle.text = notice.title
-                self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date / 1000))
+                self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date! / 1000))
                 self.pNoticeButton.setTitle(notice.next_title, for: .normal)
                 self.nNoticeButton.setTitle(notice.previous_title, for: .normal)
-                guard let data = try? notice.content.data(using: .utf8) else { return }
+                guard let data = try? notice.content!.data(using: .utf8) else { return }
                 self.blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
                 self.rendererCollectionView.reloadData()
-                self.pNoticeUUID = notice.previous_announcement_uuid
-                self.nNoticeUUID = notice.next_announcement_uuid
+                self.pNoticeUUID = notice.previous_announcement_uuid!
+                self.nNoticeUUID = notice.next_announcement_uuid!
+            } else if notice.status == 408 {
+                self.view.makeToast("TimeError")
+                sleep(1)
+                self.coordinator?.pop()
             }
         }.disposed(by: disposeBag)
     }
@@ -116,13 +129,11 @@ extension NoticeDetailViewController: UICollectionViewDataSource {
     }
 }
 
+///
 extension NoticeDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         do {
-            return try renderer.size(forBlock: blockList.blocks[indexPath.section],
-                                     itemIndex: indexPath.item,
-                                     style: nil,
-                                     superviewSize: CGSize(width:  collectionView.frame.size.width - 40, height:  collectionView.frame.size.height))
+            return try renderer.size(forBlock: blockList.blocks[indexPath.section], itemIndex: indexPath.item, style: nil, superviewSize: CGSize(width: UIScreen.main.bounds.width - 40, height: collectionView.frame.height) )
         } catch {
             return CGSize(width: 100, height: 100)
         }

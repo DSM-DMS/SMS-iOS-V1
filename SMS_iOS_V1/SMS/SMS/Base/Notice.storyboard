@@ -108,9 +108,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellDate" destination="B4J-Dm-zH4" id="132-JB-ZwX"/>
-                                            <outlet property="cellNumber" destination="aQW-Hk-mBi" id="Qgg-Pz-6x3"/>
+                                            <outlet property="cellNumber" destination="Eob-ra-tdm" id="PYT-G7-EGa"/>
                                             <outlet property="cellTitle" destination="hYh-PX-Cn7" id="GCu-sx-sGF"/>
-                                            <outlet property="cellViews" destination="Eob-ra-tdm" id="vxd-0s-gIj"/>
+                                            <outlet property="cellViews" destination="aQW-Hk-mBi" id="xsP-mh-9wt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,7 +133,7 @@
                                     <constraint firstAttribute="height" constant="22" id="xQ4-00-dtn"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button" image="magnifyingglass" catalog="system">
+                                <state key="normal" image="magnifyingglass" catalog="system">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                             </button>
@@ -268,7 +268,7 @@
                                     <constraint firstAttribute="width" constant="6" id="GCC-H0-Xcj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tc-r3-HWD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tc-r3-HWD">
                                 <rect key="frame" x="101" y="471" width="254" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0BB-hV-1BG"/>
@@ -279,7 +279,7 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-51-15a">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-51-15a">
                                 <rect key="frame" x="101" y="509" width="254" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79" id="J4y-N4-WB0"/>
