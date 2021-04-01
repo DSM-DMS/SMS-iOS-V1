@@ -56,7 +56,7 @@ public class HeaderNativeView: UIView, EJBlockStyleApplicable {
         guard let attributed = item.attributedString, let style = style ?? EJKit.shared.style.getStyle(forBlockType: EJNativeBlockType.header)  else { return .zero }
         let newBoundingWidth = boundingWidth - (style.insets.left + style.insets.right)
         let height = attributed.height(withConstrainedWidth: newBoundingWidth)
-        return CGSize(width: newBoundingWidth, height: height)
+        return CGSize(width: boundingWidth, height: height)
     }
 }
 
