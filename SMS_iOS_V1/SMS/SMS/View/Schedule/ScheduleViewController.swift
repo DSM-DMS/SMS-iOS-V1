@@ -10,6 +10,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     var tableViewHeightConstraint: NSLayoutConstraint!
     weak var coordinator: ScheduleCoordinator?
     
+    
     var Schedules: [ScheduleData] = []
     var value = false
     var date: BehaviorRelay<Date> = BehaviorRelay(value: Date())
@@ -69,7 +70,11 @@ extension ScheduleViewController {
                 self.bind()
             } onError: { (error) in
                 if error as? StatusCode == StatusCode.internalServerError {
-                    self.view.makeToast("인터넷 연결 실패")
+                    self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                    self.calendarView.select(Date(), scrollToDate: false)
+                    let cell = self.calendarView.cell(for: self.calendarView.selectedDate!, at: .current) as? DayCell
+                    cell?.selectedDate(.selected)
+                    self.dateForTable.accept(cell?.cellEvent)
                 }
             }.disposed(by: disposeBag)
         } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
@@ -93,16 +98,27 @@ extension ScheduleViewController {
         }
         .subscribe(onNext: { (model) in
             switch model.parent_status {
-            case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.")
-            case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.")
+            case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+            case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             case "": print("Nothing")
             default: print("에러")
             }
         }, onError: { (error) in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                
             }
         }).disposed(by: disposeBag)
+        
+        let asdasd: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
+        
+        asdasd.map { $0.announcements }
+            .bind { data in
+                data?.forEach({ (d) in
+                    if d.noneReadingChecking() {
+                        self.tabBarController?.viewControllers?[2].tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
+                    }
+                })
+            }.disposed(by: disposeBag)
     }
     
     private func bindAction() {
@@ -144,7 +160,7 @@ extension ScheduleViewController {
             }
         }, onError: { (error) in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             }
         }).disposed(by: disposeBag)
     }
@@ -157,7 +173,6 @@ extension ScheduleViewController {
         previousBtn.layer.zPosition = 1
         self.view.addSubviews([previousBtn, nextBtn])
         calendarView.placeholderType = .none
-        calendarView.appearance.todaySelectionColor = .tabbarColor
         calendarView.appearance.selectionColor = .tabbarColor
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
         calendarView.appearance.titleSelectionColor = UIColor.black
@@ -256,7 +271,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
             let detailDate: String = globalDateFormatter(.detailTime, start) + " - " + globalDateFormatter(.detailTime, end)
             generateDateRange(from: start, to: end).forEach { date in
                 let isStart = start + 32400 == date ? true : false
-//                date.sor
                 Schedules.append(ScheduleData(start: start, uuid: schedules![i].uuid, date: date, detail: schedules![i].detail, detailDate: detailDate, selected: isStart, place: nil))
             }
         }

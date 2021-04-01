@@ -72,7 +72,7 @@ class TimeScheduleXib: UIView {
             }
         } onError: {  error in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.makeToast("인터넷 연결 실패")
+                self.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             }
         }.disposed(by: disposeBag)
     }

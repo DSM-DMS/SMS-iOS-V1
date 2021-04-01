@@ -65,7 +65,7 @@
         self.sectionRowCounts = NULL;
         
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.sectionInsets = UIEdgeInsetsMake(5, 0, 5, 0);
+        self.sectionInsets = UIEdgeInsetsMake(5, 2, 5, 2);
         
         self.itemAttributes = NSMutableDictionary.dictionary;
         self.headerAttributes = NSMutableDictionary.dictionary;

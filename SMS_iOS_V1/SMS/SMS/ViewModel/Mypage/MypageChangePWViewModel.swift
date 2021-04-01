@@ -46,4 +46,15 @@ class MypageChangePWViewModel: ViewModelType {
                 return !currentPW.isEmpty && !newPW.isEmpty && !confirmPW.isEmpty
             }
     }
+    
+    func pwCheck(_ input: Input) -> Observable<Bool> {
+        return input.changeButtonDrver.asObservable()
+            .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldDriver.asObservable(),
+                                                     input.newPWTextFieldDriver.asObservable(),
+                                                     input.confirmPWTextFieldDriver.asObservable()
+            ))
+            .map { data in
+                return data.0 != data.1 && data.1 == data.2
+            }
+    }
 }

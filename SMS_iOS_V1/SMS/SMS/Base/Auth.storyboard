@@ -51,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-kd-A7g">
-                                <rect key="frame" x="46" y="353" width="80" height="18"/>
+                                <rect key="frame" x="46" y="382.66666666666669" width="80" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdb-TB-sZt">
                                         <rect key="frame" x="22" y="0.0" width="58" height="18"/>
@@ -60,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-RV-h7i">
-                                        <rect key="frame" x="0.0" y="1.9999999999999991" width="15" height="13.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="2.3333333333333153" width="15" height="13.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="32Z-F5-xZI"/>
                                             <constraint firstAttribute="height" constant="13.5" id="54W-eV-LZq"/>
@@ -93,7 +93,7 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Gr-D35" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="232.66666666666666" width="336" height="18.666666666666657"/>
+                                <rect key="frame" x="46" y="232.66666666666666" width="336" height="41.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -132,7 +132,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpl-42-BLa" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="309" width="336" height="17"/>
+                                <rect key="frame" x="46" y="314" width="336" height="41.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -210,7 +210,7 @@
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="top" secondItem="wA3-vK-czP" secondAttribute="bottom" constant="70" id="afF-Lt-PVS"/>
                             <constraint firstItem="sif-Ac-qeU" firstAttribute="centerX" secondItem="LUL-SF-kHQ" secondAttribute="centerX" id="fWD-K5-GBS"/>
                             <constraint firstItem="5DH-kd-A7g" firstAttribute="top" secondItem="cpl-42-BLa" secondAttribute="bottom" constant="27" id="irz-ih-lIE"/>
-                            <constraint firstItem="cpl-42-BLa" firstAttribute="top" secondItem="LIg-Gr-D35" secondAttribute="bottom" constant="57.5" id="zgQ-zo-cMi"/>
+                            <constraint firstItem="cpl-42-BLa" firstAttribute="top" secondItem="LIg-Gr-D35" secondAttribute="bottom" constant="40" id="zgQ-zo-cMi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="calendar" id="3iw-1C-4D8"/>
@@ -438,7 +438,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 후 계정을 생성해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cU-e8-j8X">
-                                <rect key="frame" x="49" y="129" width="202" height="20"/>
+                                <rect key="frame" x="49" y="129" width="214" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QZQ-qd-zTW"/>
                                 </constraints>
@@ -467,7 +467,7 @@
                                                 <rect key="frame" x="174" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0f-4g-PRW">
-                                                        <rect key="frame" x="0.0" y="21" width="45.333333333333336" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="49.333333333333336" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="vix-mR-FKJ"/>
                                                         </constraints>
@@ -511,7 +511,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-o8-B5J">
-                                                        <rect key="frame" x="0.0" y="21" width="77" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="84.333333333333329" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="F2U-JJ-2hR"/>
                                                         </constraints>
@@ -771,16 +771,16 @@
     </scenes>
     <designables>
         <designable name="LIg-Gr-D35">
-            <size key="intrinsicContentSize" width="125" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
         <designable name="Z3R-Fz-pba">
-            <size key="intrinsicContentSize" width="301.33333333333331" height="34"/>
+            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
         </designable>
         <designable name="cpl-42-BLa">
-            <size key="intrinsicContentSize" width="137" height="17"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
         <designable name="jMO-OF-pwS">
-            <size key="intrinsicContentSize" width="286.66666666666669" height="34"/>
+            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
         </designable>
     </designables>
     <resources>

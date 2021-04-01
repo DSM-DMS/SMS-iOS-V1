@@ -36,7 +36,7 @@ class LoginCoordinator: Coordinator {
         let vc = LoginViewController.instantiate(storyboardName: .login)
         vc.coordinator = self
         nav.setNavigationBarHidden(true, animated: false)
-        nav.pushViewController(vc, animated: false)
+        nav.pushViewController(vc, animated: true)
     }
     
     func tabbar() {

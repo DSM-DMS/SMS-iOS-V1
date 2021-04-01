@@ -81,6 +81,7 @@ extension OutGoingLocationAlertXib {
                 cell.contentView.backgroundColor = .white
                 cell.addressLbl.text = detail.address
                 cell.roadAddressLbl.text = detail.roadAddress
+                self.locationSearchBar.resignFirstResponder()
             }.disposed(by: disposeBag)
     }
 }
