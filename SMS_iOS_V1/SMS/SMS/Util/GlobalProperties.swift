@@ -11,6 +11,8 @@ import KeychainSwift
 
 let keyChain = KeychainSwift()
 
+let screen = UIScreen.main.bounds
+
 func checking<T: Comparable>(e1: T, e2: T) -> Bool {
     return e1 >= e2
 }

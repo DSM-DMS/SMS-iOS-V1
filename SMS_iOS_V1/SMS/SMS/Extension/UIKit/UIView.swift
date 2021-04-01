@@ -14,7 +14,7 @@ extension UIView {
     func addShadow(maskValue: Bool, offset: CGSize, shadowRadius: CGFloat, opacity: Float, cornerRadius: CGFloat, corner: CACornerMask? = nil) {
         layer.masksToBounds = maskValue
         layer.shadowOffset = offset
-        layer.shadowColor = UIColor.shadowColor.cgColor
+        layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = opacity
         layer.cornerRadius = cornerRadius
