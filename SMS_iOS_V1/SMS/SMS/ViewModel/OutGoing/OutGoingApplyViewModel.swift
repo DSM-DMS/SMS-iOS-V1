@@ -40,7 +40,7 @@ class OutGoingApplyViewModel: ViewModelType {
                 let start = datecommponent($0.0)
                 let end = datecommponent($0.1)
                 
-                return (start.hour! == 4 && start.minute! >= 20) || start.hour! >= 16 && start.hour! <= 20 && end.hour! >= start.hour! || (end.minute! <= 30 && end.hour! == 8)
+                return (start.hour! >= 16 && start.hour! <= 20) && (end.hour! >= 16 && end.hour! <= 20) && (start.hour! == 16 && start.minute! > 19) && (end.hour! == 20 && end.minute! < 31) && (end.hour! > start.hour!)
             }
             .map { txt -> SMSAPI in
                 let str = txt.4 ? "emergency" : "normal"
@@ -70,10 +70,10 @@ class OutGoingApplyViewModel: ViewModelType {
                                                      input.reasonDriver.asObservable(),
                                                      input.diseaseIs.asObservable()
             ))
-        .map { data in
-            let start = datecommponent(data.0)
-            let end = datecommponent(data.1)
-                return (start.hour! == 4 && start.minute! >= 20) || start.hour! >= 16 && start.hour! <= 20 && end.hour! >= start.hour! || (end.minute! <= 30 && end.hour! == 8)
-        }
+            .map { data in
+                let start = datecommponent(data.0)
+                let end = datecommponent(data.1)
+                return (start.hour! >= 16 && start.hour! <= 20) && (end.hour! >= 16 && end.hour! <= 20) && (start.hour! == 16 && start.minute! > 19) && (end.hour! == 20 && end.minute! < 31) && (end.hour! > start.hour!)
+            }
     }
 }
