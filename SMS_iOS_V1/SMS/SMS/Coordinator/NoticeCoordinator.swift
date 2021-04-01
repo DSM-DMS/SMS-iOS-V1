@@ -27,11 +27,14 @@ class NoticeCoordinator: Coordinator {
     func start() {
         let vc = NoticeViewController.instantiate(storyboardName: .noticeMain)
         vc.coordinator = self
-       
         vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notice"), selectedImage: nil)
         vc.title = ""
         nav.setNavigationBarHidden(true, animated: false)
         nav.pushViewController(vc, animated: false)
+        vc.tabBarItem.badgeColor = .clear
+        vc.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
+        vc.tabBarItem.badgeValue = "●"
+        
     }
     
     func pop() {
