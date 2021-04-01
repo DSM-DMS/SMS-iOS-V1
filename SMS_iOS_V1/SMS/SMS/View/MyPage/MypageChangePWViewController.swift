@@ -43,8 +43,14 @@ extension MypageChangePWViewController {
         
         let isValid = viewModel.isValid(input)
         
+        let pwCheck = viewModel.pwCheck(input)
+        
         isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
         isValid.bind { b in self.applyButton.alpha = b ? 1 : 0.3 }.disposed(by: disposeBag)
+        
+        pwCheck.bind { if !$0 {
+            self.applyButton.shake()
+        }}.disposed(by: disposeBag)
         
         output.result.subscribe { model in
             if model.status == 200 {
@@ -55,7 +61,7 @@ extension MypageChangePWViewController {
             }
         } onError: { error in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             } else {
                 self.applyButton.shake()
             }

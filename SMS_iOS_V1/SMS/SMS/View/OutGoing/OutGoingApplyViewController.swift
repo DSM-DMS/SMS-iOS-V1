@@ -43,8 +43,6 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
 
 extension OutGoingApplyViewController {
     private func bind() {
-        
-        
         let input = OutGoingApplyViewModel.Input(reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
                                                  startTimeDriver: startDatePicker.rx.date.asDriver(),
                                                  endTimeDriver: endDatePicker.rx.date.asDriver(),
@@ -72,14 +70,15 @@ extension OutGoingApplyViewController {
             switch model.status {
             case 201:
                 switch model.code {
-                case 0: self.view.makeToast("승인을 받은 후 모바일을 통해 외출을 시작해주세요.")
-                case -1: self.view.makeToast("연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요.")
-                case -2: self.view.makeToast("학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요.")
+                case 0: self.view.makeToast("승인을 받은 후 모바일을 통해 외출을 시작해주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                case -1: self.view.makeToast("연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                case -2: self.view.makeToast("학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
                 default:
                     print("에러")
                 }
-                sleep(1)
-                self.coordinator?.outGoingCompleted()
+                DispatchQueue.main.asyncAfter(wallDeadline: .now() + .seconds(3/2)) {
+                    self.coordinator?.outGoingCompleted()
+                }
             case 401:
                 self.coordinator?.main()
                 return
@@ -88,7 +87,7 @@ extension OutGoingApplyViewController {
             }
         } onError: { error in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             } else {
                 self.applyButton.shake()
             }
@@ -108,6 +107,8 @@ extension OutGoingApplyViewController {
         
         hiddenViewButton.rx.tap
             .bind { _ in
+                self.placeTextField.isUserInteractionEnabled = true
+                self.view.endEditing(true)
                 self.hiddenView(true)
             }.disposed(by: disposeBag)
         
@@ -118,6 +119,7 @@ extension OutGoingApplyViewController {
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
+                self.placeTextField.isUserInteractionEnabled = false
                 self.hiddenViewButton.isHidden = false
                 self.locationXib.isHidden = false
                 self.locationXib.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
@@ -125,12 +127,13 @@ extension OutGoingApplyViewController {
                     self.placeTextField.text = cell.addressLbl.text!
                     self.hiddenViewButton.isHidden = true
                     self.locationXib.isHidden = true
-                    
+                    self.placeTextField.isUserInteractionEnabled = true
                 }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
         
         diseaseBtn.rx.tap
             .bind { [self] _ in
+                self.view.endEditing(true)
                 var bool = false
                 self.bool.bind { b in bool = b }.disposed(by: disposeBag)
                 if !bool {
@@ -186,16 +189,5 @@ extension OutGoingApplyViewController {
         if let hiddeView = view {
             hiddeView.isHidden = true
         }
-    }
-}
-
-extension OutGoingApplyViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
 }

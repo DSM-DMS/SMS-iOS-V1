@@ -79,7 +79,7 @@ extension NoticeDetailViewController {
                 self.pNoticeUUID = notice.previous_announcement_uuid!
                 self.nNoticeUUID = notice.next_announcement_uuid!
             } else if notice.status == 408 {
-                self.view.makeToast("TimeError")
+                self.view.makeToast("Time Error", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
                 sleep(1)
                 self.coordinator?.pop()
             }

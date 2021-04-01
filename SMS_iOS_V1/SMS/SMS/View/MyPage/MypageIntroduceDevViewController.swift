@@ -44,7 +44,7 @@ extension MypageIntroduceDevViewController: UIScrollViewDelegate {
         Observable.of(peopleArr)
             .bind(to: devCollectionView.rx.items(cellIdentifier: DevCollectionViewCell.NibName, cellType: DevCollectionViewCell.self)) { _, people, cell in
                 cell.imageView.image = UIImage(named: people.image)
-                cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
+                cell.imageView.layer.cornerRadius = cell.imageView.frame.height / 1.95
                 cell.nameLbl.text = people.name
                 cell.partLbl.text = people.part
             }.disposed(by: disposeBag)

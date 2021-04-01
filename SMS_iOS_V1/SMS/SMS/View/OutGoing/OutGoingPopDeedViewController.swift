@@ -44,6 +44,7 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
         settingAlert()
         bindAction()
         bind()
+        self.isViewHidden(true)
     }
 }
 
@@ -99,6 +100,8 @@ extension OutGoingPopDeedViewController {
                                 self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true)
                             } else if model.status == 401 {
                                 self.coordinator?.main()
+                            } else {
+                                self.outBtn.shake()
                             }
                         }.disposed(by: self.disposeBag)
                     }
@@ -124,7 +127,6 @@ extension OutGoingPopDeedViewController {
         let outings: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0, 1))
         
         outings.filter {
-            self.isViewHidden(true)
             if $0.status == 401 {
                 self.coordinator?.main()
                 return false
@@ -158,7 +160,7 @@ extension OutGoingPopDeedViewController {
             }
         }, onError: { error in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             }
         }).disposed(by: disposeBag)
     }

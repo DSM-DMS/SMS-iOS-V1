@@ -62,7 +62,7 @@ extension LoginViewController {
             }
         } onError: { error in
             if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패")
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             } else {
                 self.loginButton.shake()
             }
