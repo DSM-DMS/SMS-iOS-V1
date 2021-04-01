@@ -11,8 +11,5 @@ import UIKit
 extension UIViewController {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
-        // 키보드에 가리는 떄만 화면을 올릴수 있는방법 찾기 
     }
-    
-    
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct NoticeDetailModel: Codable {
     let status: Int
-    let code: Int
+    let code: Int?
     let message: String
     let detail: String?
     let date: Int?

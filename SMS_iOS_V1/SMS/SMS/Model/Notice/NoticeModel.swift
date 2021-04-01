@@ -26,4 +26,8 @@ struct Announcements: Codable {
     let is_checked: Int
 }
 
-var searchKeyword = ""
+extension Announcements {
+    func noneReadingChecking() -> Bool {
+        return is_checked == 0
+    }
+}
