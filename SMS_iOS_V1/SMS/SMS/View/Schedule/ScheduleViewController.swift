@@ -89,25 +89,15 @@ extension ScheduleViewController {
     func bind() {
         let myInfo: Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
         
-        myInfo.filter {
-            if $0.status == 401 {
-                self.coordinator?.main()
-                return false
-            }
-            return true
-        }
-        .subscribe(onNext: { (model) in
+        myInfo.filter { return $0.status == 200 }
+        .bind { (model) in
             switch model.parent_status {
             case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             case "": print("Nothing")
             default: print("에러")
             }
-        }, onError: { (error) in
-            if error as? StatusCode == StatusCode.internalServerError {
-                
-            }
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
         
         let asdasd: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
         
