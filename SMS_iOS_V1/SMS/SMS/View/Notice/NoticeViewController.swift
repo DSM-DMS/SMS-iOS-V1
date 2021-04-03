@@ -21,7 +21,7 @@ class NoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                bindAction()
+        bindAction()
         bind()
     }
     
@@ -37,35 +37,33 @@ extension NoticeViewController {
         searchTextField.rx
             .controlEvent(.editingDidEndOnExit)
             .bind {
-                if self.searchTextField.text! != "" {
-                    self.coordinator?.searchNotice(self.searchTextField.text!)
-                }
+                let str = self.searchTextField.text!.replacingOccurrences(of: " ", with: "")
+                self.coordinator?.searchNotice(str)
             }.disposed(by: disposeBag)
         
-        // 0이 하나도 없을 때만 .clear이고 하나라도 있으면 .red임
         self.Notice
-            .map { data -> [Announcements] in
-                var arr: [Bool] = []
-                data.forEach { data in
-                    arr.append(data.noneReadingChecking())
-                }
-                
-                if arr.contains(true) {
-                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
-                }
-                else {
-                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
-                }
-                return data
+        .map { data -> [Announcements] in
+            var arr: [Bool] = []
+            data.forEach { data in
+                arr.append(data.noneReadingChecking())
             }
-            .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
-                cell.uuid = notice.announcement_uuid
-                cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-                cell.cellNumber.text = "\(notice.number)"
-                cell.cellTitle.text = notice.title
-                cell.cellViews.text = "\(notice.views)"
-                cell.selectionStyle = .none
-            }.disposed(by: disposeBag)
+            
+            if arr.contains(true) {
+                self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
+            }
+            else {
+                self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
+            }
+            return data
+        }
+        .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
+            cell.uuid = notice.announcement_uuid
+            cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
+            cell.cellNumber.text = "\(notice.number)"
+            cell.cellTitle.text = notice.title
+            cell.cellViews.text = "\(notice.views)"
+            cell.selectionStyle = .none
+        }.disposed(by: disposeBag)
     }
     
     func bindAction() {
