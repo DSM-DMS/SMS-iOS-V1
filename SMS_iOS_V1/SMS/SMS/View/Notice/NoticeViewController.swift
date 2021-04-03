@@ -42,28 +42,28 @@ extension NoticeViewController {
             }.disposed(by: disposeBag)
         
         self.Notice
-        .map { data -> [Announcements] in
-            var arr: [Bool] = []
-            data.forEach { data in
-                arr.append(data.noneReadingChecking())
+            .map { data -> [Announcements] in
+                var arr: [Bool] = []
+                data.forEach { data in
+                    arr.append(data.noneReadingChecking())
+                }
+                
+                if arr.contains(true) {
+                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
+                }
+                else {
+                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
+                }
+                return data
             }
-            
-            if arr.contains(true) {
-                self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
-            }
-            else {
-                self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
-            }
-            return data
-        }
-        .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
-            cell.uuid = notice.announcement_uuid
-            cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-            cell.cellNumber.text = "\(notice.number)"
-            cell.cellTitle.text = notice.title
-            cell.cellViews.text = "\(notice.views)"
-            cell.selectionStyle = .none
-        }.disposed(by: disposeBag)
+            .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
+                cell.uuid = notice.announcement_uuid
+                cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
+                cell.cellNumber.text = "\(notice.number)"
+                cell.cellTitle.text = notice.title
+                cell.cellViews.text = "\(notice.views)"
+                cell.selectionStyle = .none
+            }.disposed(by: disposeBag)
     }
     
     func bindAction() {
