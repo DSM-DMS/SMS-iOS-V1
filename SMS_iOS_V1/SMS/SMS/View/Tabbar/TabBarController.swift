@@ -13,7 +13,7 @@ protocol dismissBarProtocol {
 import UIKit
 
 class TabBarController: UITabBarController, Storyboarded {
-    var value: Bool = true
+    var value: Bool = false
     var finish: FinishDelegate!
     weak var coordinator: TabbarCoordinator!
     
