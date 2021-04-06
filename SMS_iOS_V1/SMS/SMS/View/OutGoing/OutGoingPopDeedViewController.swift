@@ -16,6 +16,7 @@ import UserNotifications
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    var startTime: Date?
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var dateLbl: UILabel!
@@ -91,7 +92,8 @@ extension OutGoingPopDeedViewController {
                 self.isHiddenAllAlert(false)
                 self.outStartAlertView.sign = { b in
                     self.isHiddenAllAlert(true)
-                    if b {
+                    guard let startTime = self.startTime else { return }
+                    if (b && startTime < Date())  {
                         let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
                         
                         endOuting.bind { model in
@@ -140,6 +142,7 @@ extension OutGoingPopDeedViewController {
         .map { outing -> (Date, String) in
             return (unix(with: outing.outings![0].start_time), outing.outings![0].outing_uuid)
         }.subscribe(onNext: { (date, uuid) in
+            self.startTime = date
             if Calendar.current.isDateInToday(date) {
                 UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
                 let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
