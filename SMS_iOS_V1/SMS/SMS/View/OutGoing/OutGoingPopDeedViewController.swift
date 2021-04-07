@@ -96,7 +96,7 @@ extension OutGoingPopDeedViewController {
                     if (b && startTime < Date())  {
                         let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
                         
-                        endOuting.bind { model in
+                        endOuting.subscribe(onNext: { model in
                             if model.status == 200 {
                                 self.outing(true)
                                 self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true)
@@ -105,7 +105,11 @@ extension OutGoingPopDeedViewController {
                             } else {
                                 self.outBtn.shake()
                             }
-                        }.disposed(by: self.disposeBag)
+                        }, onError: { error in
+                            if error as? StatusCode == StatusCode.internalServerError {
+                                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                            }
+                        }).disposed(by: self.disposeBag)
                     }
                 }
             }.disposed(by: disposeBag)

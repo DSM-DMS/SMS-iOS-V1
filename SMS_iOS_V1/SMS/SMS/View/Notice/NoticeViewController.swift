@@ -38,7 +38,7 @@ extension NoticeViewController {
             .controlEvent(.editingDidEndOnExit)
             .bind {
                 let str = self.searchTextField.text!.replacingOccurrences(of: " ", with: "")
-                self.coordinator?.searchNotice(str)
+                if !str.isEmpty { self.coordinator?.searchNotice(str) }
             }.disposed(by: disposeBag)
         
         self.Notice
@@ -48,12 +48,9 @@ extension NoticeViewController {
                     arr.append(data.noneReadingChecking())
                 }
                 
-                if arr.contains(true) {
-                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.red], for: .normal)
-                }
-                else {
-                    self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: UIColor.clear], for: .normal)
-                }
+                let color: UIColor = arr.contains(true) ? .red : .clear
+                self.tabBarItem.setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 7), .foregroundColor: color], for: .normal)
+                
                 return data
             }
             .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in

@@ -73,7 +73,7 @@ extension NoticeDetailViewController {
                 self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date! / 1000))
                 self.pNoticeButton.setTitle(notice.next_title, for: .normal)
                 self.nNoticeButton.setTitle(notice.previous_title, for: .normal)
-                guard let data = try? notice.content!.data(using: .utf8) else { return }
+                guard let data = try! notice.content!.data(using: .utf8) else { return }
                 self.blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
                 self.rendererCollectionView.reloadData()
                 self.pNoticeUUID = notice.previous_announcement_uuid!
