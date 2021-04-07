@@ -21,7 +21,6 @@
 @property (readonly, nonatomic) UIColor *colorForCellBorder;
 @property (readonly, nonatomic) NSArray<UIColor *> *colorsForEvents;
 @property (readonly, nonatomic) CGFloat borderRadius;
-@property(nonatomic, getter=isSelected) BOOL selected;
 
 @end
 
@@ -78,16 +77,11 @@
     self.event3View = event3;
     _event3View.translatesAutoresizingMaskIntoConstraints = false;
     [self.contentView addSubview:_event3View];
-    
     shapeLayer = [CAShapeLayer layer];
     shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
     shapeLayer.borderWidth = 1.0;
     shapeLayer.borderColor = [UIColor clearColor].CGColor;
     shapeLayer.opacity = 0;
-    CGRect ovalRect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:ovalRect];
-    shapeLayer.shadowPath = CFBridgingRetain(path);
-    
     [self.contentView.layer insertSublayer:shapeLayer below:_titleLabel.layer];
     self.shapeLayer = shapeLayer;
     

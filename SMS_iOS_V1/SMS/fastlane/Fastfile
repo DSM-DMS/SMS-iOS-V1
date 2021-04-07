@@ -23,6 +23,7 @@ platform :ios do
     upload_to_app_store
   end
 
+ desc "Webhook which App Upload Success"
  lane :send_slack do |options|
     slack(
       message: "앱이 App Store Connect에 성공적으로 업로드 되었습니다.",
@@ -33,6 +34,7 @@ platform :ios do
     )
   end
 	
+  desc "Test App"
   lane :tests do
     scan
    end
