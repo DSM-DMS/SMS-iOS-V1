@@ -54,17 +54,17 @@ class OutGoingApplyViewModel {
                             })
     }
     
-    func isValid(_ input: Input) -> Observable<Bool> {
+    func isValid() -> Signal<Bool> {
         return Observable.combineLatest(input.startTimeSubject.asObservable(),
                                         input.endTimeSubject.asObservable(),
                                         input.placeSubject.asObservable(),
                                         input.reasonSubject.asObservable())
             .map { start, end, place, reason in
                 return !place!.isEmpty && !reason.isEmpty
-            }
+            }.asSignal(onErrorJustReturn: false)
     }
     
-    func timeCheck(_ input: Input) -> Observable<Bool> {
+    func timeCheck() -> Signal<Bool> {
         return input.applySubject.asObservable()
             .withLatestFrom(Observable.combineLatest(input.startTimeSubject.asObservable(),
                                                      input.endTimeSubject.asObservable(),
@@ -76,6 +76,6 @@ class OutGoingApplyViewModel {
                 let start = datecommponent(data.0)
                 let end = datecommponent(data.1)
                 return (start.hour! >= 16 && start.hour! <= 20) && (end.hour! >= 16 && end.hour! <= 20) && (start.hour! == 16 && start.minute! > 19) && (end.hour! == 20 && end.minute! < 31) && (end.hour! > start.hour!)
-            }
+            }.asSignal(onErrorJustReturn: false)
     }
 }
