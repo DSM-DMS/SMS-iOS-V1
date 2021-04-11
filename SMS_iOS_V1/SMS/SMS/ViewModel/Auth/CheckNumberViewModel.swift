@@ -11,33 +11,32 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class CheckNumberViewModel: ViewModelType {
+class CheckNumberViewModel {
+    let input: Input
+    let output: Output
+    
     struct Input {
-        let numberDriver: Driver<String>
-        let checkDrvier: Driver<Void>
+        let numberSubject = PublishSubject<String>()
+        let checkSubject = PublishSubject<Void>()
     }
     
     struct Output {
         let certificationNumberModel: Observable<CertificationNumberModel>
     }
     
-    func transform(_ input: Input) -> Output {
-        let numberTextField = input.numberDriver.asObservable()
-        
-        let model = input.checkDrvier.asObservable()
-            .withLatestFrom(numberTextField)
-            .debounce(.seconds(2), scheduler: MainScheduler.instance)
-            .flatMap { number -> Observable<CertificationNumberModel> in
-                SMSAPIClient.shared.networking(from: .certificationNumber(number))
-            }
-        
-        return Output(certificationNumberModel: model)
+    init() {
+        input = Input()
+        output = Output(certificationNumberModel: input.checkSubject.asObservable()
+                            .withLatestFrom(input.numberSubject)
+                            .flatMapLatest{ number -> Observable<CertificationNumberModel> in
+                                SMSAPIClient.shared.networking(from: .certificationNumber(number))
+                            })
     }
     
-    func isValid(_ input: Input) -> Observable<Bool> {
-        return input.numberDriver.asObservable()
+    func buttonIsValid() -> Signal<Bool> {
+        return input.numberSubject.asObservable()
             .map { number in
                 return number.count == 6
-        }
+            }.asSignal(onErrorJustReturn: false)
     }
 }
