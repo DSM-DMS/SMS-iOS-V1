@@ -35,7 +35,6 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindAction()
         bind()
         setting()
     }
@@ -43,29 +42,47 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
 
 extension OutGoingApplyViewController {
     private func bind() {
-        let input = OutGoingApplyViewModel.Input(reasonDriver: outReasonTextField.rx.text.orEmpty.asDriver(),
-                                                 startTimeDriver: startDatePicker.rx.date.asDriver(),
-                                                 endTimeDriver: endDatePicker.rx.date.asDriver(),
-                                                 placeDriver: self.placeTextField.rx.observe(String.self, "text"),
-                                                 applyDriver: aboutOuting.checkBtn.rx.tap.asDriver(),
-                                                 diseaseIs: bool)
+        outReasonTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.reasonSubject)
+            .disposed(by: disposeBag)
         
-        let output = viewModel.transform(input)
+        startDatePicker.rx.date
+            .bind(to: viewModel.input.startTimeSubject)
+            .disposed(by: disposeBag)
         
-        let isValid = viewModel.isValid(input)
+        endDatePicker.rx.date
+            .bind(to: viewModel.input.endTimeSubject)
+            .disposed(by: disposeBag)
         
-        isValid.bind { b in self.applyButton.alpha = b ? 1 :  0.3 }.disposed(by: disposeBag)
-        isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
+        placeTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.placeSubject)
+            .disposed(by: disposeBag)
         
-        let notFormTime = viewModel.timeCheck(input)
+        applyButton.rx.tap
+            .bind(to: viewModel.input.applySubject)
+            .disposed(by: disposeBag)
         
-        notFormTime.bind {
-            if !$0 {
-                self.applyButton.shake()
-            }
-        }.disposed(by: disposeBag)
+        bool
+            .bind(to: viewModel.input.diseaseIsSubject)
+            .disposed(by: disposeBag)
         
-        output.response.subscribe { model in
+        
+        viewModel.isValid()
+            .emit { b in self.applyButton.alpha = b ? 1 :  0.3 }
+            .disposed(by: disposeBag)
+        
+        viewModel.isValid()
+            .emit { self.applyButton.isEnabled = $0 }
+            .disposed(by: disposeBag)
+        
+        viewModel.timeCheck()
+            .emit {
+                if !$0 {
+                    self.applyButton.shake()
+                }
+            }.disposed(by: disposeBag)
+        
+        viewModel.output.response.subscribe { model in
             UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
             switch model.status {
             case 201:
@@ -92,9 +109,7 @@ extension OutGoingApplyViewController {
                 self.applyButton.shake()
             }
         }.disposed(by: disposeBag)
-    }
-    
-    private func bindAction() {
+        
         applyButton.rx.tap
             .bind { _ in
                 self.aboutOuting.isHidden = false
@@ -157,7 +172,6 @@ extension OutGoingApplyViewController {
             }
             .disposed(by: disposeBag)
     }
-    
     
     func setting() {
         dateLabel.text = globalDateFormatter(.day, Date())
