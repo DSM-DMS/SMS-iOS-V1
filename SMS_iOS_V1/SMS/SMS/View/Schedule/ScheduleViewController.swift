@@ -30,10 +30,10 @@ class ScheduleViewController: UIViewController, Storyboarded {
         let button = UIButton()
         button.setImage(UIImage(named: "left"), for: .normal)
         var y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
-        button.frame = CGRect(x: UIScreen.main.bounds.midX - 8 - calendarView.frame.width / 4,
-                              y: y,
-                              width: 8,
-                              height: 14)
+        button.frame = CGRect(x: UIScreen.main.bounds.minX + 50,
+                              y: y - 6,
+                              width: 16,
+                              height: 28)
         return button
     }()
     
@@ -41,10 +41,10 @@ class ScheduleViewController: UIViewController, Storyboarded {
         let button = UIButton()
         button.setImage(UIImage(named: "right"), for: .normal)
         let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
-        button.frame = CGRect(x: UIScreen.main.bounds.midX + calendarView.frame.width / 4,
-                              y: y,
-                              width: 8,
-                              height: 14)
+        button.frame = CGRect(x: UIScreen.main.bounds.maxX - 66,
+                              y: y - 6,
+                              width: 16,
+                              height: 28)
         return button
     }()
     
@@ -90,14 +90,14 @@ extension ScheduleViewController {
         let myInfo: Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo)
         
         myInfo.filter { return $0.status == 200 }
-        .bind { (model) in
-            switch model.parent_status {
-            case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-            case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-            case "": print("Nothing")
-            default: print("에러")
-            }
-        }.disposed(by: disposeBag)
+            .bind { (model) in
+                switch model.parent_status {
+                case "CONNECTED": self.view.makeToast("학부모 계정과 연결되었습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                case "UN_CONNECTED": self.view.makeToast("현재 연결된 학부모 계정이 없습니다.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                case "": print("Nothing")
+                default: print("에러")
+                }
+            }.disposed(by: disposeBag)
         
         let asdasd: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .lookUpNotice)
         
@@ -209,7 +209,11 @@ extension ScheduleViewController: UITableViewDelegate {
                 }
             }
             .map { data -> [ScheduleData] in
-                self.tableViewHeightConstraint.constant = CGFloat(data.count * 44) + 5
+                if data.count < 4 {
+                    self.tableViewHeightConstraint.constant = CGFloat(data.count * 44) + 5
+                } else {
+                    self.tableViewHeightConstraint.constant = 137
+                }
                 return data
             }
             .bind(to: tableView.rx.items(cellIdentifier: ScheduleCell.NibName, cellType: ScheduleCell.self)) { idx, schedule, cell in

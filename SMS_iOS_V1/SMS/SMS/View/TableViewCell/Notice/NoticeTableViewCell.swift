@@ -18,9 +18,13 @@ class NoticeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    func setting(_ notice: Announcements) {
+        uuid = notice.announcement_uuid
+        cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
+        cellNumber.text = "\(notice.number)"
+        cellTitle.text = notice.title
+        cellViews.text = "\(notice.views)"
+        selectionStyle = .none
     }
-
 }

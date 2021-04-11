@@ -24,7 +24,6 @@ class NoticeSearchViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         searchTextLbl.text = self.searchText
         bind()
-        bindAction()
     }
 }
 
@@ -42,9 +41,7 @@ extension NoticeSearchViewController {
                 cell.searchCellViews.text = "\(notice.views)"
                 cell.selectionStyle = .none
             }.disposed(by: self.disposeBag)
-    }
-    
-    func bindAction() {
+        
         backButton.rx.tap
             .bind{
                 self.coordinator?.pop()
