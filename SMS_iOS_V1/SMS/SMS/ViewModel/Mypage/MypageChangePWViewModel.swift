@@ -41,7 +41,7 @@ class MypageChangePWViewModel {
                             })
     }
     
-    func isValid(_ input: Input) -> Signal<Bool> {
+    func isValid() -> Signal<Bool> {
         return Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
                                         input.newPWTextFieldSubject.asObservable(),
                                         input.confirmPWTextFieldSubject.asObservable())
@@ -50,7 +50,7 @@ class MypageChangePWViewModel {
             }.asSignal(onErrorJustReturn: false)
     }
     
-    func pwCheck(_ input: Input) -> Signal<Bool> {
+    func pwCheck() -> Signal<Bool> {
         return input.changeButtonSubject.asObservable()
             .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
                                                      input.newPWTextFieldSubject.asObservable(),
