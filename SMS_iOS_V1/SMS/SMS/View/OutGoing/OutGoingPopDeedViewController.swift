@@ -43,9 +43,7 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         settingAlert()
-        bindAction()
         bind()
-        self.isViewHidden(true)
     }
 }
 
@@ -66,6 +64,8 @@ extension OutGoingPopDeedViewController {
     }
     
     func settingAlert() {
+        self.isViewHidden(true)
+        
         UNUserNotificationCenter.current().delegate = self
         outStartAlertView.addShadow(maskValue: true,
                                     offset: CGSize(width: 0, height: 3),
@@ -77,44 +77,6 @@ extension OutGoingPopDeedViewController {
 
 
 extension OutGoingPopDeedViewController {
-    func bindAction() {
-        popVCBtn.rx.tap
-            .bind { self.coordinator?.pop()}
-            .disposed(by: disposeBag)
-        
-        backgroundBtn.rx.tap
-            .bind {
-                self.isHiddenAllAlert(true)
-            }.disposed(by: disposeBag)
-        
-        outBtn.rx.tap
-            .bind { _ in
-                self.isHiddenAllAlert(false)
-                self.outStartAlertView.sign = { b in
-                    self.isHiddenAllAlert(true)
-                    guard let startTime = self.startTime else { return }
-                    if (b && startTime < Date())  {
-                        let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
-                        
-                        endOuting.subscribe(onNext: { model in
-                            if model.status == 200 {
-                                self.outing(true)
-                                self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true)
-                            } else if model.status == 401 {
-                                self.coordinator?.main()
-                            } else {
-                                self.outBtn.shake()
-                            }
-                        }, onError: { error in
-                            if error as? StatusCode == StatusCode.internalServerError {
-                                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                            }
-                        }).disposed(by: self.disposeBag)
-                    }
-                }
-            }.disposed(by: disposeBag)
-    }
-    
     func outing(_ value: Bool) {
         self.stateLbl.text = value ? "외출중" : "선생님 방문 인증 필요"
         self.stateLbl.textColor = value ? .label : .customRed
@@ -170,6 +132,42 @@ extension OutGoingPopDeedViewController {
                 self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
             }
         }).disposed(by: disposeBag)
+        
+        popVCBtn.rx.tap
+            .bind { self.coordinator?.pop()}
+            .disposed(by: disposeBag)
+        
+        backgroundBtn.rx.tap
+            .bind {
+                self.isHiddenAllAlert(true)
+            }.disposed(by: disposeBag)
+        
+        outBtn.rx.tap
+            .bind { _ in
+                self.isHiddenAllAlert(false)
+                self.outStartAlertView.sign = { b in
+                    self.isHiddenAllAlert(true)
+                    guard let startTime = self.startTime else { return }
+                    if (b && startTime < Date())  {
+                        let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
+                        
+                        endOuting.subscribe(onNext: { model in
+                            if model.status == 200 {
+                                self.outing(true)
+                                self.makeNoti("외출이 시작되었습니다.", "귀사 시간 전까지 귀사 후 외출을 종료해주세요.", "startingOuting", timeOrDate: true)
+                            } else if model.status == 401 {
+                                self.coordinator?.main()
+                            } else {
+                                self.outBtn.shake()
+                            }
+                        }, onError: { error in
+                            if error as? StatusCode == StatusCode.internalServerError {
+                                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                            }
+                        }).disposed(by: self.disposeBag)
+                    }
+                }
+            }.disposed(by: disposeBag)
     }
     
     func makeNoti(_ title: String, _ body: String, _ identifier: String, timeOrDate: Bool, unixTime: Int? = nil) {
