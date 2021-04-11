@@ -69,11 +69,11 @@
 		D67F3300257E75F90086F75E /* CustomShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32FF257E75F90086F75E /* CustomShadowButton.swift */; };
 		D67F3306257E76140086F75E /* SMSAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F3303257E76140086F75E /* SMSAPIClient.swift */; };
 		D67F3307257E76140086F75E /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F3304257E76140086F75E /* StatusCode.swift */; };
-		D67F3320257E76480086F75E /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F3317257E76480086F75E /* ViewModelType.swift */; };
 		D67F3338257E76A10086F75E /* OutGoingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F3334257E76A10086F75E /* OutGoingCoordinator.swift */; };
 		D67F7A8D2611DA6B005ED022 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F7A8C2611DA6B005ED022 /* SnapshotHelper.swift */; };
 		D68127F0252EE04300E9D7CA /* TimeScheduleXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */; };
 		D6812861252F182100E9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6812860252F182100E9D7CA /* LaunchScreen.storyboard */; };
+		D6902CDA2623652A00A05CFB /* DevIntroduceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6902CD92623652A00A05CFB /* DevIntroduceViewModel.swift */; };
 		D6915E2025F7617E005DDEBC /* OutGoingStartActionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */; };
 		D6915E2325F76189005DDEBC /* OutGoingStartActionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6915E2225F76189005DDEBC /* OutGoingStartActionAlert.swift */; };
 		D696142825E66F8500E880D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696142725E66F8500E880D9 /* RegisterViewController.swift */; };
@@ -204,11 +204,11 @@
 		D67F32FF257E75F90086F75E /* CustomShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomShadowButton.swift; sourceTree = "<group>"; };
 		D67F3303257E76140086F75E /* SMSAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSAPIClient.swift; sourceTree = "<group>"; };
 		D67F3304257E76140086F75E /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
-		D67F3317257E76480086F75E /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		D67F3334257E76A10086F75E /* OutGoingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutGoingCoordinator.swift; sourceTree = "<group>"; };
 		D67F7A8C2611DA6B005ED022 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		D68127EF252EE04300E9D7CA /* TimeScheduleXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeScheduleXib.xib; sourceTree = "<group>"; };
 		D6812860252F182100E9D7CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D6902CD92623652A00A05CFB /* DevIntroduceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevIntroduceViewModel.swift; sourceTree = "<group>"; };
 		D6915E1F25F7617E005DDEBC /* OutGoingStartActionAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutGoingStartActionAlert.xib; sourceTree = "<group>"; };
 		D6915E2225F76189005DDEBC /* OutGoingStartActionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutGoingStartActionAlert.swift; sourceTree = "<group>"; };
 		D696142725E66F8500E880D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -445,10 +445,10 @@
 		D67F330E257E76480086F75E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D67F3317257E76480086F75E /* ViewModelType.swift */,
 				4728354925A5D3D800EA211B /* Mypage */,
 				D67F3311257E76480086F75E /* OutGoing */,
 				D67F3318257E76480086F75E /* Auth */,
+				D6902CD2262364FD00A05CFB /* New Group */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -481,6 +481,14 @@
 			name = Network;
 			path = SMS/Network;
 			sourceTree = SOURCE_ROOT;
+		};
+		D6902CD2262364FD00A05CFB /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D6902CD92623652A00A05CFB /* DevIntroduceViewModel.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
 		};
 		D696142D25E6BDD800E880D9 /* AlertXib */ = {
 			isa = PBXGroup;
@@ -971,7 +979,6 @@
 				D62D8C1D2518D9B200548FBF /* ScheduleCell.swift in Sources */,
 				D6B3A3DD2582E9D9005C36E6 /* ScheduleCoordinator.swift in Sources */,
 				D696147825E8A2D700E880D9 /* LoginModel.swift in Sources */,
-				D67F3320257E76480086F75E /* ViewModelType.swift in Sources */,
 				D6B8EE8F255CA97200F1F21E /* AppDelegate.swift in Sources */,
 				D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */,
 				D6F8C93A259B5DA100DE967A /* OutGoingCardModel.swift in Sources */,
@@ -1024,6 +1031,7 @@
 				D696143D25E80DF100E880D9 /* RegisterInquireAlertXib.swift in Sources */,
 				D6F8C959259B659C00DE967A /* OutGoingLogTableViewCell.swift in Sources */,
 				D60C3EF225F92C00009D0134 /* LogOutView.swift in Sources */,
+				D6902CDA2623652A00A05CFB /* DevIntroduceViewModel.swift in Sources */,
 				D6B3A40125838EC2005C36E6 /* OutGoingModel.swift in Sources */,
 				D6B3A4142586D9B3005C36E6 /* OutGoingLogModel.swift in Sources */,
 				D66049FB25DAE0F800032F34 /* ScheduleData.swift in Sources */,
