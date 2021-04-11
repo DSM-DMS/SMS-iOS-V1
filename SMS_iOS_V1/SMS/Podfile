@@ -7,18 +7,28 @@ target 'SMS' do
 
   # Pods for SMS
 
+# Rx
 pod 'RxSwift'
 pod 'RxAlamofire'
-pod 'Kingfisher'
+pod 'RxViewController'
 pod 'RxCocoa'
 pod 'RxOptional'
 pod 'RxFlow'
-pod 'LayoutHelper'
-pod 'RNCryptor', '~> 5.0'
-pod 'SkyFloatingLabelTextField'
-pod 'KeychainSwift', '~> 19.0'
+
+#UI
 pod 'FSCalendar' 
 pod 'Toast-Swift', '~> 5.0.1'
 pod 'EditorJSKit'
+pod 'SkyFloatingLabelTextField'
+pod 'LayoutHelper'
+
+#Image
+pod 'Kingfisher'
+
+#Security
+pod 'RNCryptor', '~> 5.0'
+pod 'KeychainSwift', '~> 19.0'
+
+
 
 end
