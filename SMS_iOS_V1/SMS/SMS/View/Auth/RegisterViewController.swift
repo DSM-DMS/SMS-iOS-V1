@@ -37,7 +37,6 @@ class RegisterViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setting()
         bind()
-        bindAction()
         registerForKeyboardNotification()
     }
     
@@ -80,48 +79,22 @@ extension RegisterViewController {
     }
     
     func bind() {
-        let input = RegisterViewModel.Input(idDriver: idTextField.rx.text.orEmpty.asDriver(),
-                                            pwDriver: pwTextField.rx.text.orEmpty.asDriver(),
-                                            createDriver: createBtn.rx.tap.asDriver(),
-                                            number: Observable.of(number!))
+        idTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.idSubject)
+            .disposed(by: disposeBag)
         
-        let output = viewModel.transform(input)
+        pwTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.pwSubject)
+            .disposed(by: disposeBag)
         
-        let isValid = viewModel.isValid(input)
+        createBtn.rx.tap
+            .bind(to: viewModel.input.createSubject)
+            .disposed(by: disposeBag)
         
-        isValid.bind(to: self.createBtn.rx.isEnabled).disposed(by: disposeBag)
-        isValid.map { $0 ? 1 : 0.3 }.bind(to: self.createBtn.rx.alpha).disposed(by: disposeBag)
+        Observable.of(number!)
+            .bind(to: viewModel.input.numberSubject)
+            .disposed(by: disposeBag)
         
-        output.model.subscribe { model in
-            if model.status == 201 {
-                self.completeAlertView.isHidden = false
-                self.backgroundView.isHidden = false
-                self.completeAlertView.sign = {
-                    self.allAlertHidden(true)
-                    
-                    let loginResult: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(self.idTextField.text!, self.pwTextField.text!))
-                    
-                    loginResult.bind { model in
-                        Account.shared.setUD(model.access_token!, model.student_uuid!)
-                    }.disposed(by: self.disposeBag)
-                    
-                    self.coordinator?.popAll()
-                }
-            } else if model.status == 409 {
-                self.usingIDAlertView.isHidden = false
-                self.backgroundView.isHidden = false
-                self.usingIDAlertView.sign = {
-                    self.allAlertHidden(true)
-                }
-            }
-        } onError: { error in
-            if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-            }
-        }.disposed(by: disposeBag)
-    }
-    
-    func bindAction() {
         backBtn.rx.tap
             .bind { _ in
                 self.coordinator?.pop()
@@ -136,6 +109,35 @@ extension RegisterViewController {
                     self.allAlertHidden(true)
                 }
             }.disposed(by: disposeBag)
+        
+        viewModel.buttonIsValid()
+            .emit(to: self.createBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.buttonIsValid().map { $0 ? 1 : 0.3 }
+            .emit(to: self.createBtn.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.model.subscribe { model in
+            if model.status == 201 {
+                self.completeAlertView.isHidden = false
+                self.backgroundView.isHidden = false
+                self.completeAlertView.sign = {
+                    self.allAlertHidden(true)
+                    self.coordinator?.popAll()
+                }
+            } else if model.status == 409 {
+                self.usingIDAlertView.isHidden = false
+                self.backgroundView.isHidden = false
+                self.usingIDAlertView.sign = {
+                    self.allAlertHidden(true)
+                }
+            }
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+            }
+        }.disposed(by: disposeBag)
     }
     
     func allAlertHidden(_ value: Bool) {
