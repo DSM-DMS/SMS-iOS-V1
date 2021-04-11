@@ -27,32 +27,49 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        bindAcion()
     }
 }
 
 
 extension MypageChangePWViewController {
     func bind() {
-        let input = MypageChangePWViewModel.Input.init(currentPWTextFieldDriver: currentPWTextField.rx.text.orEmpty.asDriver(),
-                                                       newPWTextFieldDriver: newPWTextField.rx.text.orEmpty.asDriver(),
-                                                       confirmPWTextFieldDriver: confirmPWTextField.rx.text.orEmpty.asDriver(),
-                                                       changeButtonDrver: applyButton.rx.tap.asDriver())
+        currentPWTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.currentPWTextFieldSubject)
+            .disposed(by: disposeBag)
         
-        let output = viewModel.transform(input)
+        newPWTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.newPWTextFieldSubject)
+            .disposed(by: disposeBag)
         
-        let isValid = viewModel.isValid(input)
+        confirmPWTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.confirmPWTextFieldSubject)
+            .disposed(by: disposeBag)
         
-        let pwCheck = viewModel.pwCheck(input)
+        applyButton.rx.tap
+            .bind(to: viewModel.input.changeButtonSubject)
+            .disposed(by: disposeBag)
         
-        isValid.bind { self.applyButton.isEnabled = $0 }.disposed(by: disposeBag)
-        isValid.bind { b in self.applyButton.alpha = b ? 1 : 0.3 }.disposed(by: disposeBag)
+        viewModel.isValid()
+            .emit { self.applyButton.isEnabled = $0 }
+            .disposed(by: disposeBag)
         
-        pwCheck.bind { if !$0 {
-            self.applyButton.shake()
-        }}.disposed(by: disposeBag)
+        viewModel.isValid()
+            .emit { b in self.applyButton.alpha = b ? 1 : 0.3 }
+            .disposed(by: disposeBag)
         
-        output.result.subscribe { model in
+        viewModel.pwCheck()
+            .emit {
+                if !$0 {
+                    self.applyButton.shake()
+                }
+            }.disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
+        
+        viewModel.output.result.subscribe { model in
             if model.status == 200 {
                 Account.shared.removeKeyChain()
                 self.coordinator?.main()
@@ -66,12 +83,5 @@ extension MypageChangePWViewController {
                 self.applyButton.shake()
             }
         }.disposed(by: disposeBag)
-    }
-    
-    func bindAcion() {
-        backButton.rx.tap
-            .bind { _ in
-                self.coordinator?.pop()
-            }.disposed(by: disposeBag)
     }
 }
