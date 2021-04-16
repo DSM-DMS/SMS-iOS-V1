@@ -60,8 +60,8 @@ extension OutGoingLogViewController {
                     let endDateComponent: DateComponents = unix(with: log.end_time)
                     
                     cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
-                    let zeroForStart = SMS.checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
-                    let zeroForEnd = SMS.checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
+                    let zeroForStart = checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
+                    let zeroForEnd = checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
                     
                     cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
                     cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
