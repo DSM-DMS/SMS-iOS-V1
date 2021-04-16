@@ -1,0 +1,47 @@
+name: SMS
+packages:
+  AesEverywhere:
+    url: https://github.com/mervick/aes-everywhere-swift.git
+    from: 1.2.0
+  FSCalendar:
+    url: https://github.com/Goeun1001/FSCalendar
+    branch: master
+options:
+  postGenCommand: pod install # 생성 이후 명령 실행
+settingGroups:
+  app:
+    DEVELOPMENT_TEAM: Z25H7B85Z8
+targets:
+  SMS:
+    scheme:
+      testTargets:
+        - SMSUITests
+    sources:
+      excludes:
+          - "Main.storyboard"
+          - "SceneDelegate.swift"
+    settings:
+      groups: [app]
+      commandLineArguments: [run: true, test: true, archive: true, profile: true, analyst: true]
+      base:
+        INFOPLIST_FILE: SMS/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.DaeduckSoftwareMeisterHighSchool.SMS
+    type: application
+    platform: iOS
+    deploymentTarget: 13.0
+    sources: [SMS]
+    dependencies:
+      - package: AesEverywhere
+      - package: FSCalendar
+  SMSUITests:
+    type: bundle.ui-testing # 테스트 타입
+    platform: iOS # 플랫폼
+    sources: [SMS, SMSUITests]
+    settings:
+      groups: [app]
+      INFOPLIST_FILE: Info.plist # Info.plist 등록
+      commandLineArguments: [test: true]
+    dependencies:
+      - target: SMS
+      - package: AesEverywhere
+      - package: FSCalendar
