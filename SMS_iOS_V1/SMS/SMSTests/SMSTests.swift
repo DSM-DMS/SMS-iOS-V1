@@ -17,6 +17,14 @@ class SMSTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testTrue() {
+        XCTAssertTrue(true)
+    }
+    
+    func testFalse() {
+        XCTAssertFalse(false)
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
@@ -29,5 +37,6 @@ class SMSTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
 
 }
