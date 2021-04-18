@@ -16,9 +16,6 @@ jobs:
     
     - name: CI Start
       run: echo CI Start!
-    
-    - name: Add Library Dependency
-      run: pod install
       
     - name: Build and Test
       run: xcodebuild test -workspace SMS.xcworkspace -scheme 'SMSTests' -destination 'platform=iOS Simulator,name=iPhone 8'
