@@ -23,19 +23,16 @@ class OutGoingLogViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
-        bindAction()
         tableView.rowHeight = 146
     }
 }
 
 extension OutGoingLogViewController {
-    private func bindAction() {
+    private func bindUI() {
         popVCBtn.rx.tap
             .bind { self.coordinator?.pop() }
             .disposed(by: disposeBag)
-    }
-    
-    private func bindUI() {
+        
         let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0,0))
         
         logs.filter {
@@ -95,7 +92,6 @@ extension OutGoingLogViewController {
                         self.cellState(cell: cell, text: "외출중", color: .customPurple)
                     case 4:
                         self.cellState(cell: cell, text: "선생님 방문 필요", color: .customRed)
-//                        cell.lateView.backgroundColor = log.arrival_time > log.end_time ? .rgb(red: 244, green: 51, blue: 51, alpha: 0.5) : .tabbarColor
                     case 5:
                         self.cellState(cell: cell, text: "외출 확인 완료", color: .customBlue)
                     default:

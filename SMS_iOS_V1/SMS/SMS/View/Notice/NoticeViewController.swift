@@ -21,7 +21,6 @@ class NoticeViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindAction()
         bind()
     }
     
@@ -53,17 +52,10 @@ extension NoticeViewController {
                 
                 return data
             }
-            .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { idx, notice, cell in
-                cell.uuid = notice.announcement_uuid
-                cell.cellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-                cell.cellNumber.text = "\(notice.number)"
-                cell.cellTitle.text = notice.title
-                cell.cellViews.text = "\(notice.views)"
-                cell.selectionStyle = .none
+            .bind(to: self.noticeTableView.rx.items(cellIdentifier: NoticeTableViewCell.NibName, cellType: NoticeTableViewCell.self)) { _, notice, cell in
+                cell.setting(notice)
             }.disposed(by: disposeBag)
-    }
-    
-    func bindAction() {
+        
         noticeTableView.rx.itemSelected.bind { index in
             let cell = self.noticeTableView.cellForRow(at: index) as! NoticeTableViewCell
             self.coordinator?.detailNotice(cell.uuid!)

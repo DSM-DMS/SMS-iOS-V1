@@ -28,58 +28,61 @@ class CheckCertificationNumberViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        bindAction()
         setting()
     }
 }
 
 extension CheckCertificationNumberViewController {
     func bind() {
-        let input = CheckNumberViewModel.Input(numberDriver: numberTextField.rx.text.orEmpty.asDriver(),
-                                               checkDrvier: checkBtn.rx.tap.asDriver())
+        numberTextField.rx.text.orEmpty
+            .bind(to: viewModel.input.numberSubject)
+            .disposed(by: disposeBag)
         
-        let output = viewModel.transform(input)
+        checkBtn.rx.tap
+            .bind(to: viewModel.input.checkSubject)
+            .disposed(by: disposeBag)
         
-        let isValid = viewModel.isValid(input)
-        
-        isValid.bind(to: self.checkBtn.rx.isEnabled).disposed(by: disposeBag)
-        isValid.map { $0 ? 1 : 0.3 }.bind(to: self.checkBtn.rx.alpha).disposed(by: disposeBag)
-        
-        output.certificationNumberModel.subscribe { model in
-            if model.status == 200 {
-                self.coordinator?.register(model, self.numberTextField.text!)
-                self.alertAllHidden(true)
-            } else if model.status == 404 {
-                self.alertAllHidden(false, self.inquireAlertView)
-                self.invalidAlertView.sign = { bool in
-                    if bool {
-                        self.numberTextField.text?.removeAll()
-                        self.alertAllHidden(true)
-                    } else {
-                        self.coordinator?.pop()
-                    }
-                }
-            }
-        } onError: { error in
-            if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-            }
-        }.disposed(by: disposeBag)
-    }
-    
-    func bindAction() {
         backBtn.rx.tap
-            .bind { _ in
-                self.coordinator?.pop()
+            .bind { [weak self] in
+                self?.coordinator?.pop()
             }.disposed(by: disposeBag)
         
         alertBtn.rx.tap
-            .bind { _ in
-                self.alertAllHidden(false, self.invalidAlertView)
-                self.inquireAlertView.sign = {
-                    self.alertAllHidden(true)
+            .bind { [weak self] in
+                self?.alertAllHidden(false, self?.invalidAlertView)
+                self?.inquireAlertView.sign = {
+                    self?.alertAllHidden(true)
                 }
             }.disposed(by: disposeBag)
+        
+        viewModel.buttonIsValid()
+            .emit(to: self.checkBtn.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.buttonIsValid().map { $0 ? 1 : 0.3 }
+            .emit(to: self.checkBtn.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.certificationNumberModel.subscribe { [weak self] model in
+            if model.status == 200 {
+                self?.coordinator?.register(model, self?.numberTextField.text! ?? "")
+                self?.alertAllHidden(true)
+            } else if model.status == 404 {
+                self?.alertAllHidden(false, self?.inquireAlertView)
+                self?.invalidAlertView.sign = { bool in
+                    if bool {
+                        self?.numberTextField.text?.removeAll()
+                        self?.alertAllHidden(true)
+                    } else {
+                        self?.coordinator?.pop()
+                    }
+                }
+            }
+        } onError: { [weak self] error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self?.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+            }
+        }.disposed(by: disposeBag)
     }
     
     func alertAllHidden(_ value: Bool, _ option: UIView? = nil) {

@@ -23,6 +23,9 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - RxViewController (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - SkyFloatingLabelTextField (4.0.0)
   - Toast-Swift (5.0.1)
 
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - RxFlow
   - RxOptional
   - RxSwift
+  - RxViewController
   - SkyFloatingLabelTextField
   - Toast-Swift (~> 5.0.1)
 
@@ -56,6 +60,7 @@ SPEC REPOS:
     - RxOptional
     - RxRelay
     - RxSwift
+    - RxViewController
     - SkyFloatingLabelTextField
     - Toast-Swift
 
@@ -73,9 +78,10 @@ SPEC CHECKSUMS:
   RxOptional: e0b39f0863c25c4bfeea83cb35102a5244d048b3
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  RxViewController: 56486fa0afd629a1d6b5ba077f3b8cd9dc31b5d2
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 9b8bb96e838246498527ffa495a97e689b4052d8
+PODFILE CHECKSUM: cc095d4a9e7e8aeef6a14cc563f6070d56f9fc23
 
 COCOAPODS: 1.10.1

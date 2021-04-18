@@ -45,22 +45,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ul-mV-asL">
-                                <rect key="frame" x="47" y="114.00000000000001" width="61" height="32.666666666666671"/>
+                                <rect key="frame" x="47" y="114" width="57.333333333333343" height="25.666666666666657"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-kd-A7g">
-                                <rect key="frame" x="46" y="382.66666666666669" width="80" height="18"/>
+                                <rect key="frame" x="46" y="367.66666666666669" width="80" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdb-TB-sZt">
-                                        <rect key="frame" x="22" y="0.0" width="58" height="18"/>
+                                        <rect key="frame" x="22" y="0.0" width="58" height="14"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-RV-h7i">
-                                        <rect key="frame" x="0.0" y="2.3333333333333153" width="15" height="13.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.33333333333331439" width="15" height="13.333333333333334"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="32Z-F5-xZI"/>
                                             <constraint firstAttribute="height" constant="13.5" id="54W-eV-LZq"/>
@@ -93,7 +93,7 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Gr-D35" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="232.66666666666666" width="336" height="41.333333333333343"/>
+                                <rect key="frame" x="46" y="225.66666666666666" width="336" height="37.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -132,7 +132,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpl-42-BLa" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="314" width="336" height="41.666666666666686"/>
+                                <rect key="frame" x="46" y="303.33333333333331" width="336" height="37.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -438,7 +438,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 후 계정을 생성해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cU-e8-j8X">
-                                <rect key="frame" x="49" y="129" width="214" height="20"/>
+                                <rect key="frame" x="49" y="129" width="202" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QZQ-qd-zTW"/>
                                 </constraints>
@@ -467,7 +467,7 @@
                                                 <rect key="frame" x="174" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0f-4g-PRW">
-                                                        <rect key="frame" x="0.0" y="21" width="49.333333333333336" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="45.333333333333336" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="vix-mR-FKJ"/>
                                                         </constraints>
@@ -511,7 +511,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-o8-B5J">
-                                                        <rect key="frame" x="0.0" y="21" width="84.333333333333329" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="77" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="F2U-JJ-2hR"/>
                                                         </constraints>
@@ -615,47 +615,41 @@
                                             <constraint firstItem="3QE-8f-bI9" firstAttribute="width" secondItem="D8b-OY-aoe" secondAttribute="width" id="zIz-Nc-BIb"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMO-OF-pwS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ou-Nf-IBd" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="259.33333333333331" width="330" height="89.333333333333314"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                        <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="아이디"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                                <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="4~16자 사이의 아이디를 입력해주세요"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3R-Fz-pba" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-zI-WLs" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="388.66666666666663" width="330" height="89.666666666666686"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                                <color key="value" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.44363066550000002" green="0.14299792049999999" blue="0.78043752909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="4~16자 사이의 비밀번호를 입력해주세요"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80e-2q-DNl">
+                            <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80e-2q-DNl">
                                 <rect key="frame" x="66.666666666666686" y="727" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -667,55 +661,59 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEx-t1-opm">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-YY-Q6a" customClass="RegisterUsingIDAlertXib" customModule="SMS" customModuleProvider="target">
+                                <rect key="frame" x="40" y="483" width="348" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEx-t1-opm">
+                                <rect key="frame" x="-67" y="878" width="428" height="926"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-jh-tsB" customClass="RegisterCompleteAlertXib" customModule="SMS" customModuleProvider="target">
+                                        <rect key="frame" x="-304" y="885" width="348" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="7zX-qt-4gm"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKf-4p-w3e" customClass="RegisterInquireAlertXib" customModule="SMS" customModuleProvider="target">
+                                        <rect key="frame" x="396" y="885" width="348" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="m9n-VF-Ncr"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-YY-Q6a" customClass="RegisterUsingIDAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="388" width="348" height="150"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Vlv-8D-91W"/>
+                                    <constraint firstItem="jKf-4p-w3e" firstAttribute="leading" secondItem="LEx-t1-opm" secondAttribute="leading" constant="396" id="8Ka-ay-EW6"/>
+                                    <constraint firstItem="jKf-4p-w3e" firstAttribute="centerY" secondItem="LEx-t1-opm" secondAttribute="centerY" constant="497" id="HBf-Sr-Mz7"/>
+                                    <constraint firstItem="Z6n-jh-tsB" firstAttribute="leading" secondItem="LEx-t1-opm" secondAttribute="leading" constant="-304" id="RZi-5E-DYA"/>
+                                    <constraint firstItem="Z6n-jh-tsB" firstAttribute="centerY" secondItem="LEx-t1-opm" secondAttribute="centerY" constant="497" id="UNP-MK-S61"/>
+                                    <constraint firstItem="Z6n-jh-tsB" firstAttribute="centerX" secondItem="LEx-t1-opm" secondAttribute="centerX" constant="-344" id="ezL-Xf-c3T"/>
+                                    <constraint firstItem="jKf-4p-w3e" firstAttribute="centerX" secondItem="LEx-t1-opm" secondAttribute="centerX" constant="356" id="xbz-3e-j8y"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKf-4p-w3e" customClass="RegisterInquireAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="388" width="348" height="150"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="m9n-VF-Ncr"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-jh-tsB" customClass="RegisterCompleteAlertXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="388" width="348" height="150"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="7zX-qt-4gm"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LEx-t1-opm" firstAttribute="centerY" secondItem="WHj-YY-Q6a" secondAttribute="centerY" id="4kR-Hc-u82"/>
-                            <constraint firstItem="Z6n-jh-tsB" firstAttribute="centerY" secondItem="LEx-t1-opm" secondAttribute="centerY" id="7QX-QM-4Mm"/>
                             <constraint firstItem="5cU-e8-j8X" firstAttribute="top" secondItem="9Jd-qI-gMp" secondAttribute="bottom" constant="38" id="7dw-db-kCa"/>
                             <constraint firstItem="9Jd-qI-gMp" firstAttribute="leading" secondItem="vzw-5R-Nmo" secondAttribute="leading" constant="20" id="8ix-Vp-PAc"/>
-                            <constraint firstItem="Z6n-jh-tsB" firstAttribute="leading" secondItem="LEx-t1-opm" secondAttribute="leading" constant="40" id="AUo-1z-Oex"/>
-                            <constraint firstItem="Z6n-jh-tsB" firstAttribute="centerX" secondItem="LEx-t1-opm" secondAttribute="centerX" id="Aet-60-O5D"/>
                             <constraint firstItem="80e-2q-DNl" firstAttribute="centerX" secondItem="vzw-5R-Nmo" secondAttribute="centerX" id="Dc7-1p-lPt"/>
                             <constraint firstItem="80e-2q-DNl" firstAttribute="top" secondItem="i56-Gt-5Yo" secondAttribute="bottom" constant="59.666666666666742" id="E4G-h6-2w8"/>
                             <constraint firstItem="LEx-t1-opm" firstAttribute="top" secondItem="vzw-5R-Nmo" secondAttribute="top" id="F6W-gl-bz7"/>
@@ -729,14 +727,11 @@
                             <constraint firstItem="LEx-t1-opm" firstAttribute="trailing" secondItem="vzw-5R-Nmo" secondAttribute="trailing" id="MkO-S0-czP"/>
                             <constraint firstItem="VER-hG-LPP" firstAttribute="centerX" secondItem="vzw-5R-Nmo" secondAttribute="centerX" id="N1f-5A-RLk"/>
                             <constraint firstAttribute="bottom" secondItem="LEx-t1-opm" secondAttribute="bottom" id="PlL-oo-zka"/>
-                            <constraint firstItem="jKf-4p-w3e" firstAttribute="centerX" secondItem="LEx-t1-opm" secondAttribute="centerX" id="SRM-pY-eHM"/>
                             <constraint firstItem="VER-hG-LPP" firstAttribute="top" secondItem="80e-2q-DNl" secondAttribute="bottom" constant="16" id="TEB-Jb-bMJ"/>
-                            <constraint firstItem="LEx-t1-opm" firstAttribute="centerX" secondItem="WHj-YY-Q6a" secondAttribute="centerX" id="VDF-ch-JPO"/>
                             <constraint firstItem="9Jd-qI-gMp" firstAttribute="top" secondItem="Rvd-hb-0fM" secondAttribute="bottom" constant="27" id="beF-V7-gUZ"/>
                             <constraint firstItem="i56-Gt-5Yo" firstAttribute="centerX" secondItem="vzw-5R-Nmo" secondAttribute="centerX" id="eF6-mR-wzi"/>
                             <constraint firstItem="i56-Gt-5Yo" firstAttribute="leading" secondItem="5cU-e8-j8X" secondAttribute="leading" id="fGZ-im-338"/>
                             <constraint firstItem="5cU-e8-j8X" firstAttribute="leading" secondItem="9Jd-qI-gMp" secondAttribute="trailing" id="g1z-Bi-lZT"/>
-                            <constraint firstItem="WHj-YY-Q6a" firstAttribute="leading" secondItem="LEx-t1-opm" secondAttribute="leading" constant="40" id="g3s-GV-Lrv"/>
                             <constraint firstItem="i56-Gt-5Yo" firstAttribute="top" secondItem="5cU-e8-j8X" secondAttribute="bottom" constant="40" id="h2U-Rd-XYb" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
@@ -744,9 +739,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="jKf-4p-w3e" firstAttribute="leading" secondItem="vzw-5R-Nmo" secondAttribute="leading" constant="40" id="naV-c6-4G6"/>
                             <constraint firstItem="LEx-t1-opm" firstAttribute="leading" secondItem="vzw-5R-Nmo" secondAttribute="leading" id="pSa-gi-zT7"/>
-                            <constraint firstItem="jKf-4p-w3e" firstAttribute="centerY" secondItem="LEx-t1-opm" secondAttribute="centerY" id="sd3-91-HzN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -755,12 +748,12 @@
                         <outlet property="backgroundView" destination="LEx-t1-opm" id="eWB-gb-f95"/>
                         <outlet property="completeAlertView" destination="Z6n-jh-tsB" id="CjN-Lb-JSc"/>
                         <outlet property="createBtn" destination="80e-2q-DNl" id="odo-So-GWr"/>
-                        <outlet property="idTextField" destination="jMO-OF-pwS" id="RO0-5w-5zN"/>
+                        <outlet property="idTextField" destination="7ou-Nf-IBd" id="hIH-rb-dVb"/>
                         <outlet property="inquireAlertView" destination="jKf-4p-w3e" id="Db8-Zv-fYK"/>
                         <outlet property="nameLbl" destination="q0f-4g-PRW" id="vP5-br-BUm"/>
                         <outlet property="numberLbl" destination="fkY-o8-B5J" id="gCh-T9-v6l"/>
                         <outlet property="phoneNumberLbl" destination="3QE-8f-bI9" id="e06-Pe-LpC"/>
-                        <outlet property="pwTextField" destination="Z3R-Fz-pba" id="yyG-Jh-1Lh"/>
+                        <outlet property="pwTextField" destination="F0j-zI-WLs" id="rkf-Xf-XDu"/>
                         <outlet property="usingIDAlertView" destination="WHj-YY-Q6a" id="W1h-gc-dxJ"/>
                     </connections>
                 </viewController>
@@ -770,17 +763,17 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="LIg-Gr-D35">
-            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
+        <designable name="7ou-Nf-IBd">
+            <size key="intrinsicContentSize" width="330" height="40.605000000000004"/>
         </designable>
-        <designable name="Z3R-Fz-pba">
-            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
+        <designable name="F0j-zI-WLs">
+            <size key="intrinsicContentSize" width="330" height="40.605000000000004"/>
+        </designable>
+        <designable name="LIg-Gr-D35">
+            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
         </designable>
         <designable name="cpl-42-BLa">
-            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
-        </designable>
-        <designable name="jMO-OF-pwS">
-            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
+            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
         </designable>
     </designables>
     <resources>

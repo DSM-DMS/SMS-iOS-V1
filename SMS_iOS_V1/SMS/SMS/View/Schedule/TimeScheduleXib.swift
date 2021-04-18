@@ -45,7 +45,7 @@ class TimeScheduleXib: UIView {
         if index >= 0 && index <= 4 {
             arr[index].backgroundColor = .customPurple
             arr[index].textColor = .white
-            arr[index].layer.cornerRadius = 10
+            arr[index].layer.cornerRadius = 12.5
             arr[index].layer.masksToBounds = true
         }
     }
