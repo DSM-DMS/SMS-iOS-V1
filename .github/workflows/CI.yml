@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ Develop ]
+  pull_request:
+    branches: [ Develop ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: CI Start
+      run: echo CI Start!
+      
+    - name: Xcode Permission
+      run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+      
+    - name: Bring cocoapods
+      run: SMS/pod install
+      
+    - name: Build and Test
+      run: xcodebuild test -workspace SMS/SMS.xcworkspace -scheme 'SMS' -destination 'platform=iOS Simulator,name=iPhone 8,OS=14.4' test | xcpretty --test --color
+   
