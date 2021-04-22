@@ -45,42 +45,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ul-mV-asL">
-                                <rect key="frame" x="47" y="114" width="57.333333333333343" height="25.666666666666657"/>
+                                <rect key="frame" x="47" y="114.00000000000001" width="61" height="32.666666666666671"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-kd-A7g">
-                                <rect key="frame" x="46" y="367.66666666666669" width="80" height="14"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdb-TB-sZt">
-                                        <rect key="frame" x="22" y="0.0" width="58" height="14"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-RV-h7i">
-                                        <rect key="frame" x="0.0" y="0.33333333333331439" width="15" height="13.333333333333334"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="32Z-F5-xZI"/>
-                                            <constraint firstAttribute="height" constant="13.5" id="54W-eV-LZq"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" image="stop" catalog="system"/>
-                                        <state key="selected" image="checkmark.square.fill" catalog="system"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Zdb-TB-sZt" firstAttribute="top" secondItem="5DH-kd-A7g" secondAttribute="top" id="3Sb-O2-Wk7"/>
-                                    <constraint firstItem="Zdb-TB-sZt" firstAttribute="leading" secondItem="u6q-RV-h7i" secondAttribute="trailing" constant="7" id="3hL-Jt-gQA"/>
-                                    <constraint firstItem="u6q-RV-h7i" firstAttribute="leading" secondItem="5DH-kd-A7g" secondAttribute="leading" id="aFg-6o-3tS"/>
-                                    <constraint firstItem="u6q-RV-h7i" firstAttribute="centerY" secondItem="Zdb-TB-sZt" secondAttribute="centerY" id="hmf-Uk-Fq1"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zdb-TB-sZt" secondAttribute="bottom" id="jHj-Bl-aYk"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zdb-TB-sZt" secondAttribute="trailing" id="kdS-ZL-QLy"/>
-                                    <constraint firstAttribute="width" constant="80" id="ydf-7Z-FKI"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHN-xW-Vfs">
                                 <rect key="frame" x="40" y="685" width="348" height="40"/>
                                 <color key="backgroundColor" red="0.32549019607843138" green="0.13725490196078433" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +62,7 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Gr-D35" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="225.66666666666666" width="336" height="37.666666666666657"/>
+                                <rect key="frame" x="46" y="232.66666666666666" width="336" height="41.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -132,7 +101,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpl-42-BLa" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="46" y="303.33333333333331" width="336" height="37.333333333333314"/>
+                                <rect key="frame" x="46" y="314" width="336" height="41.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -191,7 +160,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="5DH-kd-A7g" firstAttribute="leading" secondItem="cpl-42-BLa" secondAttribute="leading" id="1vz-al-pCu"/>
                             <constraint firstItem="cpl-42-BLa" firstAttribute="leading" secondItem="LUL-SF-kHQ" secondAttribute="leading" constant="46" id="6CN-Tk-zfC"/>
                             <constraint firstItem="cpl-42-BLa" firstAttribute="centerX" secondItem="LUL-SF-kHQ" secondAttribute="centerX" id="C4b-XV-ZDd"/>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="leading" secondItem="LUL-SF-kHQ" secondAttribute="leading" constant="47" id="Eja-AM-gvr"/>
@@ -209,13 +177,11 @@
                             </constraint>
                             <constraint firstItem="5Ul-mV-asL" firstAttribute="top" secondItem="wA3-vK-czP" secondAttribute="bottom" constant="70" id="afF-Lt-PVS"/>
                             <constraint firstItem="sif-Ac-qeU" firstAttribute="centerX" secondItem="LUL-SF-kHQ" secondAttribute="centerX" id="fWD-K5-GBS"/>
-                            <constraint firstItem="5DH-kd-A7g" firstAttribute="top" secondItem="cpl-42-BLa" secondAttribute="bottom" constant="27" id="irz-ih-lIE"/>
                             <constraint firstItem="cpl-42-BLa" firstAttribute="top" secondItem="LIg-Gr-D35" secondAttribute="bottom" constant="40" id="zgQ-zo-cMi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="calendar" id="3iw-1C-4D8"/>
                     <connections>
-                        <outlet property="autoLoginCheckBox" destination="u6q-RV-h7i" id="CCR-cP-OZO"/>
                         <outlet property="idTextField" destination="LIg-Gr-D35" id="sCR-p6-EAB"/>
                         <outlet property="loginButton" destination="CHN-xW-Vfs" id="Kv7-j2-vvb"/>
                         <outlet property="pwTextField" destination="cpl-42-BLa" id="fjJ-wk-far"/>
@@ -438,7 +404,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 후 계정을 생성해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cU-e8-j8X">
-                                <rect key="frame" x="49" y="129" width="202" height="20"/>
+                                <rect key="frame" x="49" y="129" width="214" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QZQ-qd-zTW"/>
                                 </constraints>
@@ -467,7 +433,7 @@
                                                 <rect key="frame" x="174" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0f-4g-PRW">
-                                                        <rect key="frame" x="0.0" y="21" width="45.333333333333336" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="49.333333333333336" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="vix-mR-FKJ"/>
                                                         </constraints>
@@ -511,7 +477,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-o8-B5J">
-                                                        <rect key="frame" x="0.0" y="21" width="77" height="26"/>
+                                                        <rect key="frame" x="0.0" y="21" width="84.333333333333329" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="F2U-JJ-2hR"/>
                                                         </constraints>
@@ -764,25 +730,23 @@
     </scenes>
     <designables>
         <designable name="7ou-Nf-IBd">
-            <size key="intrinsicContentSize" width="330" height="40.605000000000004"/>
+            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
         </designable>
         <designable name="F0j-zI-WLs">
-            <size key="intrinsicContentSize" width="330" height="40.605000000000004"/>
+            <size key="intrinsicContentSize" width="330" height="49.920000000000002"/>
         </designable>
         <designable name="LIg-Gr-D35">
-            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
         <designable name="cpl-42-BLa">
-            <size key="intrinsicContentSize" width="336" height="37.507031249999997"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
     </designables>
     <resources>
         <image name="back" width="20" height="12.333333015441895"/>
         <image name="calendar" width="24" height="24"/>
-        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="password" width="13.666666984558105" height="15.666666984558105"/>
         <image name="person" width="13.666666984558105" height="15.666666984558105"/>
-        <image name="stop" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
