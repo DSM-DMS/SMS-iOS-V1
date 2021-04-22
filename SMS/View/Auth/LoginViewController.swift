@@ -46,11 +46,11 @@ extension LoginViewController {
             .bind(to: viewModel.input.loginBtnSubject)
             .disposed(by: disposeBag)
         
-        autoLoginCheckBox.rx.tap
-            .bind {  _ in
-                self.autoLoginCheckBox.isSelected = !self.autoLoginCheckBox.isSelected
-                self.bool.toggle()
-            }.disposed(by: disposeBag)
+//        autoLoginCheckBox.rx.tap
+//            .bind {  _ in
+//                self.autoLoginCheckBox.isSelected = !self.autoLoginCheckBox.isSelected
+//                self.bool.toggle()
+//            }.disposed(by: disposeBag)
         
         registerButton.rx.tap
             .bind { _ in
