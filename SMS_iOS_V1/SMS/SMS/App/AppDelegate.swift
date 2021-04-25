@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 AppDelegate.notiAllow = false
             }
         })
+        
         UNUserNotificationCenter.current().delegate = self
         
         let nav = UINavigationController()
@@ -34,9 +35,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        Account.shared.removeUD()
     }
 }

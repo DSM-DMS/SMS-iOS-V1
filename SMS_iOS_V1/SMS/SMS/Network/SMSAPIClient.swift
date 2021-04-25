@@ -12,7 +12,11 @@ import RxSwift
 import Alamofire
 import Toast_Swift
 
-class SMSAPIClient {
+protocol Networking {
+    func networking<T:Codable>(from api: SMSAPI) -> Observable<T>
+}
+
+class SMSAPIClient: Networking {
     static let shared = SMSAPIClient()
     func networking<T:Codable>(from api: SMSAPI) -> Observable<T> {
         Observable.create { (obs) -> Disposable in
