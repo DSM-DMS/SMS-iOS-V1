@@ -61,7 +61,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Dz-pNz" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Dz-pNz" customClass="CustomShadowView" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="511" width="388" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS 개발에 참여한 개발자들을 소개합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-4u-6md">
@@ -435,7 +435,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-8g-TTa" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-8g-TTa">
                                 <rect key="frame" x="40" y="720" width="348" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -460,7 +460,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTL-NC-beY">
-                                <rect key="frame" x="46" y="212" width="336" height="57"/>
+                                <rect key="frame" x="46" y="212" width="336" height="64.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-za-sNP">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
@@ -469,7 +469,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2PA-oa-4Or" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="336" height="34"/>
+                                        <rect key="frame" x="0.0" y="23.000000000000004" width="336" height="41.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -493,7 +493,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27Y-46-Rhy">
-                                <rect key="frame" x="46" y="305" width="336" height="57"/>
+                                <rect key="frame" x="46" y="312.33333333333331" width="336" height="64.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-YA-h0b">
                                         <rect key="frame" x="0.0" y="0.0" width="64.333333333333329" height="17"/>
@@ -502,7 +502,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWH-9x-AiK" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="336" height="34"/>
+                                        <rect key="frame" x="0.0" y="22.999999999999996" width="336" height="41.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -526,7 +526,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-QI-BMx">
-                                <rect key="frame" x="46" y="398" width="336" height="57"/>
+                                <rect key="frame" x="46" y="413" width="336" height="64.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnN-Vv-J02">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
@@ -535,7 +535,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgo-dn-GLl" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                        <rect key="frame" x="0.0" y="23" width="336" height="34"/>
+                                        <rect key="frame" x="0.0" y="23.000000000000004" width="336" height="41.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -604,13 +604,13 @@
     </scenes>
     <designables>
         <designable name="2PA-oa-4Or">
-            <size key="intrinsicContentSize" width="193.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
         <designable name="zWH-9x-AiK">
-            <size key="intrinsicContentSize" width="193.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
         <designable name="zgo-dn-GLl">
-            <size key="intrinsicContentSize" width="193.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="336" height="41.467031249999998"/>
         </designable>
     </designables>
     <resources>

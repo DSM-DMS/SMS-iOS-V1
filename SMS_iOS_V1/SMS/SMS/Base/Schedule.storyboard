@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8e-zf-NCH">
-    <device id="retina4_0" orientation="portrait" appearance="dark"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="ScheduleViewController" autoresizesArchivedViewToFullSize="NO" id="r8e-zf-NCH" customClass="ScheduleViewController" customModule="SMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnw-tl-eUh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="234" y="498" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-hx-FBw">
+                                <rect key="frame" x="342" y="822" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Aj-rJ-c6j"/>
@@ -34,17 +34,17 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-3A-AAr" customClass="TimeScheduleXib" customModule="SMS" customModuleProvider="target">
-                                <rect key="frame" x="15" y="130" width="290" height="87"/>
+                                <rect key="frame" x="15" y="174" width="398" height="87"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="c2Y-al-stL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-Ms-q6H" customClass="FSCalendar">
-                                <rect key="frame" x="40" y="30" width="240" height="274"/>
+                                <rect key="frame" x="40" y="74" width="348" height="397"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-2w-8xu">
-                                        <rect key="frame" x="0.0" y="116" width="240" height="1"/>
+                                        <rect key="frame" x="0.0" y="116" width="348" height="1"/>
                                         <color key="backgroundColor" red="0.71765202279999996" green="0.71763831379999998" blue="0.71764755250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="A3y-px-Dea"/>
@@ -82,10 +82,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-Wy-aKq">
-                                <rect key="frame" x="40" y="332.5" width="240" height="47"/>
+                                <rect key="frame" x="40" y="499.33333333333331" width="348" height="204.33333333333331"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-91-pLD">
-                                        <rect key="frame" x="0.0" y="35" width="240" height="12"/>
+                                        <rect key="frame" x="0.0" y="192.33333333333331" width="348" height="12"/>
                                         <color key="backgroundColor" name="TabbarColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="k1v-3o-hRV"/>
@@ -98,7 +98,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mih-y5-1Od">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="199.33333333333334"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="sectionIndexBackgroundColor" name="TabbarColor"/>
                                     </tableView>
@@ -209,7 +209,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nd7-w8-1N2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10.4" y="-4.9475262368815596"/>
+            <point key="canvasLocation" x="-3180" y="-1779"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5AD-II-wmd">
+            <objects>
+                <viewController id="vl0-BT-GbS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KG0-3K-16f">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="라이트닝 토크를 준비하자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM2-Tk-7lp">
+                                <rect key="frame" x="129" y="453" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C8j-fA-epd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3G-Lm-IwV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-599" y="-120"/>
         </scene>
     </scenes>
     <resources>

@@ -297,7 +297,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-aO-eGY" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-aO-eGY">
                                 <rect key="frame" x="40" y="802" width="348" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -954,7 +954,7 @@
                                     <constraint firstAttribute="height" constant="115" id="oDK-7a-b2Z"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi" customClass="CustomShadowButton" customModule="SMS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-ge-pfi">
                                 <rect key="frame" x="40" y="527" width="348" height="40"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.13725490200000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1046,18 +1046,59 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcv-Vd-b2n" customClass="CustomShadowView" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="164.66666666666669" width="388" height="707.33333333333326"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
                                         <rect key="frame" x="10" y="20" width="368" height="667"/>
                                         <color key="backgroundColor" name="TabbarColor"/>
-                                        <string key="text">1. 외출 신청 시간: 24시간                       2. 외출 허용 시간: 16:20~ 20:30까지
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">1. 외출 신청 시간: 24시간                       2. 외출 허용 시간: 16:20~ 20:30까지
    - 질병 외출일 경우 외출 시간을 적용하지 않습니다.
    - 주말 외출은 기숙사 외출로 분류되므로 DMS로 외출 신청  3. 외출 과정
    - 외출 입력 칸을 정상적으로 입력한 후 작성완료를 누릅니다.
-   - 외출 신청이 정상적으로 진행되었다면, 선생님께 직접 방문하여 선생님 승인을 받아주세요. (빨간색)
+   - 외출 신청이 정상적으로 진행되었다면, </string>
+                                                <attributes>
+                                                    <color key="NSColor" systemColor="labelColor"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="선생님께 직접 방문하여">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99621778729999999" green="0.01069626492" blue="0.0036621247420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> 선생님 승인을 받아주세요.
    - 외출 승인 후 외출을 시작하게 되면, 해당 계정과 연결된 학부모의 전화번호로 외출 통보 문자가 전송됩니다.
    - (학부모 계정에 연결되지 않은 계정이거나 학부모가 문자 사용을 동의하지 않았다면 건너뛰게 됩니다.)
-   - 외출 시작은 외출 전 지킴이 선생님께  '모바일 &gt; 오늘의 외출증'을 보여드리고, 시작 버튼을 누르시면 됩니다. (빨간색)
-   - 외출 완료 및 복귀 후에는 직접 종료를 할 수 없고, 선생님께 직접 방문하여 선생님을 통해 종료해야 합니다. (빨간색)
+   - 외출 시작은 외출 전 지킴이 선생님께  </string>
+                                                <attributes>
+                                                    <color key="NSColor" systemColor="labelColor"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="'모바일 &gt; 오늘의 외출증'">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99621778729999999" green="0.01069626492" blue="0.0036621247420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">을 보여드리고, 시작 버튼을 누르시면 됩니다. 
+   - 외출 완료 및 복귀 후에는 </string>
+                                                <attributes>
+                                                    <color key="NSColor" systemColor="labelColor"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="직접 종료를 할 수 없고">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99621778729999999" green="0.01069626492" blue="0.0036621247420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">, 선생님께 직접 방문하여 선생님을 통해 종료해야 합니다.
    - 외출 종료 후에는 선생님께 직접 방문해서 꼭 최종 확인을 받아야합니다.    4. 외출 사이트를 통해서 이루어진 외출신청만 정식 외출로 인정되며, 이외의 다른 이유로 신청한 외출은 무단외출로 간주합니다.
      - 외출 사이트 비정상적으로 작동 시, 수기 외출 신청도 가능  5. 외출 신청은 최대 하루에 한 번으로 제한됩니다.  6. 외출 사이트에서는 24시간제를 사용합니다. (오후6시 외출할 경우 -&gt; 18시로 신청)  7. 안전 유의사항
   - 불법택시(흑차), 불법오토바이 이용하지 않기
@@ -1066,8 +1107,12 @@
   - 음주 흡연등 탈선하지 않기
   - 복귀시간 엄수하기
   - 마스크 필수 착용하기</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                <attributes>
+                                                    <color key="NSColor" systemColor="labelColor"/>
+                                                    <font key="NSFont" size="13" name="NotoSansCJKkr-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -1181,7 +1226,7 @@
                                                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C94-cC-ChH">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C94-cC-ChH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="19.333333333333332"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="46" id="yYa-uy-Mt6"/>
@@ -1190,7 +1235,7 @@
                                                                 <color key="textColor" red="0.4086060822" green="0.20716306570000001" blue="0.75298386809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qN-AH-fbq">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qN-AH-fbq">
                                                                 <rect key="frame" x="55.666666666666686" y="0.0" width="45" height="19.333333333333332"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="45" id="kJN-XR-UR4"/>
