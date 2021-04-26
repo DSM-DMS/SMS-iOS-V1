@@ -13,14 +13,13 @@ import RxCocoa
 import EditorJSKit
 
 class NoticeDetailViewController: UIViewController, Storyboarded {
-    lazy var obsUUID: BehaviorRelay<String>! = BehaviorRelay(value: self.uuid)
     var uuid: String!
-    let disposeBag = DisposeBag()
-    weak var coordinator: NoticeCoordinator?
     var pNoticeUUID = ""
     var nNoticeUUID = ""
-    
     var blockList: EJBlocksList!
+    let disposeBag = DisposeBag()
+    let viewModel = NoticeDetailViewModel(networking: SMSAPIClient.shared)
+    weak var coordinator: NoticeCoordinator?
     
     private lazy var renderer = EJCollectionRenderer(collectionView: rendererCollectionView)
     
@@ -34,7 +33,6 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         performNetworkTask()
-        bindAction()
         bind()
         setting()
     }
@@ -43,31 +41,27 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
 
 
 extension NoticeDetailViewController {
-    func setting() {
-        rendererCollectionView.delegate = self
-        rendererCollectionView.dataSource = self
-        let cellSize = CGSize(width: rendererCollectionView.frame.width, height: 60)
-
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = cellSize
-        rendererCollectionView.setCollectionViewLayout(layout, animated: true)
-    }
-    
-    private func performNetworkTask() {
-        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else { return }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
-        blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
-        
-        rendererCollectionView.reloadData()
-    }
-    
     func bind() {
-        obsUUID.map { uuid -> SMSAPI in
-            SMSAPI.detailNotice(uuid)
-        }.flatMap { api -> Observable<NoticeDetailModel> in
-            SMSAPIClient.shared.networking(from: api)
-        }
-        .bind { notice in
+        bButton.rx.tap
+            .bind{
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
+        
+        pNoticeButton.rx.tap
+            .throttle(RxTimeInterval.nanoseconds(2), scheduler: MainScheduler.instance)
+            .filter { !self.nNoticeUUID.isEmpty }
+            .bind {
+                self.viewModel.input.noticeUUIDSubject.onNext(self.nNoticeUUID)
+            }.disposed(by: disposeBag)
+        
+        nNoticeButton.rx.tap
+            .throttle(RxTimeInterval.nanoseconds(2), scheduler: MainScheduler.instance)
+            .filter { !self.pNoticeUUID.isEmpty }
+            .bind {
+                self.viewModel.input.noticeUUIDSubject.onNext(self.pNoticeUUID)
+            }.disposed(by: disposeBag)
+        
+        viewModel.output.announcements.bind { notice in
             if notice.status == 200 {
                 self.nTitle.text = notice.title
                 self.nDate.text = globalDateFormatter(.dotDay, unix(with: notice.date! / 1000))
@@ -86,25 +80,22 @@ extension NoticeDetailViewController {
         }.disposed(by: disposeBag)
     }
     
-    func bindAction() {
-        bButton.rx.tap
-            .bind{
-                self.coordinator?.pop()
-            }.disposed(by: disposeBag)
+    func setting() {
+        rendererCollectionView.delegate = self
+        rendererCollectionView.dataSource = self
+        let cellSize = CGSize(width: rendererCollectionView.frame.width, height: 60)
+
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = cellSize
+        rendererCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    private func performNetworkTask() {
+        guard let path = Bundle.main.path(forResource: "EditorJSMock", ofType: "json") else { return }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else { return }
+        blockList = try! JSONDecoder().decode(EJBlocksList.self, from: data)
         
-        pNoticeButton.rx.tap
-            .throttle(RxTimeInterval.nanoseconds(2), scheduler: MainScheduler.instance)
-            .filter { self.nNoticeUUID != "" }
-            .bind {
-                self.obsUUID.accept(self.nNoticeUUID)
-            }.disposed(by: disposeBag)
-        
-        nNoticeButton.rx.tap
-            .throttle(RxTimeInterval.nanoseconds(2), scheduler: MainScheduler.instance)
-            .filter { self.pNoticeUUID != "" }
-            .bind {
-                self.obsUUID.accept(self.pNoticeUUID)
-            }.disposed(by: disposeBag)
+        rendererCollectionView.reloadData()
     }
 }
 
@@ -129,7 +120,6 @@ extension NoticeDetailViewController: UICollectionViewDataSource {
     }
 }
 
-///
 extension NoticeDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         do {
