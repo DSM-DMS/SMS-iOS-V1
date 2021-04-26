@@ -16,7 +16,7 @@ import Toast_Swift
 class RegisterViewController: UIViewController, Storyboarded {
     var number: Int!
     let disposeBag = DisposeBag()
-    let viewModel = RegisterViewModel()
+    let viewModel = RegisterViewModel(networking: SMSAPIClient.shared)
     var data: CertificationNumberModel!
     weak var coordinator: LoginCoordinator?
     
@@ -91,9 +91,10 @@ extension RegisterViewController {
             .bind(to: viewModel.input.createSubject)
             .disposed(by: disposeBag)
         
-        Observable.of(number!)
-            .bind(to: viewModel.input.numberSubject)
-            .disposed(by: disposeBag)
+        Observable.just(number!)
+            .bind {
+                self.viewModel.input.numberSubject.onNext($0)
+            }.disposed(by: disposeBag)
         
         backBtn.rx.tap
             .bind { _ in
@@ -110,11 +111,11 @@ extension RegisterViewController {
                 }
             }.disposed(by: disposeBag)
         
-        viewModel.buttonIsValid()
+        viewModel.output.buttonIsValid
             .emit(to: self.createBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        viewModel.buttonIsValid().map { $0 ? 1 : 0.3 }
+        viewModel.output.buttonIsValid.map { $0 ? 1 : 0.3 }
             .emit(to: self.createBtn.rx.alpha)
             .disposed(by: disposeBag)
         

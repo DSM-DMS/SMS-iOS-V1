@@ -14,7 +14,7 @@ import Toast_Swift
 
 class CheckCertificationNumberViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    let viewModel = CheckNumberViewModel()
+    let viewModel = CheckNumberViewModel(networking: SMSAPIClient.shared)
     weak var coordinator: LoginCoordinator?
     
     @IBOutlet weak var backBtn: UIButton!
@@ -55,11 +55,11 @@ extension CheckCertificationNumberViewController {
                 }
             }.disposed(by: disposeBag)
         
-        viewModel.buttonIsValid()
+        viewModel.output.buttonIsValid
             .emit(to: self.checkBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        viewModel.buttonIsValid().map { $0 ? 1 : 0.3 }
+        viewModel.output.buttonIsValid.map { $0 ? 1 : 0.3 }
             .emit(to: self.checkBtn.rx.alpha)
             .disposed(by: disposeBag)
         
