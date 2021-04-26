@@ -27,14 +27,6 @@ func getMonday(myDate: Date) -> Date {
     return mondayInWeek.addingTimeInterval(32400)
 }
 
-// 안쓰임
-//let globalDateFormatter = { (formStr: formType) -> DateFormatter in
-//    let formatter = DateFormatter()
-//    formatter.locale = Locale(identifier: "ko_KR")
-//    formatter.dateFormat = formStr.rawValue
-//    return formatter
-//}
-
 func globalDateFormatter(_  formType: formType, _ date: Date) -> String {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "ko_KR")

@@ -23,6 +23,8 @@ class OutGoingNoticeViewController: UIViewController, Storyboarded {
     }
 }
 
+
+
 extension OutGoingNoticeViewController {
     func bind() {
         popVCBtn.rx.tap
