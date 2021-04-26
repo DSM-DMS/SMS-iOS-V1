@@ -15,8 +15,8 @@ import Toast_Swift
 
 class OutGoingApplyViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    let viewModel = OutGoingApplyViewModel()
     let bool: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
+    let viewModel = OutGoingApplyViewModel(networking: SMSAPIClient.shared)
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
@@ -35,54 +35,70 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         setting()
+        bind()
     }
 }
+
+
 
 extension OutGoingApplyViewController {
     private func bind() {
         outReasonTextField.rx.text.orEmpty
-            .bind(to: viewModel.input.reasonSubject)
+            .bind(to: viewModel.reasonSubject)
             .disposed(by: disposeBag)
         
         startDatePicker.rx.date
-            .bind(to: viewModel.input.startTimeSubject)
+            .bind(to: viewModel.startTimeSubject)
             .disposed(by: disposeBag)
         
         endDatePicker.rx.date
-            .bind(to: viewModel.input.endTimeSubject)
+            .bind(to: viewModel.endTimeSubject)
             .disposed(by: disposeBag)
         
-        placeTextField.rx.text.orEmpty
-            .bind(to: viewModel.input.placeSubject)
+        placeTextField.rx.observe(String.self, "text")
+            .bind(to: viewModel.placeSubject)
             .disposed(by: disposeBag)
-        
-        applyButton.rx.tap
-            .bind(to: viewModel.input.applySubject)
+      
+        aboutOuting.checkBtn.rx.tap
+            .bind(to: viewModel.applySubject)
             .disposed(by: disposeBag)
         
         bool
-            .bind(to: viewModel.input.diseaseIsSubject)
+            .bind(to: viewModel.diseaseIsSubject)
             .disposed(by: disposeBag)
         
-        
-        viewModel.isValid()
-            .emit { b in self.applyButton.alpha = b ? 1 :  0.3 }
+        viewModel.isValid
+            .emit { [weak self] b in self?.applyButton.alpha = b ? 1 :  0.3 }
             .disposed(by: disposeBag)
         
-        viewModel.isValid()
-            .emit { self.applyButton.isEnabled = $0 }
+        viewModel.isValid
+            .emit { [weak self] in self?.applyButton.isEnabled = $0 }
             .disposed(by: disposeBag)
         
-        viewModel.timeCheck()
-            .emit {
-                if !$0 {
-                    self.applyButton.shake()
+        popVCBtn.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
+            }.disposed(by: disposeBag)
+        
+        hiddenViewButton.rx.tap
+            .bind { _ in
+                self.placeTextField.isUserInteractionEnabled = true
+                self.view.endEditing(true)
+                self.hiddenView(true)
+            }.disposed(by: disposeBag)
+        
+        applyButton.rx.tap
+            .bind { _ in
+                self.aboutOuting.isHidden = false
+                self.hiddenViewButton.isHidden = false
+                self.aboutOuting.sign = { b in
+                    self.aboutOuting.isHidden = true
+                    self.hiddenViewButton.isHidden = true
                 }
             }.disposed(by: disposeBag)
         
-        viewModel.output.response.subscribe { model in
+        viewModel.response.subscribe { model in
             UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
             switch model.status {
             case 201:
@@ -109,28 +125,6 @@ extension OutGoingApplyViewController {
                 self.applyButton.shake()
             }
         }.disposed(by: disposeBag)
-        
-        applyButton.rx.tap
-            .bind { _ in
-                self.aboutOuting.isHidden = false
-                self.hiddenViewButton.isHidden = false
-                self.aboutOuting.sign = { b in
-                    self.aboutOuting.isHidden = true
-                    self.hiddenViewButton.isHidden = true
-                }
-            }.disposed(by: disposeBag)
-        
-        hiddenViewButton.rx.tap
-            .bind { _ in
-                self.placeTextField.isUserInteractionEnabled = true
-                self.view.endEditing(true)
-                self.hiddenView(true)
-            }.disposed(by: disposeBag)
-        
-        popVCBtn.rx.tap
-            .bind { _ in
-                self.coordinator?.pop()
-            }.disposed(by: disposeBag)
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
@@ -193,6 +187,12 @@ extension OutGoingApplyViewController {
                              shadowRadius: 6,
                              opacity: 1,
                              cornerRadius: 8)
+        
+        applyButton.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
+                              shadowRadius: 6,
+                              opacity: 1,
+                              cornerRadius: 8)
     }
     
     func hiddenView(_ value: Bool, _ view: UIView? = nil) {

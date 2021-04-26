@@ -15,21 +15,31 @@ class OutGoingCompletedViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     weak var coordinator: OutGoingCoordinator?
     
-    @IBOutlet weak var checkButton: CustomShadowButton!
+    @IBOutlet weak var checkButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindAction()
+        setting()
     }
 }
+
+
 
 extension OutGoingCompletedViewController {
     private func bindAction() {
         checkButton.rx.tap
             .bind { _ in
                 self.coordinator?.popAll()
-            }
-            .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
+    }
+    
+    func setting() {
+        self.checkButton.addShadow(maskValue: true,
+                                   offset: CGSize(width: 0, height: 2),
+                                   shadowRadius: 2,
+                                   opacity: 0.7,
+                                   cornerRadius: 10)
     }
 }
 

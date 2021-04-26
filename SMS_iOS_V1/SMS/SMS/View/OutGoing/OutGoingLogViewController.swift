@@ -11,9 +11,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Toast_Swift
+import RxViewController
 
 class OutGoingLogViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, int: 0)
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var notExistLogView: UIView!
@@ -22,20 +24,20 @@ class OutGoingLogViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindUI()
+        bind()
         tableView.rowHeight = 146
     }
 }
 
+
+
 extension OutGoingLogViewController {
-    private func bindUI() {
+    private func bind() {
         popVCBtn.rx.tap
             .bind { self.coordinator?.pop() }
             .disposed(by: disposeBag)
         
-        let logs: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0,0))
-        
-        logs.filter {
+        viewModel.response.filter {
             if $0.status == 401 {
                 self.coordinator?.main()
                 return false
@@ -57,14 +59,13 @@ extension OutGoingLogViewController {
                     let endDateComponent: DateComponents = unix(with: log.end_time)
                     
                     cell.dateLbl.text = String(startDateComponent.year!) + "-" + String(startDateComponent.month!) + "-" + String(startDateComponent.day!)
-                    let zeroForStart = SMS.checking(e1: startDateComponent.minute! , e2: 10) ? "" : "0"
-                    let zeroForEnd = SMS.checking(e1: endDateComponent.minute! , e2: 10) ? "" : "0"
+                    let zeroForStart = startDateComponent.minute! < 10 ? "0" : ""
+                    let zeroForEnd = endDateComponent.minute! < 10 ? "0" : ""
                     
                     cell.startTimeLbl.text = String(startDateComponent.hour!) + ":" + zeroForStart + String(startDateComponent.minute!)
                     cell.endTimeLbl.text = String(endDateComponent.hour!) + ":" + zeroForEnd + String(endDateComponent.minute!)
                     cell.placeLbl.text = log.place
                     cell.reasonLbl.text = log.reason
-                    
                     cell.emergencyImageView.isHidden = log.outing_situation == "EMERGENCY" ? false : true
                     
                     let timeCheck = unix(with: log.end_time) > Date()
@@ -102,7 +103,6 @@ extension OutGoingLogViewController {
         } onError: { error in
             if error as? StatusCode == StatusCode.internalServerError {
                 self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-               
             }
         }.disposed(by: disposeBag)
     }
