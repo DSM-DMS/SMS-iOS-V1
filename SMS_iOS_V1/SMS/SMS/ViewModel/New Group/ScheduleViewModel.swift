@@ -14,6 +14,7 @@ import RxCocoa
 class ScheduleViewModel {
     let input: Input
     let output: Output
+    let networking: Networking
     
     struct Input {
         let viewDidLoad = PublishSubject<Void>()
@@ -24,7 +25,8 @@ class ScheduleViewModel {
         let noticeData: Signal<NoticeModel>
     }
     
-    init() {
+    init(networking: Networking) {
+        self.networking = networking
         input = Input()
         output = Output(myInfoData: input.viewDidLoad
                             .withLatestFrom(Observable.of(())
@@ -34,7 +36,7 @@ class ScheduleViewModel {
                         noticeData: input.viewDidLoad
                             .withLatestFrom(Observable.of(())
                                                 .flatMap { _ -> Observable<NoticeModel> in
-                                                    SMSAPIClient.shared.networking(from: .myInfo)
+                                                    networking.networking(from: .myInfo)
                                                 }).asSignal(onErrorJustReturn: NoticeModel(status: 0, code: nil, message: "", announcements: nil, size: nil)))
     }
 }

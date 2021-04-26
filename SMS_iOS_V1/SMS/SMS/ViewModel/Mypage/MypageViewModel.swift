@@ -1,24 +1,34 @@
 //
-//  MypageViewModel.swift
+//  MyPageViewModel.swift
 //  SMS
 //
-//  Created by DohyunKim on 2021/01/06.
+//  Created by 이현욱 on 2021/04/13.
 //  Copyright © 2021 DohyunKim. All rights reserved.
 //
 
 import Foundation
+
 import RxSwift
 import RxCocoa
 
-
-class MypageViewModel {
+class MyPageViewModel {
+    let input: Input
+    let output: Output
+    let networking: Networking
     
+    struct Input {
+        let viewDidLoad = PublishSubject<Void>()
+    }
     
-    let mypageData : Observable<MypageModel> = SMSAPIClient.shared.networking(from: .myInfo) 
+    struct Output {
+        let myInfo: Observable<MypageModel>
+    }
     
-    
+    init(networking: Networking) {
+        self.networking = networking
+        
+        input = Input()
+        output = Output(myInfo: networking.networking(from: .myInfo)
+        )
+    }
 }
-
-
-
-
