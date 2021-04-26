@@ -10,7 +10,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     var tableViewHeightConstraint: NSLayoutConstraint!
     weak var coordinator: ScheduleCoordinator?
-    let viewModel = ScheduleViewModel()
+    let viewModel = ScheduleViewModel(networking: SMSAPIClient.shared)
     
     var Schedules: [ScheduleData] = []
     var value = false
@@ -28,7 +28,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     lazy var previousBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "left"), for: .normal)
-        var y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
+        var y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 8.7 : calendarView.headerHeight
         button.frame = CGRect(x: UIScreen.main.bounds.minX + 50,
                               y: y - 6,
                               width: 16,
@@ -39,7 +39,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
     lazy var nextBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "right"), for: .normal)
-        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 3 : calendarView.headerHeight
+        let y = UIScreen.main.bounds.height > 800 ? calendarView.frame.minY + calendarView.frame.height / 8.7 : calendarView.headerHeight
         button.frame = CGRect(x: UIScreen.main.bounds.maxX - 66,
                               y: y - 6,
                               width: 16,
@@ -58,23 +58,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
 //MARK- extension
 extension ScheduleViewController {
     func autoLogin() {
-        if let ID = keyChain.get("ID"), let PW = keyChain.get("PW") { // 자동로그인 해두고 지금 들어온애
-            let login: Observable<LoginModel> = SMSAPIClient.shared.networking(from: .login(ID, PW))
-            login.subscribe { model in
-                Account.shared.setUD(model.access_token, model.student_uuid)
-                self.getSchedule()
-                self.timeScheduleView.getTimeTable()
-                self.bind()
-            } onError: { (error) in
-                if error as? StatusCode == StatusCode.internalServerError {
-                    self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                    self.calendarView.select(Date(), scrollToDate: false)
-                    let cell = self.calendarView.cell(for: self.calendarView.selectedDate!, at: .current) as? DayCell
-                    cell?.selectedDate(.selected)
-                    self.dateForTable.accept(cell?.cellEvent)
-                }
-            }.disposed(by: disposeBag)
-        } else if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil && (keyChain.get("ID") == nil && keyChain.get("PW") == nil) {  // ud값은 있는데 keychain이 없는 경우, 로그인해서 들어왔는데 안한애
+        if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil {
             bind()
             getSchedule()
             self.timeScheduleView.getTimeTable()
