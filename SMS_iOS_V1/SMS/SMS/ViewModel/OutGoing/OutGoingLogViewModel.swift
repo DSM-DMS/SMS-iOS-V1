@@ -18,9 +18,9 @@ class OutGoingLogViewModel {
     
     let network: Networking
     
-    init(network: Networking, int: Int) {
+    init(network: Networking, count: Int) {
         self.network = network
-        self.count = int
+        self.count = count
         
         self.response = network.networking(from: .lookUpAllOuting(0, count))
     }

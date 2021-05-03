@@ -9,6 +9,8 @@
 import UIKit
 import KeychainSwift
 
+let UD = UserDefaults.standard
+
 let keyChain = KeychainSwift()
 
 let screen = UIScreen.main.bounds

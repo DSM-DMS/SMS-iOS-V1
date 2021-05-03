@@ -15,7 +15,7 @@ import RxViewController
 
 class OutGoingLogViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, int: 0)
+    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, count: 0)
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var notExistLogView: UIView!

@@ -31,6 +31,7 @@
 		D60C3EF525F92C0C009D0134 /* LogOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EF425F92C0C009D0134 /* LogOutView.xib */; };
 		D60C3F0025F93CAE009D0134 /* DevCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */; };
 		D60C79C226254065003D5726 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60C79C126254065003D5726 /* MyPageViewModel.swift */; };
+		D619CBD626403EEC00921DE1 /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619CBD526403EEC00921DE1 /* SMSAPI.swift */; };
 		D62C15CB26025F87001D480E /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D62C15CA26025F87001D480E /* NotoSansCJKkr-Bold.otf */; };
 		D62C15CF26025F97001D480E /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D62C15CE26025F97001D480E /* NotoSansCJKkr-Medium.otf */; };
 		D62C15D126025F9C001D480E /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D62C15CD26025F91001D480E /* NotoSansCJKkr-Regular.otf */; };
@@ -59,7 +60,6 @@
 		D669880325A29A05006A1F38 /* OutGoingLocationAlertXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */; };
 		D66988B025A2ECF8006A1F38 /* AesEverywhere in Frameworks */ = {isa = PBXBuildFile; productRef = D66988AF25A2ECF8006A1F38 /* AesEverywhere */; };
 		D66988C325A2FEF0006A1F38 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */; };
-		D66A5E4F260C0C3D00089F79 /* SMSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A5E4E260C0C3D00089F79 /* SMSAPI.swift */; };
 		D67ACF9F25EE448700648F45 /* OutingActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67ACF9E25EE448700648F45 /* OutingActionModel.swift */; };
 		D67F32DB257E74B90086F75E /* UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32DA257E74B90086F75E /* UICell.swift */; };
 		D67F32EF257E751A0086F75E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F32ED257E751A0086F75E /* UIView.swift */; };
@@ -172,6 +172,7 @@
 		D60C3EF425F92C0C009D0134 /* LogOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutView.xib; sourceTree = "<group>"; };
 		D60C3EFF25F93CAE009D0134 /* DevCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevCollectionViewCell.xib; sourceTree = "<group>"; };
 		D60C79C126254065003D5726 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		D619CBD526403EEC00921DE1 /* SMSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMSAPI.swift; path = "/Users/ihyun_wook/Documents/GitHub/SMS-iOS-V1/SMS_iOS_V1/SMS/SMS/Network/SMSAPI.swift"; sourceTree = "<absolute>"; };
 		D62C15CA26025F87001D480E /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D62C15CD26025F91001D480E /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		D62C15CE26025F97001D480E /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -199,7 +200,6 @@
 		D66049FA25DAE0F800032F34 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		D669880225A29A05006A1F38 /* OutGoingLocationAlertXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutGoingLocationAlertXib.xib; sourceTree = "<group>"; };
 		D66988C225A2FEF0006A1F38 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
-		D66A5E4E260C0C3D00089F79 /* SMSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSAPI.swift; sourceTree = "<group>"; };
 		D67ACF9E25EE448700648F45 /* OutingActionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutingActionModel.swift; sourceTree = "<group>"; };
 		D67F32DA257E74B90086F75E /* UICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICell.swift; sourceTree = "<group>"; };
 		D67F32ED257E751A0086F75E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -480,7 +480,7 @@
 				D67F3311257E76480086F75E /* OutGoing */,
 				D67F3318257E76480086F75E /* Auth */,
 				D6CED3982628983900620C2C /* Notice */,
-				D69D274426371A5000E10CEC /* New Group */,
+				D69D274426371A5000E10CEC /* Schedules */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 		D68127EA252EDF6B00E9D7CA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D66A5E4E260C0C3D00089F79 /* SMSAPI.swift */,
+				D619CBD526403EEC00921DE1 /* SMSAPI.swift */,
 				D67F3303257E76140086F75E /* SMSAPIClient.swift */,
 				D67F3304257E76140086F75E /* StatusCode.swift */,
 			);
@@ -530,12 +530,12 @@
 			path = AlertXib;
 			sourceTree = "<group>";
 		};
-		D69D274426371A5000E10CEC /* New Group */ = {
+		D69D274426371A5000E10CEC /* Schedules */ = {
 			isa = PBXGroup;
 			children = (
 				D6BBFCC9262B2745002E0CFF /* ScheduleViewModel.swift */,
 			);
-			path = "New Group";
+			path = Schedules;
 			sourceTree = "<group>";
 		};
 		D6B3A3D42582E995005C36E6 /* Recovered References */ = {
@@ -1021,6 +1021,7 @@
 				D6B8EE8F255CA97200F1F21E /* AppDelegate.swift in Sources */,
 				D6BBFCD2262B2D3E002E0CFF /* DateArray.swift in Sources */,
 				D6BBFCCA262B2745002E0CFF /* ScheduleViewModel.swift in Sources */,
+				D619CBD626403EEC00921DE1 /* SMSAPI.swift in Sources */,
 				D62D8C352518DABE00548FBF /* MypageChangePWViewController.swift in Sources */,
 				D6F8C93A259B5DA100DE967A /* OutGoingCardModel.swift in Sources */,
 				D6A8E46325F6D83500F46C2D /* NoticeTableViewCell.swift in Sources */,
@@ -1056,7 +1057,6 @@
 				477FF0B3250A04CF0056E1D4 /* OutGoingViewController.swift in Sources */,
 				D6CED3942628983500620C2C /* NoticeViewModel.swift in Sources */,
 				D696142825E66F8500E880D9 /* RegisterViewController.swift in Sources */,
-				D66A5E4F260C0C3D00089F79 /* SMSAPI.swift in Sources */,
 				D6B3A3DC2582E9D9005C36E6 /* NoticeCoordinator.swift in Sources */,
 				D696144025E80E1500E880D9 /* RegisterUsingIDAlertXib.swift in Sources */,
 				D67F32F0257E751A0086F75E /* UIColor.swift in Sources */,

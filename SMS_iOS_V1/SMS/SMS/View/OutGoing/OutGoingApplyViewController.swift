@@ -59,7 +59,7 @@ extension OutGoingApplyViewController {
         placeTextField.rx.observe(String.self, "text")
             .bind(to: viewModel.placeSubject)
             .disposed(by: disposeBag)
-      
+        
         aboutOuting.checkBtn.rx.tap
             .bind(to: viewModel.applySubject)
             .disposed(by: disposeBag)
@@ -99,22 +99,21 @@ extension OutGoingApplyViewController {
             }.disposed(by: disposeBag)
         
         viewModel.response.subscribe { model in
-            UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
+            UD.setValue(model.outing_uuid, forKey: "outing_uuid")
+            var txt = ""
             switch model.status {
             case 201:
                 switch model.code {
-                case 0: self.view.makeToast("승인을 받은 후 모바일을 통해 외출을 시작해주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                case -1: self.view.makeToast("연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                case -2: self.view.makeToast("학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+                case -1:
+                    txt = "연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요."
+                case -2:
+                    txt = "학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요."
                 default:
-                    print("에러")
+                    txt = "승인을 받은 후 모바일을 통해 외출을 시작해주세요."
                 }
-                DispatchQueue.main.asyncAfter(wallDeadline: .now() + .seconds(3/2)) {
-                    self.coordinator?.outGoingCompleted()
-                }
+                self.coordinator?.outGoingCompleted(txt)
             case 401:
                 self.coordinator?.main()
-                return
             default:
                 self.applyButton.shake()
             }

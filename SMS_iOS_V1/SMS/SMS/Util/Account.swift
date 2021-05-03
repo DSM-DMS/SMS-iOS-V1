@@ -9,16 +9,15 @@
 import Foundation
 
 class Account {
-    let ud = UserDefaults.standard
     static let shared = Account()
     
     func removeUD() {
-        ud.removeObject(forKey: "token")
-        ud.removeObject(forKey: "uuid")
+        UD.removeObject(forKey: "token")
+        UD.removeObject(forKey: "uuid")
     }
     
     func setUD(_ token: String?, _ uuid: String?) {
-        ud.set(token, forKey: "token")
-        ud.set(uuid, forKey: "uuid")
+        UD.set(token, forKey: "token")
+        UD.set(uuid, forKey: "uuid")
     }
 }

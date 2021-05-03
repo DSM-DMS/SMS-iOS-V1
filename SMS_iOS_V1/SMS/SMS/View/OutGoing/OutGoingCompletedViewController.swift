@@ -13,8 +13,10 @@ import RxCocoa
 
 class OutGoingCompletedViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    var text: String!
     weak var coordinator: OutGoingCoordinator?
     
+    @IBOutlet weak var textLbl: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
     override func viewDidLoad() {
@@ -35,6 +37,10 @@ extension OutGoingCompletedViewController {
     }
     
     func setting() {
+        textLbl.text = text
+        textLbl.tintColor = .white
+        textLbl.font = UIFont(name: "Noto Sans CJK KR Medium", size: 23)
+        
         self.checkButton.addShadow(maskValue: true,
                                    offset: CGSize(width: 0, height: 2),
                                    shadowRadius: 2,

@@ -16,7 +16,7 @@ import UserNotifications
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, int: 1)
+    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, count: 1)
     var startTime: Date?
     weak var coordinator: OutGoingCoordinator?
     
@@ -117,7 +117,7 @@ extension OutGoingPopDeedViewController {
         }.subscribe(onNext: { (date, uuid) in
             self.startTime = date
             if Calendar.current.isDateInToday(date) {
-                UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
+                UD.setValue(uuid, forKey: "outing_uuid")
                 let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
                 cardModel.filter {
                     if $0.status == 401 {

@@ -58,7 +58,7 @@ class ScheduleViewController: UIViewController, Storyboarded {
 //MARK- extension
 extension ScheduleViewController {
     func autoLogin() {
-        if UserDefaults.standard.value(forKey: "token") != nil && UserDefaults.standard.value(forKey: "uuid") != nil {
+        if UD.value(forKey: "token") != nil && UD.value(forKey: "uuid") != nil {
             bind()
             getSchedule()
             self.timeScheduleView.getTimeTable()
