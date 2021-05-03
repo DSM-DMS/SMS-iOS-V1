@@ -23,5 +23,5 @@ public class DelimiterBlockContent: EJAbstractBlockContent {
 
 ///
 public class DelimiterBlockContentItem: EJAbstractBlockContentItem {
-    let text = "\u{FF0A} \u{FF0A} \u{FF0A}"
+    var text = "\u{FF0A} \u{FF0A} \u{FF0A}"
 }

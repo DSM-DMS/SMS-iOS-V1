@@ -9,12 +9,16 @@
 import UIKit
 import KeychainSwift
 
+let UD = UserDefaults.standard
+
 let keyChain = KeychainSwift()
 
 let screen = UIScreen.main.bounds
 
-func checking<T: Comparable>(e1: T, e2: T) -> Bool {
-    return e1 >= e2
+let imageBaseURL = "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/"
+
+func datecommponent( _ date: Date) -> DateComponents {
+    return Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
 }
 
 func getMonday(myDate: Date) -> Date {
@@ -23,17 +27,6 @@ func getMonday(myDate: Date) -> Date {
     comps.weekday = 2 // Monday
     let mondayInWeek = cal.date(from: comps)!
     return mondayInWeek.addingTimeInterval(32400)
-}
-
-let globalDateFormatter = { (formStr: formType) -> DateFormatter in
-    let formatter = DateFormatter()
-    formatter.locale = Locale(identifier: "ko_KR")
-    formatter.dateFormat = formStr.rawValue
-    return formatter
-}
-
-func datecommponent( _ date: Date) -> DateComponents {
-    return Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
 }
 
 func globalDateFormatter(_  formType: formType, _ date: Date) -> String {
@@ -66,20 +59,6 @@ func dateIntArr(_ date: String) -> [Int] {
         .map { dateArr in
             Int(dateArr.dropLast())!
         }
-}
-
-func dateStr(_ date: String) -> String {
-   let components = date.split { $0 == " " }
-        .map { dateArr in
-            Int(dateArr.dropLast())!
-        }
-    
-    var string = ""
-    for i in 0..<components.count - 1 {
-        string += "\(components[i])-"
-    }
-    string += String(components[components.count - 1])
-    return string
 }
 
 enum formType: String {

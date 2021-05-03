@@ -70,7 +70,7 @@ class OutGoingCoordinator: Coordinator {
         self.nav.pushViewController(vc, animated: true)
     }
     
-    func outGoingCompleted() {
+    func outGoingCompleted(_ text: String) {
         let vc = OutGoingCompletedViewController.instantiate(storyboardName: .outGoingCompleted)
         vc.coordinator = self
         delegate?.dismissBar(true)

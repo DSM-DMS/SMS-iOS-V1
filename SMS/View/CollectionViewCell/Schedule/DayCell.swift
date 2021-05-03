@@ -25,11 +25,13 @@ class DayCell: FSCalendarCell {
         super.init(coder: aDecoder)
         setting()
     }
-    
-    func hiddenAll() {
+ 
+    func removeAllEvent() {
         event1View.isHidden = true
         event2View.isHidden = true
         event3View.isHidden = true
+        cellEvent.removeAll()
+        cellContinuedState.removeAll()
     }
     
     func setting() {
@@ -65,8 +67,7 @@ class DayCell: FSCalendarCell {
                 case .Event1: leadingConstraint.constant = 3
                 case .Event2: leading2Constraint.constant = 3
                 case .Event3: leading3Constraint.constant = 3
-                case .Event4:
-                    print("")
+                case .Event4: leading3Constraint.constant = 3
                 }
             }
         case .normal:

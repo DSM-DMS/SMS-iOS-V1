@@ -14,6 +14,7 @@ import RxCocoa
 class CheckNumberViewModel {
     let input: Input
     let output: Output
+    let networking: Networking
     
     struct Input {
         let numberSubject = PublishSubject<String>()
@@ -22,21 +23,20 @@ class CheckNumberViewModel {
     
     struct Output {
         let certificationNumberModel: Observable<CertificationNumberModel>
+        let buttonIsValid: Signal<Bool>
     }
     
-    init() {
+    init(networking: Networking) {
+        self.networking = networking
         input = Input()
         output = Output(certificationNumberModel: input.checkSubject.asObservable()
                             .withLatestFrom(input.numberSubject)
                             .flatMapLatest{ number -> Observable<CertificationNumberModel> in
-                                SMSAPIClient.shared.networking(from: .certificationNumber(number))
-                            })
-    }
-    
-    func buttonIsValid() -> Signal<Bool> {
-        return input.numberSubject.asObservable()
-            .map { number in
-                return number.count == 6
-            }.asSignal(onErrorJustReturn: false)
+                                networking.networking(from: .certificationNumber(number))
+                            },
+                        buttonIsValid: input.numberSubject.asObservable()
+                            .map { number in
+                                return number.count == 6
+                            }.asSignal(onErrorJustReturn: false))
     }
 }

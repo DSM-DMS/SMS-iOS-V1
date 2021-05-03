@@ -42,7 +42,6 @@ extension TabBarController {
         outGoingCoordinator.delegate = self
         noticeCoordinator.delegate = self
         myPageCoordinator.delegate = self
-        
     }
     
     func settingTabbar() {

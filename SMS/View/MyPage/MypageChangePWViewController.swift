@@ -14,11 +14,10 @@ import SkyFloatingLabelTextField
 
 class MypageChangePWViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
-    
-    let viewModel = MypageChangePWViewModel()
     let disposeBag = DisposeBag()
+    let viewModel = MypageChangePWViewModel(networking: SMSAPIClient.shared)
     
-    @IBOutlet weak var applyButton: CustomShadowButton!
+    @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var currentPWTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var newPWTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var confirmPWTextField: SkyFloatingLabelTextField!
@@ -27,11 +26,21 @@ class MypageChangePWViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        setting()
     }
 }
 
 
+
 extension MypageChangePWViewController {
+    func setting() {
+        applyButton.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
+                              shadowRadius: 6,
+                              opacity: 1,
+                              cornerRadius: 8)
+    }
+    
     func bind() {
         currentPWTextField.rx.text.orEmpty
             .bind(to: viewModel.input.currentPWTextFieldSubject)
@@ -49,15 +58,15 @@ extension MypageChangePWViewController {
             .bind(to: viewModel.input.changeButtonSubject)
             .disposed(by: disposeBag)
         
-        viewModel.isValid()
+        viewModel.output.isValid
             .emit { self.applyButton.isEnabled = $0 }
             .disposed(by: disposeBag)
         
-        viewModel.isValid()
+        viewModel.output.isValid
             .emit { b in self.applyButton.alpha = b ? 1 : 0.3 }
             .disposed(by: disposeBag)
         
-        viewModel.pwCheck()
+        viewModel.output.pwCheck
             .emit {
                 if !$0 {
                     self.applyButton.shake()
@@ -71,7 +80,7 @@ extension MypageChangePWViewController {
         
         viewModel.output.result.subscribe { model in
             if model.status == 200 {
-                Account.shared.removeKeyChain()
+                Account.shared.removeUD()
                 self.coordinator?.main()
             } else if model.status == 401 {
                 self.coordinator?.main()

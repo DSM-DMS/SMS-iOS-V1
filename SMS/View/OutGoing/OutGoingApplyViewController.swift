@@ -15,8 +15,8 @@ import Toast_Swift
 
 class OutGoingApplyViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    let viewModel = OutGoingApplyViewModel()
     let bool: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
+    let viewModel = OutGoingApplyViewModel(networking: SMSAPIClient.shared)
     weak var coordinator: OutGoingCoordinator?
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
@@ -35,80 +35,58 @@ class OutGoingApplyViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         setting()
+        bind()
     }
 }
+
+
 
 extension OutGoingApplyViewController {
     private func bind() {
         outReasonTextField.rx.text.orEmpty
-            .bind(to: viewModel.input.reasonSubject)
+            .bind(to: viewModel.reasonSubject)
             .disposed(by: disposeBag)
         
         startDatePicker.rx.date
-            .bind(to: viewModel.input.startTimeSubject)
+            .bind(to: viewModel.startTimeSubject)
             .disposed(by: disposeBag)
         
         endDatePicker.rx.date
-            .bind(to: viewModel.input.endTimeSubject)
+            .bind(to: viewModel.endTimeSubject)
             .disposed(by: disposeBag)
         
-        placeTextField.rx.text.orEmpty
-            .bind(to: viewModel.input.placeSubject)
+        placeTextField.rx.observe(String.self, "text")
+            .bind(to: viewModel.placeSubject)
             .disposed(by: disposeBag)
         
-        applyButton.rx.tap
-            .bind(to: viewModel.input.applySubject)
+        aboutOuting.checkBtn.rx.tap
+            .bind(to: viewModel.applySubject)
             .disposed(by: disposeBag)
         
         bool
-            .bind(to: viewModel.input.diseaseIsSubject)
+            .bind(to: viewModel.diseaseIsSubject)
             .disposed(by: disposeBag)
         
-        
-        viewModel.isValid()
-            .emit { b in self.applyButton.alpha = b ? 1 :  0.3 }
+        viewModel.isValid
+            .emit { [weak self] b in self?.applyButton.alpha = b ? 1 :  0.3 }
             .disposed(by: disposeBag)
         
-        viewModel.isValid()
-            .emit { self.applyButton.isEnabled = $0 }
+        viewModel.isValid
+            .emit { [weak self] in self?.applyButton.isEnabled = $0 }
             .disposed(by: disposeBag)
         
-        viewModel.timeCheck()
-            .emit {
-                if !$0 {
-                    self.applyButton.shake()
-                }
+        popVCBtn.rx.tap
+            .bind { _ in
+                self.coordinator?.pop()
             }.disposed(by: disposeBag)
         
-        viewModel.output.response.subscribe { model in
-            UserDefaults.standard.setValue(model.outing_uuid, forKey: "outing_uuid")
-            switch model.status {
-            case 201:
-                switch model.code {
-                case 0: self.view.makeToast("승인을 받은 후 모바일을 통해 외출을 시작해주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                case -1: self.view.makeToast("연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                case -2: self.view.makeToast("학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요.", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-                default:
-                    print("에러")
-                }
-                DispatchQueue.main.asyncAfter(wallDeadline: .now() + .seconds(3/2)) {
-                    self.coordinator?.outGoingCompleted()
-                }
-            case 401:
-                self.coordinator?.main()
-                return
-            default:
-                self.applyButton.shake()
-            }
-        } onError: { error in
-            if error as? StatusCode == StatusCode.internalServerError {
-                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
-            } else {
-                self.applyButton.shake()
-            }
-        }.disposed(by: disposeBag)
+        hiddenViewButton.rx.tap
+            .bind { _ in
+                self.placeTextField.isUserInteractionEnabled = true
+                self.view.endEditing(true)
+                self.hiddenView(true)
+            }.disposed(by: disposeBag)
         
         applyButton.rx.tap
             .bind { _ in
@@ -120,17 +98,32 @@ extension OutGoingApplyViewController {
                 }
             }.disposed(by: disposeBag)
         
-        hiddenViewButton.rx.tap
-            .bind { _ in
-                self.placeTextField.isUserInteractionEnabled = true
-                self.view.endEditing(true)
-                self.hiddenView(true)
-            }.disposed(by: disposeBag)
-        
-        popVCBtn.rx.tap
-            .bind { _ in
-                self.coordinator?.pop()
-            }.disposed(by: disposeBag)
+        viewModel.response.subscribe { model in
+            UD.setValue(model.outing_uuid, forKey: "outing_uuid")
+            var txt = ""
+            switch model.status {
+            case 201:
+                switch model.code {
+                case -1:
+                    txt = "연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요."
+                case -2:
+                    txt = "학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요."
+                default:
+                    txt = "승인을 받은 후 모바일을 통해 외출을 시작해주세요."
+                }
+                self.coordinator?.outGoingCompleted(txt)
+            case 401:
+                self.coordinator?.main()
+            default:
+                self.applyButton.shake()
+            }
+        } onError: { error in
+            if error as? StatusCode == StatusCode.internalServerError {
+                self.view.makeToast("인터넷 연결 실패", point: CGPoint(x: screen.width / 2, y: screen.height - 120), title: nil, image: nil, completion: nil)
+            } else {
+                self.applyButton.shake()
+            }
+        }.disposed(by: disposeBag)
         
         placeTextField.rx.controlEvent(.touchDown)
             .bind { _ in
@@ -193,6 +186,12 @@ extension OutGoingApplyViewController {
                              shadowRadius: 6,
                              opacity: 1,
                              cornerRadius: 8)
+        
+        applyButton.addShadow(maskValue: true,
+                              offset: CGSize(width: 0, height: 3),
+                              shadowRadius: 6,
+                              opacity: 1,
+                              cornerRadius: 8)
     }
     
     func hiddenView(_ value: Bool, _ view: UIView? = nil) {

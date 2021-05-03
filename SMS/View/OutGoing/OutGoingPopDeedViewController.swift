@@ -16,6 +16,7 @@ import UserNotifications
 
 class OutGoingPopDeedViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
+    let viewModel = OutGoingLogViewModel(network: SMSAPIClient.shared, count: 1)
     var startTime: Date?
     weak var coordinator: OutGoingCoordinator?
     
@@ -45,9 +46,7 @@ class OutGoingPopDeedViewController: UIViewController, Storyboarded {
         settingAlert()
         bind()
     }
-}
-
-extension OutGoingPopDeedViewController {
+    
     func isViewHidden(_ value: Bool) {
         timeView.isHidden = value
         nameView.isHidden = value
@@ -73,10 +72,7 @@ extension OutGoingPopDeedViewController {
                                     opacity: 1,
                                     cornerRadius: 8)
     }
-}
-
-
-extension OutGoingPopDeedViewController {
+    
     func outing(_ value: Bool) {
         self.stateLbl.text = value ? "외출중" : "선생님 방문 인증 필요"
         self.stateLbl.textColor = value ? .label : .customRed
@@ -90,11 +86,22 @@ extension OutGoingPopDeedViewController {
             self.outBtn.layer.borderWidth = 1
         }
     }
-    
+}
+
+
+
+extension OutGoingPopDeedViewController {
     func bind() {
-        let outings: Observable<OutGoingLogModel> = SMSAPIClient.shared.networking(from: .lookUpAllOuting(0, 1))
+        popVCBtn.rx.tap
+            .bind { self.coordinator?.pop()}
+            .disposed(by: disposeBag)
         
-        outings.filter {
+        backgroundBtn.rx.tap
+            .bind {
+                self.isHiddenAllAlert(true)
+            }.disposed(by: disposeBag)
+        
+        viewModel.response.filter {
             if $0.status == 401 {
                 self.coordinator?.main()
                 return false
@@ -110,7 +117,7 @@ extension OutGoingPopDeedViewController {
         }.subscribe(onNext: { (date, uuid) in
             self.startTime = date
             if Calendar.current.isDateInToday(date) {
-                UserDefaults.standard.setValue(uuid, forKey: "outing_uuid")
+                UD.setValue(uuid, forKey: "outing_uuid")
                 let cardModel: Observable<OutGoingCardModel> = SMSAPIClient.shared.networking(from: .lookUpOutingCard)
                 cardModel.filter {
                     if $0.status == 401 {
@@ -133,22 +140,13 @@ extension OutGoingPopDeedViewController {
             }
         }).disposed(by: disposeBag)
         
-        popVCBtn.rx.tap
-            .bind { self.coordinator?.pop()}
-            .disposed(by: disposeBag)
-        
-        backgroundBtn.rx.tap
-            .bind {
-                self.isHiddenAllAlert(true)
-            }.disposed(by: disposeBag)
-        
         outBtn.rx.tap
             .bind { _ in
                 self.isHiddenAllAlert(false)
                 self.outStartAlertView.sign = { b in
                     self.isHiddenAllAlert(true)
                     guard let startTime = self.startTime else { return }
-                    if (b && startTime < Date())  {
+                    if (b && startTime < Date())  { // 외출 시작시간이 지났을 때 
                         let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
                         
                         endOuting.subscribe(onNext: { model in
@@ -170,27 +168,8 @@ extension OutGoingPopDeedViewController {
             }.disposed(by: disposeBag)
     }
     
-    func makeNoti(_ title: String, _ body: String, _ identifier: String, timeOrDate: Bool, unixTime: Int? = nil) {
-        if AppDelegate.notiAllow {
-            let content = UNMutableNotificationContent()
-            content.title = title
-            content.body = body
-            
-            if timeOrDate {
-                let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: TimeIntervalTrigger)
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            } else {
-                let date: DateComponents = unix(with: unixTime!)
-                let calendartrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: calendartrigger)
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            }
-        }
-    }
-    
     func setting(_ cardData: OutGoingCardModel) {
-        let imageURL = URL(string: "https://dsm-sms-s3.s3.ap-northeast-2.amazonaws.com/\(cardData.profile_uri!)")
+        let imageURL = URL(string: imageBaseURL + "\(cardData.profile_uri!)")
         self.profileImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
         if Int(cardData.outing_status!) == 3 && unix(with: cardData.end_time! - 1800) > Date() {
@@ -226,13 +205,34 @@ extension OutGoingPopDeedViewController {
         case 4:
             outing(false)
         case 5: string = "외출 확인 완료"
+            print(string)
             self.stateLbl.textColor = .customBlue
+            self.outBtn.isHidden = true
         case -1, -2:
             string = timeCheck ? "만료" : "승인거부"
             self.stateLbl.textColor = timeCheck ? .customRed: .label
         default: string = "에러"
         }
         self.stateLbl.text = string
+    }
+    
+    func makeNoti(_ title: String, _ body: String, _ identifier: String, timeOrDate: Bool, unixTime: Int? = nil) {
+        if AppDelegate.notiAllow {
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            
+            if timeOrDate {
+                let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: TimeIntervalTrigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            } else {
+                let date: DateComponents = unix(with: unixTime!)
+                let calendartrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: calendartrigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            }
+        }
     }
 }
 

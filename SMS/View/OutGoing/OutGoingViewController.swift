@@ -51,7 +51,6 @@ extension OutGoingViewController {
             .bind { _ in
                 self.coordinator?.outGoingPopDeed()
             }.disposed(by: disposeBag)
-        
     }
 }
 

@@ -7,13 +7,15 @@
 //
 
 import UIKit
+
 import RxCocoa
 import RxSwift
 import EditorJSKit
 
 class NoticeSearchViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
-    var searchText: String!
+    let viewModel = NoticeSearchViewModel(networking: SMSAPIClient.shared)
+    var searchText: String = ""
     weak var coordinator: NoticeCoordinator?
     
     @IBOutlet weak var searchTextLbl: UILabel!
@@ -29,18 +31,10 @@ class NoticeSearchViewController: UIViewController, Storyboarded {
 
 extension NoticeSearchViewController {
     func bind() {
-        let Notice: Observable<NoticeModel> = SMSAPIClient.shared.networking(from: .searchNotice(searchText))
-        
-        Notice.filter { $0.status == 200 }
-            .map { $0.announcements ?? []}
-            .bind(to: self.noticeSearchTableView.rx.items(cellIdentifier: NoticeSearchTableViewCell.NibName, cellType: NoticeSearchTableViewCell.self)) { idx, notice, cell in
-                cell.uuid = notice.announcement_uuid
-                cell.searchCellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
-                cell.searchCellNum.text = "\(notice.number)"
-                cell.searchCellTitle.text = notice.title
-                cell.searchCellViews.text = "\(notice.views)"
-                cell.selectionStyle = .none
-            }.disposed(by: self.disposeBag)
+        Observable.just(searchText)
+            .bind {
+                self.viewModel.input.searchTextSubject.onNext($0)
+            }.disposed(by: disposeBag)
         
         backButton.rx.tap
             .bind{
@@ -51,5 +45,12 @@ extension NoticeSearchViewController {
             let cell = self.noticeSearchTableView.cellForRow(at: indexpath) as! NoticeSearchTableViewCell
             self.coordinator?.detailNotice(cell.uuid!)
         }.disposed(by: disposeBag)
+        
+        viewModel.output.announcements
+            .filter { $0.status == 200 }
+            .map { $0.announcements ?? []}
+            .bind(to: self.noticeSearchTableView.rx.items(cellIdentifier: NoticeSearchTableViewCell.NibName, cellType: NoticeSearchTableViewCell.self)) { _, notice, cell in
+                cell.setting(notice)
+            }.disposed(by: self.disposeBag)
     }
 }

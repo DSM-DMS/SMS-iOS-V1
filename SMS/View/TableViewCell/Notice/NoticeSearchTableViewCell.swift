@@ -17,15 +17,12 @@ class NoticeSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var searchCellDate: UILabel!
     @IBOutlet weak var searchCellViews: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setting(_ notice: Announcements) {
+        self.selectionStyle = .none
+        self.uuid = notice.announcement_uuid
+        self.searchCellDate.text = globalDateFormatter(.untilDay, unix(with: notice.date / 1000))
+        self.searchCellNum.text = "\(notice.number)"
+        self.searchCellTitle.text = notice.title
+        self.searchCellViews.text = "\(notice.views)"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

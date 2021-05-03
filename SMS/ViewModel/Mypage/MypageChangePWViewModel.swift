@@ -14,6 +14,8 @@ class MypageChangePWViewModel {
     let input: Input
     let output: Output
     
+    let networking: Networking
+    
     struct Input {
         let currentPWTextFieldSubject = PublishSubject<String>()
         let newPWTextFieldSubject = PublishSubject<String>()
@@ -23,9 +25,13 @@ class MypageChangePWViewModel {
     
     struct Output {
         let result: Observable<mypagePWChangeModel>
+        let isValid: Signal<Bool>
+        let pwCheck: Signal<Bool>
     }
     
-    init() {
+    init(networking: Networking) {
+        self.networking = networking
+        
         input = Input()
         output = Output(result: input
                             .changeButtonSubject.asObservable()
@@ -37,27 +43,21 @@ class MypageChangePWViewModel {
                             .map { currentPW, changePW, confirmPW -> SMSAPI in
                                 SMSAPI.pwChange(currentPW, changePW)
                             }.flatMap { request -> Observable<mypagePWChangeModel> in
-                                SMSAPIClient.shared.networking(from: request)
-                            })
-    }
-    
-    func isValid() -> Signal<Bool> {
-        return Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
-                                        input.newPWTextFieldSubject.asObservable(),
-                                        input.confirmPWTextFieldSubject.asObservable())
-            .map { currentPW, newPW, confirmPW  in
-                return !currentPW.isEmpty && !newPW.isEmpty && !confirmPW.isEmpty
-            }.asSignal(onErrorJustReturn: false)
-    }
-    
-    func pwCheck() -> Signal<Bool> {
-        return input.changeButtonSubject.asObservable()
-            .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
-                                                     input.newPWTextFieldSubject.asObservable(),
-                                                     input.confirmPWTextFieldSubject.asObservable()
-            ))
-            .map { data in
-                return data.0 != data.1 && data.1 == data.2
-            }.asSignal(onErrorJustReturn: false)
+                                networking.networking(from: request)
+                            },
+                        isValid: Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
+                                                          input.newPWTextFieldSubject.asObservable(),
+                                                          input.confirmPWTextFieldSubject.asObservable())
+                            .map { currentPW, newPW, confirmPW  in
+                                return !currentPW.isEmpty && !newPW.isEmpty && !confirmPW.isEmpty
+                            }.asSignal(onErrorJustReturn: false),
+                        pwCheck: input.changeButtonSubject.asObservable()
+                            .withLatestFrom(Observable.combineLatest(input.currentPWTextFieldSubject.asObservable(),
+                                                                     input.newPWTextFieldSubject.asObservable(),
+                                                                     input.confirmPWTextFieldSubject.asObservable()
+                            ))
+                            .map { data in
+                                return data.0 != data.1 && data.1 == data.2
+                            }.asSignal(onErrorJustReturn: false))
     }
 }

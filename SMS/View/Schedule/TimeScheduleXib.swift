@@ -38,8 +38,6 @@ class TimeScheduleXib: UIView {
     }
     
     func setting() {
-        
-        
         let index = Calendar.current.component(.weekday, from: Date()) - 2
         let arr: [UILabel] = [monLbl, tueLabel,wedLabel,thiLabel,friLabel]
         if index >= 0 && index <= 4 {

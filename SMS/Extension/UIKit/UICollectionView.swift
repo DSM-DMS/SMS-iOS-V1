@@ -9,16 +9,10 @@
 import UIKit
 
 extension UICollectionView {
-    func completion(_ completion: (() -> Void)? = nil) {
+    func reloadData(_ completion: (() -> Void)? = nil) {
+        reloadData()
         guard let completion = completion else { return }
         layoutIfNeeded()
         completion()
     }
-    
-    func reloadData(_ completion: (() -> Void)? = nil) {
-            reloadData()
-            guard let completion = completion else { return }
-            layoutIfNeeded()
-            completion()
-        }
 }
