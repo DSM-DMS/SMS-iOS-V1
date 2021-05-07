@@ -287,7 +287,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let cell = calendar.cell(for: date, at: monthPosition) as? DayCell
         cell?.selectedDate(.normal)
-        
+
         cell?.cellContinuedState.forEach({ (view) in
             cell?.selectedDate(.continued, view)
         })

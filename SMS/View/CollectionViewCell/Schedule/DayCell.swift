@@ -2,10 +2,6 @@ import UIKit
 
 import FSCalendar
 
-protocol cellasxd {
-    func asd(_ width: State)
-}
-
 class DayCell: FSCalendarCell {
     var cellContinuedState: [View] = []
     var cellEvent: [ScheduleData] = []
@@ -25,7 +21,7 @@ class DayCell: FSCalendarCell {
         super.init(coder: aDecoder)
         setting()
     }
- 
+    
     func removeAllEvent() {
         event1View.isHidden = true
         event2View.isHidden = true

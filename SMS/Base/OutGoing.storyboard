@@ -332,14 +332,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-ey-rH4">
-                                                <rect key="frame" x="0.0" y="37" width="29.666666666666668" height="18"/>
+                                                <rect key="frame" x="0.0" y="37" width="31" height="18"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Ci-zwH">
                                                 <rect key="frame" x="0.0" y="57" width="336" height="1"/>
-                                                <color key="backgroundColor" red="0.3960812688" green="0.39607325199999999" blue="0.39607867600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="NaC-78-ea1"/>
                                                 </constraints>
@@ -914,16 +914,15 @@
                                 <rect key="frame" x="79.666666666666686" y="220" width="269" height="115"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님 승인후 선생님에게 찾아가 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-mh-seV">
-                                        <rect key="frame" x="0.0" y="95" width="269" height="20"/>
+                                        <rect key="frame" x="0.0" y="79.333333333333314" width="269" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bls-n0-bpU">
-                                        <rect key="frame" x="24" y="0.0" width="221" height="84"/>
+                                        <rect key="frame" x="-15.666666666666686" y="0.0" width="300" height="68.333333333333329"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="84" id="nDa-hz-l07"/>
-                                            <constraint firstAttribute="width" constant="221" id="t0y-2Z-f3K"/>
+                                            <constraint firstAttribute="width" constant="300" id="IjM-Y2-hCE"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="외출신청">
@@ -949,6 +948,7 @@
                                     <constraint firstItem="Bls-n0-bpU" firstAttribute="centerX" secondItem="ow3-Os-H2j" secondAttribute="centerX" id="0rt-bI-RZ4"/>
                                     <constraint firstItem="2kD-mh-seV" firstAttribute="leading" secondItem="ow3-Os-H2j" secondAttribute="leading" id="4Eu-fc-YM2"/>
                                     <constraint firstItem="2kD-mh-seV" firstAttribute="top" secondItem="Bls-n0-bpU" secondAttribute="bottom" constant="11" id="8Zz-JW-APi"/>
+                                    <constraint firstItem="2kD-mh-seV" firstAttribute="width" secondItem="ow3-Os-H2j" secondAttribute="width" id="LeN-1o-1ma"/>
                                     <constraint firstAttribute="trailing" secondItem="2kD-mh-seV" secondAttribute="trailing" id="eWZ-ao-271"/>
                                     <constraint firstItem="Bls-n0-bpU" firstAttribute="top" secondItem="ow3-Os-H2j" secondAttribute="top" id="joI-jb-8bY"/>
                                     <constraint firstAttribute="height" constant="115" id="oDK-7a-b2Z"/>
@@ -987,7 +987,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkButton" destination="bit-ge-pfi" id="VRJ-JR-fca"/>
-                        <outlet property="textLbl" destination="Bls-n0-bpU" id="XHB-xA-kcj"/>
+                        <outlet property="textLbl" destination="Bls-n0-bpU" id="1Mc-zR-beV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xY-bK-ojT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1085,7 +1085,7 @@
                                                 </attributes>
                                             </fragment>
                                             <fragment>
-                                                <string key="content">을 보여드리고, 시작 버튼을 누르시면 됩니다. 
+                                                <string key="content">을 보여드리고, 시작 버튼을 누르시면 됩니다.
    - 외출 완료 및 복귀 후에는 </string>
                                                 <attributes>
                                                     <color key="NSColor" systemColor="labelColor"/>
@@ -1746,10 +1746,10 @@
     </scenes>
     <designables>
         <designable name="BRV-CV-dNO">
-            <size key="intrinsicContentSize" width="336" height="35.120312499999997"/>
+            <size key="intrinsicContentSize" width="336" height="39.080312499999998"/>
         </designable>
         <designable name="kRN-ww-cBb">
-            <size key="intrinsicContentSize" width="336" height="35.120312499999997"/>
+            <size key="intrinsicContentSize" width="336" height="39.080312499999998"/>
         </designable>
     </designables>
     <resources>

@@ -75,7 +75,7 @@ extension MypageViewController {
                 self?.numberLabel.text = "\(model.grade!)\(model.group!)" + zero + "\(model.student_number!)"
                 let imageURL = URL(string: imageBaseURL + "\(model.profile_uri!)")
                 self?.imageVIew.kf.setImage(with: imageURL, placeholder: UIImage(named: "profile"))
-                self?.imageVIew.layer.cornerRadius = (self?.imageVIew.bounds.height)! / 2 
+                self?.imageVIew.layer.cornerRadius = (self?.imageVIew.bounds.height)! / 2
             } else if model.status == 401 {
                 self?.coordinator?.main()
             }

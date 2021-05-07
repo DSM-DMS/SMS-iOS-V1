@@ -42,6 +42,10 @@ class NoticeDetailViewController: UIViewController, Storyboarded {
 
 extension NoticeDetailViewController {
     func bind() {
+        Observable.of(uuid)
+            .bind { self.viewModel.input.noticeUUIDSubject.onNext($0)}
+            .disposed(by: disposeBag)
+        
         bButton.rx.tap
             .bind{
                 self.coordinator?.pop()

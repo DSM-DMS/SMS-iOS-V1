@@ -46,7 +46,7 @@
         
         _backgroundColors = [NSMutableDictionary dictionaryWithCapacity:5];
         _backgroundColors[@(FSCalendarCellStateNormal)]      = [UIColor clearColor];
-        _backgroundColors[@(FSCalendarCellStateSelected)]    = FSCalendarStandardSelectionColor;
+        _backgroundColors[@(FSCalendarCellStateSelected)]    = [UIColor clearColor];
         _backgroundColors[@(FSCalendarCellStateDisabled)]    = [UIColor clearColor];
         _backgroundColors[@(FSCalendarCellStatePlaceholder)] = [UIColor clearColor];
         _backgroundColors[@(FSCalendarCellStateToday)]       = FSCalendarStandardTodayColor;

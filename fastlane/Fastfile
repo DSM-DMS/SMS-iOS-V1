@@ -33,6 +33,12 @@ platform :ios do
       }
     )
   end
+
+  desc "Make ipa file"
+  lane :makeipa do
+    increment_build_number(xcodeproj: "SMS.xcodeproj")
+    gym
+   end
 	
   desc "Test App"
   lane :tests do

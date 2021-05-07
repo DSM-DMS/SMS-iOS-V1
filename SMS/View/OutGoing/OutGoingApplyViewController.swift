@@ -90,6 +90,7 @@ extension OutGoingApplyViewController {
         
         applyButton.rx.tap
             .bind { _ in
+                self.coordinator?.outGoingCompleted(0)
                 self.aboutOuting.isHidden = false
                 self.hiddenViewButton.isHidden = false
                 self.aboutOuting.sign = { b in
@@ -100,18 +101,10 @@ extension OutGoingApplyViewController {
         
         viewModel.response.subscribe { model in
             UD.setValue(model.outing_uuid, forKey: "outing_uuid")
-            var txt = ""
+           
             switch model.status {
             case 201:
-                switch model.code {
-                case -1:
-                    txt = "연결된 학부모 계정이 존재하지 않습니다. 선생님께 바로 찾아가 승인을 받아주세요."
-                case -2:
-                    txt = "학부모가 문자 사용을 동의하지 않았습니다. 선생님께 바로 찾아가 승인을 받아주세요."
-                default:
-                    txt = "승인을 받은 후 모바일을 통해 외출을 시작해주세요."
-                }
-                self.coordinator?.outGoingCompleted(txt)
+                self.coordinator?.outGoingCompleted(model.code)
             case 401:
                 self.coordinator?.main()
             default:

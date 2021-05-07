@@ -13,7 +13,6 @@ import RxCocoa
 class MypageLogoutViewController: UIViewController, Storyboarded {
     weak var coordinator: MyPageCoordinator?
     
-    let viewModel = MypageLogoutViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var backgroundView: CustomShadowView!
@@ -31,8 +30,7 @@ extension MypageLogoutViewController {
     func bindAction() {
         LogoutButton.rx.tap
             .bind { _ in
-                UserDefaults.standard.removeObject(forKey: "token")
-                UserDefaults.standard.removeObject(forKey: "uuid")
+                Account.shared.removeUD()
                 self.coordinator?.main()
             }.disposed(by: disposeBag)
         

@@ -145,7 +145,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 }
 
 - (void)initialize
-{   
+{
     _appearance = [[FSCalendarAppearance alloc] init];
     _appearance.calendar = self;
     
@@ -1457,7 +1457,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     }
     if (cell) {
         cell.selected = YES;
-        if (self.collectionView.allowsMultipleSelection) {   
+        if (self.collectionView.allowsMultipleSelection) {
             [self.collectionView selectItemAtIndexPath:[self.collectionView indexPathForCell:cell] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
     }

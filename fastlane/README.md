@@ -25,12 +25,17 @@ Push a new release build to the App Store
 ```
 fastlane ios send_slack
 ```
-
+Webhook which App Upload Success
+### ios makeipa
+```
+fastlane ios makeipa
+```
+Make ipa file
 ### ios tests
 ```
 fastlane ios tests
 ```
-
+Test App
 
 ----
 

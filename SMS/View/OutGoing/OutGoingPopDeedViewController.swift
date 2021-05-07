@@ -146,7 +146,7 @@ extension OutGoingPopDeedViewController {
                 self.outStartAlertView.sign = { b in
                     self.isHiddenAllAlert(true)
                     guard let startTime = self.startTime else { return }
-                    if (b && startTime < Date())  { // 외출 시작시간이 지났을 때 
+                    if (b && startTime < Date())  { // 외출 시작시간이 지났을 때
                         let endOuting: Observable<OutingActionModel> = SMSAPIClient.shared.networking(from: .outingAction("start"))
                         
                         endOuting.subscribe(onNext: { model in

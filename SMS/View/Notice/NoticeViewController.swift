@@ -13,9 +13,14 @@ import RxCocoa
 import EditorJSKit
 import RxViewController
 
+protocol asd {
+    func tabbedAccount(uuid: String)
+}
+
 class NoticeViewController: UIViewController, Storyboarded {
     let Notice = PublishSubject<[Announcements]>()
     let disposeBag = DisposeBag()
+    var delegate: asd?
     let viewModel = NoticeViewModel(networking: SMSAPIClient.shared)
     weak var coordinator: NoticeCoordinator?
     
@@ -38,6 +43,7 @@ extension NoticeViewController {
         
         noticeTableView.rx.itemSelected.bind { index in
             let cell = self.noticeTableView.cellForRow(at: index) as! NoticeTableViewCell
+            self.delegate?.tabbedAccount(uuid: cell.uuid!)
             self.coordinator?.detailNotice(cell.uuid!)
         } .disposed(by: disposeBag)
         

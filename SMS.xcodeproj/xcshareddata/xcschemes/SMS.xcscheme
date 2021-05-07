@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "479DB1312502522C009A8B08"
+               BlueprintIdentifier = "15234593B72BDBB8F83AB78A"
                BuildableName = "SMS.app"
                BlueprintName = "SMS"
                ReferencedContainer = "container:SMS.xcodeproj">
@@ -26,31 +26,31 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      enableThreadSanitizer = "YES"
-      disableMainThreadChecker = "YES">
+      onlyGenerateCoverageForSpecifiedTargets = "NO"
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6DAE7F72602D03C00968028"
+               BlueprintIdentifier = "5D3D600CEDCF687D15D5E131"
                BuildableName = "SMSUITests.xctest"
                BlueprintName = "SMSUITests"
                ReferencedContainer = "container:SMS.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6DAE8072602D04100968028"
-               BuildableName = "SMSTests.xctest"
-               BlueprintName = "SMSTests"
-               ReferencedContainer = "container:SMS.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "15234593B72BDBB8F83AB78A"
+            BuildableName = "SMS.app"
+            BlueprintName = "SMS"
+            ReferencedContainer = "container:SMS.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -66,12 +66,14 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "479DB1312502522C009A8B08"
+            BlueprintIdentifier = "15234593B72BDBB8F83AB78A"
             BuildableName = "SMS.app"
             BlueprintName = "SMS"
             ReferencedContainer = "container:SMS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -83,12 +85,14 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "479DB1312502522C009A8B08"
+            BlueprintIdentifier = "15234593B72BDBB8F83AB78A"
             BuildableName = "SMS.app"
             BlueprintName = "SMS"
             ReferencedContainer = "container:SMS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
