@@ -90,7 +90,6 @@ extension OutGoingApplyViewController {
         
         applyButton.rx.tap
             .bind { _ in
-                self.coordinator?.outGoingCompleted(0)
                 self.aboutOuting.isHidden = false
                 self.hiddenViewButton.isHidden = false
                 self.aboutOuting.sign = { b in

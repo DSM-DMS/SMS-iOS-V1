@@ -58,12 +58,6 @@ extension SMSAPI {
     var token: String {
         return UserDefaults.standard.value(forKey: "token") as! String
     }
-    
-    var securityKey: String {
-        let SECURITY_BASE_PLAIN = "SMS_security:\(Date().timeIntervalSince1970)"
-        let SECURITY_PASS_PHRASE = "pdpdlcl14kfkdgody!shfo7owhgdms~^"
-        return try! AES256.encrypt(input: SECURITY_BASE_PLAIN, passphrase: SECURITY_PASS_PHRASE)
-    }
     //Security code는 깃에 올릴 때 지워주세요
     
     var path: String {
@@ -105,7 +99,11 @@ extension SMSAPI {
         case .register:
             return "/students/with-code"
         case .searchNotice(let query):
-            return "/announcements/types/school/query/\(query)"
+            var newKeyWord = ""
+            for idx in query.utf8 {
+                newKeyWord += "%" + String(idx, radix: 16, uppercase: true)
+            }
+            return "/announcements/types/school/query/\(newKeyWord)"
         }
     }
     

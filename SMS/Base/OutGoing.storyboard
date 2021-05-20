@@ -1047,7 +1047,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcv-Vd-b2n" customClass="CustomShadowView" customModule="SMS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="164.66666666666669" width="388" height="707.33333333333326"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHP-dt-Vem">
                                         <rect key="frame" x="10" y="20" width="368" height="667"/>
                                         <color key="backgroundColor" name="TabbarColor"/>
                                         <attributedString key="attributedText">

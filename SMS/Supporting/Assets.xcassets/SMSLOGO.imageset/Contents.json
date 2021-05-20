@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "그룹 376-1.png",
+      "filename" : "그룹 376.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,7 +17,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "그룹 376@2x-1.png",
+      "filename" : "그룹 376@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +28,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "그룹 544@2x-1.png",
+      "filename" : "그룹 544.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "그룹 376@3x-1.png",
+      "filename" : "그룹 376@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "그룹 544@3x-1.png",
+      "filename" : "그룹 544@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
