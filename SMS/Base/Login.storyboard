@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Mp-q2-H3j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Mp-q2-H3j">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -199,14 +198,6 @@
             <point key="canvasLocation" x="853.60000000000002" y="-433.13343328335833"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="LIg-Gr-D35">
-            <size key="intrinsicContentSize" width="125" height="18.5"/>
-        </designable>
-        <designable name="cpl-42-BLa">
-            <size key="intrinsicContentSize" width="137" height="17"/>
-        </designable>
-    </designables>
     <resources>
         <image name="calendar" width="24" height="24"/>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
